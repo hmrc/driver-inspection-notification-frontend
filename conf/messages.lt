@@ -1,0 +1,190 @@
+service.name=Patikrinkite, ar reikia pranešti apie patikrinimą
+service.text=Prekių judėjimo sistemos ataskaita muitinės patikros tarnybai
+generic.back=Atgal
+generic.title.suffix=GOV.UK
+generic.title.prefix.error=Klaida
+generic.feedback.linkText=Ką manote apie šią paslaugą?
+generic.feedback.qualifier=(trunka 30 sekundžių)
+generic.form.error=Kilo problema
+
+
+###############################################
+#
+# Start Page
+#
+###############################################
+start_page.title=Patikrinkite, ar reikia pranešti apie patikrinimą
+start_page.h2=Naudokitės šia paslauga, norėdami sužinoti, ar reikia patikrinti jūsų prekes
+start_page.entering=Jei įvažiuojate į Jungtinę Karalystę:
+start_page.entering.p1=Patikrinkite tai persikėlimo pabaigoje, likus maždaug 10 minučių iki atvykimo pasienio vietos.
+start_page.leaving=Jei išvažiuojate iš Jungtinės Karalystės:
+start_page.leaving.p1=Patikrinkite tai prieš atvykdami į išvykimo pasienio vietą.
+start_page.button=Pradėkite dabar
+start_page.before_you_start=Prieš pradedant
+start_page.before_you_start.p1=Turėsite įvesti savo prekių gabenimo dokumentą (GMR).
+start_page.before_you_start.p2=Gausite vieną iš šių atsakymų:
+start_page.before_you_start.list.inspection_needed=reikia atlikti patikrinimą
+start_page.before_you_start.list.no_inspection_needed=tikrinti nereikia
+start_page.before_you_start.list.pending=jūsų tikrinimo statusas dar neparengtas
+start_page.before_you_start.inspection_needed=Jei reikia atlikti patikrinimą
+start_page.before_you_start.inspection_needed.p1=Turėsite atvykti į atitinkamą patikrinimo vietą. Tai bus jūsų atvykimo pasienio vieta, išvykimo pasienio vieta arba {0}.
+start_page.before_you_start.inspection_needed.p1.link=vidaus pasienio punktas (VPP) (atsidaro naujame skirtuke)
+start_page.service_available_in=Ši paslauga taip pat teikiama:
+start_page.language.en=anglų k. (English)
+start_page.language.en.change=Change the language to English
+start_page.language.cy=valų k. (Cymraeg)
+start_page.language.cy.change=Newid yr iaith ir Gymraeg
+start_page.language.bg=bulgarų k. (български)
+start_page.language.bg.change=Промяна на езика на български
+start_page.language.hr=kroatų k. (Hrvatski)
+start_page.language.hr.change=Promijeni jezik na hrvatski
+start_page.language.cs=čekų k. (Čeština)
+start_page.language.cs.change=Změnit jazyk na češtinu
+start_page.language.fr=prancūzų k. (Français)
+start_page.language.fr.change=Changer de langue et passer au français
+start_page.language.de=vokiečių k. (Deutsch)
+start_page.language.de.change=Sprache in Deutsch ändern
+start_page.language.hu=vengrų k. (Magyar)
+start_page.language.hu.change=Váltás magyar nyelvre
+start_page.language.lt=lietuvių k.
+start_page.language.lt.change=Pakeisti kalbą į lietuvių
+start_page.language.pl=lenkų k. (Polski)
+start_page.language.pl.change=Zmień język na polski
+start_page.language.ro=rumunų k. (Română)
+start_page.language.ro.change=Schimbați limba în română
+start_page.language.es=ispanų k. (Español)
+start_page.language.es.change=Cambiar el idioma a español
+
+
+###############################################
+#
+# Search Page
+#
+###############################################
+search_page.title=Kas yra prekių judėjimo referencinis kodas (GMR)?
+search_page.hint=Jį rasite GMR kopijoje, kurią naudojote užsiregistruodami šiame sienos kirtimo punkte. Jį sudaro 12 simbolių, prasidedančių GMR. Pavyzdžiui, GMRA00002KW2.
+search_page.button=Tęsti
+search_page.check_another_gmr=Patikrinti kitą GMR
+search_page.error.gmr_not_found=GMR nerastas. Turėsite patikrinti GMR duomenis ir įvesti juos dar kartą.
+search_page.error.gmr_blank=GMR įvedimas
+search_page.error.gmr.format=Įveskite GMR tinkamu formatu
+
+
+
+###############################################
+#
+# No inspection needed import Page
+#
+###############################################
+no_inspection_needed_page_import.title=Patikra nereikalinga
+no_inspection_needed_page_import.h2=Reikia atlikti patikrą
+no_inspection_needed_page_import.what_happens_next.p1=Jums nereikia pranešti apie savo prekių patikrinimą, tačiau vis tiek gali tekti pranešti apie kitus patikrinimus.
+no_inspection_needed_page_import.h3.other_controls=Kitos papildomos kontrolės priemonės
+no_inspection_needed_page_import.other_controls.p1=Kai kuriems pervežimams gali prireikti papildomos kontrolės, pavyzdžiui, gabenant maistą, gyvūnus ar organines medžiagas. Pasitarkite su deklarantu.
+no_inspection_needed_page_import.h3.ending_transit=Jei baigiate tranzitinį pervežimą
+no_inspection_needed_page_import.ending_transit.p1=Be to, prekes privalote pristatyti į artimiausią paskirties įstaigą.
+no_inspection_needed_page_import.h3.no_controls=Jei neturite kitų kontrolinių patikrinimų, apie kuriuos reikia pranešti
+no_inspection_needed_page_import.no_controls.p1=Iš atvykimo pasienio vietos galite tęsti kelionę į paskirties vietą.
+
+###############################################
+#
+# No inspection needed export Page
+#
+###############################################
+no_inspection_needed_page_export.title=Patikra nereikalinga
+no_inspection_needed_page_export.h2=Reikia atlikti patikrą
+no_inspection_needed_page_export.what_happens_next.p1=Jums nereikia pranešti apie savo prekių patikrinimą, tačiau vis tiek gali tekti pranešti apie kitus patikrinimus.
+no_inspection_needed_page_export.h3.other_controls=Kitos papildomos kontrolės priemonės
+no_inspection_needed_page_export.other_controls.p1=Kai kuriems pervežimams gali prireikti papildomos kontrolės, pavyzdžiui, gabenant maistą, gyvūnus ar organines medžiagas. Pasitarkite su deklarantu.
+no_inspection_needed_page_export.h3.no_controls=Jei neturite kitų kontrolinių patikrinimų, apie kuriuos reikia pranešti
+no_inspection_needed_page_export.no_controls.p1=Galite tęsti kelionę į išvykimo pasienio vietą.
+
+###############################################
+#
+# Inspection pending
+#
+###############################################
+inspection_pending_page.title=Jūsų tikrinimo būsena dar neparengta
+inspection_pending_page.p1=Patikrinimo statusas turėtų būti parengtas likus maždaug 10 minučių iki atvykimo pasienio vietos. Galite dar kartą pasitikrinti, ar jis jau paruoštas, naudodamiesi toliau esančiu mygtuku.
+inspection_pending_page.h2=Jei esate pasienio vietoje ir jūsų statusas vis dar neparengtas
+inspection_pending_page.p2=Jūsų prekės nebuvo išmuitintos. Vykti tiesiai į paskirties vietą negalite.
+inspection_pending_page.p3=Privalote vykti tiesiai į artimiausią tikrinimo įstaigą. Pasienio pajėgų arba muitinės pareigūnai nurodys, ką reikia daryti toliau.
+inspection_pending_page.time=Pastarąjį kartą tikrinta {0} - {1}
+inspection_pending_page.check_again=Dar kartą patikrinti būseną
+
+
+###############################################
+#
+# Inspection needed import
+#
+###############################################
+inspection_needed_import.title=Jūsų gabenamos prekės turi būti patikrintos
+inspection_needed_import.gmr=GMR ID: {0}
+inspection_needed_import.what_next.h2=Ką daryti toliau
+inspection_needed_import.what_next.p1=Vykite į artimiausią tikrinimo vietą.
+inspection_needed_import.what_next.p2=Pasitikrinkite, kurioje (-iose) tikrinimo vietoje (-ose) turite apsilankyti savo atvykimo pasienio vietoje. Jums gali tekti važiuoti į vidaus pasienio kontrolės punktą (ang. „Inland border facility“, IBF) arba muitinės patikros punktą.
+inspection_needed_import.what_next.p3=Prekės, kurios turi būti patikrintos, turi būti tokios pat būklės, kokios buvo importuotos.
+inspection_needed_import.text.warning=Įspėjimas
+inspection_needed_import.what_next.warning=Sustoti patikrinimui yra teisinis reikalavimas.
+inspection_needed_import.inspection_site.h2=Jūsų tikrinimo vieta
+inspection_needed_import.inspection_sites.h2=Jūsų tikrinimo vietos
+inspection_needed_import.nearest_sites.p1=Patikrinimai turi būti atliekami nurodyta eilės tvarka.
+inspection_needed_import.nearest_sites.p2=Jei negalite atvykti į artimiausią tikrinimo vietą, turėsite vykti į kitą.
+inspection_needed_import.arriving.h3=Dalyvavimas patikrinime vidaus pasienio kontrolės punkte (IBF)
+inspection_needed_import.arriving.p1=Jei turite atvykti į IBF, galite:
+inspection_needed_import.arriving.p1.link1=rasti daugiau informacijos apie IBF
+inspection_needed_import.arriving.p1.link2=patikrinti, ar nėra vėlavimų IBF
+inspection_needed_import.h3.ending_transit=Tranzitinio pervežimo pabaiga
+inspection_needed_import.ending_transit.p1=Prekes privalote pristatyti į tranzito deklaracijoje nurodytą paskirties įstaigą. Pasitarkite su deklarantu.
+inspection_needed_import.customs.heading=Muitinės patikrinimui
+inspection_needed_import.daera.heading=DAERA patikrinimui
+inspection_needed_import.defra.heading=DEFRA patikrinimui
+inspection_needed_import.defra_plants.heading=DEFRA plants patikrinimui
+inspection_needed_import.transit.heading=Tranzito patikrinimui
+inspection_needed_import.ogd.heading=Dėl kitų valstybinių departamentų patikrinimų
+inspection_needed_import.ata.heading=Jūsų ATA knygelės patvirtinimui
+inspection_needed_import.eidr.heading=Jūsų įrašo deklaranto įrašo patikrinimui
+inspection_needed_import.dbc.heading=Jūsų žodžiu arba elgesiu pateiktos deklaracijos patikrinimui
+inspection_needed_import.exemption.heading=Jūsų pašto deklaracijos patikrinimui
+inspection_needed_import.empty.heading=Jūsų tuščios transporto priemonės patikrinimui
+inspection_needed_import.tir.heading=Jūsų TIR knygelės patvirtinimui
+inspection_needed_import.sad.heading=Jūsų bendrojo administracinio dokumento (ang. „Single Administrative Document“, SAD) patvirtinimui
+inspection_needed_import_with_other.p1=Keliaukite į atvykimo vietą pasienyje.
+inspection_needed_import.inspection.heading=Jūsų patikrinimui
+
+###############################################
+#
+# Inspection needed export
+#
+###############################################
+inspection_needed_export.title=Jūsų gabenamos prekės turi būti patikrintos
+inspection_needed_export.gmr=GMR ID: {0}
+inspection_needed_export.what_next.h2=Ką daryti toliau
+inspection_needed_export.what_next.p1=Vykite į artimiausią tikrinimo vietą.
+inspection_needed_export.what_next.p2=pasitikrinti, kurioje (-iose) tikrinimo vietoje (-ose) turite apsilankyti savo išvykimo pasienio vietoje. Jums gali tekti važiuoti į vidaus pasienio kontrolės punktą (ang. „Inland border facility“, IBF) arba muitinės patikros punktą.
+inspection_needed_export.what_next.p3=Prekės, kurios turi būti patikrintos, turi būti tokios pat būklės, kokios buvo paimtos iš pardavėjo.
+inspection_needed_export.text.warning=Įspėjimas
+inspection_needed_export.what_next.warning=Sustoti patikrinimui yra teisinis reikalavimas.
+inspection_needed_export.inspection_site.h2=Jūsų tikrinimo vieta
+inspection_needed_export.inspection_sites.h2=Jūsų tikrinimo vietos
+inspection_needed_export.nearest_sites.p1=Patikrinimai turi būti atliekami nurodyta eilės tvarka.
+inspection_needed_export.nearest_sites.p2=Jei negalite atvykti į artimiausią tikrinimo vietą, turėsite vykti į kitą.
+inspection_needed_export.arriving.h3=Dalyvavimas patikrinime vidaus pasienio kontrolės punkte (IBF)
+inspection_needed_export.arriving.p1=Jei turite atvykti į IBF, galite:
+inspection_needed_export.arriving.p1.link1=rasti daugiau informacijos apie IBF
+inspection_needed_export.arriving.p1.link2=patikrinti, ar nėra vėlavimų IBF
+inspection_needed_export.customs.heading=Muitinės patikrinimui
+inspection_needed_export.daera.heading=DAERA patikrinimui
+inspection_needed_export.defra.heading=DEFRA patikrinimui
+inspection_needed_export.defra_plants.heading=DEFRA plants patikrinimui
+inspection_needed_export.transit.heading=Tranzito patikrinimui
+inspection_needed_export.ogd.heading=Dėl kitų valstybinių departamentų patikrinimų
+inspection_needed_export.ata.heading=Jūsų ATA knygelės patvirtinimui
+inspection_needed_export.eidr.heading=Jūsų įrašo deklaranto įrašo patikrinimui
+inspection_needed_export.dbc.heading=Jūsų žodžiu arba elgesiu pateiktos deklaracijos patikrinimui
+inspection_needed_export.exemption.heading=Jūsų pašto deklaracijos patikrinimui
+inspection_needed_export.empty.heading=Jūsų tuščios transporto priemonės patikrinimui
+inspection_needed_export.tir.heading=Jūsų TIR knygelės patvirtinimui
+inspection_needed_export.sad.heading=Jūsų bendrojo administracinio dokumento (ang. „Single Administrative Document“, SAD) patvirtinimui
+inspection_needed_export_with_other.p1=Keliaukite į išvykimo vietą pasienyje.
+inspection_needed_export.inspection.heading=Jūsų patikrinimui

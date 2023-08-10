@@ -1,0 +1,30 @@
+@*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes
+
+
+@(supportedLangs: Seq[String])(implicit request: Request[_], messages: Messages)
+
+@linkLists= {
+  @if(supportedLangs.nonEmpty) {
+   <p class="govuk-body">@messages("start_page.service_available_in")</p>
+   <ul class="govuk-list govuk-list--bullet">
+   @for(langCode <- supportedLangs) {
+    <li>
+     @if(messages.lang.code == langCode) {
+       <span aria-current="true">@messages(s"start_page.language.$langCode")</span>
+     } else {
+       <span class="govuk-visually-hidden">@messages(s"start_page.language.$langCode.change")</span>
+       <a class="govuk-link govuk-link--no-visited-state" href="@routes.LanguageSwitchController.switchToLanguage(langCode).url">@messages(s"start_page.language.$langCode")</a>
+     }
+    </li>
+   }
+   </ul>
+
+  }
+}
+<p class="govuk-body">@linkLists</p>

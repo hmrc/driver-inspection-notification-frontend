@@ -1,0 +1,31 @@
+@*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ *@
+
+@import play.api.i18n.Messages
+@import play.twirl.api.Html
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.UK_OUTBOUND
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{InspectionType, Location}
+
+@this()
+
+@(key: String, locationsByInspectionType: Map[InspectionType, List[Location]])(implicit messages: Messages)
+
+<h2 class="govuk-heading-l">
+    @{
+        val isSingleInspectionType = locationsByInspectionType.sizeIs == 1
+        if (isSingleInspectionType) {
+            val noOfLocations = locationsByInspectionType.values.flatten.size
+            if (noOfLocations <= 1)
+                messages(s"$key.inspection_site.h2")
+            else
+                messages(s"$key.inspection_sites.h2")
+        } else
+             messages(s"$key.inspection_sites.h2")
+    }
+</h2>
+
+
+

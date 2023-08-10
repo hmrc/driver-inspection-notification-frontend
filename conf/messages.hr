@@ -1,0 +1,190 @@
+service.name=Provjerite trebate li se prijaviti za inspekciju
+service.text=Sustav za prijavljivanje kretanja robe za službe carinske inspekcije
+generic.back=Natrag
+generic.title.suffix=GOV.UK
+generic.title.prefix.error=Greška
+generic.feedback.linkText=Što mislite o ovoj usluzi?
+generic.feedback.qualifier=(ispunjavanje traje 30 sekundi)
+generic.form.error=Postoji problem
+
+
+###############################################
+#
+# Start Page
+#
+###############################################
+start_page.title=Provjerite trebate li se prijaviti za inspekciju
+start_page.h2=S pomoću ove usluge provjerite je li vam potrebna inspekcija robe
+start_page.entering=Ako ulazite u UK:
+start_page.entering.p1=Napravite provjeru pred kraj prelaska, približno 10 minuta prije nego što stignete na granični prijelaz dolaska.
+start_page.leaving=Ako napuštate UK:
+start_page.leaving.p1=Napravite provjeru prije nego što stignete na granični prijelaz polaska.
+start_page.button=Počni
+start_page.before_you_start=Prije nego što počnete
+start_page.before_you_start.p1=Morat ćete unijeti svoju oznaku kretanja robe (GMR).
+start_page.before_you_start.p2=Dobit ćete jedan od sljedećih odgovora:
+start_page.before_you_start.list.inspection_needed=potrebna inspekcija
+start_page.before_you_start.list.no_inspection_needed=nije potrebna inspekcija
+start_page.before_you_start.list.pending=vaš status inspekcije još nije spreman
+start_page.before_you_start.inspection_needed=Ako je inspekcija potrebna
+start_page.before_you_start.inspection_needed.p1=Morat ćete se javiti na odgovarajuće mjesto inspekcije. To će biti na graničnom prijelazu dolaska, graničnom prijelazu polaska ili {0}.
+start_page.before_you_start.inspection_needed.p1.link=lokacija granične kontrole izvan luke (IBF) (otvara se u novoj kartici)
+start_page.service_available_in=Usluga je dostupna i na:
+start_page.language.en=Engleski (English)
+start_page.language.en.change=Change the language to English
+start_page.language.cy=velški (Cymraeg)
+start_page.language.cy.change=Newid yr iaith ir Gymraeg
+start_page.language.bg=bugarski (български)
+start_page.language.bg.change=Промяна на езика на български
+start_page.language.hr=hrvatski
+start_page.language.hr.change=Promijeni jezik na hrvatski
+start_page.language.cs=češki (Čeština)
+start_page.language.cs.change=Změnit jazyk na češtinu
+start_page.language.fr=francuski (Français)
+start_page.language.fr.change=Changer de langue et passer au français
+start_page.language.de=njemački (Deutsch)
+start_page.language.de.change=Sprache in Deutsch ändern
+start_page.language.hu=mađarski (Magyar)
+start_page.language.hu.change=Váltás magyar nyelvre
+start_page.language.lt=litavski (Lietuviškai)
+start_page.language.lt.change=Pakeisti kalbą į lietuvių
+start_page.language.pl=poljsk (Polski)
+start_page.language.pl.change=Zmień język na polski
+start_page.language.ro=rumunjski (Română)
+start_page.language.ro.change=Schimbați limba în română
+start_page.language.es=španjolski (Español)
+start_page.language.es.change=Cambiar el idioma a español
+
+
+###############################################
+#
+# Search Page
+#
+###############################################
+search_page.title=Koja je vaša oznaka kretanja robe (GMR)?
+search_page.hint=Pronaći ćete je na kopiji GMR-a koji ste upotrijebili za prijavu na ovaj prijelaz. Sadržava 12 znakova i počinje s GMR. Na primjer GMRA00002KW2.
+search_page.button=Dalje
+search_page.check_another_gmr=Provjeri drugi GMR
+search_page.error.gmr_not_found=GMR nije pronađen. Morate provjeriti pojedinosti GMR-a i ponovno ga unijeti.
+search_page.error.gmr_blank=Unesi GMR
+search_page.error.gmr.format=Unesite GMR u pravilnom formatu
+
+
+
+###############################################
+#
+# No inspection needed import Page
+#
+###############################################
+no_inspection_needed_page_import.title=Nije potrebna inspekcija
+no_inspection_needed_page_import.h2=Što slijedi
+no_inspection_needed_page_import.what_happens_next.p1=Ne morate prijaviti inspekciju robe, ali možda ćete se morati prijaviti za druge preglede.
+no_inspection_needed_page_import.h3.other_controls=Drugi dodatni pregledi
+no_inspection_needed_page_import.other_controls.p1=Za neka kretanja možda će biti potrebni dodatni pregledi, primjerice za hranu, životinje ili ekološke proizvode. Provjerite kod svojeg deklaranta.
+no_inspection_needed_page_import.h3.ending_transit=Ako završavate provozno kretanje
+no_inspection_needed_page_import.ending_transit.p1=Morate pokazati robu u najbližem odredišnom uredu.
+no_inspection_needed_page_import.h3.no_controls=Ako se ne morate prijaviti za druge preglede
+no_inspection_needed_page_import.no_controls.p1=Možete nastaviti put od graničnog prijelaza dolaska do odredišta.
+
+###############################################
+#
+# No inspection needed export Page
+#
+###############################################
+no_inspection_needed_page_export.title=Nije potrebna inspekcija
+no_inspection_needed_page_export.h2=Što slijedi
+no_inspection_needed_page_export.what_happens_next.p1=Ne morate prijaviti inspekciju robe, ali možda ćete se morati prijaviti za druge preglede.
+no_inspection_needed_page_export.h3.other_controls=Drugi dodatni pregledi
+no_inspection_needed_page_export.other_controls.p1=Za neka kretanja možda će biti potrebni dodatni pregledi, primjerice za hranu, životinje ili ekološke proizvode. Provjerite kod svojeg deklaranta.
+no_inspection_needed_page_export.h3.no_controls=Ako se ne morate prijaviti za druge preglede
+no_inspection_needed_page_export.no_controls.p1=Možete nastaviti prema graničnom prijelazu polaska.
+
+###############################################
+#
+# Inspection pending
+#
+###############################################
+inspection_pending_page.title=Vaš status inspekcije još nije spreman
+inspection_pending_page.p1=Vaš status inspekcije trebao bi biti spreman približno 10 minuta prije nego što stignete na granični prijelaz dolaska. S pomoću gumba u nastavku možete ponovno provjeriti je li status spreman.
+inspection_pending_page.h2=Ako ste na graničnom prijelazu, a vaš status još nije spreman
+inspection_pending_page.p2=Vaša roba nije ocarinjena. Ne smijete odmah nastaviti prema odredištu.
+inspection_pending_page.p3=Morate se prvo uputiti do najbližeg mjesta inspekcije. Granična policija ili carinski službenici reći će vam što trebate sljedeće učiniti.
+inspection_pending_page.time=Zadnji put provjereno u {0} - {1}
+inspection_pending_page.check_again=Ponovno provjeri status
+
+
+###############################################
+#
+# Inspection needed import
+#
+###############################################
+inspection_needed_import.title=Roba koju prevozite podliježe inspekciji
+inspection_needed_import.gmr=GMR ID: {0}
+inspection_needed_import.what_next.h2=Koji je sljedeći korak
+inspection_needed_import.what_next.p1=Javite se najbližem mjestu inspekcije.
+inspection_needed_import.what_next.p2=Provjerite kojem se mjestu inspekcije ili mjestima inspekcije morate javiti na graničnom prijelazu dolaska. Možda ćete morati voziti do lokacije granične kontrole izvan luke (IBF) ili do lokacije za carinsku provjeru.
+inspection_needed_import.what_next.p3=Roba koja podliježe inspekciji mora ostati u istom stanju u kojem je uvezena.
+inspection_needed_import.text.warning=Upozorenje
+inspection_needed_import.what_next.warning=Zaustavljanje radi inspekcije zakonska je obveza.
+inspection_needed_import.inspection_site.h2=Vaše mjesto inspekcije
+inspection_needed_import.inspection_sites.h2=Vaša mjesta inspekcije
+inspection_needed_import.nearest_sites.p1=Inspekcije se moraju provoditi navedenim redoslijedom.
+inspection_needed_import.nearest_sites.p2=Ako ne možete otići do najbližeg mjesta inspekcije, morat ćete otići na drugo mjesto.
+inspection_needed_import.arriving.h3=Obavljanje provjere na lokaciji granične kontrole izvan luke (IBF)
+inspection_needed_import.arriving.p1=Ako morate obaviti IBF, možete:
+inspection_needed_import.arriving.p1.link1=pronaći više informacija o IBF-ima
+inspection_needed_import.arriving.p1.link2=provjeriti dolazi li do kašnjenja kod IBF-a
+inspection_needed_import.h3.ending_transit=Završetak provoznih kretanja
+inspection_needed_import.ending_transit.p1=Robu morate predočiti u uredu na odredištu koje ste naveli u provoznoj deklaraciji. Provjerite kod svojeg deklaranta.
+inspection_needed_import.customs.heading=Za carinsku inspekciju
+inspection_needed_import.daera.heading=Za inspekciju DAERA-e
+inspection_needed_import.defra.heading=Za inspekciju DEFRA-e
+inspection_needed_import.defra_plants.heading=Za inspekciju DEFRA plants-e
+inspection_needed_import.transit.heading=Za tranzitnu inspekciju
+inspection_needed_import.ogd.heading=Za inspekcije drugih ministarstava
+inspection_needed_import.ata.heading=Za odobrenje ATA karneta
+inspection_needed_import.eidr.heading=Za inspekciju unosa u evidenciju deklaranta
+inspection_needed_import.dbc.heading=Za inspekciju usmene deklaracije ili deklaracije činom prolaska
+inspection_needed_import.exemption.heading=Za inspekciju poštanske deklaracije
+inspection_needed_import.empty.heading=Za inspekciju praznog vozila
+inspection_needed_import.tir.heading=Za odobrenje karneta TIR
+inspection_needed_import.sad.heading=Za odobrenje jedinstvene carinske deklaracije (SAD)
+inspection_needed_import_with_other.p1=Putujte do graničnog prijelaza dolaska.
+inspection_needed_import.inspection.heading=Za vašu inspekciju
+
+###############################################
+#
+# Inspection needed export
+#
+###############################################
+inspection_needed_export.title=Roba koju prevozite podliježe inspekciji
+inspection_needed_export.gmr=GMR ID: {0}
+inspection_needed_export.what_next.h2=Koji je sljedeći korak
+inspection_needed_export.what_next.p1=Javite se najbližem mjestu inspekcije.
+inspection_needed_export.what_next.p2=Provjerite kojem se mjestu inspekcije ili mjestima inspekcije morate javiti na graničnom prijelazu polaska. Možda ćete morati voziti do lokacije granične kontrole izvan luke (IBF) ili do lokacije za carinsku provjeru.
+inspection_needed_export.what_next.p3=Roba koja podliježe inspekciji mora ostati u istom stanju u kojem je preuzeta od trgovca.
+inspection_needed_export.text.warning=Upozorenje
+inspection_needed_export.what_next.warning=Zaustavljanje radi inspekcije zakonska je obveza.
+inspection_needed_export.inspection_site.h2=Vaše mjesto inspekcije
+inspection_needed_export.inspection_sites.h2=Vaša mjesta inspekcije
+inspection_needed_export.nearest_sites.p1=Inspekcije se moraju provoditi navedenim redoslijedom.
+inspection_needed_export.nearest_sites.p2=Ako ne možete otići do najbližeg mjesta inspekcije, morat ćete otići na drugo mjesto.
+inspection_needed_export.arriving.h3=Obavljanje provjere na lokaciji granične kontrole izvan luke (IBF)
+inspection_needed_export.arriving.p1=Ako morate obaviti IBF, možete:
+inspection_needed_export.arriving.p1.link1=pronaći više informacija o IBF-ima
+inspection_needed_export.arriving.p1.link2=provjeriti dolazi li do kašnjenja kod IBF-a
+inspection_needed_export.customs.heading=Za carinsku inspekciju
+inspection_needed_export.daera.heading=Za inspekciju DAERA-e
+inspection_needed_export.defra.heading=Za inspekciju DEFRA-e
+inspection_needed_export.defra_plants.heading=Za inspekciju DEFRA plants-e
+inspection_needed_export.transit.heading=Za tranzitnu inspekciju
+inspection_needed_export.ogd.heading=Za inspekcije drugih ministarstava
+inspection_needed_export.ata.heading=Za odobrenje ATA karneta
+inspection_needed_export.eidr.heading=Za inspekciju unosa u evidenciju deklaranta
+inspection_needed_export.dbc.heading=Za inspekciju usmene deklaracije ili deklaracije činom prolaska
+inspection_needed_export.exemption.heading=Za inspekciju poštanske deklaracije
+inspection_needed_export.empty.heading=Za inspekciju praznog vozila
+inspection_needed_export.tir.heading=Za odobrenje karneta TIR
+inspection_needed_export.sad.heading=Za odobrenje jedinstvene carinske deklaracije (SAD)
+inspection_needed_export_with_other.p1=Putujte do graničnog prijelaza polaska.
+inspection_needed_export.inspection.heading=Za vašu inspekciju

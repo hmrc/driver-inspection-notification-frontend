@@ -1,0 +1,68 @@
+@*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcPageHeading
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.main_layout_full_width_template
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcNewTabLink
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.newtablink.NewTabLink
+
+@this(mainTemplate: main_layout_full_width_template, govukButton: GovukButton, formWithCSRF: FormWithCSRF, hmrcPageHeading: HmrcPageHeading, govukInsetText: GovukInsetText, hmrcNewTabLink: HmrcNewTabLink)
+
+@(otherLangSupport: Boolean, supportedLanguage: Seq[String])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+
+@mainTemplate(
+    pageTitle = Some(s"${messages("start_page.title")} - ${messages("service.name")} - ${messages("generic.title.suffix")}"),
+    backLinkEnabled = false
+) {
+    <h1 class="govuk-heading-xl">@messages("start_page.title")</h1>
+
+    @if(otherLangSupport) {
+        @uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.languages(supportedLanguage)
+    }
+
+    <h2 class="govuk-heading-l">@messages("start_page.h2")</h2>
+
+    <h3 class="govuk-heading-m" >@messages("start_page.entering")</h3>
+
+    <p class="govuk-body">@messages("start_page.entering.p1")</p>
+
+    <h3 class="govuk-heading-m" >@messages("start_page.leaving")</h3>
+
+    <p class="govuk-body">@messages("start_page.leaving.p1")</p>
+
+    <h2 class="govuk-heading-l">@messages("start_page.before_you_start")</h2>
+
+    <p class="govuk-body">@messages("start_page.before_you_start.p1")</p>
+
+    <p class="govuk-body">@messages("start_page.before_you_start.p2")</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+        <li>@messages("start_page.before_you_start.list.inspection_needed")</li>
+        <li>@messages("start_page.before_you_start.list.no_inspection_needed")</li>
+        <li>@messages("start_page.before_you_start.list.pending")</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">@messages("start_page.before_you_start.inspection_needed")</h2>
+
+    <p class="govuk-body" >@Html(messages(
+        "start_page.before_you_start.inspection_needed.p1",
+        hmrcNewTabLink(
+            NewTabLink(
+                text = messages("start_page.before_you_start.inspection_needed.p1.link"),
+                href = Some(appConfig.attendingInlandBorderFacilityUrl),
+                language = None
+            )
+        ).toString().replace("\n", "")
+    ))</p>
+
+
+    @govukButton(Button(
+        href = Some(uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes.SearchController.show().url),
+        isStartButton = true,
+        content = Text(messages("start_page.button"))
+    ))
+}

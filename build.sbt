@@ -1,18 +1,98 @@
 import uk.gov.hmrc.DefaultBuildSettings.integrationTestSettings
+import scoverage.ScoverageKeys
+import uk.gov.hmrc.DefaultBuildSettings
+import play.sbt.PlayImport.PlayKeys.playDefaultPort
+import wartremover.Wart._
+import sbt.Keys.evictionErrorLevel
 
-lazy val microservice = Project("driver-inspection-notification-frontend", file("."))
-  .enablePlugins(play.sbt.PlayScala, SbtDistributablesPlugin)
+val appName = "driver-inspection-notification-frontend"
+
+lazy val ContentTests = config("content") extend (Test)
+
+def contentTestSettings(enableLicenseHeaders: Boolean = true): Seq[Setting[_]] =
+  inConfig(ContentTests)(Defaults.testSettings) ++
+    Seq(
+      ContentTests / unmanagedSourceDirectories ++= Seq(baseDirectory.value / "content", baseDirectory.value / "test-common"),
+      ContentTests / unmanagedResourceDirectories += baseDirectory.value / "test-resources",
+      DefaultBuildSettings.addTestReportOption(ContentTests, "content-test-reports"),
+      ContentTests / testGrouping := DefaultBuildSettings.oneForkedJvmPerTest(
+        (ContentTests / definedTests).value,
+        (ContentTests / javaOptions).value
+      )
+    ) ++
+    (if (enableLicenseHeaders) {
+       headerSettings(ContentTests) ++
+         automateHeaderSettings(ContentTests)
+     } else Seq.empty)
+
+lazy val microservice = Project(appName, file("."))
+  .enablePlugins(play.sbt.PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtDistributablesPlugin)
   .settings(
-    majorVersion        := 0,
-    scalaVersion        := "2.13.8",
+    majorVersion := 0,
+    scalaVersion := "2.13.10",
+    ScoverageKeys.coverageExcludedFiles :=
+      "<empty>;com.kenshoo.play.metrics.*;.*definition.*;prod.*;testOnlyDoNotUseInAppConf.*;" +
+        "app.*;.*BuildInfo.*;.*Routes.*;.*repositories.*;.*LanguageSwitchController;.*metrics.*;.*views.*;Reverse.*;" +
+        ".*connectors.*;.*.models.*;",
+    ScoverageKeys.coverageMinimumStmtTotal := 80,
+    ScoverageKeys.coverageFailOnMinimum := true,
+    ScoverageKeys.coverageHighlighting := true,
+    playDefaultPort := 9004,
     libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test,
-    // https://www.scala-lang.org/2021/01/12/configuring-and-suppressing-warnings.html
-    // suppress warnings in generated routes files
-    scalacOptions += "-Wconf:src=routes/.*:s",
-    scalacOptions += "-Wconf:cat=unused-imports&src=html/.*:s",
-    pipelineStages := Seq(gzip),
+    Assets / pipelineStages := Seq(gzip)
   )
+  .settings(
+    wartremover.WartRemover.autoImport.wartremoverExcluded ++= (Compile / routes).value,
+    Compile / compile / wartremoverErrors ++= Warts.allBut(
+      Throw,
+      ToString,
+      ImplicitParameter,
+      PublicInference,
+      Equals,
+      Overloading,
+      FinalCaseClass,
+      NonUnitStatements,
+      Nothing,
+      Any,
+      StringPlusAny,
+      Nothing,
+      PlatformDefault,
+      ListAppend,
+      ListUnapply
+      ),
+    Test / compile / wartremoverErrors --= Seq(
+      DefaultArguments,
+      Serializable,
+      Product,
+      Any,
+      OptionPartial,
+      GlobalExecutionContext
+    ),
+    wartremoverWarnings ++= Seq(Throw, Equals, Nothing, GlobalExecutionContext)
+  )
+  .settings(SassKeys.generateSourceMaps := false)
   .configs(IntegrationTest)
   .settings(integrationTestSettings(): _*)
+  .configs(ContentTests)
+  .settings(contentTestSettings(): _*)
+  .settings(routesImport += "uk.gov.hmrc.driverinspectionnotificationfrontend.config.Binders._")
+  .settings(
+    Compile / unmanagedResourceDirectories += baseDirectory.value / "resources",
+    IntegrationTest / unmanagedSourceDirectories :=
+      (IntegrationTest / baseDirectory)(base => Seq(base / "it", base / "test-common")).value,
+    Test / unmanagedSourceDirectories := (Test / baseDirectory)(base => Seq(base / "test", base / "test-common")).value,
+    IntegrationTest / testGrouping := DefaultBuildSettings.oneForkedJvmPerTest((IntegrationTest / definedTests).value),
+    IntegrationTest / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports/html-it-report")
+  )
   .settings(resolvers += Resolver.jcenterRepo)
-  .settings(CodeCoverageSettings.settings: _*)
+  .settings(
+    scalacOptions += "-Wconf:src=routes/.*:s", //Silence all warnings in generated routes
+    scalacOptions += "-Ymacro-annotations",
+    scalacOptions += "-Wconf:cat=unused-imports&src=html/.*:s"
+  )
+  .settings( //fix scaladoc generation in jenkins
+    Compile / scalacOptions -= "utf8",
+    scalacOptions += "-language:postfixOps"
+  )
+
+evictionErrorLevel := Level.Warn

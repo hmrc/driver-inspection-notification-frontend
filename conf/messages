@@ -1,2 +1,190 @@
-service.name = driver-inspection-notification-frontend
-service.text = This is your new service
+service.name = Check if you need to report for an inspection
+service.text = Goods Movement System Report for a Customs Inspection Service
+generic.back = Back
+generic.title.suffix=GOV.UK
+generic.title.prefix.error=Error
+generic.feedback.linkText=What did you think of this service?
+generic.feedback.qualifier=(takes 30 seconds)
+generic.form.error=There is a problem
+
+
+###############################################
+#
+# Start Page
+#
+###############################################
+start_page.title=Check if you need to report for an inspection
+start_page.h2=Use this service to check if you need an inspection of your goods
+start_page.entering=If you are entering the UK:
+start_page.entering.p1=Check this towards the end of your crossing, around 10 minutes before you reach your border location of arrival.
+start_page.leaving=If you are leaving the UK:
+start_page.leaving.p1=Check this before arriving at your border location of departure.
+start_page.button=Start now
+start_page.before_you_start=Before you start
+start_page.before_you_start.p1=You will need to enter your goods movement reference (GMR).
+start_page.before_you_start.p2=You will get one of these responses:
+start_page.before_you_start.list.inspection_needed=inspection needed
+start_page.before_you_start.list.no_inspection_needed=no inspection needed
+start_page.before_you_start.list.pending=your inspection status is not ready yet
+start_page.before_you_start.inspection_needed=If an inspection is needed
+start_page.before_you_start.inspection_needed.p1=You will need to report to the appropriate inspection location. This will either be at your border location of arrival, border location of departure or at an {0}.
+start_page.before_you_start.inspection_needed.p1.link=inland border facility (IBF) (opens in new tab)
+start_page.service_available_in=This service is also available in:
+start_page.language.en=English
+start_page.language.en.change=Change the language to English
+start_page.language.cy=Welsh (Cymraeg)
+start_page.language.cy.change=Newid yr iaith ir Gymraeg
+start_page.language.bg=Bulgarian (български)
+start_page.language.bg.change=Промяна на езика на български
+start_page.language.hr=Croatian (Hrvatski)
+start_page.language.hr.change=Promijeni jezik na hrvatski
+start_page.language.cs=Czech (Čeština)
+start_page.language.cs.change=Změnit jazyk na češtinu
+start_page.language.fr=French (Français)
+start_page.language.fr.change=Changer de langue et passer au français
+start_page.language.de=German (Deutsch)
+start_page.language.de.change=Sprache in Deutsch ändern
+start_page.language.hu=Hungarian (Magyar)
+start_page.language.hu.change=Váltás magyar nyelvre
+start_page.language.lt=Lithuanian (Lietuviškai)
+start_page.language.lt.change=Pakeisti kalbą į lietuvių
+start_page.language.pl=Polish (Polski)
+start_page.language.pl.change=Zmień język na polski
+start_page.language.ro=Romanian (Română)
+start_page.language.ro.change=Schimbați limba în română
+start_page.language.es=Spanish (Español)
+start_page.language.es.change=Cambiar el idioma a español
+
+
+###############################################
+#
+# Search Page
+#
+###############################################
+search_page.title=What is your goods movement reference (GMR)?
+search_page.hint=You will find this on the copy of the GMR you used to check in to this crossing. It is 12 characters starting with GMR. For example, GMRA00002KW2.
+search_page.button=Continue
+search_page.check_another_gmr=Check another GMR
+search_page.error.gmr_not_found=GMR not found. You will need to check the details of the GMR and enter it again.
+search_page.error.gmr_blank=Enter a GMR
+search_page.error.gmr.format=Enter a GMR in the correct format
+
+
+
+###############################################
+#
+# No inspection needed import Page
+#
+###############################################
+no_inspection_needed_page_import.title=No inspection needed
+no_inspection_needed_page_import.h2=What happens next
+no_inspection_needed_page_import.what_happens_next.p1=You do not need to report for an inspection of your goods, but you may still need to report for other controls.
+no_inspection_needed_page_import.h3.other_controls=Other additional controls
+no_inspection_needed_page_import.other_controls.p1=Some movements may need additional controls, for example food, animals or organics. Check with your declarant.
+no_inspection_needed_page_import.h3.ending_transit=If you are ending a transit movement
+no_inspection_needed_page_import.ending_transit.p1=You must also present the goods at your nearest office of destination.
+no_inspection_needed_page_import.h3.no_controls=If you have no other controls to report for
+no_inspection_needed_page_import.no_controls.p1=You can continue from your border location of arrival, to your destination.
+
+###############################################
+#
+# No inspection needed export Page
+#
+###############################################
+no_inspection_needed_page_export.title=No inspection needed
+no_inspection_needed_page_export.h2=What happens next
+no_inspection_needed_page_export.what_happens_next.p1=You do not need to report for an inspection of your goods, but you may still need to report for other controls.
+no_inspection_needed_page_export.h3.other_controls=Other additional controls
+no_inspection_needed_page_export.other_controls.p1=Some movements may need additional controls, for example food, animals or organics. Check with your declarant.
+no_inspection_needed_page_export.h3.no_controls=If you have no other controls to report for
+no_inspection_needed_page_export.no_controls.p1=You can continue to your border location of departure.
+
+###############################################
+#
+# Inspection pending
+#
+###############################################
+inspection_pending_page.title=Your inspection status is not ready yet
+inspection_pending_page.p1=Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it`s ready using the button below.
+inspection_pending_page.h2=If you are at the border location and your status is still not ready
+inspection_pending_page.p2=Your goods have not been customs cleared. You must not go straight to your destination.
+inspection_pending_page.p3=You must go straight to the nearest inspection facility. Border Force or customs officials will tell you what need to do next.
+inspection_pending_page.time=Last checked at {0} - {1}
+inspection_pending_page.check_again=Check status again
+
+
+###############################################
+#
+# Inspection needed import
+#
+###############################################
+inspection_needed_import.title=The goods you are moving require an inspection
+inspection_needed_import.gmr=GMR ID: {0}
+inspection_needed_import.what_next.h2=What to do next
+inspection_needed_import.what_next.p1=Report to your nearest inspection site.
+inspection_needed_import.what_next.p2=Check which inspection site(s) you need to attend at your border location of arrival. You may have to drive to an inland border facility (IBF) or customs checking facility.
+inspection_needed_import.what_next.p3=Goods needed for inspection must be kept in the same condition as when they were imported.
+inspection_needed_import.text.warning=Warning
+inspection_needed_import.what_next.warning=Stopping for an inspection is a legal requirement.
+inspection_needed_import.inspection_site.h2=Your inspection site
+inspection_needed_import.inspection_sites.h2=Your inspection sites
+inspection_needed_import.nearest_sites.p1=The inspections must take place in the order shown.
+inspection_needed_import.nearest_sites.p2=If you cannot attend your nearest inspection site, you will need to go to another.
+inspection_needed_import.arriving.h3=Attending an inland border facility (IBF) check
+inspection_needed_import.arriving.p1=If you have to attend an IBF, you can:
+inspection_needed_import.arriving.p1.link1=find more information about IBFs
+inspection_needed_import.arriving.p1.link2=check if there are any delays at an IBF
+inspection_needed_import.h3.ending_transit=Ending transit movements
+inspection_needed_import.ending_transit.p1=You must present the goods at the office of destination declared in the transit declaration. Check with your declarant.
+inspection_needed_import.customs.heading=For your customs inspection
+inspection_needed_import.daera.heading=For your DAERA inspection
+inspection_needed_import.defra.heading=For your DEFRA inspection
+inspection_needed_import.defra_plants.heading=For your DEFRA plants inspection
+inspection_needed_import.transit.heading=For your transit inspection
+inspection_needed_import.ogd.heading=For other government department inspections
+inspection_needed_import.ata.heading=For your ATA Carnet endorsement
+inspection_needed_import.eidr.heading=For your Entry in Declarant’s Record inspection
+inspection_needed_import.dbc.heading=For your Oral or by conduct declaration inspection
+inspection_needed_import.exemption.heading=For your Postal declaration inspection
+inspection_needed_import.empty.heading=For your Empty vehicle inspection
+inspection_needed_import.tir.heading=For your TIR Carnet endorsement
+inspection_needed_import.sad.heading=For your Single Administrative Document (SAD) endorsement
+inspection_needed_import_with_other.p1=Travel to your border location of arrival.
+inspection_needed_import.inspection.heading=For your inspection
+
+###############################################
+#
+# Inspection needed export
+#
+###############################################
+inspection_needed_export.title=The goods you are moving require an inspection
+inspection_needed_export.gmr=GMR ID: {0}
+inspection_needed_export.what_next.h2=What to do next
+inspection_needed_export.what_next.p1=Report to your nearest inspection site.
+inspection_needed_export.what_next.p2=Check which inspection site(s) you need to attend at your border location of departure. You may have to drive to an inland border facility (IBF) or customs checking facility.
+inspection_needed_export.what_next.p3=Goods needed for inspection must be kept in the same condition as when they were collected from the trader.
+inspection_needed_export.text.warning=Warning
+inspection_needed_export.what_next.warning=Stopping for an inspection is a legal requirement.
+inspection_needed_export.inspection_site.h2=Your inspection site
+inspection_needed_export.inspection_sites.h2=Your inspection sites
+inspection_needed_export.nearest_sites.p1=The inspections must take place in the order shown.
+inspection_needed_export.nearest_sites.p2=If you cannot attend your nearest inspection site, you will need to go to another.
+inspection_needed_export.arriving.h3=Attending an inland border facility (IBF) check
+inspection_needed_export.arriving.p1=If you have to attend an IBF, you can:
+inspection_needed_export.arriving.p1.link1=find more information about IBFs
+inspection_needed_export.arriving.p1.link2=check if there are any delays at an IBF
+inspection_needed_export.customs.heading=For your customs inspection
+inspection_needed_export.daera.heading=For your DAERA inspection
+inspection_needed_export.defra.heading=For your DEFRA inspection
+inspection_needed_export.defra_plants.heading=For your DEFRA plants inspection
+inspection_needed_export.transit.heading=For your transit inspection
+inspection_needed_export.ogd.heading=For other government department inspections
+inspection_needed_export.ata.heading=For your ATA Carnet endorsement
+inspection_needed_export.eidr.heading=For your Entry in Declarant’s Record inspection
+inspection_needed_export.dbc.heading=For your Oral or by conduct declaration inspection
+inspection_needed_export.exemption.heading=For your Postal declaration inspection
+inspection_needed_export.empty.heading=For your Empty vehicle inspection
+inspection_needed_export.tir.heading=For your TIR Carnet endorsement
+inspection_needed_export.sad.heading=For your Single Administrative Document (SAD) endorsement
+inspection_needed_export_with_other.p1=Travel to your border location of departure.
+inspection_needed_export.inspection.heading=For your inspection

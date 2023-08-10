@@ -1,17 +1,33 @@
+@*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.html.helpers._
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
-@import uk.gov.hmrc.hmrcfrontend.views.html.helpers.HmrcLayout
+@import views.html.helper.CSPNonce
 
 @this(
         appConfig: AppConfig,
-        hmrcLayout: HmrcLayout
+        govukLayout: GovukLayout,
+        hmrcHead: HmrcHead,
+        hmrcStandardHeader: HmrcStandardHeader,
+        hmrcStandardFooter: HmrcStandardFooter,
+        hmrcScripts: HmrcScripts,
+        hmrcLanguageSelectHelper: HmrcLanguageSelectHelper
 )
-@(pageTitle: Option[String] = None)(contentBlock: Html)(implicit request: Request[_], messages: Messages)
 
-@hmrcLayout(
+@(pageTitle: Option[String],
+  headBlock: Option[Html],
+  scriptsBlock: Option[Html]
+)(contentBlock: Html)(implicit request: Request[_], messages: Messages)
+
+@govukLayout(
     pageTitle = pageTitle,
-    isWelshTranslationAvailable = appConfig.welshLanguageSupportEnabled
+    headBlock = Some(hmrcHead(headBlock = headBlock, nonce = CSPNonce.get)),
+    headerBlock = Some(hmrcStandardHeader()),
+    scriptsBlock = Some(hmrcScripts(scriptsBlock = scriptsBlock, nonce = CSPNonce.get)),
+    beforeContentBlock = None,
+    footerBlock = Some(hmrcStandardFooter())
 )(contentBlock)
-
-@{
-    //$COVERAGE-OFF$
-}

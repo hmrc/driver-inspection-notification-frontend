@@ -1,0 +1,76 @@
+@*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.html.helpers._
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.{NonPrintableBetaPhaseBanner, NonStandardHmrcFooterItems}
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.getHelp
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.footer.{Footer, FooterItem, Meta}
+@import views.html.helper.CSPNonce
+
+@this(
+    govukTemplate: GovukTemplate,
+    standardHeader: HmrcStandardHeader,
+    hmrcFooter: HmrcFooter,
+    govukBackLink: GovukBackLink,
+    standardBetaBanner: NonPrintableBetaPhaseBanner,
+    getHelp: getHelp,
+    hmrcScripts: HmrcScripts,
+    nonStandardHmrcFooterItems: NonStandardHmrcFooterItems
+)
+
+@(
+    pageTitle: Option[String],
+    headBlock: Option[Html],
+    headerBlock: Option[Html],
+    beforeContentBlock: Option[Html],
+    footerBlock: Option[Html],
+    footerItems: Seq[FooterItem],
+    bodyEndBlock: Option[Html],
+    scriptsBlock: Option[Html]
+)(contentBlock: Html)(implicit request: Request[_], messages: Messages)
+
+@headerDefault = {
+    @headerBlock.getOrElse {
+        @standardHeader(
+            serviceUrl = Some(uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes.StartController.show().url)
+        )
+    }
+}
+
+@footerDefault = {
+    @footerBlock.getOrElse(hmrcFooter(new Footer(
+            meta = Some(Meta(items = Some(nonStandardHmrcFooterItems.get))),
+            language = if (messages.lang.code == "cy") Cy else En,
+            classes = "govuk-!-display-none-print"
+    )))
+}
+
+
+@bodyEndDefault = {
+    @bodyEndBlock
+    @hmrcScripts(scriptsBlock = scriptsBlock, nonce = CSPNonce.get)
+}
+
+@mainContentDefault = {
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            @contentBlock
+            @getHelp()
+        </div>
+    </div>
+}
+
+@govukTemplate(
+    htmlLang = Some(messages.lang.code),
+    pageTitle = pageTitle,
+    headBlock = headBlock,
+    headerBlock = headerDefault,
+    beforeContentBlock = beforeContentBlock,
+    footerBlock = footerDefault,
+    mainClasses = Some("govuk-main-wrapper--auto-spacing"),
+    bodyEndBlock = Some(bodyEndDefault)
+)(mainContentDefault)

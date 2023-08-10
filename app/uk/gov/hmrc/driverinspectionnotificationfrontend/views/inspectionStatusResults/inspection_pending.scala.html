@@ -1,0 +1,63 @@
+@*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.main_layout_full_width_template
+@import uk.gov.hmrc.govukfrontend.views.html.components.GovukButton
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.button.Button
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
+@import uk.gov.hmrc.play.language.LanguageUtils
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.utils.Formatters
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.controllers
+@import java.time.Instant
+
+@this(
+        mainTemplate: main_layout_full_width_template,
+        hmrcPageHeading: HmrcPageHeading,
+        govukButton: GovukButton,
+        languageUtils: LanguageUtils
+)
+
+@(gmrId: String)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+
+@mainTemplate(
+    pageTitle = Some(s"${messages("inspection_pending_page.title")} - ${messages("service.name")} - ${messages("generic.title.suffix")}"),
+    backLinkEnabled = true
+) {
+    <h1 class="govuk-heading-l">@messages("inspection_pending_page.title")</h1>
+
+    <p class="govuk-body">@messages("inspection_pending_page.p1")</p>
+
+    <h2 class="govuk-heading-m">@messages("inspection_pending_page.h2")</h2>
+
+    <p class="govuk-body">@messages("inspection_pending_page.p2")</p>
+    <p class="govuk-body">@messages("inspection_pending_page.p3")</p>
+
+    <br />
+    <hr />
+    <br />
+
+    <p class="govuk-body">@messages("inspection_pending_page.time", Formatters.instantFormatHours(Instant.now()), languageUtils.Dates.formatDate(Formatters.instantFormatDate(Instant.now()))(messages))</p>
+
+    @govukButton(
+      Button(
+          classes = "govuk-button--secondary",
+          href = Some(controllers.routes.SearchResultController.result(gmrId).url),
+          content = Text(messages("inspection_pending_page.check_again"))
+      )
+    )
+
+    <p class="govuk-body">
+        <a href="@controllers.routes.SearchController.show()" class="govuk-link">@messages("search_page.check_another_gmr")</a>
+    </p>
+
+    <br/>
+    <br/>
+    <p class="govuk-body">
+        <a href= @appConfig.exitSurveyFeedback() class="govuk-link">@messages("generic.feedback.linkText")</a>
+        @messages("generic.feedback.qualifier")
+    </p>
+}

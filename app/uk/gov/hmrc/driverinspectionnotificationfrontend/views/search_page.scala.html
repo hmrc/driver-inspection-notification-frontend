@@ -1,0 +1,57 @@
+@*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.html.components.implicits.RichFormErrors
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.{HmrcPageHeading, PageHeading}
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.main_layout_full_width_template
+
+@this(mainTemplate: main_layout_full_width_template, govukButton: GovukButton, formWithCSRF: FormWithCSRF, errorSummary: GovukErrorSummary, hmrcPageHeading: HmrcPageHeading,  govukInput: GovukInput)
+
+@(form: Form[String])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+
+@titlePrefix = @{
+    if(form.hasErrors) {
+        s"${messages("generic.title.prefix.error")} - ${messages("search_page.title")}"
+    } else {
+        messages("search_page.title")
+    }
+}
+
+@mainTemplate(
+    pageTitle = Some(s"${titlePrefix} - ${messages("service.name")} - ${messages("generic.title.suffix")}"),
+    backLinkEnabled = true
+) {
+    @if(form.errors.nonEmpty) {
+        @errorSummary(ErrorSummary(errorList = form.errors.asTextErrorLinks, title = Text(messages("generic.form.error"))))
+    }
+
+    @formWithCSRF(action = uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes.SearchController.submit, 'id -> "search-form", 'name -> "searchGmr") {
+
+        @govukInput(Input(
+            id = "gmrId",
+            name = "gmrId",
+            errorMessage = if(form("gmrId").hasErrors) {
+                Some(ErrorMessage(content = HtmlContent(form.errors("gmrId").map(err=> messages(err.message)).mkString("<br/>"))))
+            } else None,
+            value = form.data.get("gmrId"),
+            label = Label(
+                content = HtmlContent(hmrcPageHeading(PageHeading(
+                    text = messages("search_page.title"),
+                    section = None
+                ))),
+                classes = "govuk-label--xl"
+            ),
+            classes = "govuk-input--width-20",
+            hint = Some(Hint(content = Text(messages("search_page.hint"))))
+        ))
+
+        @govukButton(Button(
+            content = Text(messages("search_page.button"))
+        ))
+    }
+
+}
