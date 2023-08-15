@@ -1,0 +1,64 @@
+@*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.footer.FooterItem
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.LanguageSelect
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.utils.LanguageMap
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head}
+@import uk.gov.hmrc.hmrcfrontend.controllers.routes.LanguageController.switchToLanguage
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcLanguageSelect
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.Aliases.{Cy, En}
+@import views.html.helper.CSPNonce
+
+
+
+@this(
+govukLayout: govukTwoThirdsLayout,
+head: head,
+hmrcLanguageSelect:  HmrcLanguageSelect,
+govukBackLink: GovukBackLink
+)
+
+@(pageTitle: Option[String], backLinkEnabled: Boolean)(contentBlock: Html)(implicit request: Request[_], appConfig: AppConfig, messages: Messages)
+
+@beforeContentBlock = {
+
+    @if(backLinkEnabled) {
+    @govukBackLink(BackLink(href = "#", content = Text(messages("generic.back")), attributes = Map("id" -> "back")))
+
+        <script @{CSPNonce.attr} >
+            document.getElementById("back").addEventListener("click", () => window.history.back());
+        </script>
+    <script @{CSPNonce.attr}>
+            if(document.body.className.indexOf("js-enabled") != -1 && document.getElementById('back') != null) {
+                document.getElementById('back').removeAttribute("style");
+            }
+    </script>
+    }
+}
+
+@govukLayout(
+    pageTitle = pageTitle,
+    headBlock = Some(head()),
+    headerBlock = None,
+    beforeContentBlock = Some(beforeContentBlock),
+    footerBlock = None,
+    footerItems = Seq.empty[FooterItem],
+    bodyEndBlock = None,
+    scriptsBlock = None,
+)(contentBlock)

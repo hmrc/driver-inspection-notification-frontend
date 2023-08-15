@@ -1,0 +1,190 @@
+service.name=Prüfen Sie, ob Sie sich für eine Kontrolle melden müssen
+service.text=Warenverkehr-Systemmeldung für einen Zollkontrolldienst
+generic.back=Zurück
+generic.title.suffix=GOV.UK
+generic.title.prefix.error=Fehler
+generic.feedback.linkText=Wie fanden Sie diesen Dienst?
+generic.feedback.qualifier=(Dauer 30 Sekunden)
+generic.form.error=Es gibt ein Problem
+
+
+###############################################
+#
+# Start Page
+#
+###############################################
+start_page.title=Prüfen Sie, ob Sie sich für eine Kontrolle melden müssen
+start_page.h2=Nutzen Sie diesen Dienst, um herauszufinden, ob Ihre Waren einer Kontrollpflicht unterliegen
+start_page.entering=Wenn Sie ins Vereinigte Königreich einreisen:
+start_page.entering.p1=Sie sollten dies etwa 10 Minuten vor dem Ende Ihrer Überfahrt prüfen, ehe Sie an der Ankunftsgrenzstelle eintreffen.
+start_page.leaving=Wenn Sie das Vereinigte Königreich verlassen:
+start_page.leaving.p1=Sie sollten dies prüfen, ehe Sie an der Ausgangsgrenzstelle eintreffen.
+start_page.button=Jetzt beginnen
+start_page.before_you_start=Ehe Sie beginnen
+start_page.before_you_start.p1=Müssen Sie Ihre Hauptbezugsnummer (GMR) eingeben.
+start_page.before_you_start.p2=Sie werden eine der nachfolgenden Antworten erhalten:
+start_page.before_you_start.list.inspection_needed=Kontrolle erforderlich
+start_page.before_you_start.list.no_inspection_needed=Keine Kontrolle erforderlich
+start_page.before_you_start.list.pending=Ihr Kontrollstatus ist noch nicht bereit
+start_page.before_you_start.inspection_needed=Wenn eine Kontrolle erforderlich ist:
+start_page.before_you_start.inspection_needed.p1=Müssen Sie sich bei der entsprechenden Kontrollstelle melden. Dies erfolgt entweder an Ihrer Ankunftsgrenzstelle, Ausgangsgrenzstelle oder einer {0}.
+start_page.before_you_start.inspection_needed.p1.link=inländischen Grenzeinrichtungen (Inland Border Facility – IBF) (wird in neuem Tab geöffnet)
+start_page.service_available_in=Dieser Dienst wird auch in den folgenden Sprachen angeboten:
+start_page.language.en=Englisch (English)
+start_page.language.en.change=Change the language to English
+start_page.language.cy=Walisisch (Cymraeg)
+start_page.language.cy.change=Newid yr iaith ir Gymraeg
+start_page.language.bg=Bulgarisch (български)
+start_page.language.bg.change=Промяна на езика на български
+start_page.language.hr=Kroatisch (Hrvatski)
+start_page.language.hr.change=Promijeni jezik na hrvatski
+start_page.language.cs=Tschechisch (Čeština)
+start_page.language.cs.change=Změnit jazyk na češtinu
+start_page.language.fr=Französisch (Français)
+start_page.language.fr.change=Changer de langue et passer au français
+start_page.language.de=Deutsch
+start_page.language.de.change=Sprache in Deutsch ändern
+start_page.language.hu=Ungarisch (Magyar)
+start_page.language.hu.change=Váltás magyar nyelvre
+start_page.language.lt=Litauisch (Lietuviškai)
+start_page.language.lt.change=Pakeisti kalbą į lietuvių
+start_page.language.pl=Polnisch (Polski)
+start_page.language.pl.change=Zmień język na polski
+start_page.language.ro=Rumänisch (Română)
+start_page.language.ro.change=Schimbați limba în română
+start_page.language.es=Spanisch (Español)
+start_page.language.es.change=Cambiar el idioma a español
+
+
+###############################################
+#
+# Search Page
+#
+###############################################
+search_page.title=Wie lautet Ihre GMR-Referenznummer (Goods Movement Reference)?
+search_page.hint=Sie finden diese auf dem GMR-Papier, das Sie zum Einchecken für diese Überfahrt verwendet haben. Sie umfasst 12 Zeichen und beginnt mit GMR. Zum Beispiel: GMRA00002KW2.
+search_page.button=Fortsetzen
+search_page.check_another_gmr=Eine andere GMR-Referenznummer prüfen
+search_page.error.gmr_not_found=GMR nicht gefunden. Sie müssen noch einmal auf dem GMR-Papier nachschauen und die Referenznummer erneut eingeben.
+search_page.error.gmr_blank=Eine GMR-Referenznummer eingeben
+search_page.error.gmr.format=Bitte geben Sie die GMR-Referenznummer im richtigen Format ein
+
+
+
+###############################################
+#
+# No inspection needed import Page
+#
+###############################################
+no_inspection_needed_page_import.title=Keine Kontrolle erforderlich
+no_inspection_needed_page_import.h2=Was geschieht als Nächstes
+no_inspection_needed_page_import.what_happens_next.p1=Brauchen Sie Ihre Waren nicht für die Zollkontrolle melden, müssen sie aber vielleicht für andere Kontrollen melden.
+no_inspection_needed_page_import.h3.other_controls=Andere zusätzliche Kontrollen
+no_inspection_needed_page_import.other_controls.p1=Einige Arten von Warenverkehr erfordern zusätzliche Kontrollen wie die Verbringung von Tieren, Pflanzen oder organischen Stoffen. Mit dem Anmelder nachprüfen.
+no_inspection_needed_page_import.h3.ending_transit=Auch am Ende des Transits von Waren
+no_inspection_needed_page_import.ending_transit.p1=Müssen die Waren von Ihnen der nächstgelegenen Zollkontrollstelle gestellt werden.
+no_inspection_needed_page_import.h3.no_controls=Wenn Sie sich für keine anderen Kontrollen melden müssen
+no_inspection_needed_page_import.no_controls.p1=Sie können von Ihrer Ankunftsgrenzstelle weiter zu Ihrem Endziel fahren.
+
+###############################################
+#
+# No inspection needed export Page
+#
+###############################################
+no_inspection_needed_page_export.title=Keine Kontrolle erforderlich
+no_inspection_needed_page_export.h2=Was geschieht als Nächstes
+no_inspection_needed_page_export.what_happens_next.p1=Brauchen Sie Ihre Waren nicht für die Zollkontrolle melden, müssen sie aber vielleicht für andere Kontrollen melden.
+no_inspection_needed_page_export.h3.other_controls=Andere zusätzliche Kontrollen
+no_inspection_needed_page_export.other_controls.p1=Einige Arten von Warenverkehr erfordern zusätzliche Kontrollen wie die Verbringung von Tieren, Pflanzen oder organischen Stoffen. Mit dem Anmelder nachprüfen.
+no_inspection_needed_page_export.h3.no_controls=Wenn Sie sich für keine anderen Kontrollen melden müssen
+no_inspection_needed_page_export.no_controls.p1=Sie können weiter zu Ihrer Abfahrtsgrenzstelle fahren.
+
+###############################################
+#
+# Inspection pending
+#
+###############################################
+inspection_pending_page.title=Ihr Kontrollstatus ist noch nicht bereit
+inspection_pending_page.p1=Ihr Kontrollstatus sollte ca. 10 Minuten ehe Sie an der Ankunftsgrenzstelle eintreffen, bereit sein. Mithilfe der nachstehenden Schaltfläche können Sie erneut überprüfen, ob er bereit ist.
+inspection_pending_page.h2=Wenn Sie an der Grenzstelle sind und Ihr Status noch nicht bereit ist
+inspection_pending_page.p2=Ihre Waren sind noch nicht vom Zoll freigegeben worden. Sie dürfen nicht direkt zu Ihrem Bestimmungsort weiterfahren.
+inspection_pending_page.p3=Sie müssen sich direkt zur nächstgelegenen Kontrollstelle begeben. Die Grenzbehörde oder Zollbeamten werden Ihnen sagen, was Sie als Nächstes tun müssen.
+inspection_pending_page.time=Zuletzt überprüft um {0} - {1}
+inspection_pending_page.check_again=Status erneut überprüfen
+
+
+###############################################
+#
+# Inspection needed import
+#
+###############################################
+inspection_needed_import.title=Die von Ihnen beförderten Waren müssen kontrolliert werden
+inspection_needed_import.gmr=GMR-ID: {0}
+inspection_needed_import.what_next.h2=Wie geht es weiter?
+inspection_needed_import.what_next.p1=Melden Sie sich an der für Sie nächstgelegenen Kontrollstelle.
+inspection_needed_import.what_next.p2=Prüfen Sie, welche Kontrollstelle(n) Sie an Ihrer Ankunftsgrenzstelle aufsuchen müssen. Sie müssen vielleicht zu einer inländischen Grenzeinrichtung (Inland Border Facility – IBF) oder Zollkontrollstelle fahren.
+inspection_needed_import.what_next.p3=Kontrollpflichtige Waren müssen in dem gleichen Zustand erhalten werden wie zum Zeitpunkt ihrer Einfuhr.
+inspection_needed_import.text.warning=Warnhinweis
+inspection_needed_import.what_next.warning=Sie sind gesetzlich verpflichtet, anzuhalten und sich einer Kontrolle zu unterziehen.
+inspection_needed_import.inspection_site.h2=Ihre Zollkontrollstelle
+inspection_needed_import.inspection_sites.h2=Ihre Zollkontrollstellen sind
+inspection_needed_import.nearest_sites.p1=Die Kontrollen müssen in der angegebenen Reihenfolge erfolgen.
+inspection_needed_import.nearest_sites.p2=Wenn Sie nicht zur nächstgelegenen Kontrollstelle gehen können, müssen Sie sich zu einer anderen Kontrollstelle begeben.
+inspection_needed_import.arriving.h3=Kontrolle bei einer inländischen Grenzeinrichtungen (Inland Border Facility – IBF) absolvieren
+inspection_needed_import.arriving.p1=Wenn Sie sich zu einer inländischen Grenzeinrichtungen (Inland Border Facility – IBF) begeben müssen, können Sie:
+inspection_needed_import.arriving.p1.link1=mehr Informationen zu inländischen Grenzeinrichtungen (Inland Border Facility – IBF) finden
+inspection_needed_import.arriving.p1.link2=prüfen, ob es Wartezeiten bei inländischen Grenzeinrichtungen (Inland Border Facility – IBF) gibt
+inspection_needed_import.h3.ending_transit=Beendigung von Warentransitbewegungen
+inspection_needed_import.ending_transit.p1=Sie müssen die Waren an der Bestimmungszollstelle vorlegen, die in der Transit-Deklaration gemeldet ist. Mit Ihrem Anmelder nachprüfen.
+inspection_needed_import.customs.heading=Für Ihre Zoll-Kontrolle
+inspection_needed_import.daera.heading=Für Ihre DAERA-Kontrolle
+inspection_needed_import.defra.heading=Für Ihre DEFRA-Kontrolle
+inspection_needed_import.defra_plants.heading=Für Ihre DEFRA plants-Kontrolle
+inspection_needed_import.transit.heading=Für Ihre Transit-Kontrolle
+inspection_needed_import.ogd.heading=Für andere Kontrollen von Regierungsbehörden
+inspection_needed_import.ata.heading=Für Ihre ATA Carnet Bestätigung
+inspection_needed_import.eidr.heading=Für Ihre Entry in Declarant’s Record (EIDR) Kontrolle
+inspection_needed_import.dbc.heading=Für Ihre Kontrolle der Mündlichen Deklaration oder Deklaration durch Konkludentes Handeln
+inspection_needed_import.exemption.heading=Für Ihre Kontrolle der Postalischen Deklaration
+inspection_needed_import.empty.heading=Für Ihre Leerfahrzeug-Kontrolle
+inspection_needed_import.tir.heading=Für Ihre TIR Carnet Bestätigung
+inspection_needed_import.sad.heading=Für Ihre Bestätigung des Einheitspapiers der Versandanmeldung (SAD)
+inspection_needed_import_with_other.p1=Fahren Sie zu Ihrer Ankunftsgrenzstelle.
+inspection_needed_import.inspection.heading=Zu Ihrer Kontrolle
+
+###############################################
+#
+# Inspection needed export
+#
+###############################################
+inspection_needed_export.title=Die von Ihnen beförderten Waren müssen kontrolliert werden
+inspection_needed_export.gmr=GMR-ID: {0}
+inspection_needed_export.what_next.h2=Wie geht es weiter?
+inspection_needed_export.what_next.p1=Melden Sie sich an der für Sie nächstgelegenen Kontrollstelle.
+inspection_needed_export.what_next.p2=Prüfen Sie, welche Kontrollstelle(n) Sie an Ihrer Abfahrtsgrenzstelle aufsuchen müssen. Sie müssen vielleicht zu einer inländischen Grenzeinrichtung (Inland Border Facility – IBF) oder Zollkontrollstelle fahren.
+inspection_needed_export.what_next.p3=Kontrollpflichtige Waren müssen in dem gleichen Zustand erhalten werden wie zum Zeitpunkt als sie vom Händler abgeholt wurden.
+inspection_needed_export.text.warning=Warnhinweis
+inspection_needed_export.what_next.warning=Sie sind gesetzlich verpflichtet, anzuhalten und sich einer Kontrolle zu unterziehen.
+inspection_needed_export.inspection_site.h2=Ihre Zollkontrollstelle
+inspection_needed_export.inspection_sites.h2=Ihre Zollkontrollstellen sind
+inspection_needed_export.nearest_sites.p1=Die Kontrollen müssen in der angegebenen Reihenfolge erfolgen.
+inspection_needed_export.nearest_sites.p2=Wenn Sie nicht zur nächstgelegenen Kontrollstelle gehen können, müssen Sie sich zu einer anderen Kontrollstelle begeben.
+inspection_needed_export.arriving.h3=Kontrolle bei einer inländischen Grenzeinrichtungen (Inland Border Facility – IBF) absolvieren
+inspection_needed_export.arriving.p1=Wenn Sie sich zu einer inländischen Grenzeinrichtungen (Inland Border Facility – IBF) begeben müssen, können Sie:
+inspection_needed_export.arriving.p1.link1=mehr Informationen zu inländischen Grenzeinrichtungen (Inland Border Facility – IBF) finden
+inspection_needed_export.arriving.p1.link2=prüfen, ob es Wartezeiten bei inländischen Grenzeinrichtungen (Inland Border Facility – IBF) gibt
+inspection_needed_export.customs.heading=Für Ihre Zoll-Kontrolle
+inspection_needed_export.daera.heading=Für Ihre DAERA-Kontrolle
+inspection_needed_export.defra.heading=Für Ihre DEFRA-Kontrolle
+inspection_needed_export.defra_plants.heading=Für Ihre DEFRA plants-Kontrolle
+inspection_needed_export.transit.heading=Für Ihre Transit-Kontrolle
+inspection_needed_export.ogd.heading=Für andere Kontrollen von Regierungsbehörden
+inspection_needed_export.ata.heading=Für Ihre ATA Carnet Bestätigung
+inspection_needed_export.eidr.heading=Für Ihre Entry in Declarant’s Record (EIDR) Kontrolle
+inspection_needed_export.dbc.heading=Für Ihre Kontrolle der Mündlichen Deklaration oder Deklaration durch Konkludentes Handeln
+inspection_needed_export.exemption.heading=Für Ihre Kontrolle der Postalischen Deklaration
+inspection_needed_export.empty.heading=Für Ihre Leerfahrzeug-Kontrolle
+inspection_needed_export.tir.heading=Für Ihre TIR Carnet Bestätigung
+inspection_needed_export.sad.heading=Für Ihre Bestätigung des Einheitspapiers der Versandanmeldung (SAD)
+inspection_needed_export_with_other.p1=Fahren Sie zu Ihrer Abfahrtsgrenzstelle.
+inspection_needed_export.inspection.heading=Zu Ihrer Kontrolle

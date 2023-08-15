@@ -1,1 +1,55 @@
-@import "lib/govuk-frontend/govuk/base";
+$govuk-assets-path: "/driver-inspection-notification/assets/lib/govuk-frontend/govuk/assets/";
+$hmrc-assets-path: "/driver-inspection-notification/assets/lib/hmrc-frontend/hmrc/";
+
+@import "lib/govuk-frontend/govuk/all";
+@import "lib/hmrc-frontend/hmrc/all";
+
+.app-reference-number {
+  display: block;
+  font-weight: bold;
+}
+
+.word-break {
+  word-break: break-all;
+  word-break: break-word;
+}
+
+@include govuk-media-query($media-type: print) {
+  .hmrc-sign-out-nav {
+    display: none !important;
+  }
+}
+
+@include govuk-media-query($media-type: print) {
+  .cbanner-govuk-cookie-banner {
+    display: none !important;
+  }
+}
+
+.hmrc-page-heading {
+  display: table;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  padding-top: 0px;
+  clear: both;
+  table-layout: fixed;
+}
+
+.hmrc-page-heading .hmrc-caption-xl {
+  display: table-header-group;
+}
+
+.hmrc-page-heading .govuk-heading-xl {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.govuk-two-third-width {
+  width: 66.6666%;
+}
+
+
+.error-background {
+  background: $govuk-error-colour;
+}

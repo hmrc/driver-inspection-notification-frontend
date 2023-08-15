@@ -1,0 +1,190 @@
+service.name=Ellenőrizze, hogy jelentkeznie kell-e az áruk vizsgálatára
+service.text=Árumozgatási rendszer, jelentkezés vámellenőrzési szolgáltatásra
+generic.back=Vissza
+generic.title.suffix=GOV.UK
+generic.title.prefix.error=Hiba
+generic.feedback.linkText=Mit gondolt erről a szolgáltatásról?
+generic.feedback.qualifier=(30 másodpercet vesz igénybe)
+generic.form.error=Probléma jelentkezett
+
+
+###############################################
+#
+# Start Page
+#
+###############################################
+start_page.title=Ellenőrizze, hogy jelentkeznie kell-e az áruk vizsgálatára
+start_page.h2=Ezzel a szolgáltatással ellenőrizze, hogy szükség van-e az árui vizsgálatára
+start_page.entering=Ha belép az Egyesült Királyság területére:
+start_page.entering.p1=Az átkelés vége felé, nagyjából 10 perccel az érkezési határátkelőhely elérése előtt ellenőrizze.
+start_page.leaving=Ha elhagyja az Egyesült Királyság területét:
+start_page.leaving.p1=Az indulási határátkelőhelyre való megérkezés előtt ellenőrizze.
+start_page.button=Kezdés most
+start_page.before_you_start=Mielőtt nekifogna
+start_page.before_you_start.p1=Meg kell adnia az árumozgatási referenciaszámát (GMR).
+start_page.before_you_start.p2=A következő válaszokat kaphatja:
+start_page.before_you_start.list.inspection_needed=vizsgálat szükséges
+start_page.before_you_start.list.no_inspection_needed=nincs szükség vizsgálatra
+start_page.before_you_start.list.pending=a vizsgálati állapot még nem áll rendelkezésre
+start_page.before_you_start.inspection_needed=Ha szükség van vizsgálatra
+start_page.before_you_start.inspection_needed.p1=A megfelelő ellenőrzési helyen kell jelentkeznie. Ez az érkezési határátkelőhelyen, az indulási határátkelőhelyen vagy a következő helyen lesz: {0}.
+start_page.before_you_start.inspection_needed.p1.link=belföldi határátkelő létesítménynél (IBF) kerül sor (új lapon nyílik meg)
+start_page.service_available_in=A szolgáltatás az alábbi nyelveken is elérhető:
+start_page.language.en=Angol (English)
+start_page.language.en.change=Change the language to English
+start_page.language.cy=Walesi (Cymraeg)
+start_page.language.cy.change=Newid yr iaith ir Gymraeg
+start_page.language.bg=bolgár (български)
+start_page.language.bg.change=Промяна на езика на български
+start_page.language.hr=horvát (Hrvatski)
+start_page.language.hr.change=Promijeni jezik na hrvatski
+start_page.language.cs=cseh (Čeština)
+start_page.language.cs.change=Změnit jazyk na češtinu
+start_page.language.fr=francia (Français)
+start_page.language.fr.change=Changer de langue et passer au français
+start_page.language.de=német (Deutsch)
+start_page.language.de.change=Sprache in Deutsch ändern
+start_page.language.hu=magyar
+start_page.language.hu.change=Váltás magyar nyelvre
+start_page.language.lt=litván (Lietuviškai)
+start_page.language.lt.change=Pakeisti kalbą į lietuvių
+start_page.language.pl=lengyel (Polski)
+start_page.language.pl.change=Zmień język na polski
+start_page.language.ro=román (Română)
+start_page.language.ro.change=Schimbați limba în română
+start_page.language.es=spanyol (Español)
+start_page.language.es.change=Cambiar el idioma a español
+
+
+###############################################
+#
+# Search Page
+#
+###############################################
+search_page.title=Mi az az árumozgási referencia (GMR)?
+search_page.hint=Megtalálja a GMR azon másolatán, amelyet az átkeléshez használt. Ez egy 12 karakterből álló, GMR előtagú kód. Például: GMRA00002KW2.
+search_page.button=Folytatás
+search_page.check_another_gmr=Másik GMR ellenőrzése
+search_page.error.gmr_not_found=A GMR nem található. Ellenőrizze a GMR adatait, és adja meg újra.
+search_page.error.gmr_blank=Adja meg a GMR értékét
+search_page.error.gmr.format=Adja meg a GMR értékét megfelelő formátumban
+
+
+
+###############################################
+#
+# No inspection needed import Page
+#
+###############################################
+no_inspection_needed_page_import.title=Nincs szükség átvizsgálásra
+no_inspection_needed_page_import.h2=A következő lépés
+no_inspection_needed_page_import.what_happens_next.p1=Nem kell jelentkeznie az áru átvizsgálására, de előfordulhat, hogy más ellenőrzésekre jelentkeznie kell.
+no_inspection_needed_page_import.h3.other_controls=Egyéb további ellenőrzések
+no_inspection_needed_page_import.other_controls.p1=Bizonyos fuvarok (például élelmiszerek, állatok és szerves anyagok) esetén további ellenőrzésekre lehet szükség. Egyeztessen a nyilatkozattevővel.
+no_inspection_needed_page_import.h3.ending_transit=Tranzitmozgás befejezése esetén
+no_inspection_needed_page_import.ending_transit.p1=Az árukat emellett be kell mutatnia a legközelebbi érkeztető hivatalnál.
+no_inspection_needed_page_import.h3.no_controls=Ha nem kell további ellenőrzésre jelentkeznie
+no_inspection_needed_page_import.no_controls.p1=Az érkezési határátkelő helyről folytathatja útját a célja felé.
+
+###############################################
+#
+# No inspection needed export Page
+#
+###############################################
+no_inspection_needed_page_export.title=Nincs szükség átvizsgálásra
+no_inspection_needed_page_export.h2=A következő lépés
+no_inspection_needed_page_export.what_happens_next.p1=Nem kell jelentkeznie az áru átvizsgálására, de előfordulhat, hogy más ellenőrzésekre jelentkeznie kell.
+no_inspection_needed_page_export.h3.other_controls=Egyéb további ellenőrzések
+no_inspection_needed_page_export.other_controls.p1=Bizonyos fuvarok (például élelmiszerek, állatok és szerves anyagok) esetén további ellenőrzésekre lehet szükség. Egyeztessen a nyilatkozattevővel.
+no_inspection_needed_page_export.h3.no_controls=Ha nem kell további ellenőrzésre jelentkeznie
+no_inspection_needed_page_export.no_controls.p1=Folytathatja útját az indulási határátkelő helyre.
+
+###############################################
+#
+# Inspection pending
+#
+###############################################
+inspection_pending_page.title=Az ellenőrzés állapota még nem áll rendelkezésre
+inspection_pending_page.p1=Az ellenőrzési állapotnak nagyjából 10 perccel az érkezési határátkelőhely elérése előtt késznek kell lennie. Az alábbi gombbal ellenőrizheti, hogy kész-e az állapot.
+inspection_pending_page.h2=Ha a határátkelőhelynél van, és állapota még mindig „nem áll készen”
+inspection_pending_page.p2=Az árukat nem hagyta jóvá a vámhivatal. Egyenesen a célhelyre kell mennie.
+inspection_pending_page.p3=Egyenesen a legközelebbi ellenőrző létesítményhez kell mennie. A Határőrség vagy a vámtisztviselők mondják majd meg, hogy mit kell ezután tennie.
+inspection_pending_page.time=Legutóbbi megtekintés {0} - {1}
+inspection_pending_page.check_again=Állapot ellenőrzése újra
+
+
+###############################################
+#
+# Inspection needed import
+#
+###############################################
+inspection_needed_import.title=Az Ön által szállított árukat ellenőrizni kell
+inspection_needed_import.gmr=GMR-azonosító: {0}
+inspection_needed_import.what_next.h2=Mik a következő lépések?
+inspection_needed_import.what_next.p1=Jelentkezzen az Önhöz legközelebbi ellenőrzési helyszínen.
+inspection_needed_import.what_next.p2=Tekintse meg, hogy mely ellenőrzési helyszín(ek)en kell megjelennie az érkezési határátkelő helyen. Előfordulhat, hogy belföldi határátkelő létesítményhez (IBF) vagy vámellenőrző létesítményhez kell mennie.
+inspection_needed_import.what_next.p3=Azokat az árukat, amelyeket ellenőrizni kell, ugyanolyan állapotban kell tartani, mint amilyenben az importáláskor is voltak.
+inspection_needed_import.text.warning=Figyelmeztetés
+inspection_needed_import.what_next.warning=Az ellenőrzés céljából történő megállítás jogi követelmény.
+inspection_needed_import.inspection_site.h2=Az Ön vizsgálati helyszíne
+inspection_needed_import.inspection_sites.h2=Az Ön vizsgálati helyszínei
+inspection_needed_import.nearest_sites.p1=Az ellenőrzésekre a megjelenési sorrendben kerül sor.
+inspection_needed_import.nearest_sites.p2=Ha nem tud megjelenni a legközelebbi vizsgálati helyszínen, egy másikhoz kell átmennie.
+inspection_needed_import.arriving.h3=Részvétel belföldi határátkelő létesítménynél (IBF) való ellenőrzésen
+inspection_needed_import.arriving.p1=Ha IBF-hez kell mennie:
+inspection_needed_import.arriving.p1.link1=további információkat kereshet az IBF-ekről
+inspection_needed_import.arriving.p1.link2=ellenőrizheti, hogy vannak-e késések az IBF-nél
+inspection_needed_import.h3.ending_transit=Tranzitmozgások befejezése
+inspection_needed_import.ending_transit.p1=Az árukat be kell mutatnia a tranzitnyilatkozatban megadott érkeztető hivatalnál. Egyeztessen a nyilatkozattevővel.
+inspection_needed_import.customs.heading=Vámellenőrzés esetén
+inspection_needed_import.daera.heading=DAERA-ellenőrzés esetén
+inspection_needed_import.defra.heading=DEFRA-ellenőrzés esetén
+inspection_needed_import.defra_plants.heading=DEFRA plants-ellenőrzés esetén
+inspection_needed_import.transit.heading=Tranzitellenőrzés esetén
+inspection_needed_import.ogd.heading=Egyéb kormányhivatali ellenőrzések esetén
+inspection_needed_import.ata.heading=Az Ön ATA Carnet-igazolványának jóváhagyásához
+inspection_needed_import.eidr.heading=A nyilatkozatot tevő személy adataiban felvezetett bejegyzés című dokumentumának ellenőrzéséhez
+inspection_needed_import.dbc.heading=Az Ön szóbeli vagy ráutaló magatartás által létrejött nyilatkozatának ellenőrzéséhez
+inspection_needed_import.exemption.heading=Az Ön postai nyilatkozatának ellenőrzéséhez
+inspection_needed_import.empty.heading=Az Ön Üres jármű című dokumentumának ellenőrzéséhez
+inspection_needed_import.tir.heading=Az Ön TIR Carnet-igazolványának jóváhagyásához
+inspection_needed_import.sad.heading=Az Ön egységes vámokmány (SAD) dokumentumának jóváhagyásához
+inspection_needed_import_with_other.p1=Menjen az érkezési határátkelő helyre.
+inspection_needed_import.inspection.heading=Ellenőrzés esetén
+
+###############################################
+#
+# Inspection needed export
+#
+###############################################
+inspection_needed_export.title=Az Ön által szállított árukat ellenőrizni kell
+inspection_needed_export.gmr=GMR-azonosító: {0}
+inspection_needed_export.what_next.h2=Mik a következő lépések?
+inspection_needed_export.what_next.p1=Jelentkezzen az Önhöz legközelebbi ellenőrzési helyszínen.
+inspection_needed_export.what_next.p2=Tekintse meg, hogy mely ellenőrzési helyszín(ek)en kell megjelennie az indulási határátkelő helyen. Előfordulhat, hogy belföldi határátkelő létesítményhez (IBF) vagy vámellenőrző létesítményhez kell mennie.
+inspection_needed_export.what_next.p3=Azokat az árukat, amelyeket ellenőrizni kell, ugyanolyan állapotban kell tartani, mint amilyenben a kereskedőtől való átvételkor is voltak.
+inspection_needed_export.text.warning=Figyelmeztetés
+inspection_needed_export.what_next.warning=Az ellenőrzés céljából történő megállítás jogi követelmény.
+inspection_needed_export.inspection_site.h2=Az Ön vizsgálati helyszíne
+inspection_needed_export.inspection_sites.h2=Az Ön vizsgálati helyszínei
+inspection_needed_export.nearest_sites.p1=Az ellenőrzésekre a megjelenési sorrendben kerül sor.
+inspection_needed_export.nearest_sites.p2=Ha nem tud megjelenni a legközelebbi vizsgálati helyszínen, egy másikhoz kell átmennie.
+inspection_needed_export.arriving.h3=Részvétel belföldi határátkelő létesítménynél (IBF) való ellenőrzésen
+inspection_needed_export.arriving.p1=Ha IBF-hez kell mennie:
+inspection_needed_export.arriving.p1.link1=további információkat kereshet az IBF-ekről
+inspection_needed_export.arriving.p1.link2=ellenőrizheti, hogy vannak-e késések az IBF-nél
+inspection_needed_export.customs.heading=Vámellenőrzés esetén
+inspection_needed_export.daera.heading=DAERA-ellenőrzés esetén
+inspection_needed_export.defra.heading=DEFRA-ellenőrzés esetén
+inspection_needed_export.defra_plants.heading=DEFRA plants-ellenőrzés esetén
+inspection_needed_export.transit.heading=Tranzitellenőrzés esetén
+inspection_needed_export.ogd.heading=Egyéb kormányhivatali ellenőrzések esetén
+inspection_needed_export.ata.heading=Az Ön ATA Carnet-igazolványának jóváhagyásához
+inspection_needed_export.eidr.heading=A nyilatkozatot tevő személy adataiban felvezetett bejegyzés című dokumentumának ellenőrzéséhez
+inspection_needed_export.dbc.heading=Az Ön szóbeli vagy ráutaló magatartás által létrejött nyilatkozatának ellenőrzéséhez
+inspection_needed_export.exemption.heading=Az Ön postai nyilatkozatának ellenőrzéséhez
+inspection_needed_export.empty.heading=Az Ön Üres jármű című dokumentumának ellenőrzéséhez
+inspection_needed_export.tir.heading=Az Ön TIR Carnet-igazolványának jóváhagyásához
+inspection_needed_export.sad.heading=Az Ön egységes vámokmány (SAD) dokumentumának jóváhagyásához
+inspection_needed_export_with_other.p1=Menjen az indulási határátkelő helyre.
+inspection_needed_export.inspection.heading=Ellenőrzés esetén

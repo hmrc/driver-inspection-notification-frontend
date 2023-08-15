@@ -1,0 +1,190 @@
+service.name=Проверете дали трябва да се явите за проверка
+service.text=Системен доклад за движение на стоки за услуга за митническа инспекция
+generic.back=Назад
+generic.title.suffix=GOV.UK
+generic.title.prefix.error=Грешка
+generic.feedback.linkText=Какво мислите за услугата?
+generic.feedback.qualifier=(отнема 30 секунди)
+generic.form.error=Има проблем
+
+
+###############################################
+#
+# Start Page
+#
+###############################################
+start_page.title=Проверете дали трябва да се явите за проверка
+start_page.h2=Използвайте тази услуга, за да проверите дали трябва да бъде извършена проверка на стоките ви
+start_page.entering=Ако влизате в Обединеното кралство:
+start_page.entering.p1=Проверете това към края на преминаването, около 10 минути преди да стигнете до граничния пункт на пристигане.
+start_page.leaving=Ако напускате Обединеното кралство:
+start_page.leaving.p1=Проверете това, преди да пристигнете на отправния граничен пункт.
+start_page.button=Започване сега
+start_page.before_you_start=Преди да започнете
+start_page.before_you_start.p1=Ще трябва да въведете референтния си номер за движение на стоки (GMR).
+start_page.before_you_start.p2=Ще получите един от следните отговори:
+start_page.before_you_start.list.inspection_needed=необходима е проверка
+start_page.before_you_start.list.no_inspection_needed=не е необходима проверка
+start_page.before_you_start.list.pending=статусът на проверката ви все още не е готов
+start_page.before_you_start.inspection_needed=Ако е необходима проверка
+start_page.before_you_start.inspection_needed.p1=Ще трябва да се явите на съответното място за проверка. Това е или на вашия граничен пункт на пристигане, отправен граничен пункт, или {0}.
+start_page.before_you_start.inspection_needed.p1.link=вътрешния граничен пункт (IBF) (отваря се в нов раздел)
+start_page.service_available_in=Услугата е налична и на:
+start_page.language.en=Английски (English)
+start_page.language.en.change=Change the language to English
+start_page.language.cy=Уелски (Cymraeg)
+start_page.language.cy.change=Newid yr iaith ir Gymraeg
+start_page.language.bg=български
+start_page.language.bg.change=Промяна на езика на български
+start_page.language.hr=хърватски (Hrvatski)
+start_page.language.hr.change=Promijeni jezik na hrvatski
+start_page.language.cs=чешки (Čeština)
+start_page.language.cs.change=Změnit jazyk na češtinu
+start_page.language.fr=френски (Français)
+start_page.language.fr.change=Changer de langue et passer au français
+start_page.language.de=немски (Deutsch)
+start_page.language.de.change=Sprache in Deutsch ändern
+start_page.language.hu=унгарски (Magyar)
+start_page.language.hu.change=Váltás magyar nyelvre
+start_page.language.lt=литовски (Lietuviškai)
+start_page.language.lt.change=Pakeisti kalbą į lietuvių
+start_page.language.pl=полски (Polski)
+start_page.language.pl.change=Zmień język na polski
+start_page.language.ro=румънски (Română)
+start_page.language.ro.change=Schimbați limba în română
+start_page.language.es=испански (Español)
+start_page.language.es.change=Cambiar el idioma a español
+
+
+###############################################
+#
+# Search Page
+#
+###############################################
+search_page.title=Какъв е вашият референтен номер за движение на стоки (GMR)?
+search_page.hint=Можете да го откриете на екземпляра от GMR, с който сте се регистрирали за този процес по преминаване. Номерът съдържа 12 знака и започва с GMR. Например – GMRA00002KW2.
+search_page.button=Продължаване
+search_page.check_another_gmr=Проверка на друг GMR
+search_page.error.gmr_not_found=GMR не е открит. Необходимо е да проверите данните за GMR и да го въведете отново.
+search_page.error.gmr_blank=Въведете GMR
+search_page.error.gmr.format=Въведете GMR в правилния формат
+
+
+
+###############################################
+#
+# No inspection needed import Page
+#
+###############################################
+no_inspection_needed_page_import.title=Не е необходима инспекция
+no_inspection_needed_page_import.h2=Какво следва
+no_inspection_needed_page_import.what_happens_next.p1=Не е необходимо да докладвате за проверка на вашите стоки, но все пак може да се наложи да докладвате за други проверки.
+no_inspection_needed_page_import.h3.other_controls=Други допълнителни проверки
+no_inspection_needed_page_import.other_controls.p1=При някои движения може да са необходими допълнителни проверки, например при храна, животни или органични продукти. Проверете при вашия декларатор.
+no_inspection_needed_page_import.h3.ending_transit=Ако завършвате транзитно движение
+no_inspection_needed_page_import.ending_transit.p1=Трябва също така да представите стоките в получаващото митническо учреждение, намиращо се най-близо до местоназначението ви.
+no_inspection_needed_page_import.h3.no_controls=Ако не е необходимо да докладвате за допълнителни проверки
+no_inspection_needed_page_import.no_controls.p1=Можете да продължите от граничния пункт на пристигане към вашата дестинация.
+
+###############################################
+#
+# No inspection needed export Page
+#
+###############################################
+no_inspection_needed_page_export.title=Не е необходима инспекция
+no_inspection_needed_page_export.h2=Какво следва
+no_inspection_needed_page_export.what_happens_next.p1=Не е необходимо да докладвате за проверка на вашите стоки, но все пак може да се наложи да докладвате за други проверки.
+no_inspection_needed_page_export.h3.other_controls=Други допълнителни проверки
+no_inspection_needed_page_export.other_controls.p1=При някои движения може да са необходими допълнителни проверки, например при храна, животни или органични продукти. Проверете при вашия декларатор.
+no_inspection_needed_page_export.h3.no_controls=Ако не е необходимо да докладвате за допълнителни проверки
+no_inspection_needed_page_export.no_controls.p1=Можете да продължите към вашия отправен граничен пункт.
+
+###############################################
+#
+# Inspection pending
+#
+###############################################
+inspection_pending_page.title=Статусът ви за проверка все още не е готов
+inspection_pending_page.p1=Статусът на проверката ви вероятно ще бъде готов около 10 минути преди да стигнете до граничния пункт на пристигане. Можете да проверите отново, за да видите дали е готов, като натиснете бутона по-долу.
+inspection_pending_page.h2=Ако сте на граничния пункт и статусът ви все още не е готов
+inspection_pending_page.p2=Вашите стоки не са освободени от митницата. Не трябва да тръгвате направо към вашата дестинация.
+inspection_pending_page.p3=Трябва първо да отидете до най-близкото инспекционно съоръжение. Граничните или митническите служители ще ви кажат какво трябва да направите след това.
+inspection_pending_page.time=Последна проверка {0} - {1}
+inspection_pending_page.check_again=Проверете статуса отново
+
+
+###############################################
+#
+# Inspection needed import
+#
+###############################################
+inspection_needed_import.title=Стоките, които пренасяте, изискват проверка
+inspection_needed_import.gmr=Идентификационен код за GMR: {0}
+inspection_needed_import.what_next.h2=Какво да направите след това
+inspection_needed_import.what_next.p1=Явете с в най-близкия за вас пункт за проверка.
+inspection_needed_import.what_next.p2=Проверете на кои места за проверка трябва да се явите на граничния пункт на пристигане. Възможно е да се наложи да карате до вътрешен граничен пункт (IBF) или до митническото учреждение на пристанището.
+inspection_needed_import.what_next.p3=Стоките за проверка трябва да са в същото състояние, в каквото са били при вноса.
+inspection_needed_import.text.warning=Предупреждение
+inspection_needed_import.what_next.warning=Спирането за проверка е законово изискване.
+inspection_needed_import.inspection_site.h2=Вашият инспекционен пункт
+inspection_needed_import.inspection_sites.h2=Вашите инспекционни пунктове
+inspection_needed_import.nearest_sites.p1=Проверките трябва да се извършват в посочения ред.
+inspection_needed_import.nearest_sites.p2=Ако не можете да се явите в най-близкия за вас пункт за проверка, трябва да отидете в друг такъв.
+inspection_needed_import.arriving.h3=Явяване за проверка на пункт на сухоземна граница (IBF)
+inspection_needed_import.arriving.p1=Ако трябва да се явите в IBF, можете да:
+inspection_needed_import.arriving.p1.link1=намерите повече информация относно вътрешните гранични пунктове
+inspection_needed_import.arriving.p1.link2=проверите дали има закъснения на вътрешния граничен пункт (IBF)
+inspection_needed_import.h3.ending_transit=Завършване на транзитни движения
+inspection_needed_import.ending_transit.p1=Трябва да представите стоките в получаващото митническо учреждение, декларирано в транзитната декларация. Проверете при вашия декларатор.
+inspection_needed_import.customs.heading=За вашата митническа проверка
+inspection_needed_import.daera.heading=За вашата проверка от Министерството на околната среда, храните и въпросите на селските райони (DAERA)
+inspection_needed_import.defra.heading=За вашата проверка от Министерството на околната среда, храните и въпросите на селските райони (DEFRA)
+inspection_needed_import.defra_plants.heading=За вашата проверка от Министерството на околната среда, храните и въпросите на селските райони (DEFRA plants)
+inspection_needed_import.transit.heading=За вашата проверка при транзит
+inspection_needed_import.ogd.heading=За проверки на други държавни ведомства
+inspection_needed_import.ata.heading=За вашето потвърждение на карнет ATA
+inspection_needed_import.eidr.heading=За вашата проверка на Запис в регистрите на декларатора
+inspection_needed_import.dbc.heading=За вашата проверка на декларация в устна форма или чрез действие
+inspection_needed_import.exemption.heading=За вашата проверка на декларация за пощенски пратки
+inspection_needed_import.empty.heading=За вашата проверка на празно превозно средство
+inspection_needed_import.tir.heading=За вашето потвърждение на карнет TIR
+inspection_needed_import.sad.heading=За вашето потвърждение на Единен административен документ (SAD)
+inspection_needed_import_with_other.p1=Пътуване до вашия граничен пункт на пристигане.
+inspection_needed_import.inspection.heading=За вашата проверка
+
+###############################################
+#
+# Inspection needed export
+#
+###############################################
+inspection_needed_export.title=Стоките, които пренасяте, изискват проверка
+inspection_needed_export.gmr=Идентификационен код за GMR: {0}
+inspection_needed_export.what_next.h2=Какво да направите след това
+inspection_needed_export.what_next.p1=Явете с в най-близкия за вас пункт за проверка.
+inspection_needed_export.what_next.p2=Проверете на кои места за проверка трябва да се явите на отправния граничен пункт. Възможно е да се наложи да карате до вътрешен граничен пункт (IBF) или до митническото учреждение на пристанището.
+inspection_needed_export.what_next.p3=Стоките за проверка трябва да са в същото състояние, в каквото са били взети от търговеца.
+inspection_needed_export.text.warning=Предупреждение
+inspection_needed_export.what_next.warning=Спирането за проверка е законово изискване.
+inspection_needed_export.inspection_site.h2=Вашият инспекционен пункт
+inspection_needed_export.inspection_sites.h2=Вашите инспекционни пунктове
+inspection_needed_export.nearest_sites.p1=Проверките трябва да се извършват в посочения ред.
+inspection_needed_export.nearest_sites.p2=Ако не можете да се явите в най-близкия за вас пункт за проверка, трябва да отидете в друг такъв.
+inspection_needed_export.arriving.h3=Явяване за проверка на пункт на сухоземна граница (IBF)
+inspection_needed_export.arriving.p1=Ако трябва да се явите в IBF, можете да:
+inspection_needed_export.arriving.p1.link1=намерите повече информация относно вътрешните гранични пунктове
+inspection_needed_export.arriving.p1.link2=проверите дали има закъснения на вътрешния граничен пункт (IBF)
+inspection_needed_export.customs.heading=За вашата митническа проверка
+inspection_needed_export.daera.heading=За вашата проверка от Министерството на околната среда, храните и въпросите на селските райони (DAERA)
+inspection_needed_export.defra.heading=За вашата проверка от Министерството на околната среда, храните и въпросите на селските райони (DEFRA)
+inspection_needed_export.defra_plants.heading=За вашата проверка от Министерството на околната среда, храните и въпросите на селските райони (DEFRA plants)
+inspection_needed_export.transit.heading=За вашата проверка при транзит
+inspection_needed_export.ogd.heading=За проверки на други държавни ведомства
+inspection_needed_export.ata.heading=За вашето потвърждение на карнет ATA
+inspection_needed_export.eidr.heading=За вашата проверка на Запис в регистрите на декларатора
+inspection_needed_export.dbc.heading=За вашата проверка на декларация в устна форма или чрез действие
+inspection_needed_export.exemption.heading=За вашата проверка на декларация за пощенски пратки
+inspection_needed_export.empty.heading=За вашата проверка на празно превозно средство
+inspection_needed_export.tir.heading=За вашето потвърждение на карнет TIR
+inspection_needed_export.sad.heading=За вашето потвърждение на Единен административен документ (SAD)
+inspection_needed_export_with_other.p1=Пътуване до вашия отправен граничен пункт.
+inspection_needed_export.inspection.heading=За вашата проверка

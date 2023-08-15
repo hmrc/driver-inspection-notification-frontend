@@ -1,0 +1,190 @@
+service.name=Vérifiez si vous devez vous présenter pour une inspection
+service.text=Rapport du système des mouvements de marchandises pour un service d’inspection des douanes
+generic.back=Retour
+generic.title.suffix=GOV.UK
+generic.title.prefix.error=Erreur
+generic.feedback.linkText=Qu’avez-vous pensé de ce service?
+generic.feedback.qualifier=(cela prend 30 secondes)
+generic.form.error=Il y a un problème
+
+
+###############################################
+#
+# Start Page
+#
+###############################################
+start_page.title=Vérifiez si vous devez vous présenter pour une inspection
+start_page.h2=Utilisez ce service afin de vérifier si vous avez besoin d’une inspection de vos marchandises
+start_page.entering=Si vous entrez au Royaume-Uni :
+start_page.entering.p1=Vérifiez vos informations vers la fin de votre traversée, environ 10 minutes avant d‘atteindre votre site frontalier d‘arrivée.
+start_page.leaving=Si vous quittez le Royaume-Uni :
+start_page.leaving.p1=Vérifiez vos informations avant d‘arriver à votre site frontalier de départ.
+start_page.button=Commencer maintenant
+start_page.before_you_start=Avant de commencer
+start_page.before_you_start.p1=Vous devrez saisir votre référence de mouvement de marchandises (GMR).
+start_page.before_you_start.p2=Vous obtiendrez l’une de ces réponses :
+start_page.before_you_start.list.inspection_needed=inspection nécessaire
+start_page.before_you_start.list.no_inspection_needed=aucune inspection nécessaire
+start_page.before_you_start.list.pending=votre statut d’inspection n’est pas encore prêt
+start_page.before_you_start.inspection_needed=Si une inspection est nécessaire
+start_page.before_you_start.inspection_needed.p1=Vous devrez vous présenter au site d‘inspection approprié. Il s‘agira soit de votre site frontalier d‘arrivée, soit de votre site frontalier de départ, soit d‘un {0}.
+start_page.before_you_start.inspection_needed.p1.link=installation frontalière intérieure (IBF) (s’ouvre dans un nouvel onglet)
+start_page.service_available_in=Ce service est également disponible en :
+start_page.language.en=Anglais (English)
+start_page.language.en.change=Change the language to English
+start_page.language.cy=Gallois (Cymraeg)
+start_page.language.cy.change=Newid yr iaith ir Gymraeg
+start_page.language.bg=Bulgare (български)
+start_page.language.bg.change=Промяна на езика на български
+start_page.language.hr=Croate (Hrvatski)
+start_page.language.hr.change=Promijeni jezik na hrvatski
+start_page.language.cs=Tchèque (Čeština)
+start_page.language.cs.change=Změnit jazyk na češtinu
+start_page.language.fr=Français
+start_page.language.fr.change=Changer de langue et passer au français
+start_page.language.de=Allemand (Deutsch)
+start_page.language.de.change=Sprache in Deutsch ändern
+start_page.language.hu=Hongrois (Magyar)
+start_page.language.hu.change=Váltás magyar nyelvre
+start_page.language.lt=Lituanien (Lietuviškai)
+start_page.language.lt.change=Pakeisti kalbą į lietuvių
+start_page.language.pl=Polonais (Polski)
+start_page.language.pl.change=Zmień język na polski
+start_page.language.ro=Roumain (Română)
+start_page.language.ro.change=Schimbați limba în română
+start_page.language.es=Espagnol (Español)
+start_page.language.es.change=Cambiar el idioma a español
+
+
+###############################################
+#
+# Search Page
+#
+###############################################
+search_page.title=Quelle est votre référence de mouvement de marchandises (GMR) ?
+search_page.hint=Vous la trouverez sur la copie de la GMR que vous avez utilisée pour vous enregistrer pour la traversée. Elle comprend 12 caractères commençant par GMR. Par exemple : GMRA00002KW2.
+search_page.button=Continuer
+search_page.check_another_gmr=Vérifier une autre GMR
+search_page.error.gmr_not_found=GMR introuvable. Vous devrez vérifier les détails de la GMR et la saisir à nouveau.
+search_page.error.gmr_blank=Saisissez une GMR
+search_page.error.gmr.format=Saisissez une GMR au bon format
+
+
+
+###############################################
+#
+# No inspection needed import Page
+#
+###############################################
+no_inspection_needed_page_import.title=Aucune inspection nécessaire
+no_inspection_needed_page_import.h2=Que se passe-t-il ensuite
+no_inspection_needed_page_import.what_happens_next.p1=Vous n’avez pas besoin de vous présenter à une inspection de vos marchandises, mais vous devrez peut-être vous présenter à d’autres contrôles.
+no_inspection_needed_page_import.h3.other_controls=Autres contrôles supplémentaires
+no_inspection_needed_page_import.other_controls.p1=Certains mouvements peuvent nécessiter des contrôles supplémentaires, par exemple les aliments, les animaux ou les produits organiques. Renseignez-vous auprès de votre déclarant.
+no_inspection_needed_page_import.h3.ending_transit=Si vous terminez un mouvement de transit
+no_inspection_needed_page_import.ending_transit.p1=Vous devez également présenter les marchandises à votre bureau de destination le plus proche.
+no_inspection_needed_page_import.h3.no_controls=S’il n’y a aucun autre contrôle auquel vous devez vous présenter
+no_inspection_needed_page_import.no_controls.p1=Vous pouvez continuer depuis votre site frontalier d‘arrivée jusqu‘à votre destination.
+
+###############################################
+#
+# No inspection needed export Page
+#
+###############################################
+no_inspection_needed_page_export.title=Aucune inspection nécessaire
+no_inspection_needed_page_export.h2=Que se passe-t-il ensuite
+no_inspection_needed_page_export.what_happens_next.p1=Vous n’avez pas besoin de vous présenter à une inspection de vos marchandises, mais vous devrez peut-être vous présenter à d’autres contrôles.
+no_inspection_needed_page_export.h3.other_controls=Autres contrôles supplémentaires
+no_inspection_needed_page_export.other_controls.p1=Certains mouvements peuvent nécessiter des contrôles supplémentaires, par exemple les aliments, les animaux ou les produits organiques. Renseignez-vous auprès de votre déclarant.
+no_inspection_needed_page_export.h3.no_controls=S’il n’y a aucun autre contrôle auquel vous devez vous présenter
+no_inspection_needed_page_export.no_controls.p1=Vous pouvez continuer jusqu‘à votre site frontalier de départ.
+
+###############################################
+#
+# Inspection pending
+#
+###############################################
+inspection_pending_page.title=Votre statut d’inspection n’est pas encore prêt
+inspection_pending_page.p1=Votre statut d’inspection devrait être prêt environ 10 minutes avant que vous n’atteigniez votre site frontalier d’arrivée. Vous pouvez vérifier à nouveau s’il est prêt en utilisant le bouton ci-dessous.
+inspection_pending_page.h2=Si vous êtes au site frontalier et que votre statut n’est toujours pas prêt
+inspection_pending_page.p2=Vos marchandises n’ont pas été dédouanées. Vous ne devez pas vous rendre directement à votre destination.
+inspection_pending_page.p3=Vous devez vous rendre directement au centre de contrôle le plus proche. Les agents des Forces frontalières ou des douanes vous diront ce qu’il faut faire ensuite.
+inspection_pending_page.time=Dernière vérification à {0} - {1}
+inspection_pending_page.check_again=Vérifier à nouveau le statut
+
+
+###############################################
+#
+# Inspection needed import
+#
+###############################################
+inspection_needed_import.title=Les marchandises que vous transportez nécessitent une inspection
+inspection_needed_import.gmr=Identifiant de la GMR : {0}
+inspection_needed_import.what_next.h2=Que faire ensuite
+inspection_needed_import.what_next.p1=Présentez-vous au site d’inspection le plus proche.
+inspection_needed_import.what_next.p2=Vérifiez à quel(s) site(s) d’inspection vous devez vous présenter à votre site frontalier d’arrivée. Vous devrez peut-être vous rendre à une installation frontalière intérieure (IBF) ou à un centre de contrôle douanier.
+inspection_needed_import.what_next.p3=Les marchandises nécessaires à l’inspection doivent être conservées dans le même état qu’au moment de leur importation.
+inspection_needed_import.text.warning=Avertissement
+inspection_needed_import.what_next.warning=L’arrêt pour inspection est une exigence légale.
+inspection_needed_import.inspection_site.h2=Votre site d’inspection
+inspection_needed_import.inspection_sites.h2=Vos sites d’inspection
+inspection_needed_import.nearest_sites.p1=Les inspections doivent avoir lieu dans l’ordre indiqué.
+inspection_needed_import.nearest_sites.p2=Si vous ne pouvez pas vous rendre au site d’inspection le plus proche, vous devrez vous rendre à un autre site d’inspection.
+inspection_needed_import.arriving.h3=Se présenter à un contrôle auprès d’une installation frontalière intérieure (IBF)
+inspection_needed_import.arriving.p1=Si vous devez vous présenter à une IBF, vous pouvez :
+inspection_needed_import.arriving.p1.link1=trouver de plus amples informations sur les IBF
+inspection_needed_import.arriving.p1.link2=vérifier s’il y a des retards dans une IBF
+inspection_needed_import.h3.ending_transit=Terminer les mouvements de transit
+inspection_needed_import.ending_transit.p1=Vous devez présenter les marchandises au bureau de destination indiqué dans la déclaration de transit. Renseignez-vous auprès de votre déclarant.
+inspection_needed_import.customs.heading=Pour votre inspection douanière
+inspection_needed_import.daera.heading=Pour votre inspection DAERA (Département de l’agriculture, de l’environnement et des affaires rurales)
+inspection_needed_import.defra.heading=Pour votre inspection DEFRA
+inspection_needed_import.defra_plants.heading=Pour votre inspection DEFRA plants
+inspection_needed_import.transit.heading=Pour votre inspection de transit
+inspection_needed_import.ogd.heading=Pour les autres inspections administratives
+inspection_needed_import.ata.heading=Pour la validation de votre Carnet ATA
+inspection_needed_import.eidr.heading=Pour votre contrôle de l’inscription au dossier du déclarant
+inspection_needed_import.dbc.heading=Pour votre contrôle de la déclaration orale ou de fait
+inspection_needed_import.exemption.heading=Pour votre contrôle de la déclaration postale
+inspection_needed_import.empty.heading=Pour votre contrôle du véhicule vide
+inspection_needed_import.tir.heading=Pour la validation de votre Carnet TIR
+inspection_needed_import.sad.heading=Pour la validation de votre Document administratif unique (DAU)
+inspection_needed_import_with_other.p1=Rendez-vous à votre site frontalier d’arrivée.
+inspection_needed_import.inspection.heading=Pour votre inspection
+
+###############################################
+#
+# Inspection needed export
+#
+###############################################
+inspection_needed_export.title=Les marchandises que vous transportez nécessitent une inspection
+inspection_needed_export.gmr=Identifiant de la GMR : {0}
+inspection_needed_export.what_next.h2=Que faire ensuite
+inspection_needed_export.what_next.p1=Présentez-vous au site d’inspection le plus proche.
+inspection_needed_export.what_next.p2=Vérifiez à quel(s) site(s) d’inspection vous devez vous présenter à votre site frontalier de départ. Vous devrez peut-être vous rendre à une installation frontalière intérieure (IBF) ou à un centre de contrôle douanier.
+inspection_needed_export.what_next.p3=Les marchandises nécessaires à l’inspection doivent être conservées dans un état identique à celui dans lequel elles se trouvaient lorsqu’elles ont été récupérées chez l’opérateur.
+inspection_needed_export.text.warning=Avertissement
+inspection_needed_export.what_next.warning=L’arrêt pour inspection est une exigence légale.
+inspection_needed_export.inspection_site.h2=Votre site d’inspection
+inspection_needed_export.inspection_sites.h2=Vos sites d’inspection
+inspection_needed_export.nearest_sites.p1=Les inspections doivent avoir lieu dans l’ordre indiqué.
+inspection_needed_export.nearest_sites.p2=Si vous ne pouvez pas vous rendre au site d’inspection le plus proche, vous devrez vous rendre à un autre site d’inspection.
+inspection_needed_export.arriving.h3=Se présenter à un contrôle auprès d’une installation frontalière intérieure (IBF)
+inspection_needed_export.arriving.p1=Si vous devez vous présenter à une IBF, vous pouvez :
+inspection_needed_export.arriving.p1.link1=trouver de plus amples informations sur les IBF
+inspection_needed_export.arriving.p1.link2=vérifier s’il y a des retards dans une IBF
+inspection_needed_export.customs.heading=Pour votre inspection douanière
+inspection_needed_export.daera.heading=Pour votre inspection DAERA (Département de l’agriculture, de l’environnement et des affaires rurales)
+inspection_needed_export.defra.heading=Pour votre inspection DEFRA
+inspection_needed_export.defra_plants.heading=Pour votre inspection DEFRA plants
+inspection_needed_export.transit.heading=Pour votre inspection de transit
+inspection_needed_export.ogd.heading=Pour les autres inspections administratives
+inspection_needed_export.ata.heading=Pour la validation de votre Carnet ATA
+inspection_needed_export.eidr.heading=Pour votre contrôle de l’inscription au dossier du déclarant
+inspection_needed_export.dbc.heading=Pour votre contrôle de la déclaration orale ou de fait
+inspection_needed_export.exemption.heading=Pour votre contrôle de la déclaration postale
+inspection_needed_export.empty.heading=Pour votre contrôle du véhicule vide
+inspection_needed_export.tir.heading=Pour la validation de votre Carnet TIR
+inspection_needed_export.sad.heading=Pour la validation de votre Document administratif unique (DAU)
+inspection_needed_export_with_other.p1=Rendez-vous à votre site frontalier de départ.
+inspection_needed_export.inspection.heading=Pour votre inspection

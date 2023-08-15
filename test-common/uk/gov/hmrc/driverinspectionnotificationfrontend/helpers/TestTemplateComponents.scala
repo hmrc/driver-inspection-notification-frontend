@@ -1,0 +1,79 @@
+/*
+ * Copyright 2023 HM Revenue & Customs
+ *
+ */
+
+package uk.gov.hmrc.driverinspectionnotificationfrontend.helpers
+
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.{NonPrintableBetaPhaseBanner, NonStandardHmrcFooterItems}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.getHelp
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head, main_layout_full_width_template}
+import uk.gov.hmrc.govukfrontend.views.html.components._
+import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, LanguageConfig, TrackingConsentConfig}
+import uk.gov.hmrc.hmrcfrontend.views.html.components._
+import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcScripts, HmrcStandardHeader, HmrcTrackingConsentSnippet}
+
+trait TestTemplateComponents {
+  self: Configs =>
+
+  val additionalAppConfig: Map[String, Any] = Map.empty
+
+  val hmrcTrackingConsent = new HmrcTrackingConsentSnippet(new TrackingConsentConfig(configuration))
+
+  val govukTemplate = new GovukTemplate(new GovukHeader, new GovukFooter, new GovukSkipLink, new FixedWidthPageLayout)
+
+  val technicalIssueSnippet = new getHelp(new HmrcReportTechnicalIssue(), new ContactFrontendConfig(configuration))
+
+  val accessibilityConfiguration = new AccessibilityStatementConfig(configuration)
+
+  val nonStandardHmrcFooterItems = new NonStandardHmrcFooterItems(accessibilityConfiguration)
+
+  val hmrcStandardHeader = new HmrcStandardHeader(
+    hmrcHeader = new HmrcHeader(
+      hmrcBanner             = new HmrcBanner(),
+      hmrcUserResearchBanner = new HmrcUserResearchBanner(),
+      govukPhaseBanner       = new GovukPhaseBanner(govukTag = new GovukTag())
+    )
+  )
+
+  val assetsConfig = new AssetsConfig()
+
+  val hmrcScripts = new HmrcScripts(assetsConfig)
+
+  val fullWidthTemplate =
+    new main_layout_full_width_template(
+      new govukTwoThirdsLayout(
+        govukTemplate,
+        hmrcStandardHeader,
+        new HmrcFooter(),
+        new GovukBackLink,
+        new NonPrintableBetaPhaseBanner,
+        technicalIssueSnippet,
+        hmrcScripts,
+        nonStandardHmrcFooterItems
+      ),
+      new head(hmrcTrackingConsent),
+      new uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcLanguageSelect,
+      new GovukBackLink
+    )
+
+  val govukRadios = new GovukRadios(new GovukErrorMessage, new GovukFieldset, new GovukHint, new GovukLabel)
+  val govukInput  = new GovukInput(new GovukErrorMessage, new GovukHint, new GovukLabel)
+  val govukDateInput =
+    new GovukDateInput(new GovukErrorMessage, new GovukHint, new GovukFieldset, new GovukInput(new GovukErrorMessage, new GovukHint, new GovukLabel))
+  val govukDetails      = new GovukDetails
+  val govukPanel        = new GovukPanel
+  val govukTable        = new GovukTable
+  val govukButton       = new GovukButton
+  val govukFieldSet     = new GovukFieldset
+  val govukErrorSummary = new GovukErrorSummary
+  val govukSummaryList  = new GovukSummaryList
+  val govukSelect       = new GovukSelect(new GovukErrorMessage, new GovukHint, new GovukLabel)
+  val govukBackLink     = new GovukBackLink
+  val govukWarningText  = new GovukWarningText
+  val formWithCSRF      = new FormWithCSRF
+  val hmrcPageHeading   = new HmrcPageHeading
+  val govUkInsetText    = new GovukInsetText
+  val hmrcNewTabLink    = new HmrcNewTabLink
+
+}
