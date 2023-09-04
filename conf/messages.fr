@@ -73,6 +73,20 @@ search_page.error.gmr.format=Saisissez une GMR au bon format
 
 ###############################################
 #
+# No inspection needed GB to NI Page
+#
+###############################################
+no_inspection_needed_page_gb_to_ni.title=TODO
+no_inspection_needed_page_gb_to_ni.intro.p=TODO
+no_inspection_needed_page_gb_to_ni.h2=Que se passe-t-il ensuite
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=TODO
+no_inspection_needed_page_gb_to_ni.h3.ending_transit=Si vous terminez un mouvement de transit
+no_inspection_needed_page_gb_to_ni.ending_transit.p=Vous devez également présenter les marchandises à votre bureau de destination le plus proche.
+no_inspection_needed_page_gb_to_ni.h3.no_controls=S’il n’y a aucun autre contrôle auquel vous devez vous présenter
+no_inspection_needed_page_gb_to_ni.no_controls.p=Vous pouvez continuer depuis votre site frontalier d‘arrivée jusqu‘à votre destination.
+
+###############################################
+#
 # No inspection needed import Page
 #
 ###############################################

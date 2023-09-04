@@ -73,6 +73,20 @@ search_page.error.gmr.format=Unesite GMR u pravilnom formatu
 
 ###############################################
 #
+# No inspection needed GB to NI Page
+#
+###############################################
+no_inspection_needed_page_gb_to_ni.title=TODO
+no_inspection_needed_page_gb_to_ni.intro.p=TODO
+no_inspection_needed_page_gb_to_ni.h2=Što slijedi
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=TODO
+no_inspection_needed_page_gb_to_ni.h3.ending_transit=Ako završavate provozno kretanje
+no_inspection_needed_page_gb_to_ni.ending_transit.p=Morate pokazati robu u najbližem odredišnom uredu.
+no_inspection_needed_page_gb_to_ni.h3.no_controls=Ako se ne morate prijaviti za druge preglede
+no_inspection_needed_page_gb_to_ni.no_controls.p=Možete nastaviti put od graničnog prijelaza dolaska do odredišta.
+
+###############################################
+#
 # No inspection needed import Page
 #
 ###############################################

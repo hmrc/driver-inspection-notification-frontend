@@ -73,6 +73,20 @@ search_page.error.gmr.format=Nodwch GMR yn y fformat cywir
 
 ###############################################
 #
+# No inspection needed GB to NI Page
+#
+###############################################
+no_inspection_needed_page_gb_to_ni.title=TODO
+no_inspection_needed_page_gb_to_ni.intro.p=TODO
+no_inspection_needed_page_gb_to_ni.h2=Yr hyn sy’n digwydd nesaf
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=TODO
+no_inspection_needed_page_gb_to_ni.h3.ending_transit=Os ydych yn dod â symudiad cludo i ben
+no_inspection_needed_page_gb_to_ni.ending_transit.p=Mae’n rhaid i chi hefyd gyflwyno’r nwyddau yn eich swyddfa pen y daith agosaf.
+no_inspection_needed_page_gb_to_ni.h3.no_controls=Os nad oes angen i chi gyflwyno’ch hun ar gyfer unrhyw reolaethau eraill
+no_inspection_needed_page_gb_to_ni.no_controls.p=Gallwch barhau o’ch man cyrraedd wrth y ffin, i ben eich taith.
+
+###############################################
+#
 # No inspection needed import Page
 #
 ###############################################

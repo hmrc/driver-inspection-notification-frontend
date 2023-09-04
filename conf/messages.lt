@@ -73,6 +73,20 @@ search_page.error.gmr.format=Įveskite GMR tinkamu formatu
 
 ###############################################
 #
+# No inspection needed GB to NI Page
+#
+###############################################
+no_inspection_needed_page_gb_to_ni.title=TODO
+no_inspection_needed_page_gb_to_ni.intro.p=TODO
+no_inspection_needed_page_gb_to_ni.h2=Reikia atlikti patikrą
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=TODO
+no_inspection_needed_page_gb_to_ni.h3.ending_transit=Jei baigiate tranzitinį pervežimą
+no_inspection_needed_page_gb_to_ni.ending_transit.p=Be to, prekes privalote pristatyti į artimiausią paskirties įstaigą.
+no_inspection_needed_page_gb_to_ni.h3.no_controls=Jei neturite kitų kontrolinių patikrinimų, apie kuriuos reikia pranešti
+no_inspection_needed_page_gb_to_ni.no_controls.p=Iš atvykimo pasienio vietos galite tęsti kelionę į paskirties vietą.
+
+###############################################
+#
 # No inspection needed import Page
 #
 ###############################################

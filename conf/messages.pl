@@ -73,6 +73,20 @@ search_page.error.gmr.format=Wprowadź GMR w prawidłowym formacie
 
 ###############################################
 #
+# No inspection needed GB to NI Page
+#
+###############################################
+no_inspection_needed_page_gb_to_ni.title=TODO
+no_inspection_needed_page_gb_to_ni.intro.p=TODO
+no_inspection_needed_page_gb_to_ni.h2=Co dalej
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=TODO
+no_inspection_needed_page_gb_to_ni.h3.ending_transit=Jeżeli kończysz przewóz tranzytowy,
+no_inspection_needed_page_gb_to_ni.ending_transit.p=Towary należy również przedstawić w najbliższym urzędzie właściwym dla miejsca przeznaczenia.
+no_inspection_needed_page_gb_to_ni.h3.no_controls=Jeśli nie masz innych kontroli, do których musisz się zgłosić,
+no_inspection_needed_page_gb_to_ni.no_controls.p=Możesz kontynuować jazdę od placówki granicznej przybycia do miejsca przeznaczenia.
+
+###############################################
+#
 # No inspection needed import Page
 #
 ###############################################
