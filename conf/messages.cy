@@ -76,10 +76,10 @@ search_page.error.gmr.format=Nodwch GMR yn y fformat cywir
 # No inspection needed GB to NI Page
 #
 ###############################################
-no_inspection_needed_page_gb_to_ni.title=TODO
-no_inspection_needed_page_gb_to_ni.intro.p=TODO
+no_inspection_needed_page_gb_to_ni.title=Nid oes angen i’r symudiad hwn gael ei archwilio ar hyn o bryd
+no_inspection_needed_page_gb_to_ni.intro.p=Gwirio a oes angen i’r symudiad hwn gael ei archwilio 10 munud cyn gadael y fferi.
 no_inspection_needed_page_gb_to_ni.h2=Yr hyn sy’n digwydd nesaf
-no_inspection_needed_page_gb_to_ni.what_happens_next.p=TODO
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=Nid oes angen i chi fynychu archwiliad o’ch nwyddau ar hyn o bryd. Mae’n bosibl y bydd angen i chi fynychu rheolaethau eraill wrth deithio i Ogledd Iwerddon
 no_inspection_needed_page_gb_to_ni.h3.ending_transit=Os ydych yn dod â symudiad cludo i ben
 no_inspection_needed_page_gb_to_ni.ending_transit.p=Mae’n rhaid i chi hefyd gyflwyno’r nwyddau yn eich swyddfa pen y daith agosaf.
 no_inspection_needed_page_gb_to_ni.h3.no_controls=Os nad oes angen i chi gyflwyno’ch hun ar gyfer unrhyw reolaethau eraill

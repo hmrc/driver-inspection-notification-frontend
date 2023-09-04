@@ -76,10 +76,10 @@ search_page.error.gmr.format=Zadejte číslo GMR ve správném formátu
 # No inspection needed GB to NI Page
 #
 ###############################################
-no_inspection_needed_page_gb_to_ni.title=TODO
-no_inspection_needed_page_gb_to_ni.intro.p=TODO
+no_inspection_needed_page_gb_to_ni.title=Tento pohyb v současné době nevyžaduje kontrolu
+no_inspection_needed_page_gb_to_ni.intro.p=10 minut před odjezdem trajektu zkontrolujte, zda tento pohyb nevyžaduje kontrolu.
 no_inspection_needed_page_gb_to_ni.h2=Co bude následovat
-no_inspection_needed_page_gb_to_ni.what_happens_next.p=TODO
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=V současné době se nemusíte hlásit ke kontrole svého zboží. Při cestě do Severního Irska se však možná budete muset hlásit k dalším kontrolám.
 no_inspection_needed_page_gb_to_ni.h3.ending_transit=Pokud končíte tranzitní pohyb
 no_inspection_needed_page_gb_to_ni.ending_transit.p=Zboží musíte také předložit ke kontrole v nejbližším celním úřadu určení.
 no_inspection_needed_page_gb_to_ni.h3.no_controls=Pokud se nemusíte hlásit k žádným dalším kontrolám

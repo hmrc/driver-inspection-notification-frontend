@@ -76,10 +76,10 @@ search_page.error.gmr.format=Introduzca un GMR en el formato correcto
 # No inspection needed GB to NI Page
 #
 ###############################################
-no_inspection_needed_page_gb_to_ni.title=TODO
-no_inspection_needed_page_gb_to_ni.intro.p=TODO
+no_inspection_needed_page_gb_to_ni.title=Este tránsito no requiere ahora ninguna inspección
+no_inspection_needed_page_gb_to_ni.intro.p=Compruebe si este tránsito requiere una inspección 10 minutos antes de que salga el ferry.
 no_inspection_needed_page_gb_to_ni.h2=Qué pasa después
-no_inspection_needed_page_gb_to_ni.what_happens_next.p=TODO
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=Ahora no necesita presentarse a una inspección de su mercancía. Puede que tenga que presentarse a otros controles cuando viaje a Irlanda del Norte
 no_inspection_needed_page_gb_to_ni.h3.ending_transit=Si está finalizando un movimiento de tránsito
 no_inspection_needed_page_gb_to_ni.ending_transit.p=También deberá presentar las mercancías en su oficina de destino más cercana.
 no_inspection_needed_page_gb_to_ni.h3.no_controls=Si no hay otros controles a los que deba presentarse

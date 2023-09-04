@@ -76,10 +76,10 @@ search_page.error.gmr.format=Bitte geben Sie die GMR-Referenznummer im richtigen
 # No inspection needed GB to NI Page
 #
 ###############################################
-no_inspection_needed_page_gb_to_ni.title=TODO
-no_inspection_needed_page_gb_to_ni.intro.p=TODO
+no_inspection_needed_page_gb_to_ni.title=Für diese Warenbewegung ist nach aktuellem Stand keine Kontrolle notwendig
+no_inspection_needed_page_gb_to_ni.intro.p=Überprüfen Sie bitte 10 Minuten ehe Sie die Fähre verlassen erneut, ob für diese Warenbewegung eine Kontrolle erforderlich ist.
 no_inspection_needed_page_gb_to_ni.h2=Was geschieht als Nächstes
-no_inspection_needed_page_gb_to_ni.what_happens_next.p=TODO
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=Nach aktuellem Stand ist für Ihre Waren keine Kontrolle erforderlich. Es können jedoch noch Kontrollen erforderlich werden, wenn Sie nach Nordirland weiter fahren
 no_inspection_needed_page_gb_to_ni.h3.ending_transit=Auch am Ende des Transits von Waren
 no_inspection_needed_page_gb_to_ni.ending_transit.p=Müssen die Waren von Ihnen der nächstgelegenen Zollkontrollstelle gestellt werden.
 no_inspection_needed_page_gb_to_ni.h3.no_controls=Wenn Sie sich für keine anderen Kontrollen melden müssen
