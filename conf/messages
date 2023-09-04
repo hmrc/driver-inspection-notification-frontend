@@ -73,6 +73,20 @@ search_page.error.gmr.format=Enter a GMR in the correct format
 
 ###############################################
 #
+# No inspection needed GB to NI Page
+#
+###############################################
+no_inspection_needed_page_gb_to_ni.title=This movement does not currently need an inspection
+no_inspection_needed_page_gb_to_ni.intro.p=Check if this movement needs an inspection 10 minutes before departing the ferry.
+no_inspection_needed_page_gb_to_ni.h2=What happens next
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=You do not currently need to report for an inspection of your goods. You may still need to report for other controls when travelling to Northern Ireland.
+no_inspection_needed_page_gb_to_ni.h3.ending_transit=If you are ending a transit movement
+no_inspection_needed_page_gb_to_ni.ending_transit.p=You must also present the goods at your nearest office of destination.
+no_inspection_needed_page_gb_to_ni.h3.no_controls=If you have no other controls to report for
+no_inspection_needed_page_gb_to_ni.no_controls.p=You can continue from your border location of arrival, to your destination.
+
+###############################################
+#
 # No inspection needed import Page
 #
 ###############################################

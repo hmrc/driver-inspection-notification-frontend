@@ -1,6 +1,17 @@
 /*
  * Copyright 2023 HM Revenue & Customs
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.controllers
@@ -17,7 +28,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.ControllerBaseSp
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.{GB_TO_NI, NI_TO_GB, UK_INBOUND, UK_OUTBOUND}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.{InspectionStatus, ReportLocations}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{Address, InspectionType, Location}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared.{inspection_not_needed_export, inspection_not_needed_import}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared.{inspection_not_needed_export, inspection_not_needed_gb_to_ni, inspection_not_needed_import}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.inspection_pending
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.{inspection_required_export, inspection_required_import}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials._
@@ -35,8 +46,9 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
       new inspection_required_import(fullWidthTemplate, hmrcPageHeading, govukWarningText, nearestSitesContent, nearestSitesheader)
     val inspectionRequiredExport: inspection_required_export =
       new inspection_required_export(fullWidthTemplate, hmrcPageHeading, hmrcNewTabLink, govukWarningText, nearestSitesContent, nearestSitesheader)
-    val noInspectionRequiredImport: inspection_not_needed_import = new inspection_not_needed_import(fullWidthTemplate, hmrcPageHeading)
-    val noInspectionRequiredExport: inspection_not_needed_export = new inspection_not_needed_export(fullWidthTemplate, hmrcPageHeading)
+    val noInspectionRequiredGbToNi: inspection_not_needed_gb_to_ni = new inspection_not_needed_gb_to_ni(fullWidthTemplate, hmrcPageHeading)
+    val noInspectionRequiredImport: inspection_not_needed_import   = new inspection_not_needed_import(fullWidthTemplate, hmrcPageHeading)
+    val noInspectionRequiredExport: inspection_not_needed_export   = new inspection_not_needed_export(fullWidthTemplate, hmrcPageHeading)
 
     val inspectionPending: inspection_pending =
       new inspection_pending(fullWidthTemplate, hmrcPageHeading, govukButton, new LanguageUtils(new DefaultLangs(), configuration))
@@ -49,6 +61,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         mockReferenceDataService,
         inspectionRequiredImport,
         inspectionRequiredExport,
+        noInspectionRequiredGbToNi,
         noInspectionRequiredImport,
         noInspectionRequiredExport,
         inspectionPending
