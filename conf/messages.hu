@@ -73,6 +73,20 @@ search_page.error.gmr.format=Adja meg a GMR értékét megfelelő formátumban
 
 ###############################################
 #
+# No inspection needed GB to NI Page
+#
+###############################################
+no_inspection_needed_page_gb_to_ni.title=Az árumozgatáshoz most nem szükséges ellenőrzés.
+no_inspection_needed_page_gb_to_ni.intro.p=A komp indulása előtt 10 perccel ellenőrizze, hogy az árumozgatáshoz szükséges-e ellenőrzés.
+no_inspection_needed_page_gb_to_ni.h2=A következő lépés
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=Önnek most nem kell jelentkeznie az áru átvizsgálására. Előfordulhat azonban, hogy más ellenőrzésekre jelentkeznie kell, ha Észak-Írországba utazik.
+no_inspection_needed_page_gb_to_ni.h3.ending_transit=Tranzitmozgás befejezése esetén
+no_inspection_needed_page_gb_to_ni.ending_transit.p=Az árukat emellett be kell mutatnia a legközelebbi érkeztető hivatalnál.
+no_inspection_needed_page_gb_to_ni.h3.no_controls=Ha nem kell további ellenőrzésre jelentkeznie
+no_inspection_needed_page_gb_to_ni.no_controls.p=Az érkezési határátkelő helyről folytathatja útját a célja felé.
+
+###############################################
+#
 # No inspection needed import Page
 #
 ###############################################

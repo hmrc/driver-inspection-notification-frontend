@@ -73,6 +73,20 @@ search_page.error.gmr.format=Въведете GMR в правилния форм
 
 ###############################################
 #
+# No inspection needed GB to NI Page
+#
+###############################################
+no_inspection_needed_page_gb_to_ni.title=Това движение няма нужда от проверка към момента
+no_inspection_needed_page_gb_to_ni.intro.p=Проверете дали това движение има нужда от проверка 10 минути преди отпътуване на ферибота.
+no_inspection_needed_page_gb_to_ni.h2=Какво следва
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=Към момента няма нужда да се явявате за проверка на вашите стоки. Все пак може да се наложи да се явите за други проверки, когато пътувате до Северна Ирландия
+no_inspection_needed_page_gb_to_ni.h3.ending_transit=Ако завършвате транзитно движение
+no_inspection_needed_page_gb_to_ni.ending_transit.p=Трябва също така да представите стоките в получаващото митническо учреждение, намиращо се най-близо до местоназначението ви.
+no_inspection_needed_page_gb_to_ni.h3.no_controls=Ако не е необходимо да докладвате за допълнителни проверки
+no_inspection_needed_page_gb_to_ni.no_controls.p=Можете да продължите от граничния пункт на пристигане към вашата дестинация.
+
+###############################################
+#
 # No inspection needed import Page
 #
 ###############################################

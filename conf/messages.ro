@@ -73,6 +73,20 @@ search_page.error.gmr.format=Introduceți o GMR în format corect
 
 ###############################################
 #
+# No inspection needed GB to NI Page
+#
+###############################################
+no_inspection_needed_page_gb_to_ni.title=Acest transport nu necesită o inspecție în prezent
+no_inspection_needed_page_gb_to_ni.intro.p=Verificați dacă acest transport necesită o inspecție cu 10 minute înainte de a pleca cu feribotul.
+no_inspection_needed_page_gb_to_ni.h2=Ce se întâmplă în continuare
+no_inspection_needed_page_gb_to_ni.what_happens_next.p=În prezent, nu trebuie să vă prezentați pentru o inspecție a mărfurilor dumneavoastră. Este posibil să fie nevoie să vă prezentați pentru alte controale atunci când călătoriți în Irlanda de Nord
+no_inspection_needed_page_gb_to_ni.h3.ending_transit=Dacă încheiați un transport de tranzit
+no_inspection_needed_page_gb_to_ni.ending_transit.p=De asemenea, trebuie să prezentați mărfurile la cel mai apropiat birou de destinație.
+no_inspection_needed_page_gb_to_ni.h3.no_controls=Dacă nu aveți alte controale la care să vă prezentați
+no_inspection_needed_page_gb_to_ni.no_controls.p=Puteți continua din punctul de frontieră de sosire până la destinație.
+
+###############################################
+#
 # No inspection needed import Page
 #
 ###############################################

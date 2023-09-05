@@ -40,16 +40,17 @@ import scala.concurrent.ExecutionContext
 
 @Singleton
 class SearchResultController @Inject()(
-  mcc:                               MessagesControllerComponents,
-  gmsActionBuilders:                 GmsActionBuilders,
-  gmsService:                        GmsService,
-  referenceDataService:              GmsReferenceDataService,
-  inspection_required_import:        inspection_required_import,
-  inspection_required_export:        inspection_required_export,
-  inspection_not_needed_page_import: inspection_not_needed_import,
-  inspection_not_needed_page_export: inspection_not_needed_export,
-  inspection_pending_page:           inspection_pending
-)(implicit appConfig:                AppConfig, executionContext: ExecutionContext)
+  mcc:                                 MessagesControllerComponents,
+  gmsActionBuilders:                   GmsActionBuilders,
+  gmsService:                          GmsService,
+  referenceDataService:                GmsReferenceDataService,
+  inspection_required_import:          inspection_required_import,
+  inspection_required_export:          inspection_required_export,
+  inspection_not_needed_page_gb_to_ni: inspection_not_needed_gb_to_ni,
+  inspection_not_needed_page_import:   inspection_not_needed_import,
+  inspection_not_needed_page_export:   inspection_not_needed_export,
+  inspection_pending_page:             inspection_pending
+)(implicit appConfig:                  AppConfig, executionContext: ExecutionContext)
     extends FrontendController(mcc)
     with I18nSupport {
 
@@ -125,8 +126,9 @@ class SearchResultController @Inject()(
 
   private def inspectionNotRequired(gmrId: String, direction: Direction)(implicit request: Request[_]) =
     direction match {
-      case UK_INBOUND | NI_TO_GB | GB_TO_NI => inspection_not_needed_page_import(Some(gmrId))
-      case UK_OUTBOUND                      => inspection_not_needed_page_export(Some(gmrId))
+      case GB_TO_NI              => inspection_not_needed_page_gb_to_ni(Some(gmrId))
+      case UK_INBOUND | NI_TO_GB => inspection_not_needed_page_import(Some(gmrId))
+      case UK_OUTBOUND           => inspection_not_needed_page_export(Some(gmrId))
     }
 
   object ErrorHandling {
