@@ -48,7 +48,7 @@
     <p class="govuk-body">@messages("inspection_pending_page.p3")</p>
 
     <br />
-    <hr />
+    <hr aria-hidden="true" />
     <br />
 
     <p class="govuk-body">@messages("inspection_pending_page.time", Formatters.instantFormatHours(Instant.now()), languageUtils.Dates.formatDate(Formatters.instantFormatDate(Instant.now()))(messages))</p>

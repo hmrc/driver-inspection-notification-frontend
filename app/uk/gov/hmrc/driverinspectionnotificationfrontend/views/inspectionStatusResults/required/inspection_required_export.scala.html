@@ -64,15 +64,15 @@
                 if (optLocations.isEmpty){
                     List(Html(
                         s"""<h3 class="govuk-heading-m">${messages("inspection_needed_export." + inspectionType.description.toLowerCase + ".heading")}</h3>
-                           |<p class="govuk-body">${messages("inspection_needed_export_with_other.p1")}</p><hr/><br/> """.stripMargin))
+                           |<p class="govuk-body">${messages("inspection_needed_export_with_other.p1")}</p><hr aria-hidden="true" /><br/> """.stripMargin))
                 } else {
-                    renderInspectionLocations(inspectionType, optLocations) :+ Html("<hr /><br />")
+                    renderInspectionLocations(inspectionType, optLocations) :+ Html("<hr aria-hidden=\"true\" /><br />")
                 }
             }
         } else {
             Html(
                 s"""<h3 class="govuk-heading-m">${messages("inspection_needed_export.inspection.heading")}</h3>
-                       |<p class="govuk-body">${messages("inspection_needed_export_with_other.p1")}</p> <hr/><br/>""".stripMargin)
+                       |<p class="govuk-body">${messages("inspection_needed_export_with_other.p1")}</p> <hr aria-hidden="true" /><br/>""".stripMargin)
         }
     }
 
