@@ -39,16 +39,7 @@ govukBackLink: GovukBackLink
 @beforeContentBlock = {
 
     @if(backLinkEnabled) {
-    @govukBackLink(BackLink(href = "#", content = Text(messages("generic.back")), attributes = Map("id" -> "back")))
-
-        <script @{CSPNonce.attr} >
-            document.getElementById("back").addEventListener("click", () => window.history.back());
-        </script>
-    <script @{CSPNonce.attr}>
-            if(document.body.className.indexOf("js-enabled") != -1 && document.getElementById('back') != null) {
-                document.getElementById('back').removeAttribute("style");
-            }
-    </script>
+        @govukBackLink(BackLink(href = "#", content = Text(messages("generic.back")), attributes = Map("data-module" -> "hmrc-back-link")))
     }
 }
 

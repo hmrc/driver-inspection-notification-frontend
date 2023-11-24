@@ -20,7 +20,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.{NonPrinta
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.getHelp
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head, main_layout_full_width_template}
 import uk.gov.hmrc.govukfrontend.views.html.components._
-import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, LanguageConfig, TrackingConsentConfig}
+import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, TrackingConsentConfig}
 import uk.gov.hmrc.hmrcfrontend.views.html.components._
 import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcScripts, HmrcStandardHeader, HmrcTrackingConsentSnippet}
 
@@ -57,7 +57,6 @@ trait TestTemplateComponents {
         govukTemplate,
         hmrcStandardHeader,
         new HmrcFooter(),
-        new GovukBackLink,
         new NonPrintableBetaPhaseBanner,
         technicalIssueSnippet,
         hmrcScripts,
