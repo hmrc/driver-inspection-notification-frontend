@@ -49,7 +49,7 @@
     <p class="govuk-body">@messages("inspection_needed_import.what_next.p3")</p>
 
     @govukWarningText(WarningText(
-        iconFallbackText = messages("inspection_needed_import.text.warning"),
+        iconFallbackText = Some(messages("inspection_needed_import.text.warning")),
         content = Text(messages("inspection_needed_import.what_next.warning"))
     ))
 

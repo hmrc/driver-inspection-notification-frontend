@@ -36,9 +36,9 @@
 
 @govukLayout(
     pageTitle = pageTitle,
-    headBlock = Some(hmrcHead(headBlock = headBlock, nonce = CSPNonce.get)),
+    headBlock = Some(hmrcHead(headBlock = headBlock)),
     headerBlock = Some(hmrcStandardHeader()),
-    scriptsBlock = Some(hmrcScripts(scriptsBlock = scriptsBlock, nonce = CSPNonce.get)),
+    scriptsBlock = Some(hmrcScripts(scriptsBlock = scriptsBlock)),
     beforeContentBlock = None,
     footerBlock = Some(hmrcStandardFooter())
 )(contentBlock)
