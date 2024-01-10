@@ -16,8 +16,7 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.helpers
 
-import akka.actor.ActorSystem
-import akka.stream.ActorMaterializer
+import org.apache.pekko.actor.ActorSystem
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, Inside, Inspectors, LoneElement, OptionValues, Status => _}
@@ -58,9 +57,8 @@ abstract class BaseISpec
     with WireMockHelper
     with AdditionalAppConfig {
 
-  implicit lazy val system:       ActorSystem       = ActorSystem()
-  implicit lazy val materializer: ActorMaterializer = ActorMaterializer()
-  implicit def ec:                ExecutionContext  = global
+  implicit lazy val system: ActorSystem      = ActorSystem()
+  implicit def ec:          ExecutionContext = global
 
   additionalAppConfig ++= Map(
     "metrics.enabled"  -> false,
@@ -70,7 +68,6 @@ abstract class BaseISpec
   @SuppressWarnings(Array("org.wartremover.warts.Any"))
   override def fakeApplication(): Application =
     GuiceApplicationBuilder()
-      .disable[com.kenshoo.play.metrics.PlayModule]
       .configure(additionalAppConfig.toMap)
       .in(Mode.Test)
       .build()

@@ -1,26 +1,20 @@
-import play.core.PlayVersion
-import play.sbt.PlayImport._
-import sbt.Keys.libraryDependencies
 import sbt._
 
 object AppDependencies {
 
+  private val bootstrapPlay30Version = "8.4.0"
+  private val playVersion = "play-30"
+
   val compile = Seq(
-    "uk.gov.hmrc"   %% "bootstrap-frontend-play-28" % "7.13.0",
-    "org.typelevel" %% "cats-core"                  % "2.9.0",
-    "uk.gov.hmrc"   %% "play-frontend-hmrc"         % "7.29.0-play-28"
+    "uk.gov.hmrc"   %% s"bootstrap-frontend-$playVersion" % bootstrapPlay30Version,
+    "uk.gov.hmrc"   %% s"play-frontend-hmrc-$playVersion" % "8.3.0",
+    "org.typelevel" %% "cats-core"                        % "2.10.0"
   )
 
   val test = Seq(
-    "org.scalatestplus.play" %% "scalatestplus-play"     % "5.1.0"             % "test, it",
-    "uk.gov.hmrc"            %% "bootstrap-test-play-28" % "7.13.0"            % "test, it",
-    "org.scalatest"          %% "scalatest"              % "3.2.15"             % "test, it",
-    "org.jsoup"              % "jsoup"                   % "1.15.4"            % "test, it",
-    "com.typesafe.play"      %% "play-test"              % PlayVersion.current % "test, it",
-    "org.scalatestplus"      %% "mockito-3-4"            % "3.2.10.0"           % "test, it",
-    "com.vladsch.flexmark"   % "flexmark-all"            % "0.64.0"            % "test, it",
-    "com.github.tomakehurst" % "wiremock-standalone"     % "2.27.2"            % IntegrationTest,
-    "org.apache.poi"         % "poi"                     % "5.2.3"              % "content",
-    "org.apache.poi"         % "poi-ooxml"               % "5.2.3"              % "content"
+    "uk.gov.hmrc"            %% s"bootstrap-test-$playVersion" % bootstrapPlay30Version  % "test, it",
+    "org.jsoup"              % "jsoup"                   % "1.17.2"                      % "test, it",
+    "org.apache.poi"         % "poi"                     % "5.2.5"                       % "content",
+    "org.apache.poi"         % "poi-ooxml"               % "5.2.5"                       % "content"
   )
 }

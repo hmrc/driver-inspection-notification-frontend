@@ -21,6 +21,8 @@ import play.api.{Configuration, Environment}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
 import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
 
+import scala.concurrent.ExecutionContextExecutor
+
 trait Configs {
 
   def configuration: Configuration = Configuration(ConfigFactory.parseResources("application.conf"))
@@ -31,5 +33,5 @@ trait Configs {
 
   implicit val applicationConfig: AppConfig = new AppConfig(configuration, servicesConfig)
 
-  implicit val ec = scala.concurrent.ExecutionContext.global
+  implicit val ec: ExecutionContextExecutor = scala.concurrent.ExecutionContext.global
 }

@@ -29,7 +29,7 @@ lazy val microservice = Project(appName, file("."))
   .enablePlugins(play.sbt.PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtDistributablesPlugin)
   .settings(
     majorVersion := 0,
-    scalaVersion := "2.13.10",
+    scalaVersion := "2.13.12",
     ScoverageKeys.coverageExcludedFiles :=
       "<empty>;com.kenshoo.play.metrics.*;.*definition.*;prod.*;testOnlyDoNotUseInAppConf.*;" +
         "app.*;.*BuildInfo.*;.*Routes.*;.*repositories.*;.*LanguageSwitchController;.*metrics.*;.*views.*;Reverse.*;" +
@@ -43,6 +43,10 @@ lazy val microservice = Project(appName, file("."))
   )
   .settings(
     wartremover.WartRemover.autoImport.wartremoverExcluded ++= (Compile / routes).value,
+    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "start_page.template.scala",
+    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "search_page.template.scala",
+    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "main_layout_full_width_template.template.scala",
+    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "helpers" / "languages.template.scala",
     Compile / compile / wartremoverErrors ++= Warts.allBut(
       Throw,
       ToString,

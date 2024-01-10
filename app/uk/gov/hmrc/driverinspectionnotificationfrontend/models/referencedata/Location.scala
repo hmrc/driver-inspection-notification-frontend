@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata
 
-import play.api.libs.json.{Format, JsResult, JsValue, Json, OFormat, Writes}
+import play.api.libs.json.{Json, OFormat}
 
 import java.time.LocalDate
 
