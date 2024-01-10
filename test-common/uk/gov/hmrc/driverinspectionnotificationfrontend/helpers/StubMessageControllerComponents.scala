@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.helpers
 
-import akka.stream.testkit.NoMaterializer
+import org.apache.pekko.stream.testkit.NoMaterializer
 import play.api.http.{DefaultFileMimeTypes, FileMimeTypes, FileMimeTypesConfiguration, HttpConfiguration}
 import play.api.i18n.Messages.UrlMessageSource
 import play.api.i18n._

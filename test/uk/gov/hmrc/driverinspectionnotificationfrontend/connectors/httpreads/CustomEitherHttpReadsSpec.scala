@@ -36,13 +36,13 @@ class CustomEitherHttpReadsSpec extends BaseSpec {
 
         val result = reads.readEitherOf(reads.retrieveGmrErrorPartialFunction, HttpReadsInstances.readRaw).read("GET", "http://localhost", response)
 
-        result.right.value shouldBe response
+        result.value shouldBe response
       }
 
       "read unsuccessful responses and transform custom errors" in new Setup {
         Map(
           HttpResponse(404, Json.obj("code" -> "GMR_NOT_FOUND"), Map.empty[String, Seq[String]]) -> GmrErrors.gmrNotFound
-        ).foreach {
+        ).foreachEntry {
           case (response, expected) =>
             val result = reads
               .readEitherOf(
