@@ -16,10 +16,10 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend
 
-import akka.util.Timeout
 import cats.implicits._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.FileUtils
+import org.apache.pekko.util.Timeout
 import org.apache.poi.ss.usermodel._
 import org.scalatest.BeforeAndAfterAll
 import play.api.i18n.Messages
