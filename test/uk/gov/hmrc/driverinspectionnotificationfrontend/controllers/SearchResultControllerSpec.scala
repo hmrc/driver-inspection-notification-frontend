@@ -112,13 +112,12 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           val result = controller.result(gmrId)(FakeRequest())
           val content: String = contentAsString(result)
 
-          status(result)          shouldBe 200
-          contentAsString(result) should include("The goods you are moving require an inspection")
-          contentAsString(result) should include("What to do next")
-          contentAsString(result) should include("Report to your nearest inspection site.")
-          contentAsString(result) should include("Attending an inland border facility (IBF) check")
-          contentAsString(result) should include("If you have to attend an IBF, you can:")
-          contentAsString(result) should include("Ending transit movements")
+          status(result) shouldBe 200
+          content        should include("The goods you are moving require an inspection")
+          content        should include("What to do next")
+          content        should include("Attending an inland border facility (IBF) check")
+          content        should include("If you have to attend an IBF, you can:")
+          content        should include("Ending transit movements")
         }
 
         "return 200 OK with inspection_required_import_with_locations  and some valid inspection types found alongside unrecognised types" in new SetUp {
@@ -171,13 +170,12 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           val result = controller.result(gmrId)(FakeRequest())
           val content: String = contentAsString(result)
 
-          status(result)          shouldBe 200
-          contentAsString(result) should include("The goods you are moving require an inspection")
-          contentAsString(result) should include("What to do next")
-          contentAsString(result) should include("Report to your nearest inspection site.")
-          contentAsString(result) should include("Attending an inland border facility (IBF) check")
-          contentAsString(result) should include("If you have to attend an IBF, you can:")
-          contentAsString(result) should include("Ending transit movements")
+          status(result) shouldBe 200
+          content        should include("The goods you are moving require an inspection")
+          content        should include("What to do next")
+          content        should include("Attending an inland border facility (IBF) check")
+          content        should include("If you have to attend an IBF, you can:")
+          content        should include("Ending transit movements")
         }
 
         "return 200 OK with inspection_required_import_with_locations and some valid locations are present on at least one inspection type, even if some locations invalid" in new SetUp {
@@ -231,14 +229,13 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           val result = controller.result(gmrId)(FakeRequest())
           val content: String = contentAsString(result)
 
-          status(result)          shouldBe 200
-          contentAsString(result) should include("The goods you are moving require an inspection")
-          contentAsString(result) should include("What to do next")
-          contentAsString(result) should include("Report to your nearest inspection site.")
-          contentAsString(result) should include("Attending an inland border facility (IBF) check")
-          contentAsString(result) should include("If you have to attend an IBF, you can:")
-          contentAsString(result) should include("Ending transit movements")
-          contentAsString(result) should include("The inspections must take place in the order shown.")
+          status(result) shouldBe 200
+          content        should include("The goods you are moving require an inspection")
+          content        should include("What to do next")
+          content        should include("Attending an inland border facility (IBF) check")
+          content        should include("If you have to attend an IBF, you can:")
+          content        should include("Ending transit movements")
+          content        should include("The inspections must take place in the order shown.")
         }
 
         "return 200 OK with inspection_required_import but no report locations from backend" in new SetUp {
@@ -260,7 +257,6 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           status(result)          shouldBe 200
           contentAsString(result) should include("The goods you are moving require an inspection")
           contentAsString(result) should include("What to do next")
-          contentAsString(result) should include("Report to your nearest inspection site.")
           contentAsString(result) should include("Attending an inland border facility (IBF) check")
           contentAsString(result) should include("If you have to attend an IBF, you can:")
           contentAsString(result) should include("Ending transit movements")
@@ -283,7 +279,6 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           status(result)          shouldBe 200
           contentAsString(result) should include("The goods you are moving require an inspection")
           contentAsString(result) should include("What to do next")
-          contentAsString(result) should include("Report to your nearest inspection site.")
           contentAsString(result) should include("Attending an inland border facility (IBF) check")
           contentAsString(result) should include("If you have to attend an IBF, you can:")
           contentAsString(result) should include("Ending transit movements")
@@ -306,7 +301,6 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           status(result)          shouldBe 200
           contentAsString(result) should include("The goods you are moving require an inspection")
           contentAsString(result) should include("What to do next")
-          contentAsString(result) should include("Report to your nearest inspection site.")
           contentAsString(result) should include("Attending an inland border facility (IBF) check")
           contentAsString(result) should include("If you have to attend an IBF, you can:")
           contentAsString(result) should include("Ending transit movements")
@@ -345,7 +339,6 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
-        contentAsString(result) should include("Report to your nearest inspection site.")
         contentAsString(result) should include("Attending an inland border facility (IBF) check")
         contentAsString(result) should include("If you have to attend an IBF, you can:")
         contentAsString(result) should include("Check which inspection site(s) you need to attend at your border location of departure. ")
@@ -370,7 +363,6 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
-        contentAsString(result) should include("Report to your nearest inspection site.")
         contentAsString(result) should include("Attending an inland border facility (IBF) check")
         contentAsString(result) should include("If you have to attend an IBF, you can:")
         contentAsString(result) should include("Check which inspection site(s) you need to attend at your border location of departure.")
@@ -395,7 +387,6 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
-        contentAsString(result) should include("Report to your nearest inspection site.")
         contentAsString(result) should include("Attending an inland border facility (IBF) check")
         contentAsString(result) should include("If you have to attend an IBF, you can:")
         contentAsString(result) should include("Travel to your border location of departure.")
@@ -419,7 +410,6 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
-        contentAsString(result) should include("Report to your nearest inspection site.")
         contentAsString(result) should include("Attending an inland border facility (IBF) check")
         contentAsString(result) should include("If you have to attend an IBF, you can:")
         contentAsString(result) should include("For your transit inspection")
@@ -455,7 +445,6 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
-        contentAsString(result) should include("Report to your nearest inspection site.")
         contentAsString(result) should include("Attending an inland border facility (IBF) check")
         contentAsString(result) should include("If you have to attend an IBF, you can:")
         contentAsString(result) should include("Ending transit movements")
