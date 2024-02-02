@@ -45,7 +45,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
     val inspectionRequiredImport: inspection_required_import =
       new inspection_required_import(fullWidthTemplate, hmrcPageHeading, govukWarningText, nearestSitesContent, nearestSitesheader)
     val inspectionRequiredExport: inspection_required_export =
-      new inspection_required_export(fullWidthTemplate, hmrcPageHeading, hmrcNewTabLink, govukWarningText, nearestSitesContent, nearestSitesheader)
+      new inspection_required_export(fullWidthTemplate, hmrcPageHeading, hmrcNewTabLink, govukWarningText, nearestSitesContent, nearestSitesheader, govUkInsetText)
     val noInspectionRequiredGbToNi: inspection_not_needed_gb_to_ni = new inspection_not_needed_gb_to_ni(fullWidthTemplate, hmrcPageHeading)
     val noInspectionRequiredImport: inspection_not_needed_import   = new inspection_not_needed_import(fullWidthTemplate, hmrcPageHeading)
     val noInspectionRequiredExport: inspection_not_needed_export   = new inspection_not_needed_export(fullWidthTemplate, hmrcPageHeading)
@@ -342,6 +342,13 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         contentAsString(result) should include("Attending an inland border facility (IBF) check")
         contentAsString(result) should include("If you have to attend an IBF, you can:")
         contentAsString(result) should include("Check which inspection site(s) you need to attend at your border location of departure. ")
+        contentAsString(result) should include("If you have to attend an IBF in the south east area, you need to report to Sevington unless exempt.")
+        contentAsString(result) should include("Vehicles are exempt if:")
+        contentAsString(result) should include("the vehicle exceeds the size limit")
+        contentAsString(result) should include("the vehicle contains hazardous goods")
+        contentAsString(result) should include("you hold a commercial agreement with another inspection site")
+        contentAsString(result) should include("Find more information on")
+        contentAsString(result) should include("if your vehicle could be exempt from attending Sevington.")
       }
 
       "return 200 OK with inspection_required_export but no report locations from backend" in new SetUp {
