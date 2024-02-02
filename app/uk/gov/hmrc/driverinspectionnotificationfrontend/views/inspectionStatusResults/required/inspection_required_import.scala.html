@@ -29,7 +29,7 @@
 
 @this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, govukInsetText : GovukInsetText)
 
-@(gmrId: Option[String], locationsByInspectionType: Map[InspectionType, List[Location]])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(gmrId: Option[String], locationsByInspectionType: Map[InspectionType, List[Location]], isInbound: Boolean)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @mainTemplate(
     pageTitle = Some(s"${messages("inspection_needed_import.title")} - ${messages("service.name")} - ${messages("generic.title.suffix")}"),
@@ -39,7 +39,7 @@
         @hmrcPageHeading(PageHeading(
             text = messages("inspection_needed_import.title")
         ))
-        <p class="govuk-body"><b>@messages("inspection_needed_import.gmr",gmrId.getOrElse(""))</b></p>
+        <p class="govuk-body"><b>@messages("inspection_needed_import.gmr", gmrId.getOrElse(""))</b></p>
     </div>
 
     <h2 class="govuk-heading-l">@messages("inspection_needed_import.what_next.h2")</h2>
@@ -80,23 +80,34 @@
 
     <p class="govuk-body">@Html(messages("inspection_needed_import.arriving.p1"))</p>
     <ul class="govuk-list govuk-list--bullet" >
-        <li><a href="@{appConfig.attendingInlandBorderFacilityUrl}">@messages("inspection_needed_import.arriving.p1.link1")</a></li>
-        <li><a href="@{appConfig.checkDelaysInlandBorderFacilityUrl}">@messages("inspection_needed_import.arriving.p1.link2")</a></li>
-    </ul>
-    @govukInsetText(InsetText(
-        content = Text(messages("inspection_needed_export.arriving.inset"))
-    ))
-
-    <p class="govuk-body">@messages("inspection_needed_export.arriving.p2")</p>
-    <ul class="govuk-list govuk-list--bullet" >
-        <li>@messages("inspection_needed_export.arriving.li.1")</li>
-        <li>@messages("inspection_needed_export.arriving.li.2")</li>
-        <li>@messages("inspection_needed_export.arriving.li.3")</li>
+        <li><a href="@{
+            appConfig.attendingInlandBorderFacilityUrl
+        }">@messages("inspection_needed_import.arriving.p1.link1")</a></li>
+        <li><a href="@{
+            appConfig.checkDelaysInlandBorderFacilityUrl
+        }">@messages("inspection_needed_import.arriving.p1.link2")</a></li>
     </ul>
 
-    <p class="govuk-body">
-        @messages("inspection_needed_export.arriving.p3") <a href="https://www.gov.uk/government/publications/attending-an-inland-border-facility/attending-an-inland-border-facility#if-your-vehicle-is-excluded">
-    @messages("inspection_needed_export.arriving.p3.link")</a></p>
+@*        @if(isInbound) { *@
+            @govukInsetText(InsetText(
+                content = Text(messages("inspection_needed_export.arriving.inset"))
+            ))
+
+                <p class="govuk-body">@messages("inspection_needed_export.arriving.p2")</p>
+                <ul class="govuk-list govuk-list--bullet">
+                <li>@messages("inspection_needed_export.arriving.li.1")</li>
+                <li>@messages("inspection_needed_export.arriving.li.2")</li>
+                <li>@messages("inspection_needed_export.arriving.li.3")</li>
+                </ul>
+
+                <p class="govuk-body">
+                @messages("inspection_needed_export.arriving.p3")
+                <a href="https://www.gov.uk/government/publications/attending-an-inland-border-facility/attending-an-inland-border-facility#if-your-vehicle-is-excluded">
+                @messages("inspection_needed_export.arriving.p3.link")
+                </a>
+                </p>
+@*        } *@
+
 
     <h3 class="govuk-heading-m">@messages("inspection_needed_import.h3.ending_transit")</h3>
 
