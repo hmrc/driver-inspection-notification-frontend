@@ -78,9 +78,6 @@ class SearchResultController @Inject()(
     implicit val referenceData: GvmsReferenceData = request.referenceData
     direction match {
       case UK_INBOUND | GB_TO_NI | NI_TO_GB =>
-        println("==== hello")
-        println("==== " + direction.toString.equals(UK_INBOUND.toString))
-        println("==== " + direction.equals(UK_INBOUND))
         val isInbound = direction.equals(UK_INBOUND)
         referenceDataService.getInspectionData(reportToLocations) match {
           case Nil =>
