@@ -26,8 +26,9 @@
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials._
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukInsetText
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.insettext.InsetText
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
 
-@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, hmrcNewTabLink: HmrcNewTabLink, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, govukInsetText : GovukInsetText)
+@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, hmrcNewTabLink: HmrcNewTabLink, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, govukInsetText : GovukInsetText, guidance_common: guidance_common)
 
 @(gmrId: Option[String], locationsByInspectionType: Map[InspectionType, List[Location]])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
@@ -82,22 +83,8 @@
         <li><a href="@{appConfig.checkDelaysInlandBorderFacilityUrl}">@messages("inspection_needed_export.arriving.p1.link2")</a></li>
     </ul>
 
-    @govukInsetText(InsetText(
-        content = Text(messages("inspection_needed_common.arriving.inset"))
-    ))
-
-    <p class="govuk-body">@messages("inspection_needed_common.arriving.p2")</p>
-    <ul class="govuk-list govuk-list--bullet" >
-        <li>@messages("inspection_needed_common.arriving.li.1")</li>
-        <li>@messages("inspection_needed_common.arriving.li.2")</li>
-        <li>@messages("inspection_needed_common.arriving.li.3")</li>
-    </ul>
-
-    <p class="govuk-body">
-        @messages("inspection_needed_common.arriving.p3") <a href="https://www.gov.uk/government/publications/attending-an-inland-border-facility/attending-an-inland-border-facility#if-your-vehicle-is-excluded">
-    @messages("inspection_needed_common.arriving.p3.link")</a></p>
-
-
+  @guidance_common()
+  
     <p class="govuk-body">
         <a href="@uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes.SearchController.show(None)" class="govuk-link">@messages("search_page.check_another_gmr")</a>
     </p>
