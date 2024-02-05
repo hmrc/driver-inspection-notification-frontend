@@ -15,13 +15,10 @@
  *@
 
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukInsetText
-@import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcNewTabLink
 @import uk.gov.hmrc.govukfrontend.views.Aliases.InsetText
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
-@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.newtablink.NewTabLink
-@import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(hmrcNewTabLink: HmrcNewTabLink, govukInsetText : GovukInsetText)
+@this(govukInsetText : GovukInsetText)
 @()(implicit request: Request[_], messages: Messages)
 
 @govukInsetText(InsetText(
@@ -34,18 +31,6 @@
     <li>@messages("inspection_needed_common.arriving.li.2")</li>
     <li>@messages("inspection_needed_common.arriving.li.3")</li>
 </ul>
-
-<p class="govuk-body">
-@Html(messages("inspection_needed_common.arriving.p3",
-    hmrcNewTabLink(
-        NewTabLink(
-            text = messages("inspection_needed_common.arriving.p3.link"),
-            href = Some("https://www.gov.uk/government/publications/attending-an-inland-border-facility/attending-an-inland-border-facility#if-your-vehicle-is-excluded"),
-            language = None
-        )
-    )
-))
-</p>
 
 <p class="govuk-body">
     @messages("inspection_needed_common.arriving.p3") <a href="https://www.gov.uk/government/publications/attending-an-inland-border-facility/attending-an-inland-border-facility#if-your-vehicle-is-excluded">

@@ -30,6 +30,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.{Insp
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{Address, InspectionType, Location}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared.{inspection_not_needed_export, inspection_not_needed_gb_to_ni, inspection_not_needed_import}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.inspection_pending
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.{inspection_required_export, inspection_required_import}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials._
 import uk.gov.hmrc.play.language.LanguageUtils
@@ -42,8 +43,9 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
   trait SetUp {
     val nearestSitesContent = new nearest_sites_content()
     val nearestSitesheader  = new nearest_sites_header()
+    val guidance            = new guidance_common(govUkInsetText)
     val inspectionRequiredImport: inspection_required_import =
-      new inspection_required_import(fullWidthTemplate, hmrcPageHeading, govukWarningText, nearestSitesContent, nearestSitesheader, govUkInsetText)
+      new inspection_required_import(fullWidthTemplate, hmrcPageHeading, govukWarningText, nearestSitesContent, nearestSitesheader, guidance)
     val inspectionRequiredExport: inspection_required_export =
       new inspection_required_export(
         fullWidthTemplate,
@@ -52,7 +54,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         govukWarningText,
         nearestSitesContent,
         nearestSitesheader,
-        govUkInsetText)
+        guidance)
     val noInspectionRequiredGbToNi: inspection_not_needed_gb_to_ni = new inspection_not_needed_gb_to_ni(fullWidthTemplate, hmrcPageHeading)
     val noInspectionRequiredImport: inspection_not_needed_import   = new inspection_not_needed_import(fullWidthTemplate, hmrcPageHeading)
     val noInspectionRequiredExport: inspection_not_needed_export   = new inspection_not_needed_export(fullWidthTemplate, hmrcPageHeading)
@@ -445,6 +447,33 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
       }
     }
 
+    "direction is UK_INBOUND" should {
+      val direction = UK_INBOUND
+      "return 200 OK with inspection_required_import" in new SetUp {
+        val gmrId = "gmrId"
+
+        when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
+          .thenReturn(
+            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionRequired)))
+        when(mockReferenceDataService.getInspectionData(any())(any())).thenReturn(Nil)
+
+        val result = controller.result(gmrId)(FakeRequest())
+        status(result)          shouldBe 200
+        contentAsString(result) should include("The goods you are moving require an inspection")
+        contentAsString(result) should include("What to do next")
+        contentAsString(result) should include("Attending an inland border facility (IBF) check")
+        contentAsString(result) should include("If you have to attend an IBF, you can:")
+        contentAsString(result) should include("Ending transit movements")
+        contentAsString(result) should include("If you have to attend an IBF in the south east area, you need to report to Sevington unless exempt.")
+        contentAsString(result) should include("Vehicles are exempt if:")
+        contentAsString(result) should include("the vehicle exceeds the size limit")
+        contentAsString(result) should include("the vehicle contains hazardous goods")
+        contentAsString(result) should include("you hold a commercial agreement with another inspection site")
+        contentAsString(result) should include("Find more information on")
+        contentAsString(result) should include("if your vehicle could be exempt from attending Sevington.")
+      }
+    }
+
     "direction is NI_TO_GB" should {
       val direction = NI_TO_GB
       "return 200 OK with inspection_required_import" in new SetUp {
@@ -462,6 +491,14 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         contentAsString(result) should include("Attending an inland border facility (IBF) check")
         contentAsString(result) should include("If you have to attend an IBF, you can:")
         contentAsString(result) should include("Ending transit movements")
+        contentAsString(result) shouldNot include(
+          "If you have to attend an IBF in the south east area, you need to report to Sevington unless exempt.")
+        contentAsString(result) shouldNot include("Vehicles are exempt if:")
+        contentAsString(result) shouldNot include("the vehicle exceeds the size limit")
+        contentAsString(result) shouldNot include("the vehicle contains hazardous goods")
+        contentAsString(result) shouldNot include("you hold a commercial agreement with another inspection site")
+        contentAsString(result) shouldNot include("Find more information on")
+        contentAsString(result) shouldNot include("if your vehicle could be exempt from attending Sevington.")
       }
 
       "return 200 OK for inspection-pending" in new SetUp {
