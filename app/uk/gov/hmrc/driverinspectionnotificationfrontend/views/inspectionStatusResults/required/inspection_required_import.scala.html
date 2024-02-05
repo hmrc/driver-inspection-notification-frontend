@@ -27,7 +27,7 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukInsetText
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.insettext.InsetText
 
-@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, govukInsetText : GovukInsetText)
+@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, govukInsetText : GovukInsetText, hmrcNewTabLink: HmrcNewTabLink)
 
 @(gmrId: Option[String], locationsByInspectionType: Map[InspectionType, List[Location]], isInbound: Boolean)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
@@ -88,25 +88,37 @@
         }">@messages("inspection_needed_import.arriving.p1.link2")</a></li>
     </ul>
 
-@*        @if(isInbound) { *@
+        @if(isInbound) {
             @govukInsetText(InsetText(
-                content = Text(messages("inspection_needed_export.arriving.inset"))
+                content = Text(messages("inspection_needed_common.arriving.inset"))
             ))
 
-                <p class="govuk-body">@messages("inspection_needed_export.arriving.p2")</p>
+                <p class="govuk-body">@messages("inspection_needed_common.arriving.p2")</p>
                 <ul class="govuk-list govuk-list--bullet">
-                <li>@messages("inspection_needed_export.arriving.li.1")</li>
-                <li>@messages("inspection_needed_export.arriving.li.2")</li>
-                <li>@messages("inspection_needed_export.arriving.li.3")</li>
+                <li>@messages("inspection_needed_common.arriving.li.1")</li>
+                <li>@messages("inspection_needed_common.arriving.li.2")</li>
+                <li>@messages("inspection_needed_common.arriving.li.3")</li>
                 </ul>
+          
+            <p class="govuk-body">
+            @Html(messages("inspection_needed_common.arriving.p3",
+                hmrcNewTabLink(
+                    NewTabLink(
+                        text = messages("inspection_needed_common.arriving.p3.link"),
+                        href = Some("https://www.gov.uk/government/publications/attending-an-inland-border-facility/attending-an-inland-border-facility#if-your-vehicle-is-excluded"),
+                        language = None
+                    )
+                )
+            ))
+            </p>
 
                 <p class="govuk-body">
-                @messages("inspection_needed_export.arriving.p3")
+                @messages("inspection_needed_common.arriving.p3")
                 <a href="https://www.gov.uk/government/publications/attending-an-inland-border-facility/attending-an-inland-border-facility#if-your-vehicle-is-excluded">
-                @messages("inspection_needed_export.arriving.p3.link")
+                @messages("inspection_needed_common.arriving.p3.link")
                 </a>
                 </p>
-@*        } *@
+        }
 
 
     <h3 class="govuk-heading-m">@messages("inspection_needed_import.h3.ending_transit")</h3>
