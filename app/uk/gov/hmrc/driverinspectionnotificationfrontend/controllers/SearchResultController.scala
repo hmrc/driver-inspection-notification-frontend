@@ -78,17 +78,16 @@ class SearchResultController @Inject()(
     implicit val referenceData: GvmsReferenceData = request.referenceData
     direction match {
       case UK_INBOUND | GB_TO_NI | NI_TO_GB =>
-        val isInbound = direction.equals(UK_INBOUND)
         referenceDataService.getInspectionData(reportToLocations) match {
           case Nil =>
             logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction $direction")
-            inspection_required_import(Some(gmrId), Map(), isInbound)
+            inspection_required_import(Some(gmrId), Map(), direction)
           case listOfEithers =>
             val (inspectionTypesNotFound, inspectionTypesAndLocations) = partitionAndExtract(listOfEithers)
             if (inspectionTypesNotFound.nonEmpty)
               logger.warn(s"Inspection types with ids [${inspectionTypesNotFound.map(_.inspectionTypeId).mkString(",")}] not found in reference data")
             inspectionTypesAndLocations match {
-              case Nil => inspection_required_import(Some(gmrId), Map(), isInbound)
+              case Nil => inspection_required_import(Some(gmrId), Map(), direction)
               case list =>
                 val inspectionLocations = list.map {
                   case (inspectionType, eitherLocations) =>
@@ -97,7 +96,7 @@ class SearchResultController @Inject()(
                       logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
                     (inspectionType, locations)
                 }.toMap
-                inspection_required_import(Some(gmrId), inspectionLocations, isInbound)
+                inspection_required_import(Some(gmrId), inspectionLocations, direction)
             }
         }
       case UK_OUTBOUND =>

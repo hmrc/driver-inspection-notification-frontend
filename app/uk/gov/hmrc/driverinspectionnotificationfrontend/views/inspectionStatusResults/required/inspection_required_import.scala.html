@@ -25,9 +25,10 @@
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials._
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.UK_INBOUND
 
 @this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common)
-@(gmrId: Option[String], locationsByInspectionType: Map[InspectionType, List[Location]], isInbound: Boolean)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(gmrId: Option[String], locationsByInspectionType: Map[InspectionType, List[Location]], direction: Direction)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @mainTemplate(
     pageTitle = Some(s"${messages("inspection_needed_import.title")} - ${messages("service.name")} - ${messages("generic.title.suffix")}"),
@@ -87,7 +88,7 @@
     </ul>
 
 
-    @if(isInbound) {
+    @if(direction.equals(UK_INBOUND)) {
         @guidance_common()
     }
 
