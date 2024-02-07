@@ -24,9 +24,9 @@
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials._
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
 
-@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, hmrcNewTabLink: HmrcNewTabLink, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header)
-
+@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, hmrcNewTabLink: HmrcNewTabLink, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common)
 
 @(gmrId: Option[String], locationsByInspectionType: Map[InspectionType, List[Location]])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
@@ -81,6 +81,7 @@
         <li><a href="@{appConfig.checkDelaysInlandBorderFacilityUrl}">@messages("inspection_needed_export.arriving.p1.link2")</a></li>
     </ul>
 
+  @guidance_common()
 
     <p class="govuk-body">
         <a href="@uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes.SearchController.show(None)" class="govuk-link">@messages("search_page.check_another_gmr")</a>

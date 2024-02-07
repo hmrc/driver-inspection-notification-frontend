@@ -47,6 +47,7 @@ lazy val microservice = Project(appName, file("."))
     wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "search_page.template.scala",
     wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "main_layout_full_width_template.template.scala",
     wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "helpers" / "languages.template.scala",
+    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html",
     Compile / compile / wartremoverErrors ++= Warts.allBut(
       Throw,
       ToString,
@@ -96,6 +97,7 @@ lazy val microservice = Project(appName, file("."))
   )
   .settings( //fix scaladoc generation in jenkins
     Compile / scalacOptions -= "utf8",
+    Compile / console / scalacOptions := (console / scalacOptions).value.filterNot(_.contains("wartremover")),
     scalacOptions += "-language:postfixOps"
   )
 

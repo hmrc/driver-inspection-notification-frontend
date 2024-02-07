@@ -81,13 +81,13 @@ class SearchResultController @Inject()(
         referenceDataService.getInspectionData(reportToLocations) match {
           case Nil =>
             logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction $direction")
-            inspection_required_import(Some(gmrId), Map())
+            inspection_required_import(Some(gmrId), Map(), direction)
           case listOfEithers =>
             val (inspectionTypesNotFound, inspectionTypesAndLocations) = partitionAndExtract(listOfEithers)
             if (inspectionTypesNotFound.nonEmpty)
               logger.warn(s"Inspection types with ids [${inspectionTypesNotFound.map(_.inspectionTypeId).mkString(",")}] not found in reference data")
             inspectionTypesAndLocations match {
-              case Nil => inspection_required_import(Some(gmrId), Map())
+              case Nil => inspection_required_import(Some(gmrId), Map(), direction)
               case list =>
                 val inspectionLocations = list.map {
                   case (inspectionType, eitherLocations) =>
@@ -96,7 +96,7 @@ class SearchResultController @Inject()(
                       logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
                     (inspectionType, locations)
                 }.toMap
-                inspection_required_import(Some(gmrId), inspectionLocations)
+                inspection_required_import(Some(gmrId), inspectionLocations, direction)
             }
         }
       case UK_OUTBOUND =>
