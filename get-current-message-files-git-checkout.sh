@@ -3,7 +3,13 @@
 echo "Running git checkout"
 
 projectDir=driver-inspection-notification-frontend
-gitCloneRef=https://$GITHUB_API_USER:$GITHUB_API_TOKEN@github.com/hmrc/driver-inspection-notification-frontend.git
+if [ -z $gitCloneRef ]
+then
+  gitCloneRef=git@github.com:hmrc/driver-inspection-notification-frontend.git
+  echo "[gitCloneRef] environment variable is empty, defaulting to: $gitCloneRef"
+else
+  echo "[gitCloneRef] environment variable is set to: $gitCloneRef"
+fi
 gitCommitRef=main
 
 now=$(date +"%T")
