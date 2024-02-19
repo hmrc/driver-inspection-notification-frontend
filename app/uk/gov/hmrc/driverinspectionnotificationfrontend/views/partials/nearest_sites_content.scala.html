@@ -22,7 +22,7 @@
 
 @this()
 
-@(key: String, locationsByInspectionType: Map[InspectionType, List[Location]])(implicit messages: Messages)
+@(key: String, locationsByInspectionType: Map[String, List[Location]])(implicit messages: Messages)
 
 @{
     val isSingleInspectionType = locationsByInspectionType.sizeIs == 1

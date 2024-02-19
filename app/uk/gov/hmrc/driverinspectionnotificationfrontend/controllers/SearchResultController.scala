@@ -94,7 +94,7 @@ class SearchResultController @Inject()(
                     val (locationsNotFound, locations) = partitionAndExtract(eitherLocations)
                     if (locationsNotFound.nonEmpty)
                       logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
-                    (inspectionType, locations)
+                    (inspectionType.descriptionMappedToCustoms, locations)
                 }.toMap
                 inspection_required_import(Some(gmrId), inspectionLocations, direction)
             }
@@ -116,7 +116,7 @@ class SearchResultController @Inject()(
                     val (locationsNotFound, locations) = partitionAndExtract(eitherLocations)
                     if (locationsNotFound.nonEmpty)
                       logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
-                    (inspectionType, locations)
+                    (inspectionType.descriptionMappedToCustoms, locations)
                 }.toMap
                 inspection_required_export(Some(gmrId), inspectionLocations)
             }
