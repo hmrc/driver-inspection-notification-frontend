@@ -24,8 +24,8 @@ case class InspectionType(
 ) {
 
   def descriptionMappedToCustoms: String = inspectionTypeId match {
-    case "1" | "9" | "10" | "11" | "12"  => "customs"
-    case _    => description.toLowerCase
+    case "1" | "9" | "10" | "11" | "12" => "customs"
+    case _                              => description.toLowerCase
   }
 }
 
