@@ -259,8 +259,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           content        should include("If you have to attend an IBF, you can:")
           content        should include("Ending transit movements")
 
-          val customsHeader = "For your customs inspection"
-          content.sliding(customsHeader.length).count(_ == customsHeader) should be(1)
+          countSubstring("For your customs inspection", content) should be(1)
 
           content should include("For your DEFRA inspection")
           content should include("For your transit inspection")
