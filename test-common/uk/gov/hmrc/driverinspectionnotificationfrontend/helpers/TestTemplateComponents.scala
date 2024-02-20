@@ -20,7 +20,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.{NonPrinta
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.getHelp
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head, main_layout_full_width_template}
 import uk.gov.hmrc.govukfrontend.views.html.components._
-import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, TrackingConsentConfig}
+import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, TrackingConsentConfig, TudorCrownConfig}
 import uk.gov.hmrc.hmrcfrontend.views.html.components._
 import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcScripts, HmrcStandardHeader, HmrcTrackingConsentSnippet}
 
@@ -31,7 +31,8 @@ trait TestTemplateComponents {
 
   val hmrcTrackingConsent = new HmrcTrackingConsentSnippet(new TrackingConsentConfig(configuration))
 
-  val govukTemplate = new GovukTemplate(new GovukHeader, new GovukFooter, new GovukSkipLink, new FixedWidthPageLayout)
+  val govukTemplate =
+    new GovukTemplate(new GovukHeader(TudorCrownConfig(configuration)), new GovukFooter, new GovukSkipLink, new FixedWidthPageLayout)
 
   val technicalIssueSnippet = new getHelp(new HmrcReportTechnicalIssue(), new ContactFrontendConfig(configuration))
 
@@ -41,9 +42,10 @@ trait TestTemplateComponents {
 
   val hmrcStandardHeader = new HmrcStandardHeader(
     hmrcHeader = new HmrcHeader(
-      hmrcBanner             = new HmrcBanner(),
+      hmrcBanner             = new HmrcBanner(TudorCrownConfig(configuration)),
       hmrcUserResearchBanner = new HmrcUserResearchBanner(),
-      govukPhaseBanner       = new GovukPhaseBanner(govukTag = new GovukTag())
+      govukPhaseBanner       = new GovukPhaseBanner(govukTag = new GovukTag()),
+      TudorCrownConfig(configuration)
     )
   )
 
