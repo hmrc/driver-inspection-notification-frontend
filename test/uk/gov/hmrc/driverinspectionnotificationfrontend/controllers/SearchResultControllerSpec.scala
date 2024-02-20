@@ -441,7 +441,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         }
 
         "return 200 OK with inspection_required_import but no valid locations were found for any inspection types in reference data" in new SetUp {
-          val gmrId = "gmrId"
+          val gmrId = "gmrId3"
 
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(EitherT.rightT[Future, GmrErrors](inspectionResponse(

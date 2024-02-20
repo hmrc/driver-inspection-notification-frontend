@@ -19,10 +19,11 @@
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.UK_OUTBOUND
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{InspectionType, Location}
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
 
 @this()
 
-@(key: String, locationsByInspectionType: Map[String, List[Location]])(implicit messages: Messages)
+@(key: String, locationsByInspectionType: Map[InspectionDisplayGroup, List[Location]])(implicit messages: Messages)
 
 @{
     val isSingleInspectionType = locationsByInspectionType.sizeIs == 1

@@ -21,13 +21,7 @@ import play.api.libs.json.{Json, OFormat}
 case class InspectionType(
   inspectionTypeId: String,
   description:      String
-) {
-
-  def descriptionMappedToCustoms: String = inspectionTypeId match {
-    case "1" | "9" | "10" | "11" | "12" => "customs"
-    case _                              => description.toLowerCase
-  }
-}
+)
 
 object InspectionType {
   implicit val format: OFormat[InspectionType] = Json.format[InspectionType]

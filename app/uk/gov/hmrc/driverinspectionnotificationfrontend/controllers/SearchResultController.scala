@@ -27,6 +27,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.{InspectionStatus, ReportLocations}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.GvmsReferenceData
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.{Direction, InspectionResponse}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.services.{GmsReferenceDataService, GmsService}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.utils.EitherUtils.partitionAndExtract
@@ -94,7 +95,7 @@ class SearchResultController @Inject()(
                     val (locationsNotFound, locations) = partitionAndExtract(eitherLocations)
                     if (locationsNotFound.nonEmpty)
                       logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
-                    (inspectionType.descriptionMappedToCustoms, locations)
+                    (InspectionDisplayGroup(inspectionType), locations)
                 }.toMap
                 inspection_required_import(Some(gmrId), inspectionLocations, direction)
             }
@@ -116,7 +117,7 @@ class SearchResultController @Inject()(
                     val (locationsNotFound, locations) = partitionAndExtract(eitherLocations)
                     if (locationsNotFound.nonEmpty)
                       logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
-                    (inspectionType.descriptionMappedToCustoms, locations)
+                    (InspectionDisplayGroup(inspectionType), locations)
                 }.toMap
                 inspection_required_export(Some(gmrId), inspectionLocations)
             }
