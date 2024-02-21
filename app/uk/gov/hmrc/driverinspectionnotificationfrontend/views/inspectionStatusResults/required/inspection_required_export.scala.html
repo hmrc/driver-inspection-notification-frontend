@@ -26,8 +26,13 @@
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials._
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
+@import uk.gov.hmrc.govukfrontend.views.html.components.GovukNotificationBanner
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.notificationbanner.NotificationBanner
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.content.HtmlContent
+@import uk.gov.hmrc.govukfrontend.views.html.components.GovukButton
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.button.Button
 
-@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, hmrcNewTabLink: HmrcNewTabLink, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common)
+@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, hmrcNewTabLink: HmrcNewTabLink, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common, govukNotificationBanner : GovukNotificationBanner, govukButton: GovukButton)
 
 @(gmrId: Option[String], locationsByInspectionType: Map[InspectionDisplayGroup, List[Location]])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
@@ -35,15 +40,19 @@
     pageTitle = Some(s"${messages("inspection_needed_export.title")} - ${messages("service.name")} - ${messages("generic.title.suffix")}"),
     backLinkEnabled = true
 ) {
-    <div class="govuk-error-summary">
-        @hmrcPageHeading(PageHeading(
-            text = messages("inspection_needed_export.title")
-        ))
-
-        <p class="govuk-body"><b>@messages("inspection_needed_export.gmr",gmrId.getOrElse(""))</b></p>
-    </div>
+    @govukNotificationBanner(NotificationBanner(
+        title = Text(messages("inspection_needed_export.title")),
+        content = HtmlContent {
+            s"""
+          ${hmrcPageHeading(PageHeading(text = messages("inspection_needed_import.title")))}
+            <p class="govuk-body">${messages("inspection_needed_import.gmr", gmrId.getOrElse(""))}</p>
+          """
+        }
+    ))
 
     <h2 class="govuk-heading-l">@messages("inspection_needed_export.what_next.h2")</h2>
+
+    <p class="govuk-body">@messages("inspection_needed.what_next.p1")</p>
 
     <p class="govuk-body">@messages("inspection_needed_export.what_next.p2")</p>
 
@@ -55,6 +64,7 @@
 
     @nearestSitesHeader("inspection_needed_export", locationsByInspectionType)
     @nearestSitesContent("inspection_needed_export", locationsByInspectionType)
+    <p class="govuk-body">@messages("inspection_needed.inspection_site.p1")</p>
 
     @{
         if (locationsByInspectionType.nonEmpty) {
@@ -65,15 +75,24 @@
                         s"""<h3 class="govuk-heading-m">${messages("inspection_needed_export." + inspectionDisplayGroup.value + ".heading")}</h3>
                            |<p class="govuk-body">${messages("inspection_needed_export_with_other.p1")}</p><hr aria-hidden="true" /><br/> """.stripMargin))
                 } else {
-                    renderInspectionLocations(inspectionDisplayGroup, optLocations) :+ Html("<hr aria-hidden=\"true\" /><br />")
+                    renderInspectionLocations(inspectionDisplayGroup, optLocations)
                 }
             }
         } else {
             Html(
                 s"""<h3 class="govuk-heading-m">${messages("inspection_needed_export.inspection.heading")}</h3>
-                       |<p class="govuk-body">${messages("inspection_needed_export_with_other.p1")}</p> <hr aria-hidden="true" /><br/>""".stripMargin)
+                       |<p class="govuk-body">${messages("inspection_needed_export_with_other.p1")}</p>""".stripMargin)
         }
     }
+
+    @govukButton(
+        Button(
+            classes = "govuk-button--secondary",
+            href = Some(uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes.SearchController.show(None).url),
+            content = Text(messages("search_page.check_another_gmr"))
+        )
+    )
+
 
     <h3 class="govuk-heading-m">@messages("inspection_needed_export.arriving.h3")</h3>
     <p class="govuk-body">@messages("inspection_needed_export.arriving.p1")</p>

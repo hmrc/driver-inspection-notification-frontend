@@ -125,6 +125,17 @@ inspection_pending_page.p1=Twój status kontroli powinien być gotowy na około 
 inspection_pending_page.time=Ostatnio sprawdzono o godzinie {0} - {1}
 inspection_pending_page.check_again=Sprawdź status ponownie
 
+###############################################
+#
+# Inspection needed common
+#
+###############################################
+
+inspection_needed.what_next.p1=Zgłoś się do punktu(-ów) kontroli w podanej kolejności.
+inspection_needed.inspection_site.p1=Musisz zgłaszać się do kontroli w podanej kolejności.
+inspection_needed.what_next.warning=W przypadku niezgłoszenia się do kontroli możesz zostać ukarany grzywną
+
+
 
 ###############################################
 #
@@ -137,7 +148,6 @@ inspection_needed_import.what_next.h2=Co zrobić w następnej kolejności
 inspection_needed_import.what_next.p2=Sprawdź, do których punktów kontroli musisz się zgłosić w placówce granicznej przybycia. Może zaistnieć konieczność udania się do wewnętrznego urzędu celnego (IBF) lub placówki kontroli celnej.
 inspection_needed_import.what_next.p3=Towary podlegające kontroli muszą być zachowane w takim samym stanie, w jakim zostały sprowadzone.
 inspection_needed_import.text.warning=Uwaga
-inspection_needed_import.what_next.warning=Zatrzymanie się na kontrolę jest wymagane przepisami prawa.
 inspection_needed_import.inspection_site.h2=Placówka kontroli
 inspection_needed_import.inspection_sites.h2=Placówki kontroli
 inspection_needed_import.nearest_sites.p1=Kontrole muszą być przeprowadzane w podanej kolejności.
@@ -178,7 +188,6 @@ inspection_needed_export.what_next.h2=Co zrobić w następnej kolejności
 inspection_needed_export.what_next.p2=Sprawdź, do których punktów kontroli musisz się zgłosić w placówce granicznej wyjścia. Może zaistnieć konieczność udania się do wewnętrznego urzędu celnego (IBF) lub placówki kontroli celnej.
 inspection_needed_export.what_next.p3=Towary podlegające kontroli muszą być zachowane w takim samym stanie, w jakim zostały odebrane od przedsiębiorcy.
 inspection_needed_export.text.warning=Uwaga
-inspection_needed_export.what_next.warning=Zatrzymanie się na kontrolę jest wymagane przepisami prawa.
 inspection_needed_export.inspection_site.h2=Placówka kontroli
 inspection_needed_export.inspection_sites.h2=Placówki kontroli
 inspection_needed_export.nearest_sites.p1=Kontrole muszą być przeprowadzane w podanej kolejności.

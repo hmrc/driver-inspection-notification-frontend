@@ -129,6 +129,16 @@ inspection_pending_page.check_again=Znovu zkontrolovat stav
 
 ###############################################
 #
+# Inspection needed common
+#
+###############################################
+
+inspection_needed.what_next.p1=Na místech prohlídky se hlaste v uvedeném pořadí.
+inspection_needed.inspection_site.p1=Veškerých prohlídek se musíte zúčastnit v uvedeném pořadí.
+inspection_needed.what_next.warning=Pokud se nedostavíte k celní prohlídce, může vám být udělena pokuta.
+
+###############################################
+#
 # Inspection needed import
 #
 ###############################################
@@ -138,7 +148,6 @@ inspection_needed_import.what_next.h2=Co dělat dále
 inspection_needed_import.what_next.p2=Zkontrolujte, na kterém celním pracovišti se musíte hlásit v místě příjezdu. Je možné, že se budete muset dostavit na vnitrozemské celní pracoviště (IBF) nebo do zařízení pro celní prohlídky.
 inspection_needed_import.what_next.p3=Zboží, které je předmětem prohlídky, musí být ve stejném stavu jako v době dovozu.
 inspection_needed_import.text.warning=Výstraha
-inspection_needed_import.what_next.warning=Zastavení k prohlídce je zákonným požadavkem.
 inspection_needed_import.inspection_site.h2=Vaše místo prohlídky
 inspection_needed_import.inspection_sites.h2=Vaše místa prohlídky
 inspection_needed_import.nearest_sites.p1=Prohlídky se musí absolvovat v uvedeném pořadí.
@@ -179,7 +188,6 @@ inspection_needed_export.what_next.h2=Co dělat dále
 inspection_needed_export.what_next.p2=Zkontrolujte, na kterém celním pracovišti se musíte hlásit v místě odjezdu. Je možné, že se budete muset dostavit na vnitrozemské celní pracoviště (IBF) nebo do zařízení pro celní prohlídky.
 inspection_needed_export.what_next.p3=Zboží, které je předmětem prohlídky, musí být ve stejném stavu, v jakém bylo vyzvednuto u obchodníka.
 inspection_needed_export.text.warning=Výstraha
-inspection_needed_export.what_next.warning=Zastavení k prohlídce je zákonným požadavkem.
 inspection_needed_export.inspection_site.h2=Vaše místo prohlídky
 inspection_needed_export.inspection_sites.h2=Vaše místa prohlídky
 inspection_needed_export.nearest_sites.p1=Prohlídky se musí absolvovat v uvedeném pořadí.

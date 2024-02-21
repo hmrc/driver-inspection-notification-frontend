@@ -128,6 +128,17 @@ inspection_pending_page.check_again=Verificați din nou statusul
 
 ###############################################
 #
+# Inspection needed common
+#
+###############################################
+
+inspection_needed.what_next.p1=Raportați la unitatea (unitățile) dumneavoastră de inspecție în ordinea afișată.
+inspection_needed.inspection_site.p1=Trebuie să participați la orice inspecție în ordinea afișată.
+inspection_needed.what_next.warning=Este posibil să vi se aplice o penalizare dacă nu vă prezentați pentru inspecție
+
+
+###############################################
+#
 # Inspection needed import
 #
 ###############################################
@@ -137,7 +148,6 @@ inspection_needed_import.what_next.h2=Ce trebuie făcut în continuare
 inspection_needed_import.what_next.p2=Verificați la ce unitate (unități) de inspecție trebuie să vă prezentați la punctul de frontieră de sosire. Este posibil să fie necesar să conduceți până la o la o facilitate de frontieră interioară (IBF) sau la unitatea de control vamal.
 inspection_needed_import.what_next.p3=Mărfurile pentru inspecție trebuie păstrate în aceeași stare ca în momentul în care au fost importate.
 inspection_needed_import.text.warning=Avertizare
-inspection_needed_import.what_next.warning=Oprirea pentru o inspecție este o cerință legală.
 inspection_needed_import.inspection_site.h2=Unitatea de inspecție
 inspection_needed_import.inspection_sites.h2=Unități de inspecție
 inspection_needed_import.nearest_sites.p1=Inspecțiile trebuie să fie efectuate în ordinea arătată.
@@ -178,7 +188,6 @@ inspection_needed_export.what_next.h2=Ce trebuie făcut în continuare
 inspection_needed_export.what_next.p2=Verificați la ce unitate (unități) de inspecție trebuie să vă prezentați la punctul de frontieră de plecare. Este posibil să fie necesar să conduceți până la o la o facilitate de frontieră interioară (IBF) sau la unitatea de control vamal.
 inspection_needed_export.what_next.p3=Mărfurile pentru inspecție trebuie păstrate în aceeași stare ca în momentul în care au fost colectate de la comerciant.
 inspection_needed_export.text.warning=Avertizare
-inspection_needed_export.what_next.warning=Oprirea pentru o inspecție este o cerință legală.
 inspection_needed_export.inspection_site.h2=Unitatea de inspecție
 inspection_needed_export.inspection_sites.h2=Unități de inspecție
 inspection_needed_export.nearest_sites.p1=Inspecțiile trebuie să fie efectuate în ordinea arătată.
