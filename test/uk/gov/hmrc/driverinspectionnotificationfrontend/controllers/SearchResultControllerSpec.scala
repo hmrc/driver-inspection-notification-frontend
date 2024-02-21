@@ -20,6 +20,7 @@ import cats.data.EitherT
 import org.mockito.ArgumentMatchers.{any, same, eq => argEq}
 import org.mockito.Mockito.when
 import play.api.i18n.DefaultLangs
+import play.api.i18n.Lang.logger.logger
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
@@ -84,7 +85,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
       GB_TO_NI
     ).foreach { direction =>
       s"direction is $direction" should {
-        "return 200 OK with inspection_required_import_with_locations when is import and inspection data found in reference data" in new SetUp {
+        "return 200 OK with inspection_required_import when is import and inspection data found in reference data" in new SetUp {
           val gmrId = "gmrId"
           val location = Location(
             locationId          = "1",
@@ -129,7 +130,153 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           content        should include("Ending transit movements")
         }
 
-        "return 200 OK with inspection_required_import_with_locations  and some valid inspection types found alongside unrecognised types" in new SetUp {
+        "return 200 OK with inspection_required_import when is import and inspection data found in reference data with inspection types DBC, EIDR, EXEMPTION, EMPTY and CUSTOMS" in new SetUp {
+          val gmrId = "gmrId"
+          val location = Location(
+            locationId          = "1",
+            locationDescription = "Belfast Location 1",
+            address = Address(
+              lines = List(
+                "1 Shamrock Lane",
+                "Waldo"
+              ),
+              town     = Some("Belfast"),
+              postcode = "NI1 6JG"
+            ),
+            locationType          = "BCP",
+            locationEffectiveFrom = LocalDate.parse("2020-01-01"),
+            locationEffectiveTo   = None,
+            supportedInspectionTypeIds = List(
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "13"
+            ),
+            requiredInspectionLocations = List(
+              2, 3, 4, 5, 6, 7, 8, 13
+            )
+          )
+          val locationForCustoms = Location(
+            locationId          = "2",
+            locationDescription = "Belfast Location for Customs",
+            address = Address(
+              lines = List(
+                "2 Shamrock Lane",
+                "Waldo"
+              ),
+              town     = Some("Belfast"),
+              postcode = "NI2 6JG"
+            ),
+            locationType          = "BCP",
+            locationEffectiveFrom = LocalDate.parse("2020-01-01"),
+            locationEffectiveTo   = None,
+            supportedInspectionTypeIds = List(
+              "1",
+              "9",
+              "10",
+              "11",
+              "12"
+            ),
+            requiredInspectionLocations = List(
+              1,
+              9,
+              10,
+              11,
+              12
+            )
+          )
+
+          when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
+            .thenReturn(EitherT.rightT[Future, GmrErrors](inspectionResponse(
+              direction        = direction,
+              inspectionStatus = InspectionStatus.InspectionRequired,
+              reportToLocations = Some(
+                List(
+                  ReportLocations(inspectionTypeId = "1", locationIds  = List("1")),
+                  ReportLocations(inspectionTypeId = "2", locationIds  = List("1")),
+                  ReportLocations(inspectionTypeId = "3", locationIds  = List("1")),
+                  ReportLocations(inspectionTypeId = "4", locationIds  = List("1")),
+                  ReportLocations(inspectionTypeId = "5", locationIds  = List("1")),
+                  ReportLocations(inspectionTypeId = "6", locationIds  = List("1")),
+                  ReportLocations(inspectionTypeId = "7", locationIds  = List("1")),
+                  ReportLocations(inspectionTypeId = "8", locationIds  = List("1")),
+                  ReportLocations(inspectionTypeId = "9", locationIds  = List("2")),
+                  ReportLocations(inspectionTypeId = "10", locationIds = List("2")),
+                  ReportLocations(inspectionTypeId = "11", locationIds = List("2")),
+                  ReportLocations(inspectionTypeId = "12", locationIds = List("2")),
+                  ReportLocations(inspectionTypeId = "13", locationIds = List("1"))
+                )
+              )
+            )))
+
+          when(
+            mockReferenceDataService.getInspectionData(argEq(
+              List(
+                ReportLocations(inspectionTypeId = "1", locationIds  = List("1")),
+                ReportLocations(inspectionTypeId = "2", locationIds  = List("1")),
+                ReportLocations(inspectionTypeId = "3", locationIds  = List("1")),
+                ReportLocations(inspectionTypeId = "4", locationIds  = List("1")),
+                ReportLocations(inspectionTypeId = "5", locationIds  = List("1")),
+                ReportLocations(inspectionTypeId = "6", locationIds  = List("1")),
+                ReportLocations(inspectionTypeId = "7", locationIds  = List("1")),
+                ReportLocations(inspectionTypeId = "8", locationIds  = List("1")),
+                ReportLocations(inspectionTypeId = "9", locationIds  = List("2")),
+                ReportLocations(inspectionTypeId = "10", locationIds = List("2")),
+                ReportLocations(inspectionTypeId = "11", locationIds = List("2")),
+                ReportLocations(inspectionTypeId = "12", locationIds = List("2")),
+                ReportLocations(inspectionTypeId = "13", locationIds = List("1"))
+              )
+            ))(any()))
+            .thenReturn(
+              List(
+                Right(InspectionType("1", "CUSTOMS")      -> List(Right(locationForCustoms))),
+                Right(InspectionType("2", "DEFRA")        -> List(Right(location))),
+                Right(InspectionType("3", "TRANSIT")      -> List(Right(location))),
+                Right(InspectionType("4", "OGD")          -> List(Right(location))),
+                Right(InspectionType("5", "DEFRA_PLANTS") -> List(Right(location))),
+                Right(InspectionType("6", "ATA")          -> List(Right(location))),
+                Right(InspectionType("7", "SAD")          -> List(Right(location))),
+                Right(InspectionType("8", "TIR")          -> List(Right(location))),
+                Right(InspectionType("9", "DBC")          -> List(Right(locationForCustoms))),
+                Right(InspectionType("10", "EIDR")        -> List(Right(locationForCustoms))),
+                Right(InspectionType("11", "EXEMPTION")   -> List(Right(locationForCustoms))),
+                Right(InspectionType("12", "EMPTY")       -> List(Right(locationForCustoms))),
+                Right(InspectionType("13", "DAERA")       -> List(Right(location))),
+              )
+            )
+
+          val result = controller.result(gmrId)(FakeRequest())
+          val content: String = contentAsString(result)
+
+          status(result) shouldBe 200
+          content        should include("The goods you are moving require an inspection")
+          content        should include("What to do next")
+          content        should include("Attending an inland border facility (IBF) check")
+          content        should include("If you have to attend an IBF, you can:")
+          content        should include("Ending transit movements")
+
+          countSubstring("For your customs inspection", content) should be(1)
+
+          content should include("For your DEFRA inspection")
+          content should include("For your transit inspection")
+          content should include("For other government department inspections")
+          content should include("For your ATA Carnet endorsement")
+          content should include("For your Single Administrative Document (SAD) endorsement")
+          content should include("For your TIR Carnet endorsement")
+          content should include("For your DAERA inspection")
+
+          content shouldNot include("For your Entry in Declarant’s Record inspection")
+          content shouldNot include("For your Oral or by conduct declaration inspection")
+          content shouldNot include("For your Postal declaration inspection")
+          content shouldNot include("For your Empty vehicle inspection")
+
+        }
+
+        "return 200 OK with inspection_required_import  and some valid inspection types found alongside unrecognised types" in new SetUp {
           val gmrId = "gmrId"
           val location = Location(
             locationId          = "1",
@@ -187,7 +334,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           content        should include("Ending transit movements")
         }
 
-        "return 200 OK with inspection_required_import_with_locations and some valid locations are present on at least one inspection type, even if some locations invalid" in new SetUp {
+        "return 200 OK with inspection_required_import and some valid locations are present on at least one inspection type, even if some locations invalid" in new SetUp {
           val gmrId = "gmrId"
           val location = Location(
             locationId          = "1",

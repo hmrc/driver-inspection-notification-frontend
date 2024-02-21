@@ -23,12 +23,13 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukWarningText
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials._
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.UK_INBOUND
 
 @this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common)
-@(gmrId: Option[String], locationsByInspectionType: Map[InspectionType, List[Location]], direction: Direction)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(gmrId: Option[String], locationsByInspectionType: Map[InspectionDisplayGroup, List[Location]], direction: Direction)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
 
 @mainTemplate(
     pageTitle = Some(s"${messages("inspection_needed_import.title")} - ${messages("service.name")} - ${messages("generic.title.suffix")}"),
@@ -58,13 +59,13 @@
     @{
         if (locationsByInspectionType.nonEmpty) {
                 locationsByInspectionType.flatMap {
-                    case (inspectionType, optLocations) =>
+                    case (inspectionDisplayGroup, optLocations) =>
                         if (optLocations.isEmpty){
                             List(Html(
-                                s"""<h3 class="govuk-heading-m">${messages("inspection_needed_import." + inspectionType.description.toLowerCase + ".heading")}</h3>
+                                s"""<h3 class="govuk-heading-m">${messages("inspection_needed_import." + inspectionDisplayGroup.value + ".heading")}</h3>
                            |<p class="govuk-body">${messages("inspection_needed_import_with_other.p1")}</p><hr aria-hidden="true" /><br/> """.stripMargin))
                         } else {
-                            renderInspectionLocations(inspectionType, optLocations) :+ Html("<hr aria-hidden=\"true\" /><br />")
+                            renderInspectionLocations(inspectionDisplayGroup, optLocations) :+ Html("<hr aria-hidden=\"true\" /><br />")
                         }
                 }
         } else {
@@ -108,8 +109,8 @@
     </p>
 }
 
-@renderInspectionLocations(inspectionType: InspectionType, locations: List[Location]) = @{
-    Html(s"""<h3 class="govuk-heading-m">${messages("inspection_needed_import." + inspectionType.description.toLowerCase + ".heading")}</h3>""") :: locations.map {
+@renderInspectionLocations(inspectionDisplayGroup: InspectionDisplayGroup, locations: List[Location]) = @{
+    Html(s"""<h3 class="govuk-heading-m">${messages("inspection_needed_import." + inspectionDisplayGroup.value + ".heading")}</h3>""") :: locations.map {
         l => {
                 renderLocation(
                     l.locationDescription,

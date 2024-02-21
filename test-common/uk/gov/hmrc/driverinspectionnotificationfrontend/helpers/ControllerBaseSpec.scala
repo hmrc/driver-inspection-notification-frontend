@@ -39,4 +39,7 @@ class ControllerBaseSpec extends BaseSpec {
           override protected def executionContext: ExecutionContext = ec
         }
     }
+
+  def countSubstring(substring: String, content: String): Int =
+    content.sliding(substring.length).count(_ == substring)
 }
