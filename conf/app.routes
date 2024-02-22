@@ -7,8 +7,8 @@ GET        /start                               uk.gov.hmrc.driverinspectionnoti
 GET        /search                              uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.SearchController.show(gmrId: Option[String] ?= None)
 POST       /search                              uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.SearchController.submit()
 
-GET        /results/:gmrId                      uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.SearchResultController.result(gmrId: String, checkedStatus: Boolean = false)
-GET        /results/:gmrId/checked              uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.SearchResultController.result(gmrId: String, checkedStatus: Boolean = true)
+GET        /results/:gmrId                      uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.SearchResultController.result(gmrId: String, checkedStatusAgain: Boolean = false)
+GET        /results/:gmrId/checked              uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.SearchResultController.result(gmrId: String, checkedStatusAgain: Boolean = true)
 
 GET        /language/:lang                      uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.LanguageSwitchController.switchToLanguage(lang: String)
 

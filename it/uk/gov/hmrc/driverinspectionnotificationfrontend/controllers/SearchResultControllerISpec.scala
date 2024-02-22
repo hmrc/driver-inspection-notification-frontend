@@ -37,7 +37,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
+      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
 
       status(result)      shouldBe OK
       contentType(result) shouldBe Some("text/html")
@@ -57,7 +57,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = true)))
+      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = true)))
 
       status(result)      shouldBe OK
       contentType(result) shouldBe Some("text/html")
@@ -80,7 +80,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
         stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-        val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
+        val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
 
         status(result)      shouldBe OK
         contentType(result) shouldBe Some("text/html")
@@ -98,7 +98,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
         stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-        val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
+        val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
 
         status(result)      shouldBe OK
         contentType(result) shouldBe Some("text/html")
@@ -118,7 +118,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
+      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
 
       status(result)      shouldBe OK
       contentType(result) shouldBe Some("text/html")
@@ -137,7 +137,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
+      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
 
       status(result)                 shouldBe SEE_OTHER
       redirectLocation(result)       shouldBe Some(routes.SearchController.show(None).url)
@@ -154,7 +154,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
+      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
       status(result) shouldBe INTERNAL_SERVER_ERROR
     }
   }

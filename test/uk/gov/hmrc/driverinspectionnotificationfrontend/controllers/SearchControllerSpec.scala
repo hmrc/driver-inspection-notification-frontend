@@ -68,7 +68,7 @@ class SearchControllerSpec extends BaseSpec {
     "Redirect to results page" in new SetUp {
 
       val result = controller.submit()(fakeRequestWithValidGmr)
-      redirectLocation(result) shouldBe Some(routes.SearchResultController.result(validGmr, checkedStatus = false).url)
+      redirectLocation(result) shouldBe Some(routes.SearchResultController.result(validGmr, checkedStatusAgain = false).url)
     }
 
     "Bad Request: Invalid gmr" in new SetUp {
