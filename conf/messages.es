@@ -118,11 +118,10 @@ no_inspection_needed_page_export.no_controls.p1=Puede continuar a su punto front
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Importante
+inspection_pending_page.notification.p1=No hay ninguna actualización del estado de la inspección.
 inspection_pending_page.title=El estado de su inspección aún no está listo
-inspection_pending_page.p1=El estado de la inspección deberá estar lista unos 10 minutos antes de llegar al punto fronterizo de llegada. Puede comprobar nuevamente si está listo usando el botón a continuación.
-inspection_pending_page.h2=Si está en el punto fronterizo y su estado aún no está listo
-inspection_pending_page.p2=Sus mercancías no han sido despachadas en aduanas. No debe dirigirse directamente a su destino.
-inspection_pending_page.p3=Debe dirigirse directamente al centro de inspección más cercano. La Guardia Fronteriza o los funcionarios de aduanas le indicarán qué debe hacer a continuación.
+inspection_pending_page.p1=El estado de la inspección debería estar listo unos 10 minutos antes de llegar al punto fronterizo de llegada. Puede comprobar de nuevo si está listo mediante el botón a continuación.
 inspection_pending_page.time=Última comprobación a las {0} - {1}
 inspection_pending_page.check_again=Volver a comprobar estado
 

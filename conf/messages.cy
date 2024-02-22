@@ -118,11 +118,10 @@ no_inspection_needed_page_export.no_controls.p1=Gallwch barhau i’ch man ymadae
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Pwysig
+inspection_pending_page.notification.p1=Nid oes diweddariad i’r statws archwilio
 inspection_pending_page.title=Nid yw’ch statws o ran arolygiadau yn barod eto
-inspection_pending_page.p1=Dylai’ch statws archwilio fod yn barod tua 10 munud cyn i chi gyrraedd eich man cyrraedd wrth y ffin. Gallwch wirio eto i weld a yw’n barod gan ddefnyddio’r botwm isod.
-inspection_pending_page.h2=Os ydych yn y lleoliad wrth y ffin ac nad yw’ch statws yn barod o hyd
-inspection_pending_page.p2=Nid yw’ch nwyddau wedi’u clirio gan y tollau. Rhaid i chi beidio â mynd yn syth i’ch cyrchfan.
-inspection_pending_page.p3=Mae’n rhaid i chi fynd yn syth i’r cyfleuster archwilio agosaf. Bydd swyddogion Llu’r Ffiniau neu’r tollau yn rhoi gwybod i chi beth sydd angen ei wneud nesaf.
+inspection_pending_page.p1=Dylai’ch statws archwilio fod yn barod tua 10 munud cyn i chi gyrraedd eich man cyrraedd wrth y ffin. Gallwch wirio eto i weld a yw’n barod drwy ddefnyddio’r botwm isod.
 inspection_pending_page.time=Gwiriwyd diwethaf yn {0} - {1}
 inspection_pending_page.check_again=Gwiriwch y statws eto
 

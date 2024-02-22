@@ -118,11 +118,10 @@ no_inspection_needed_page_export.no_controls.p1=Możesz kontynuować jazdę do p
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Ważne
+inspection_pending_page.notification.p1=Brak aktualizacji statusu kontroli
 inspection_pending_page.title=Status inspekcji nie jest jeszcze gotowy
-inspection_pending_page.p1=Status inspekcji powinien być gotowy mniej więcej 10 minut przed dotarciem do placówki graniczne przybycia. Można ponownie sprawdzić, czy jest gotowy, używając poniższego przycisku.
-inspection_pending_page.h2=Jeżeli jesteś w placówce granicznej i wciąż nie masz statusu „gotowy”
-inspection_pending_page.p2=Twoje towary nie zostały odprawione. Nie możesz kierować się bezpośrednio do miejsca przeznaczenia.
-inspection_pending_page.p3=Musisz udać się bezpośrednio do najbliższej placówki kontroli. Straż graniczna lub funkcjonariusze celni powiedzą Ci, co należy zrobić dalej.
+inspection_pending_page.p1=Twój status kontroli powinien być gotowy na około 10 minut przed Twoim dotarciem do placówki granicznej przybycia. Za pomocą poniższego przycisku możesz sprawdzić ponownie, czy jest on już gotowy.
 inspection_pending_page.time=Ostatnio sprawdzono o godzinie {0} - {1}
 inspection_pending_page.check_again=Sprawdź status ponownie
 

@@ -61,7 +61,12 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
     val noInspectionRequiredExport: inspection_not_needed_export   = new inspection_not_needed_export(fullWidthTemplate, hmrcPageHeading)
 
     val inspectionPending: inspection_pending =
-      new inspection_pending(fullWidthTemplate, hmrcPageHeading, govukButton, new LanguageUtils(new DefaultLangs(), configuration))
+      new inspection_pending(
+        fullWidthTemplate,
+        hmrcPageHeading,
+        govukButton,
+        new LanguageUtils(new DefaultLangs(), configuration),
+        govukNotificationBanner)
 
     val controller =
       new SearchResultController(
@@ -119,7 +124,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockReferenceDataService.getInspectionData(argEq(List(ReportLocations(inspectionTypeId = "3", locationIds = List("1")))))(any()))
             .thenReturn(List(Right(InspectionType("3", "TRANSIT") -> List(Right(location)))))
 
-          val result = controller.result(gmrId)(FakeRequest())
+          val result = controller.result(gmrId, false)(FakeRequest())
           val content: String = contentAsString(result)
 
           status(result) shouldBe 200
@@ -249,7 +254,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
               )
             )
 
-          val result = controller.result(gmrId)(FakeRequest())
+          val result = controller.result(gmrId, false)(FakeRequest())
           val content: String = contentAsString(result)
 
           status(result) shouldBe 200
@@ -323,7 +328,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                 Left(InspectionTypeNotFound("5"))
               ))
 
-          val result = controller.result(gmrId)(FakeRequest())
+          val result = controller.result(gmrId, false)(FakeRequest())
           val content: String = contentAsString(result)
 
           status(result) shouldBe 200
@@ -382,7 +387,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
               )
             )
 
-          val result = controller.result(gmrId)(FakeRequest())
+          val result = controller.result(gmrId, false)(FakeRequest())
           val content: String = contentAsString(result)
 
           status(result) shouldBe 200
@@ -409,7 +414,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockReferenceDataService.getInspectionData(same(Nil))(any()))
             .thenReturn(Nil)
 
-          val result = controller.result(gmrId)(FakeRequest())
+          val result = controller.result(gmrId, false)(FakeRequest())
           status(result)          shouldBe 200
           contentAsString(result) should include("The goods you are moving require an inspection")
           contentAsString(result) should include("What to do next")
@@ -431,7 +436,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockReferenceDataService.getInspectionData(argEq(List(ReportLocations(inspectionTypeId = "5", locationIds = List("1")))))(any()))
             .thenReturn(List(Left(InspectionTypeNotFound("5"))))
 
-          val result = controller.result(gmrId)(FakeRequest())
+          val result = controller.result(gmrId, false)(FakeRequest())
           status(result)          shouldBe 200
           contentAsString(result) should include("The goods you are moving require an inspection")
           contentAsString(result) should include("What to do next")
@@ -453,7 +458,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockReferenceDataService.getInspectionData(argEq(List(ReportLocations(inspectionTypeId = "3", locationIds = List("5")))))(any()))
             .thenReturn(List(Right(InspectionType("3", "TRANSIT") -> List(Left(LocationNotFound("5"))))))
 
-          val result = controller.result(gmrId)(FakeRequest())
+          val result = controller.result(gmrId, false)(FakeRequest())
           status(result)          shouldBe 200
           contentAsString(result) should include("The goods you are moving require an inspection")
           contentAsString(result) should include("What to do next")
@@ -464,18 +469,36 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           contentAsString(result) should include("Travel to your border location of arrival")
         }
 
-        "return 200 OK for inspection-pending" in new SetUp {
+        "return 200 OK for inspection-pending (first time landing on the page)" in new SetUp {
           val gmrId = "gmrId"
 
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
               EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending)))
 
-          val result = controller.result("gmrId")(FakeRequest())
-          status(result)          shouldBe 200
+          val result = controller.result("gmrId", false)(FakeRequest())
+          status(result) shouldBe 200
+          contentAsString(result) shouldNot include("Important")
+          contentAsString(result) shouldNot include("There is no update to the inspection status")
           contentAsString(result) should include("Your inspection status is not ready yet")
           contentAsString(result) should include(
-            "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it`s ready using the button below.")
+            "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below.")
+        }
+
+        "return 200 OK for inspection-pending (second time - after clicking 'Check status again' button))" in new SetUp {
+          val gmrId = "gmrId"
+
+          when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
+            .thenReturn(
+              EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending)))
+
+          val result = controller.result("gmrId", checkedStatus = true)(FakeRequest())
+          status(result)          shouldBe 200
+          contentAsString(result) should include("Important")
+          contentAsString(result) should include("There is no update to the inspection status")
+          contentAsString(result) should include("Your inspection status is not ready yet")
+          contentAsString(result) should include(
+            "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below.")
         }
       }
     }
@@ -491,7 +514,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
         when(mockReferenceDataService.getInspectionData(any())(any())).thenReturn(Nil)
 
-        val result = controller.result(gmrId)(FakeRequest())
+        val result = controller.result(gmrId, false)(FakeRequest())
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
@@ -522,7 +545,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         when(mockReferenceDataService.getInspectionData(same(Nil))(any()))
           .thenReturn(Nil)
 
-        val result = controller.result(gmrId)(FakeRequest())
+        val result = controller.result(gmrId, false)(FakeRequest())
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
@@ -546,7 +569,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         when(mockReferenceDataService.getInspectionData(argEq(List(ReportLocations(inspectionTypeId = "6", locationIds = List("1")))))(any()))
           .thenReturn(List(Left(InspectionTypeNotFound("5"))))
 
-        val result = controller.result(gmrId)(FakeRequest())
+        val result = controller.result(gmrId, false)(FakeRequest())
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
@@ -569,7 +592,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         when(mockReferenceDataService.getInspectionData(argEq(List(ReportLocations(inspectionTypeId = "3", locationIds = List("5")))))(any()))
           .thenReturn(List(Right(InspectionType("3", "TRANSIT") -> List(Left(LocationNotFound("5"))))))
 
-        val result = controller.result(gmrId)(FakeRequest())
+        val result = controller.result(gmrId, false)(FakeRequest())
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
@@ -579,18 +602,36 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         contentAsString(result) should include("Travel to your border location of departure.")
       }
 
-      "return 200 OK for inspection-pending" in new SetUp {
+      "return 200 OK for inspection-pending (first time landing on the page)" in new SetUp {
         val gmrId = "gmrId"
 
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
             EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending)))
 
-        val result = controller.result("gmrId")(FakeRequest())
-        status(result)          shouldBe 200
+        val result = controller.result("gmrId", checkedStatus = false)(FakeRequest())
+        status(result) shouldBe 200
+        contentAsString(result) shouldNot include("Important")
+        contentAsString(result) shouldNot include("There is no update to the inspection status")
         contentAsString(result) should include("Your inspection status is not ready yet")
         contentAsString(result) should include(
-          "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it`s ready using the button below.")
+          "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below.")
+      }
+
+      "return 200 OK for inspection-pending (second time - after clicking 'Check status again' button))" in new SetUp {
+        val gmrId = "gmrId"
+
+        when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
+          .thenReturn(
+            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending)))
+
+        val result = controller.result("gmrId", checkedStatus = true)(FakeRequest())
+        status(result)          shouldBe 200
+        contentAsString(result) should include("Important")
+        contentAsString(result) should include("There is no update to the inspection status")
+        contentAsString(result) should include("Your inspection status is not ready yet")
+        contentAsString(result) should include(
+          "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below.")
       }
     }
 
@@ -604,7 +645,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
             EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionRequired)))
         when(mockReferenceDataService.getInspectionData(any())(any())).thenReturn(Nil)
 
-        val result = controller.result(gmrId)(FakeRequest())
+        val result = controller.result(gmrId, false)(FakeRequest())
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
@@ -631,7 +672,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
             EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionRequired)))
         when(mockReferenceDataService.getInspectionData(any())(any())).thenReturn(Nil)
 
-        val result = controller.result(gmrId)(FakeRequest())
+        val result = controller.result(gmrId, false)(FakeRequest())
         status(result)          shouldBe 200
         contentAsString(result) should include("The goods you are moving require an inspection")
         contentAsString(result) should include("What to do next")
@@ -655,11 +696,11 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           .thenReturn(
             EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending)))
 
-        val result = controller.result("gmrId")(FakeRequest())
+        val result = controller.result("gmrId", false)(FakeRequest())
         status(result)          shouldBe 200
         contentAsString(result) should include("Your inspection status is not ready yet")
         contentAsString(result) should include(
-          "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it`s ready using the button below.")
+          "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below.")
       }
     }
   }

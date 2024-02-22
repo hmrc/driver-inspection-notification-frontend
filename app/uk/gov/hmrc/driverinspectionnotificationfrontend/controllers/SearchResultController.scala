@@ -59,7 +59,7 @@ class SearchResultController @Inject()(
 
   private val logger = Logger(this.getClass.getName)
 
-  def result(gmrId: String): Action[AnyContent] = withReferenceData.async { implicit request =>
+  def result(gmrId: String, checkedStatus: Boolean): Action[AnyContent] = withReferenceData.async { implicit request =>
     gmsService
       .getInspectionStatus(gmrId)
       .fold(
@@ -69,7 +69,7 @@ class SearchResultController @Inject()(
           case InspectionResponse(direction, InspectionStatus.InspectionNotNeeded, _) =>
             Ok(inspectionNotRequired(gmrId, direction))
           case InspectionResponse(_, InspectionStatus.InspectionPending, _) =>
-            Ok(inspection_pending_page(gmrId))
+            Ok(inspection_pending_page(gmrId, checkedStatus))
         }
       )
   }

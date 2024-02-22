@@ -54,7 +54,7 @@ class SearchController @Inject()(
       .fold(
         formWithErrors => BadRequest(searchPage(formWithErrors)),
         gmrId => {
-          Redirect(routes.SearchResultController.result(gmrId))
+          Redirect(routes.SearchResultController.result(gmrId, checkedStatus = false))
         }
       )
   }

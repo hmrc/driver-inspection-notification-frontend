@@ -73,19 +73,20 @@ trait TestTemplateComponents {
   val govukInput  = new GovukInput(new GovukErrorMessage, new GovukHint, new GovukLabel)
   val govukDateInput =
     new GovukDateInput(new GovukErrorMessage, new GovukHint, new GovukFieldset, new GovukInput(new GovukErrorMessage, new GovukHint, new GovukLabel))
-  val govukDetails      = new GovukDetails
-  val govukPanel        = new GovukPanel
-  val govukTable        = new GovukTable
-  val govukButton       = new GovukButton
-  val govukFieldSet     = new GovukFieldset
-  val govukErrorSummary = new GovukErrorSummary
-  val govukSummaryList  = new GovukSummaryList
-  val govukSelect       = new GovukSelect(new GovukErrorMessage, new GovukHint, new GovukLabel)
-  val govukBackLink     = new GovukBackLink
-  val govukWarningText  = new GovukWarningText
-  val formWithCSRF      = new FormWithCSRF
-  val hmrcPageHeading   = new HmrcPageHeading
-  val govUkInsetText    = new GovukInsetText
-  val hmrcNewTabLink    = new HmrcNewTabLink
+  val govukDetails            = new GovukDetails
+  val govukPanel              = new GovukPanel
+  val govukTable              = new GovukTable
+  val govukButton             = new GovukButton
+  val govukFieldSet           = new GovukFieldset
+  val govukErrorSummary       = new GovukErrorSummary
+  val govukSummaryList        = new GovukSummaryList
+  val govukSelect             = new GovukSelect(new GovukErrorMessage, new GovukHint, new GovukLabel)
+  val govukBackLink           = new GovukBackLink
+  val govukWarningText        = new GovukWarningText
+  val formWithCSRF            = new FormWithCSRF
+  val hmrcPageHeading         = new HmrcPageHeading
+  val govUkInsetText          = new GovukInsetText
+  val hmrcNewTabLink          = new HmrcNewTabLink
+  val govukNotificationBanner = new GovukNotificationBanner
 
 }

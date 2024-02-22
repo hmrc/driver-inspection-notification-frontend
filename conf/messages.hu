@@ -118,11 +118,10 @@ no_inspection_needed_page_export.no_controls.p1=Folytathatja útját az indulás
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Fontos
+inspection_pending_page.notification.p1=Nincs friss információ az ellenőrzési állapotról
 inspection_pending_page.title=Az ellenőrzés állapota még nem áll rendelkezésre
 inspection_pending_page.p1=Az ellenőrzési állapotnak nagyjából 10 perccel az érkezési határátkelőhely elérése előtt késznek kell lennie. Az alábbi gombbal ellenőrizheti, hogy kész-e az állapot.
-inspection_pending_page.h2=Ha a határátkelőhelynél van, és állapota még mindig „nem áll készen”
-inspection_pending_page.p2=Az árukat nem hagyta jóvá a vámhivatal. Egyenesen a célhelyre kell mennie.
-inspection_pending_page.p3=Egyenesen a legközelebbi ellenőrző létesítményhez kell mennie. A Határőrség vagy a vámtisztviselők mondják majd meg, hogy mit kell ezután tennie.
 inspection_pending_page.time=Legutóbbi megtekintés {0} - {1}
 inspection_pending_page.check_again=Állapot ellenőrzése újra
 

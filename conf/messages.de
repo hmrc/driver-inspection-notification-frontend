@@ -118,11 +118,10 @@ no_inspection_needed_page_export.no_controls.p1=Sie können weiter zu Ihrer Abfa
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Wichtig
+inspection_pending_page.notification.p1=Der Inspektionsstatus wird nicht aktualisiert
 inspection_pending_page.title=Ihr Kontrollstatus ist noch nicht bereit
-inspection_pending_page.p1=Ihr Kontrollstatus sollte ca. 10 Minuten ehe Sie an der Ankunftsgrenzstelle eintreffen, bereit sein. Mithilfe der nachstehenden Schaltfläche können Sie erneut überprüfen, ob er bereit ist.
-inspection_pending_page.h2=Wenn Sie an der Grenzstelle sind und Ihr Status noch nicht bereit ist
-inspection_pending_page.p2=Ihre Waren sind noch nicht vom Zoll freigegeben worden. Sie dürfen nicht direkt zu Ihrem Bestimmungsort weiterfahren.
-inspection_pending_page.p3=Sie müssen sich direkt zur nächstgelegenen Kontrollstelle begeben. Die Grenzbehörde oder Zollbeamten werden Ihnen sagen, was Sie als Nächstes tun müssen.
+inspection_pending_page.p1=Ihr Inspektionsstatus sollte etwa 10 Minuten vor Erreichen des Ankunftsortes an der Grenze bereit sein. Über die Schaltfläche unten können Sie erneut überprüfen, ob er bereit ist.
 inspection_pending_page.time=Zuletzt überprüft um {0} - {1}
 inspection_pending_page.check_again=Status erneut überprüfen
 

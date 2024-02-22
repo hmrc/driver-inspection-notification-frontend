@@ -118,11 +118,10 @@ no_inspection_needed_page_export.no_controls.p1=Galite tęsti kelionę į išvyk
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Svarbu
+inspection_pending_page.notification.p1=Patikrinimo statusas neatnaujintas
 inspection_pending_page.title=Jūsų tikrinimo būsena dar neparengta
 inspection_pending_page.p1=Patikrinimo statusas turėtų būti parengtas likus maždaug 10 minučių iki atvykimo pasienio vietos. Galite dar kartą pasitikrinti, ar jis jau paruoštas, naudodamiesi toliau esančiu mygtuku.
-inspection_pending_page.h2=Jei esate pasienio vietoje ir jūsų statusas vis dar neparengtas
-inspection_pending_page.p2=Jūsų prekės nebuvo išmuitintos. Vykti tiesiai į paskirties vietą negalite.
-inspection_pending_page.p3=Privalote vykti tiesiai į artimiausią tikrinimo įstaigą. Pasienio pajėgų arba muitinės pareigūnai nurodys, ką reikia daryti toliau.
 inspection_pending_page.time=Pastarąjį kartą tikrinta {0} - {1}
 inspection_pending_page.check_again=Dar kartą patikrinti būseną
 

@@ -118,11 +118,10 @@ no_inspection_needed_page_export.no_controls.p1=You can continue to your border 
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Important
+inspection_pending_page.notification.p1=There is no update to the inspection status
 inspection_pending_page.title=Your inspection status is not ready yet
-inspection_pending_page.p1=Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it`s ready using the button below.
-inspection_pending_page.h2=If you are at the border location and your status is still not ready
-inspection_pending_page.p2=Your goods have not been customs cleared. You must not go straight to your destination.
-inspection_pending_page.p3=You must go straight to the nearest inspection facility. Border Force or customs officials will tell you what need to do next.
+inspection_pending_page.p1=Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below.
 inspection_pending_page.time=Last checked at {0} - {1}
 inspection_pending_page.check_again=Check status again
 

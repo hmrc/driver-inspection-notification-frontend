@@ -60,7 +60,7 @@ class SearchControllerISpec extends BaseISpec with WireMockSupport with WireMock
       val result: Future[Result] = callRoute(FakeRequest(routes.SearchController.submit()).withFormUrlEncodedBody("gmrId" -> "GMRA00002KW2"))
 
       status(result)           shouldBe SEE_OTHER
-      redirectLocation(result) shouldBe Some(routes.SearchResultController.result("GMRA00002KW2").url)
+      redirectLocation(result) shouldBe Some(routes.SearchResultController.result("GMRA00002KW2", false).url)
     }
   }
 

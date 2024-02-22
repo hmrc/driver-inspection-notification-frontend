@@ -37,12 +37,36 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2")))
+      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
 
       status(result)      shouldBe OK
       contentType(result) shouldBe Some("text/html")
       val content = contentAsString(result)
-      content         should include("Your inspection status is not ready yet")
+      content shouldNot include("Important")
+      content shouldNot include("There is no update to the inspection status")
+      content should include("Your inspection status is not ready yet")
+      content should include(
+        "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below.")
+      charset(result) shouldBe Some("utf-8")
+    }
+
+    "Inspection pending after checking again" in {
+      stubGet(
+        "/goods-movement-system/driver/movements/GMRA00002KW2/inspection",
+        Json.stringify(Json.toJson(inspectionResponse(inspectionStatus = InspectionPending))))
+
+      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
+
+      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = true)))
+
+      status(result)      shouldBe OK
+      contentType(result) shouldBe Some("text/html")
+      val content = contentAsString(result)
+      content should include("Important")
+      content should include("There is no update to the inspection status")
+      content should include("Your inspection status is not ready yet")
+      content should include(
+        "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below.")
       charset(result) shouldBe Some("utf-8")
     }
 
@@ -56,7 +80,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
         stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-        val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2")))
+        val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
 
         status(result)      shouldBe OK
         contentType(result) shouldBe Some("text/html")
@@ -74,7 +98,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
         stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-        val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2")))
+        val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
 
         status(result)      shouldBe OK
         contentType(result) shouldBe Some("text/html")
@@ -94,7 +118,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2")))
+      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
 
       status(result)      shouldBe OK
       contentType(result) shouldBe Some("text/html")
@@ -113,7 +137,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2")))
+      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
 
       status(result)                 shouldBe SEE_OTHER
       redirectLocation(result)       shouldBe Some(routes.SearchController.show(None).url)
@@ -130,7 +154,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
-      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2")))
+      val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatus = false)))
       status(result) shouldBe INTERNAL_SERVER_ERROR
     }
   }
