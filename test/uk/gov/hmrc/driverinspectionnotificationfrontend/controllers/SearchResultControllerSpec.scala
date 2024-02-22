@@ -476,7 +476,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
             .thenReturn(
               EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending)))
 
-          val result = controller.result("gmrId", false)(FakeRequest())
+          val result = controller.result("gmrId", checkedStatusAgain = false)(FakeRequest())
           status(result) shouldBe 200
           contentAsString(result) shouldNot include("Important")
           contentAsString(result) shouldNot include("There is no update to the inspection status")
@@ -696,7 +696,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           .thenReturn(
             EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending)))
 
-        val result = controller.result("gmrId", false)(FakeRequest())
+        val result = controller.result("gmrId", checkedStatusAgain = false)(FakeRequest())
         status(result)          shouldBe 200
         contentAsString(result) should include("Your inspection status is not ready yet")
         contentAsString(result) should include(
