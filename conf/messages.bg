@@ -134,7 +134,7 @@ inspection_pending_page.check_again=Проверете статуса отнов
 inspection_needed.what_next.p1=Явете се на инспекционния(ите) пункт(ове) в посочения ред.
 inspection_needed.inspection_site.p1=Трябва да присъствате на всички проверки в посочения ред.
 inspection_needed.what_next.warning=Ако не се явите за проверка, може да ви се начисли глоба
-
+inspection_needed.banner=Необходима е проверка
 
 ###############################################
 #

@@ -135,7 +135,7 @@ inspection_pending_page.check_again=Gwiriwch y statws eto
 inspection_needed.what_next.p1=Ewch i’ch safle(oedd) archwilio yn y drefn a ddangosir.
 inspection_needed.inspection_site.p1=Mae’n rhaid i chi fynychu unrhyw archwiliadau yn y drefn a ddangosir.
 inspection_needed.what_next.warning=Efallai y codir cosb arnoch os na fyddwch yn cyrraedd i gael archwiliad
-
+inspection_needed.banner=Angen archwiliad
 
 ###############################################
 #

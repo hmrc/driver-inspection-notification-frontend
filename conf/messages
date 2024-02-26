@@ -136,6 +136,7 @@ inspection_pending_page.check_again=Check status again
 inspection_needed.what_next.p1=Report to your inspection site(s) in the order shown.
 inspection_needed.inspection_site.p1=You must attend any inspections in the order shown.
 inspection_needed.what_next.warning=You may be charged a penalty if you do not arrive for an inspection
+inspection_needed.banner=Inspection required
 
 
 ###############################################

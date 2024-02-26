@@ -136,6 +136,7 @@ inspection_pending_page.check_again=Dar kartą patikrinti būseną
 inspection_needed.what_next.p1=Atvykite į tikrinimo vietą (-as) nurodyta tvarka.
 inspection_needed.inspection_site.p1=Privalote dalyvauti visuose patikrinimuose nurodyta tvarka.
 inspection_needed.what_next.warning=Jei neatvyksite į patikrinimą, jums gali būti skirta bauda.
+inspection_needed.banner=Reikalinga patikra
 
 ###############################################
 #

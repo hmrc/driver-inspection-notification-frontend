@@ -136,6 +136,7 @@ inspection_pending_page.check_again=Állapot ellenőrzése újra
 inspection_needed.what_next.p1=A megadott sorrendben jelentkezzen az ellenőrző telephelyeken.
 inspection_needed.inspection_site.p1=Minden ellenőrzésen meg kell jelennie a megadott sorrendben.
 inspection_needed.what_next.warning=Ha nem jelenik meg az ellenőrzésen, büntetést kaphat
+inspection_needed.banner=Potrebna je inspekcija
 
 ###############################################
 #

@@ -136,7 +136,7 @@ inspection_pending_page.check_again=Status erneut überprüfen
 inspection_needed.what_next.p1=Erstatten Sie in der angegebenen Reihenfolge Bericht an Ihre Inspektionsstätte(n).
 inspection_needed.inspection_site.p1=Sie müssen an allen Inspektionen in der dargestellten Reihenfolge teilnehmen.
 inspection_needed.what_next.warning=Wenn Sie sich nicht zur Kontrolle begeben, kann eine Strafe gegen Sie erhoben werden.
-
+inspection_needed.banner=Kontrolle erforderlich
 
 ###############################################
 #

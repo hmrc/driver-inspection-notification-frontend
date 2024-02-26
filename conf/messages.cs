@@ -136,6 +136,7 @@ inspection_pending_page.check_again=Znovu zkontrolovat stav
 inspection_needed.what_next.p1=Na místech prohlídky se hlaste v uvedeném pořadí.
 inspection_needed.inspection_site.p1=Veškerých prohlídek se musíte zúčastnit v uvedeném pořadí.
 inspection_needed.what_next.warning=Pokud se nedostavíte k celní prohlídce, může vám být udělena pokuta.
+inspection_needed.banner=Vyžadována prohlídka
 
 ###############################################
 #

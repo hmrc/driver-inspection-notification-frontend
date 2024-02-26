@@ -134,7 +134,7 @@ inspection_pending_page.check_again=Sprawdź status ponownie
 inspection_needed.what_next.p1=Zgłoś się do punktu(-ów) kontroli w podanej kolejności.
 inspection_needed.inspection_site.p1=Musisz zgłaszać się do kontroli w podanej kolejności.
 inspection_needed.what_next.warning=W przypadku niezgłoszenia się do kontroli możesz zostać ukarany grzywną
-
+inspection_needed.banner=Wymagana kontrola
 
 
 ###############################################

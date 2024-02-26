@@ -135,7 +135,7 @@ inspection_pending_page.check_again=Ponovno provjeri status
 inspection_needed.what_next.p1=Javite se na mjesta inspekcije prema prikazanom redoslijedu.
 inspection_needed.inspection_site.p1=Sve inspekcije morate obaviti prema prikazanom redoslijedu.
 inspection_needed.what_next.warning=Ako ne dođete na inspekciju, može vam biti naplaćena kazna.
-
+inspection_needed.banner=Vizsgálat szükséges
 
 ###############################################
 #

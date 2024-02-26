@@ -135,7 +135,7 @@ inspection_pending_page.check_again=Vérifier à nouveau le statut
 inspection_needed.what_next.p1=Présentez-vous à votre ou vos sites d’inspection dans l’ordre indiqué.
 inspection_needed.inspection_site.p1=Vous devez assister à toutes les inspections dans l’ordre indiqué.
 inspection_needed.what_next.warning=Une pénalité pourra vous être facturée si vous ne vous présentez pas à une inspection
-
+inspection_needed.banner=Inspection requise
 
 ###############################################
 #
