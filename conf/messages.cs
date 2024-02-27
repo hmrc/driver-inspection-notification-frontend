@@ -119,11 +119,10 @@ no_inspection_needed_page_export.no_controls.p1=Můžete pokračovat do své vý
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Důležité
+inspection_pending_page.notification.p1=Stav prohlídky nebyl aktualizován
 inspection_pending_page.title=Stav vaší kontroly ještě není připraven
-inspection_pending_page.p1=Stav kontroly by měl být pro vás připraven přibližně 10 minut před příjezdem do příjezdové hraniční stanice. Pomocí tlačítka níže pak můžete zkontrolovat, zda již je skutečně připraven.
-inspection_pending_page.h2=Pokud se nacházíte v přeshraniční lokalitě a váš stav zatím ještě není připraven.
-inspection_pending_page.p2=Vaše zboží nebylo celně odbaveno. Nesmíte pokračovat na místo určení.
-inspection_pending_page.p3=Musíte přímo do nejbližšího kontrolního zařízení. Pohraniční policie nebo celní úředníci vám řeknou, co je třeba udělat dále.
+inspection_pending_page.p1=Stav prohlídky by měl být připraven přibližně 10 minut před příjezdem do příjezdové hraniční stanice. Pomocí tlačítka níže můžete znovu zkontrolovat, zda už je připraven.
 inspection_pending_page.time=Naposledy zkontrolováno v {0} - {1}
 inspection_pending_page.check_again=Znovu zkontrolovat stav
 

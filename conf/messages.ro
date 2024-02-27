@@ -118,11 +118,10 @@ no_inspection_needed_page_export.no_controls.p1=Puteți continua către punctul 
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Important
+inspection_pending_page.notification.p1=Nu există nicio actualizare a stării pentru inspecție
 inspection_pending_page.title=Statusul inspecției dumneavoastră încă nu este gata
 inspection_pending_page.p1=Starea pentru inspecția dumneavoastră trebuie să fie pregătit cu aproximativ 10 minute înainte de a ajunge la punctul de frontieră de sosire. Puteți verifica din nou pentru a vedea dacă este pregătit folosind butonul de mai jos.
-inspection_pending_page.h2=Dacă vă aflați în punctul de frontieră și starea dumneavoastră este încă nepregătit
-inspection_pending_page.p2=Mărfurile dumneavoastră nu au fost verificate la vamă. Nu trebuie să mergeți direct la destinație.
-inspection_pending_page.p3=Trebuie să mergeți direct la cea mai apropiată unitate de control. Poliția de Frontieră sau oficialii vamali vă vor spune ce trebuie să faceți în continuare.
 inspection_pending_page.time=Ultima verificare a fost efectuată la {0} - {1}
 inspection_pending_page.check_again=Verificați din nou statusul
 

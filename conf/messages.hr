@@ -118,11 +118,10 @@ no_inspection_needed_page_export.no_controls.p1=Možete nastaviti prema graničn
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Važno
+inspection_pending_page.notification.p1=Nije došlo do promjene statusa inspekcije
 inspection_pending_page.title=Vaš status inspekcije još nije spreman
 inspection_pending_page.p1=Vaš status inspekcije trebao bi biti spreman približno 10 minuta prije nego što stignete na granični prijelaz dolaska. S pomoću gumba u nastavku možete ponovno provjeriti je li status spreman.
-inspection_pending_page.h2=Ako ste na graničnom prijelazu, a vaš status još nije spreman
-inspection_pending_page.p2=Vaša roba nije ocarinjena. Ne smijete odmah nastaviti prema odredištu.
-inspection_pending_page.p3=Morate se prvo uputiti do najbližeg mjesta inspekcije. Granična policija ili carinski službenici reći će vam što trebate sljedeće učiniti.
 inspection_pending_page.time=Zadnji put provjereno u {0} - {1}
 inspection_pending_page.check_again=Ponovno provjeri status
 

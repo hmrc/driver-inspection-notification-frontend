@@ -118,11 +118,10 @@ no_inspection_needed_page_export.no_controls.p1=Vous pouvez continuer jusqu‘à
 # Inspection pending
 #
 ###############################################
+inspection_pending_page.notification.title=Important
+inspection_pending_page.notification.p1=Il n’y a aucune mise à jour du statut d’inspection
 inspection_pending_page.title=Votre statut d’inspection n’est pas encore prêt
 inspection_pending_page.p1=Votre statut d’inspection devrait être prêt environ 10 minutes avant que vous n’atteigniez votre site frontalier d’arrivée. Vous pouvez vérifier à nouveau s’il est prêt en utilisant le bouton ci-dessous.
-inspection_pending_page.h2=Si vous êtes au site frontalier et que votre statut n’est toujours pas prêt
-inspection_pending_page.p2=Vos marchandises n’ont pas été dédouanées. Vous ne devez pas vous rendre directement à votre destination.
-inspection_pending_page.p3=Vous devez vous rendre directement au centre de contrôle le plus proche. Les agents des Forces frontalières ou des douanes vous diront ce qu’il faut faire ensuite.
 inspection_pending_page.time=Dernière vérification à {0} - {1}
 inspection_pending_page.check_again=Vérifier à nouveau le statut
 
