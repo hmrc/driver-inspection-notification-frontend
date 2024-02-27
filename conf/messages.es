@@ -126,6 +126,18 @@ inspection_pending_page.time=Última comprobación a las {0} - {1}
 inspection_pending_page.check_again=Volver a comprobar estado
 
 
+
+###############################################
+#
+# Inspection needed common
+#
+###############################################
+
+inspection_needed.what_next.p1=Preséntese en los lugares de inspección en el orden indicado.
+inspection_needed.inspection_site.p1=Deberá acudir a todas las inspecciones en el orden indicado.
+inspection_needed.what_next.warning=Se le puede imponer una sanción si no se presenta a la inspección
+inspection_needed.banner=Se requiere inspección
+
 ###############################################
 #
 # Inspection needed import
@@ -137,7 +149,6 @@ inspection_needed_import.what_next.h2=Qué hacer a continuación
 inspection_needed_import.what_next.p2=Compruebe a qué centros de inspección debe acudir en su aduana de llegada. Es posible que deba dirigirse a una aduana terrestre (IBF) o a una instalación de control aduanero.
 inspection_needed_import.what_next.p3=Las mercancías sujetas a inspección deben mantenerse en las mismas condiciones que cuando fueron importadas.
 inspection_needed_import.text.warning=Advertencia
-inspection_needed_import.what_next.warning=Detenerse para una inspección es un requisito legal.
 inspection_needed_import.inspection_site.h2=Centro de inspección
 inspection_needed_import.inspection_sites.h2=Centros de inspección más cercanos
 inspection_needed_import.nearest_sites.p1=Las inspecciones deben realizarse en el orden indicado.
@@ -178,7 +189,6 @@ inspection_needed_export.what_next.h2=Qué hacer a continuación
 inspection_needed_export.what_next.p2=Compruebe a qué centros de inspección debe acudir en su aduana de salida. Es posible que deba dirigirse a una aduana terrestre (IBF) o a una instalación de control aduanero.
 inspection_needed_export.what_next.p3=Las mercancías sujetas a inspección deben mantenerse en las mismas condiciones en que se recogieron del comerciante.
 inspection_needed_export.text.warning=Advertencia
-inspection_needed_export.what_next.warning=Detenerse para una inspección es un requisito legal.
 inspection_needed_export.inspection_site.h2=Centro de inspección
 inspection_needed_export.inspection_sites.h2=Centros de inspección más cercanos
 inspection_needed_export.nearest_sites.p1=Las inspecciones deben realizarse en el orden indicado.

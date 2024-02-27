@@ -126,6 +126,18 @@ inspection_pending_page.time=Zuletzt überprüft um {0} - {1}
 inspection_pending_page.check_again=Status erneut überprüfen
 
 
+
+###############################################
+#
+# Inspection needed common
+#
+###############################################
+
+inspection_needed.what_next.p1=Erstatten Sie in der angegebenen Reihenfolge Bericht an Ihre Inspektionsstätte(n).
+inspection_needed.inspection_site.p1=Sie müssen an allen Inspektionen in der dargestellten Reihenfolge teilnehmen.
+inspection_needed.what_next.warning=Wenn Sie sich nicht zur Kontrolle begeben, kann eine Strafe gegen Sie erhoben werden.
+inspection_needed.banner=Kontrolle erforderlich
+
 ###############################################
 #
 # Inspection needed import
@@ -137,7 +149,6 @@ inspection_needed_import.what_next.h2=Wie geht es weiter?
 inspection_needed_import.what_next.p2=Prüfen Sie, welche Kontrollstelle(n) Sie an Ihrer Ankunftsgrenzstelle aufsuchen müssen. Sie müssen vielleicht zu einer inländischen Grenzeinrichtung (Inland Border Facility – IBF) oder Zollkontrollstelle fahren.
 inspection_needed_import.what_next.p3=Kontrollpflichtige Waren müssen in dem gleichen Zustand erhalten werden wie zum Zeitpunkt ihrer Einfuhr.
 inspection_needed_import.text.warning=Warnhinweis
-inspection_needed_import.what_next.warning=Sie sind gesetzlich verpflichtet, anzuhalten und sich einer Kontrolle zu unterziehen.
 inspection_needed_import.inspection_site.h2=Ihre Zollkontrollstelle
 inspection_needed_import.inspection_sites.h2=Ihre Zollkontrollstellen sind
 inspection_needed_import.nearest_sites.p1=Die Kontrollen müssen in der angegebenen Reihenfolge erfolgen.
@@ -178,7 +189,6 @@ inspection_needed_export.what_next.h2=Wie geht es weiter?
 inspection_needed_export.what_next.p2=Prüfen Sie, welche Kontrollstelle(n) Sie an Ihrer Abfahrtsgrenzstelle aufsuchen müssen. Sie müssen vielleicht zu einer inländischen Grenzeinrichtung (Inland Border Facility – IBF) oder Zollkontrollstelle fahren.
 inspection_needed_export.what_next.p3=Kontrollpflichtige Waren müssen in dem gleichen Zustand erhalten werden wie zum Zeitpunkt als sie vom Händler abgeholt wurden.
 inspection_needed_export.text.warning=Warnhinweis
-inspection_needed_export.what_next.warning=Sie sind gesetzlich verpflichtet, anzuhalten und sich einer Kontrolle zu unterziehen.
 inspection_needed_export.inspection_site.h2=Ihre Zollkontrollstelle
 inspection_needed_export.inspection_sites.h2=Ihre Zollkontrollstellen sind
 inspection_needed_export.nearest_sites.p1=Die Kontrollen müssen in der angegebenen Reihenfolge erfolgen.

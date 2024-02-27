@@ -46,7 +46,15 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
     val nearestSitesheader  = new nearest_sites_header()
     val guidance            = new guidance_common(govUkInsetText)
     val inspectionRequiredImport: inspection_required_import =
-      new inspection_required_import(fullWidthTemplate, hmrcPageHeading, govukWarningText, nearestSitesContent, nearestSitesheader, guidance)
+      new inspection_required_import(
+        fullWidthTemplate,
+        hmrcPageHeading,
+        govukWarningText,
+        nearestSitesContent,
+        nearestSitesheader,
+        guidance,
+        govukNotificationBanner,
+        govukButton)
     val inspectionRequiredExport: inspection_required_export =
       new inspection_required_export(
         fullWidthTemplate,
@@ -55,7 +63,9 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         govukWarningText,
         nearestSitesContent,
         nearestSitesheader,
-        guidance)
+        guidance,
+        govukNotificationBanner,
+        govukButton)
     val noInspectionRequiredGbToNi: inspection_not_needed_gb_to_ni = new inspection_not_needed_gb_to_ni(fullWidthTemplate, hmrcPageHeading)
     val noInspectionRequiredImport: inspection_not_needed_import   = new inspection_not_needed_import(fullWidthTemplate, hmrcPageHeading)
     val noInspectionRequiredExport: inspection_not_needed_export   = new inspection_not_needed_export(fullWidthTemplate, hmrcPageHeading)

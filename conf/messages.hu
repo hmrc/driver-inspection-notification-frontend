@@ -126,6 +126,18 @@ inspection_pending_page.time=Legutóbbi megtekintés {0} - {1}
 inspection_pending_page.check_again=Állapot ellenőrzése újra
 
 
+
+###############################################
+#
+# Inspection needed common
+#
+###############################################
+
+inspection_needed.what_next.p1=A megadott sorrendben jelentkezzen az ellenőrző telephelyeken.
+inspection_needed.inspection_site.p1=Minden ellenőrzésen meg kell jelennie a megadott sorrendben.
+inspection_needed.what_next.warning=Ha nem jelenik meg az ellenőrzésen, büntetést kaphat
+inspection_needed.banner=Potrebna je inspekcija
+
 ###############################################
 #
 # Inspection needed import
@@ -137,7 +149,6 @@ inspection_needed_import.what_next.h2=Mik a következő lépések?
 inspection_needed_import.what_next.p2=Tekintse meg, hogy mely ellenőrzési helyszín(ek)en kell megjelennie az érkezési határátkelő helyen. Előfordulhat, hogy belföldi határátkelő létesítményhez (IBF) vagy vámellenőrző létesítményhez kell mennie.
 inspection_needed_import.what_next.p3=Azokat az árukat, amelyeket ellenőrizni kell, ugyanolyan állapotban kell tartani, mint amilyenben az importáláskor is voltak.
 inspection_needed_import.text.warning=Figyelmeztetés
-inspection_needed_import.what_next.warning=Az ellenőrzés céljából történő megállítás jogi követelmény.
 inspection_needed_import.inspection_site.h2=Az Ön vizsgálati helyszíne
 inspection_needed_import.inspection_sites.h2=Az Ön vizsgálati helyszínei
 inspection_needed_import.nearest_sites.p1=Az ellenőrzésekre a megjelenési sorrendben kerül sor.
@@ -178,7 +189,6 @@ inspection_needed_export.what_next.h2=Mik a következő lépések?
 inspection_needed_export.what_next.p2=Tekintse meg, hogy mely ellenőrzési helyszín(ek)en kell megjelennie az indulási határátkelő helyen. Előfordulhat, hogy belföldi határátkelő létesítményhez (IBF) vagy vámellenőrző létesítményhez kell mennie.
 inspection_needed_export.what_next.p3=Azokat az árukat, amelyeket ellenőrizni kell, ugyanolyan állapotban kell tartani, mint amilyenben a kereskedőtől való átvételkor is voltak.
 inspection_needed_export.text.warning=Figyelmeztetés
-inspection_needed_export.what_next.warning=Az ellenőrzés céljából történő megállítás jogi követelmény.
 inspection_needed_export.inspection_site.h2=Az Ön vizsgálati helyszíne
 inspection_needed_export.inspection_sites.h2=Az Ön vizsgálati helyszínei
 inspection_needed_export.nearest_sites.p1=Az ellenőrzésekre a megjelenési sorrendben kerül sor.

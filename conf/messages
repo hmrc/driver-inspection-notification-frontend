@@ -126,6 +126,19 @@ inspection_pending_page.time=Last checked at {0} - {1}
 inspection_pending_page.check_again=Check status again
 
 
+
+###############################################
+#
+# Inspection needed common
+#
+###############################################
+
+inspection_needed.what_next.p1=Report to your inspection site(s) in the order shown.
+inspection_needed.inspection_site.p1=You must attend any inspections in the order shown.
+inspection_needed.what_next.warning=You may be charged a penalty if you do not arrive for an inspection
+inspection_needed.banner=Inspection required
+
+
 ###############################################
 #
 # Inspection needed import
@@ -137,7 +150,6 @@ inspection_needed_import.what_next.h2=What to do next
 inspection_needed_import.what_next.p2=Check which inspection site(s) you need to attend at your border location of arrival. You may have to drive to an inland border facility (IBF) or customs checking facility.
 inspection_needed_import.what_next.p3=Goods needed for inspection must be kept in the same condition as when they were imported.
 inspection_needed_import.text.warning=Warning
-inspection_needed_import.what_next.warning=Stopping for an inspection is a legal requirement.
 inspection_needed_import.inspection_site.h2=Your inspection site
 inspection_needed_import.inspection_sites.h2=Your inspection sites
 inspection_needed_import.nearest_sites.p1=The inspections must take place in the order shown.
@@ -178,7 +190,6 @@ inspection_needed_export.what_next.h2=What to do next
 inspection_needed_export.what_next.p2=Check which inspection site(s) you need to attend at your border location of departure. You may have to drive to an inland border facility (IBF) or customs checking facility.
 inspection_needed_export.what_next.p3=Goods needed for inspection must be kept in the same condition as when they were collected from the trader.
 inspection_needed_export.text.warning=Warning
-inspection_needed_export.what_next.warning=Stopping for an inspection is a legal requirement.
 inspection_needed_export.inspection_site.h2=Your inspection site
 inspection_needed_export.inspection_sites.h2=Your inspection sites
 inspection_needed_export.nearest_sites.p1=The inspections must take place in the order shown.

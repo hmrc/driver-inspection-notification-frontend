@@ -128,6 +128,17 @@ inspection_pending_page.check_again=Gwiriwch y statws eto
 
 ###############################################
 #
+# Inspection needed common
+#
+###############################################
+
+inspection_needed.what_next.p1=Ewch i’ch safle(oedd) archwilio yn y drefn a ddangosir.
+inspection_needed.inspection_site.p1=Mae’n rhaid i chi fynychu unrhyw archwiliadau yn y drefn a ddangosir.
+inspection_needed.what_next.warning=Efallai y codir cosb arnoch os na fyddwch yn cyrraedd i gael archwiliad
+inspection_needed.banner=Angen archwiliad
+
+###############################################
+#
 # Inspection needed import
 #
 ###############################################
@@ -137,7 +148,6 @@ inspection_needed_import.what_next.h2=Yr hyn i’w wneud nesaf
 inspection_needed_import.what_next.p2=Gwiriwch pa safleoedd archwilio y bydd angen i chi eu mynychu yn eich man cyrraedd wrth y ffin. Efallai y bydd yn rhaid i chi yrru i gyfleuster mewndirol wrth y ffin (IBF) neu gyfleuster gwirio tollau.
 inspection_needed_import.what_next.p3=Mae’n rhaid i’r nwyddau sydd angen archwiliad gael eu cadw yn yr un cyflwr a phan gawsant eu mewnforio.
 inspection_needed_import.text.warning=Rhybudd
-inspection_needed_import.what_next.warning=Mae stopio am archwiliad yn ôl gofynion y gyfraith.
 inspection_needed_import.inspection_site.h2=Eich safle archwilio
 inspection_needed_import.inspection_sites.h2=Eich safleoedd archwilio
 inspection_needed_import.nearest_sites.p1=Mae’n rhaid i’r archwiliadau gael eu cynnal yn y drefn a ddangosir.
@@ -178,7 +188,6 @@ inspection_needed_export.what_next.h2=Yr hyn i’w wneud nesaf
 inspection_needed_export.what_next.p2=Gwiriwch pa safleoedd archwilio y mae angen i chi eu mynychu wrth eich man ymadael wrth y ffin. Efallai y bydd yn rhaid i chi yrru i gyfleuster mewndirol wrth y ffin (IBF) neu gyfleuster gwirio tollau.
 inspection_needed_export.what_next.p3=Mae’n rhaid i’r nwyddau sydd angen archwiliad gael eu cadw yn yr un cyflwr â phan gawsant eu casglu oddi wrth y masnachwr.
 inspection_needed_export.text.warning=Rhybudd
-inspection_needed_export.what_next.warning=Mae stopio am archwiliad yn ôl gofynion y gyfraith.
 inspection_needed_export.inspection_site.h2=Eich safle archwilio
 inspection_needed_export.inspection_sites.h2=Eich safleoedd archwilio
 inspection_needed_export.nearest_sites.p1=Mae’n rhaid i’r archwiliadau gael eu cynnal yn y drefn a ddangosir.
