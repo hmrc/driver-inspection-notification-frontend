@@ -44,8 +44,8 @@
         title = Text(messages("inspection_needed.banner")),
         content = HtmlContent {
             s"""
-          ${hmrcPageHeading(PageHeading(text = messages("inspection_needed_import.title")))}
-            <p class="govuk-body">${messages("inspection_needed_import.gmr", gmrId.getOrElse(""))}</p>
+          ${hmrcPageHeading(PageHeading(text = messages("inspection_needed_export.title")))}
+            <p class="govuk-body">${messages("inspection_needed_export.gmr", gmrId.getOrElse(""))}</p>
           """
         }
     ))
@@ -58,8 +58,8 @@
 
     <p class="govuk-body">@messages("inspection_needed_export.what_next.p3")</p>
     @govukWarningText(WarningText(
-        iconFallbackText = Some(messages("inspection_needed_import.text.warning")),
-        content = Text(messages("inspection_needed_export.what_next.warning"))
+        iconFallbackText = Some(messages("inspection_needed_export.text.warning")),
+        content = Text(messages("inspection_needed.what_next.warning"))
     ))
 
     @nearestSitesHeader("inspection_needed_export", locationsByInspectionType)
