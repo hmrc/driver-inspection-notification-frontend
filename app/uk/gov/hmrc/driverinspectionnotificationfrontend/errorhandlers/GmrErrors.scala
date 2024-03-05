@@ -29,6 +29,6 @@ sealed trait InspectionLocationError
 object InspectionLocationError {
 
   final case class InspectionTypeNotFound(inspectionTypeId: String) extends InspectionLocationError
-  final case class LocationNotFound(locationId:             String) extends InspectionLocationError
+  final case class LocationNotFound(locationId: String) extends InspectionLocationError
 
 }

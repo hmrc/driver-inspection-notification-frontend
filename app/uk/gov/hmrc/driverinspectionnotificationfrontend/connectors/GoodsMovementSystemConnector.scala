@@ -26,10 +26,10 @@ import javax.inject.{Inject, Named, Singleton}
 import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
-class GoodsMovementSystemConnector @Inject()(
+class GoodsMovementSystemConnector @Inject() (
   @Named("gmsUrl") gmsBaseUrl: String,
   httpClient:                  HttpClient
-)(implicit ec:                 ExecutionContext)
+)(implicit ec: ExecutionContext)
     extends CustomEitherHttpReads {
 
   private val url = s"$gmsBaseUrl/goods-movement-system"

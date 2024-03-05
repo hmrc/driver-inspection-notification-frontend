@@ -30,9 +30,9 @@ import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import scala.concurrent.ExecutionContext
 
 @Singleton
-class SearchController @Inject()(
-  mcc:                MessagesControllerComponents,
-  searchPage:         search_page
+class SearchController @Inject() (
+  mcc:        MessagesControllerComponents,
+  searchPage: search_page
 )(implicit appConfig: AppConfig)
     extends FrontendController(mcc) {
 
@@ -53,18 +53,15 @@ class SearchController @Inject()(
       .bindFromRequest()
       .fold(
         formWithErrors => BadRequest(searchPage(formWithErrors)),
-        gmrId => {
-          Redirect(routes.SearchResultController.result(gmrId, checkedStatusAgain = false))
-        }
+        gmrId => Redirect(routes.SearchResultController.result(gmrId, checkedStatusAgain = false))
       )
   }
 
   object GmrErrorHandling {
-    def handlingGmrRetrievalFailure(value: String): GmrErrors => Form[String] = {
-      case GmrNotFound =>
-        GmrSearchForm.gmrSearchForm
-          .withError(GmrSearchForm.field, "search_page.error.gmr_not_found")
-          .fill(value)
+    def handlingGmrRetrievalFailure(value: String): GmrErrors => Form[String] = { case GmrNotFound =>
+      GmrSearchForm.gmrSearchForm
+        .withError(GmrSearchForm.field, "search_page.error.gmr_not_found")
+        .fill(value)
     }
   }
 }

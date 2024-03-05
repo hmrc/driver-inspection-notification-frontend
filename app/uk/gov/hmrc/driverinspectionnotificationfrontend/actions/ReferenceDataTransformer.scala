@@ -26,9 +26,9 @@ import javax.inject.{Inject, Singleton}
 import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
-class ReferenceDataTransformer @Inject()(
-  gmsReferenceDataService:       GmsReferenceDataService,
-  mcc:                           ControllerComponents
+class ReferenceDataTransformer @Inject() (
+  gmsReferenceDataService: GmsReferenceDataService,
+  mcc:                     ControllerComponents
 )(implicit val executionContext: ExecutionContext)
     extends ActionTransformer[Request, GmsRequestWithReferenceData]
     with FrontendHeaderCarrierProvider

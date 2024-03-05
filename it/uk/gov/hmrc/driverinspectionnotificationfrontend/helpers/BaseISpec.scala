@@ -62,7 +62,7 @@ abstract class BaseISpec
 
   additionalAppConfig ++= Map(
     "metrics.enabled"  -> false,
-    "auditing.enabled" -> false,
+    "auditing.enabled" -> false
   )
 
   @SuppressWarnings(Array("org.wartremover.warts.Any"))
@@ -77,8 +77,8 @@ abstract class BaseISpec
     route(app, req) match {
       case None => fail("Route does not exist")
       case Some(fResult) =>
-        fResult.recoverWith {
-          case t: Throwable => errorHandler.onServerError(req, t)
+        fResult.recoverWith { case t: Throwable =>
+          errorHandler.onServerError(req, t)
         }
     }
   }

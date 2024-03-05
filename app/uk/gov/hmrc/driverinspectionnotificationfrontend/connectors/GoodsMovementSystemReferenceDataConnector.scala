@@ -23,10 +23,10 @@ import javax.inject.{Inject, Named, Singleton}
 import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
-class GoodsMovementSystemReferenceDataConnector @Inject()(
+class GoodsMovementSystemReferenceDataConnector @Inject() (
   @Named("gmsReferenceDataUrl") gmsReferenceDataBaseUrl: String,
   httpClient:                                            HttpClient
-)(implicit executionContext:                             ExecutionContext) {
+)(implicit executionContext: ExecutionContext) {
 
   private val url = s"$gmsReferenceDataBaseUrl/goods-movement-system-reference-data"
 

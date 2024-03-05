@@ -25,12 +25,12 @@ class LocationSpec extends BaseSpec {
       val postcodes = List("n/a", "N/A", "n/A", "N/a")
       postcodes foreach { postcode =>
         val address = Address(List("abc"), None, postcode = postcode)
-        address.getPostcode shouldBe ("")
+        address.getPostcode shouldBe ""
       }
     }
     "return the postcode if the postcode is not n/a regardless its case sensitiveness" in {
       val address = Address(List("abc"), None, postcode = "ab1 3ef")
-      address.getPostcode shouldBe ("ab1 3ef")
+      address.getPostcode shouldBe "ab1 3ef"
     }
   }
 }

@@ -27,13 +27,13 @@ import java.time.LocalDate
 trait FakeObjects {
 
   def inspectionResponse(
-    direction:         Direction                     = UK_INBOUND,
-    inspectionStatus:  InspectionStatus              = InspectionPending,
+    direction:         Direction = UK_INBOUND,
+    inspectionStatus:  InspectionStatus = InspectionPending,
     reportToLocations: Option[List[ReportLocations]] = None
   ) =
     InspectionResponse(
-      direction         = direction,
-      inspectionStatus  = inspectionStatus,
+      direction = direction,
+      inspectionStatus = inspectionStatus,
       reportToLocations = reportToLocations
     )
 
@@ -42,19 +42,19 @@ trait FakeObjects {
       locations = Some(
         List(
           Location(
-            locationId          = "1",
+            locationId = "1",
             locationDescription = "Belfast Location 1",
             address = Address(
               lines = List(
                 "1 Shamrock Lane",
                 "Waldo"
               ),
-              town     = Some("Belfast"),
+              town = Some("Belfast"),
               postcode = "NI1 6JG"
             ),
-            locationType          = "BCP",
+            locationType = "BCP",
             locationEffectiveFrom = LocalDate.parse("2020-01-01"),
-            locationEffectiveTo   = None,
+            locationEffectiveTo = None,
             supportedInspectionTypeIds = List(
               "1"
             ),

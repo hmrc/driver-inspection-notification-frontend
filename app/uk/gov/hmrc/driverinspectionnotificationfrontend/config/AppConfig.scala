@@ -22,7 +22,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes
 import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
 
 @Singleton
-class AppConfig @Inject()(val configuration: Configuration, servicesConfig: ServicesConfig) {
+class AppConfig @Inject() (val configuration: Configuration, servicesConfig: ServicesConfig) {
 
   def otherLanguageSupportEnabled: Boolean = configuration.getOptional[Boolean]("features.other-language-support").getOrElse(false)
 

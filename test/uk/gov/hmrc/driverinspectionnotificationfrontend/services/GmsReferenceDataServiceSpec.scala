@@ -60,25 +60,26 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
 
         "there are no inspection types in the reference data" in new Setup {
           service.getInspectionData(List(ReportLocations(inspectionTypeId = "3", locationIds = List("1"))))(
-            gvmsReferenceData.copy(inspectionTypes = None)) shouldBe List(Left(InspectionTypeNotFound("3")))
+            gvmsReferenceData.copy(inspectionTypes = None)
+          ) shouldBe List(Left(InspectionTypeNotFound("3")))
         }
       }
     }
 
     val validLocation = Location(
-      locationId          = "1",
+      locationId = "1",
       locationDescription = "Belfast Location 1",
       address = Address(
         lines = List(
           "1 Shamrock Lane",
           "Waldo"
         ),
-        town     = Some("Belfast"),
+        town = Some("Belfast"),
         postcode = "NI1 6JG"
       ),
-      locationType          = "BCP",
+      locationType = "BCP",
       locationEffectiveFrom = LocalDate.parse("2020-01-01"),
-      locationEffectiveTo   = None,
+      locationEffectiveTo = None,
       supportedInspectionTypeIds = List(
         "1"
       ),
@@ -94,7 +95,8 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
             List(
               ReportLocations(inspectionTypeId = "3", locationIds = List("1")),
               ReportLocations(inspectionTypeId = "5", locationIds = List("1"))
-            )) shouldBe
+            )
+          ) shouldBe
           List(
             Right(InspectionType("3", "TRANSIT") -> List(Right(validLocation))),
             Left(InspectionTypeNotFound("5"))
@@ -116,7 +118,8 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
             .getInspectionData(
               List(
                 ReportLocations(inspectionTypeId = "3", locationIds = List("1", "2"))
-              )) shouldBe
+              )
+            ) shouldBe
             List(
               Right(InspectionType("3", "TRANSIT") -> List(Right(validLocation), Left(LocationNotFound("2"))))
             )
@@ -128,7 +131,8 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
               List(
                 ReportLocations(inspectionTypeId = "3", locationIds = List("1")),
                 ReportLocations(inspectionTypeId = "4", locationIds = List("2"))
-              )) shouldBe
+              )
+            ) shouldBe
             List(
               Right(InspectionType("3", "TRANSIT") -> List(Right(validLocation))),
               Right(InspectionType("4", "OGD")     -> List(Left(LocationNotFound("2"))))
@@ -140,7 +144,8 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
             .getInspectionData(
               List(
                 ReportLocations(inspectionTypeId = "4", locationIds = List("1"))
-              ))(gvmsReferenceData.copy(locations = None)) shouldBe
+              )
+            )(gvmsReferenceData.copy(locations = None)) shouldBe
             List(
               Right(InspectionType("4", "OGD") -> List(Left(LocationNotFound("1"))))
             )

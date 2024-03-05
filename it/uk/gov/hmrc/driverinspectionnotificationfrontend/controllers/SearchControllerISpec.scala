@@ -33,7 +33,7 @@ class SearchControllerISpec extends BaseISpec with WireMockSupport with WireMock
       status(result)      shouldBe OK
       contentType(result) shouldBe Some("text/html")
       val content = contentAsString(result)
-      content         should include("What is your goods movement reference (GMR)?")
+      content           should include("What is your goods movement reference (GMR)?")
       charset(result) shouldBe Some("utf-8")
     }
 
@@ -45,10 +45,10 @@ class SearchControllerISpec extends BaseISpec with WireMockSupport with WireMock
       status(result)      shouldBe BAD_REQUEST
       contentType(result) shouldBe Some("text/html")
       val content = contentAsString(result)
-      content         should include("Error - What is your goods movement reference (GMR)?")
-      content         should include("There is a problem")
-      content         should include("GMR not found. You will need to check the details of the GMR and enter it again.")
-      content         should include("GMRA00002KW2")
+      content           should include("Error - What is your goods movement reference (GMR)?")
+      content           should include("There is a problem")
+      content           should include("GMR not found. You will need to check the details of the GMR and enter it again.")
+      content           should include("GMRA00002KW2")
       charset(result) shouldBe Some("utf-8")
     }
   }
