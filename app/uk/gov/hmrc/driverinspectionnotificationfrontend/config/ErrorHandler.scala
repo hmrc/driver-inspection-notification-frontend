@@ -25,12 +25,12 @@ import uk.gov.hmrc.play.bootstrap.frontend.http.FrontendErrorHandler
 import javax.inject.{Inject, Singleton}
 
 @Singleton
-class ErrorHandler @Inject()(val messagesApi: MessagesApi, implicit val appConfig: AppConfig, errorTemplate: error_template)
+class ErrorHandler @Inject() (val messagesApi: MessagesApi, implicit val appConfig: AppConfig, errorTemplate: error_template)
     extends FrontendErrorHandler {
   override def standardErrorTemplate(
-    pageTitle:        String,
-    heading:          String,
-    message:          String
+    pageTitle: String,
+    heading:   String,
+    message:   String
   )(implicit request: Request[_]): Html =
     errorTemplate(pageTitle, heading, message)
 }

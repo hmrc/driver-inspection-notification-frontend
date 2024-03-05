@@ -27,7 +27,7 @@ class ControllerBaseSpec extends BaseSpec {
   def actionBuilders(): GmsActionBuilders =
     new GmsActionBuilders(
       mock[DefaultActionBuilder],
-      mock[ReferenceDataTransformer],
+      mock[ReferenceDataTransformer]
     ) {
       override val withReferenceData: ActionBuilder[GmsRequestWithReferenceData, AnyContent] =
         new ActionBuilder[GmsRequestWithReferenceData, AnyContent] {

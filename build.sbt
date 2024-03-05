@@ -91,6 +91,7 @@ lazy val microservice = Project(appName, file("."))
   )
   .settings(resolvers += Resolver.jcenterRepo)
   .settings(
+    scalafmtOnCompile := true,
     scalacOptions += "-Wconf:src=routes/.*:s", //Silence all warnings in generated routes
     scalacOptions += "-Ymacro-annotations",
     scalacOptions += "-Wconf:cat=unused-imports&src=html/.*:s"

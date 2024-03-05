@@ -22,9 +22,9 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.actions.requests.GmsRequ
 import javax.inject.{Inject, Singleton}
 
 @Singleton
-class GmsActionBuilders @Inject()(
+class GmsActionBuilders @Inject() (
   defaultActionBuilder:     DefaultActionBuilder,
-  referenceDataTransformer: ReferenceDataTransformer,
+  referenceDataTransformer: ReferenceDataTransformer
 ) {
   val withReferenceData: ActionBuilder[GmsRequestWithReferenceData, AnyContent] =
     defaultActionBuilder.andThen(referenceDataTransformer)

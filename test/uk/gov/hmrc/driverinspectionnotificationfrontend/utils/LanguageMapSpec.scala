@@ -40,8 +40,8 @@ class LanguageMapSpec extends BaseSpec {
     )
 
     "should include all available languages" in {
-      codeLangMap.foreachEntry {
-        case (key, language) => LanguageMap.get(key) shouldBe language
+      codeLangMap.foreachEntry { case (key, language) =>
+        LanguageMap.get(key) shouldBe language
       }
     }
   }

@@ -33,7 +33,8 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
     "Inspection pending" in {
       stubGet(
         "/goods-movement-system/driver/movements/GMRA00002KW2/inspection",
-        Json.stringify(Json.toJson(inspectionResponse(inspectionStatus = InspectionPending))))
+        Json.stringify(Json.toJson(inspectionResponse(inspectionStatus = InspectionPending)))
+      )
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
@@ -46,14 +47,16 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
       content shouldNot include("There is no update to the inspection status")
       content should include("Your inspection status is not ready yet")
       content should include(
-        "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below.")
+        "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below."
+      )
       charset(result) shouldBe Some("utf-8")
     }
 
     "Inspection pending after checking again" in {
       stubGet(
         "/goods-movement-system/driver/movements/GMRA00002KW2/inspection",
-        Json.stringify(Json.toJson(inspectionResponse(inspectionStatus = InspectionPending))))
+        Json.stringify(Json.toJson(inspectionResponse(inspectionStatus = InspectionPending)))
+      )
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
@@ -66,7 +69,8 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
       content should include("There is no update to the inspection status")
       content should include("Your inspection status is not ready yet")
       content should include(
-        "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below.")
+        "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below."
+      )
       charset(result) shouldBe Some("utf-8")
     }
 
@@ -75,7 +79,8 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
         stubGet(
           "/goods-movement-system/driver/movements/GMRA00002KW2/inspection",
           Json.stringify(
-            Json.toJson(inspectionResponse(inspectionStatus = InspectionRequired, reportToLocations = Some(List(ReportLocations("1", List("1")))))))
+            Json.toJson(inspectionResponse(inspectionStatus = InspectionRequired, reportToLocations = Some(List(ReportLocations("1", List("1"))))))
+          )
         )
 
         stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
@@ -85,8 +90,8 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
         status(result)      shouldBe OK
         contentType(result) shouldBe Some("text/html")
         val content = contentAsString(result)
-        content         should include("The goods you are moving require an inspection")
-        content         should include("Your inspection site")
+        content           should include("The goods you are moving require an inspection")
+        content           should include("Your inspection site")
         charset(result) shouldBe Some("utf-8")
       }
 
@@ -103,9 +108,9 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
         status(result)      shouldBe OK
         contentType(result) shouldBe Some("text/html")
         val content = contentAsString(result)
-        content         should include("The goods you are moving require an inspection")
-        content         should include("What to do next")
-        content         should include("Your inspection sites")
+        content           should include("The goods you are moving require an inspection")
+        content           should include("What to do next")
+        content           should include("Your inspection sites")
         charset(result) shouldBe Some("utf-8")
       }
     }
@@ -123,7 +128,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
       status(result)      shouldBe OK
       contentType(result) shouldBe Some("text/html")
       val content = contentAsString(result)
-      content         should include("No inspection needed")
+      content           should include("No inspection needed")
       charset(result) shouldBe Some("utf-8")
     }
 
@@ -133,7 +138,8 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
         get(urlMatching("/goods-movement-system/driver/movements/GMRA00002KW2/inspection"))
           .willReturn(
             aResponse().withStatus(404).withBody("""{"code": "GMR_NOT_FOUND"}""")
-          ))
+          )
+      )
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 
@@ -150,7 +156,8 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
         get(urlMatching("/goods-movement-system/driver/movements/GMRA00002KW2/inspection"))
           .willReturn(
             aResponse().withStatus(404).withBody("""{"code": "blah"}""").withHeader("Content-Type", "application/json")
-          ))
+          )
+      )
 
       stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
 

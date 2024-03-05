@@ -42,9 +42,9 @@ trait TestTemplateComponents {
 
   val hmrcStandardHeader = new HmrcStandardHeader(
     hmrcHeader = new HmrcHeader(
-      hmrcBanner             = new HmrcBanner(TudorCrownConfig(configuration)),
+      hmrcBanner = new HmrcBanner(TudorCrownConfig(configuration)),
       hmrcUserResearchBanner = new HmrcUserResearchBanner(),
-      govukPhaseBanner       = new GovukPhaseBanner(govukTag = new GovukTag()),
+      govukPhaseBanner = new GovukPhaseBanner(govukTag = new GovukTag()),
       TudorCrownConfig(configuration)
     )
   )

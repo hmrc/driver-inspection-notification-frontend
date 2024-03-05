@@ -24,7 +24,7 @@ import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import javax.inject.{Inject, Singleton}
 
 @Singleton
-class StartController @Inject()(mcc: MessagesControllerComponents, startPage: start_page)(implicit appConfig: AppConfig)
+class StartController @Inject() (mcc: MessagesControllerComponents, startPage: start_page)(implicit appConfig: AppConfig)
     extends FrontendController(mcc) {
 
   def show(): Action[AnyContent] = Action { implicit request =>

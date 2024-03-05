@@ -46,10 +46,10 @@ trait StubMessageControllerComponents extends Configs {
   @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments"))
   def stubMessagesControllerComponents(
     bodyParser:      BodyParser[AnyContent] = stubBodyParser(AnyContentAsEmpty),
-    playBodyParsers: PlayBodyParsers        = stubPlayBodyParsers(NoMaterializer),
-    fileMimeTypes:   FileMimeTypes          = new DefaultFileMimeTypes(FileMimeTypesConfiguration())
-  )(
-    implicit executionContext: ExecutionContext
+    playBodyParsers: PlayBodyParsers = stubPlayBodyParsers(NoMaterializer),
+    fileMimeTypes:   FileMimeTypes = new DefaultFileMimeTypes(FileMimeTypesConfiguration())
+  )(implicit
+    executionContext: ExecutionContext
   ): MessagesControllerComponents =
     DefaultMessagesControllerComponents(
       new DefaultMessagesActionBuilderImpl(bodyParser, messagesApi),

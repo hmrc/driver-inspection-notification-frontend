@@ -25,7 +25,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
 import javax.inject.Singleton
 
 @Singleton
-class LanguageSwitchController @Inject()(appConfig: AppConfig, languageUtils: LanguageUtils, cc: ControllerComponents)
+class LanguageSwitchController @Inject() (appConfig: AppConfig, languageUtils: LanguageUtils, cc: ControllerComponents)
     extends LanguageController(languageUtils, cc) {
   import appConfig._
 

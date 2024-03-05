@@ -28,11 +28,11 @@ class NonPrintableBetaPhaseBanner extends StandardPhaseBanner {
 
   override def apply(phase: String, url: String)(implicit messages: Messages): Aliases.PhaseBanner =
     PhaseBanner(
-      tag     = Some(Tag(content = Text(phase))),
+      tag = Some(Tag(content = Text(phase))),
       classes = "govuk-!-display-none-print",
       content = HtmlContent(
         s"""${messages("phase.banner.before")} <a class=\"govuk-link\" href=\"${HtmlFormat
-          .escape(url)}\">${messages("phase.banner.link")}</a> ${messages("phase.banner.after")}"""
+            .escape(url)}\">${messages("phase.banner.link")}</a> ${messages("phase.banner.after")}"""
       )
     )
 

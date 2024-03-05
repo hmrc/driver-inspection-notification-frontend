@@ -42,9 +42,9 @@ trait CustomEitherHttpReads {
     for {
       response <- HttpReads[HttpResponse]
       result <- customErrors
-                 .andThen(_.asLeft[P])
-                 .andThen(HttpReads.pure(_))
-                 .applyOrElse[HttpResponse, HttpReads[Either[E, P]]](response, _ => rds.map(_.asRight[E]))
+                  .andThen(_.asLeft[P])
+                  .andThen(HttpReads.pure(_))
+                  .applyOrElse[HttpResponse, HttpReads[Either[E, P]]](response, _ => rds.map(_.asRight[E]))
     } yield result
 
   implicit def retrieveGmrErrorPartialFunction[P]: PartialFunction[HttpResponse, GmrErrors] = {
@@ -54,8 +54,8 @@ trait CustomEitherHttpReads {
         isCustomError(arg.json)(_ == "GMR_NOT_FOUND")
     }
 
-    {
-      case GmrNotFoundError() => GmrErrors.GmrNotFound
+    { case GmrNotFoundError() =>
+      GmrErrors.GmrNotFound
     }
   }
 }

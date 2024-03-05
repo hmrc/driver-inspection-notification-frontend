@@ -40,7 +40,7 @@ import javax.inject.{Inject, Singleton}
 import scala.concurrent.ExecutionContext
 
 @Singleton
-class SearchResultController @Inject()(
+class SearchResultController @Inject() (
   mcc:                                 MessagesControllerComponents,
   gmsActionBuilders:                   GmsActionBuilders,
   gmsService:                          GmsService,
@@ -51,7 +51,7 @@ class SearchResultController @Inject()(
   inspection_not_needed_page_import:   inspection_not_needed_import,
   inspection_not_needed_page_export:   inspection_not_needed_export,
   inspection_pending_page:             inspection_pending
-)(implicit appConfig:                  AppConfig, executionContext: ExecutionContext)
+)(implicit appConfig: AppConfig, executionContext: ExecutionContext)
     extends FrontendController(mcc)
     with I18nSupport {
 
@@ -63,7 +63,8 @@ class SearchResultController @Inject()(
     gmsService
       .getInspectionStatus(gmrId)
       .fold(
-        ErrorHandling.handleGmrErrors(gmrId), {
+        ErrorHandling.handleGmrErrors(gmrId),
+        {
           case InspectionResponse(direction, InspectionStatus.InspectionRequired, reportToLocations) =>
             Ok(inspectionRequired(gmrId, direction, reportToLocations.getOrElse(Nil)))
           case InspectionResponse(direction, InspectionStatus.InspectionNotNeeded, _) =>
@@ -74,8 +75,9 @@ class SearchResultController @Inject()(
       )
   }
 
-  private def inspectionRequired(gmrId: String, direction: Direction, reportToLocations: List[ReportLocations])(
-    implicit request:                   GmsRequestWithReferenceData[_]) = {
+  private def inspectionRequired(gmrId: String, direction: Direction, reportToLocations: List[ReportLocations])(implicit
+    request: GmsRequestWithReferenceData[_]
+  ) = {
     implicit val referenceData: GvmsReferenceData = request.referenceData
     direction match {
       case UK_INBOUND | GB_TO_NI | NI_TO_GB =>
@@ -90,12 +92,11 @@ class SearchResultController @Inject()(
             inspectionTypesAndLocations match {
               case Nil => inspection_required_import(Some(gmrId), Map(), direction)
               case list =>
-                val inspectionLocations = list.map {
-                  case (inspectionType, eitherLocations) =>
-                    val (locationsNotFound, locations) = partitionAndExtract(eitherLocations)
-                    if (locationsNotFound.nonEmpty)
-                      logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
-                    (InspectionDisplayGroup(inspectionType), locations)
+                val inspectionLocations = list.map { case (inspectionType, eitherLocations) =>
+                  val (locationsNotFound, locations) = partitionAndExtract(eitherLocations)
+                  if (locationsNotFound.nonEmpty)
+                    logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
+                  (InspectionDisplayGroup(inspectionType), locations)
                 }.toMap
                 inspection_required_import(Some(gmrId), inspectionLocations, direction)
             }
@@ -112,12 +113,11 @@ class SearchResultController @Inject()(
             inspectionTypesAndLocations match {
               case Nil => inspection_required_export(Some(gmrId), Map())
               case list =>
-                val inspectionLocations = list.map {
-                  case (inspectionType, eitherLocations) =>
-                    val (locationsNotFound, locations) = partitionAndExtract(eitherLocations)
-                    if (locationsNotFound.nonEmpty)
-                      logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
-                    (InspectionDisplayGroup(inspectionType), locations)
+                val inspectionLocations = list.map { case (inspectionType, eitherLocations) =>
+                  val (locationsNotFound, locations) = partitionAndExtract(eitherLocations)
+                  if (locationsNotFound.nonEmpty)
+                    logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
+                  (InspectionDisplayGroup(inspectionType), locations)
                 }.toMap
                 inspection_required_export(Some(gmrId), inspectionLocations)
             }
@@ -133,8 +133,8 @@ class SearchResultController @Inject()(
     }
 
   object ErrorHandling {
-    def handleGmrErrors(gmrId: String): GmrErrors => Result = {
-      case GmrErrors.GmrNotFound => Redirect(routes.SearchController.show()).flashing(("not-found", gmrId))
+    def handleGmrErrors(gmrId: String): GmrErrors => Result = { case GmrErrors.GmrNotFound =>
+      Redirect(routes.SearchController.show()).flashing(("not-found", gmrId))
     }
   }
 }

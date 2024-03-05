@@ -38,7 +38,8 @@ trait WireMockHelper {
       post(urlMatching(url))
         .willReturn(
           aResponse().withStatus(status).withBody(responseBody)
-        ))
+        )
+    )
   }
 
   def stubPut(url: String, responseStatus: Integer, responseBody: String): StubMapping = {
@@ -47,6 +48,7 @@ trait WireMockHelper {
       put(urlMatching(url))
         .willReturn(
           aResponse().withStatus(responseStatus).withBody(responseBody)
-        ))
+        )
+    )
   }
 }

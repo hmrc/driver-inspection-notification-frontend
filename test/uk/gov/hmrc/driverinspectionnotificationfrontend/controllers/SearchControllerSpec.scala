@@ -40,22 +40,24 @@ class SearchControllerSpec extends BaseSpec {
       val result = controller.show(None)(fakeRequest)
       contentAsString(result) should include("Check if you need to report for an inspection")
       contentAsString(result) should include(
-        "You will find this on the copy of the GMR you used to check in to this crossing. It is 12 characters starting with GMR. For example, GMRA00002KW2.")
+        "You will find this on the copy of the GMR you used to check in to this crossing. It is 12 characters starting with GMR. For example, GMRA00002KW2."
+      )
       contentAsString(result) should include("What is your goods movement reference (GMR)?")
       contentAsString(result) should include("Continue")
-      contentType(result)     shouldBe Some("text/html")
-      charset(result)         shouldBe Some("utf-8")
+      contentType(result)   shouldBe Some("text/html")
+      charset(result)       shouldBe Some("utf-8")
     }
 
     "return 400" in new SetUp {
       val result = controller.show(None)(fakeRequest.withFlash(("not-found", "1234")))
       contentAsString(result) should include("Check if you need to report for an inspection")
       contentAsString(result) should include(
-        "You will find this on the copy of the GMR you used to check in to this crossing. It is 12 characters starting with GMR. For example, GMRA00002KW2.")
+        "You will find this on the copy of the GMR you used to check in to this crossing. It is 12 characters starting with GMR. For example, GMRA00002KW2."
+      )
       contentAsString(result) should include("What is your goods movement reference (GMR)?")
       contentAsString(result) should include("Continue")
-      contentType(result)     shouldBe Some("text/html")
-      charset(result)         shouldBe Some("utf-8")
+      contentType(result)   shouldBe Some("text/html")
+      charset(result)       shouldBe Some("utf-8")
     }
   }
 
@@ -73,7 +75,7 @@ class SearchControllerSpec extends BaseSpec {
 
     "Bad Request: Invalid gmr" in new SetUp {
       val result = controller.submit()(fakeRequestWithInvalidGmr)
-      status(result)          shouldBe 400
+      status(result)        shouldBe 400
       contentAsString(result) should include("Enter a GMR in the correct format")
     }
 
