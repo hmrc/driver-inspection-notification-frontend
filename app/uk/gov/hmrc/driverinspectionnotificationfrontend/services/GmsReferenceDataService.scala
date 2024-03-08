@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.services
 
+import cats.implicits.catsSyntaxEq
 import uk.gov.hmrc.driverinspectionnotificationfrontend.connectors.GoodsMovementSystemReferenceDataConnector
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.InspectionLocationError._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.ReportLocations
@@ -39,15 +40,15 @@ class GmsReferenceDataService @Inject() (
     reportToLocations.map { reportToLocation =>
       referenceData.inspectionTypes
         .getOrElse(Nil)
-        .find(_.inspectionTypeId == reportToLocation.inspectionTypeId)
+        .find(_.inspectionTypeId === reportToLocation.inspectionTypeId)
         .toRight(InspectionTypeNotFound(reportToLocation.inspectionTypeId))
-        .map { inspectionType =>
+        .map { inspectionType: InspectionType =>
           (inspectionType, getLocations(reportToLocation.locationIds, referenceData.locations.getOrElse(Nil)))
         }
     }
 
   private def getLocations(locationIds: List[String], refLocations: List[Location]): List[Either[LocationNotFound, Location]] =
-    locationIds.map { locationId =>
-      refLocations.find(_.locationId == locationId).toRight(LocationNotFound(locationId))
+    locationIds.map { locationId: String =>
+      refLocations.find(_.locationId === locationId).toRight(LocationNotFound(locationId))
     }
 }

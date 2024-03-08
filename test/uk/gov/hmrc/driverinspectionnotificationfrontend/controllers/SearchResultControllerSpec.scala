@@ -102,7 +102,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
       UK_INBOUND,
       GB_TO_NI
     ).foreach { direction =>
-      s"direction is $direction" should {
+      s"direction is ${direction.toString}" should {
         "return 200 OK with inspection_required_import when is import and inspection data found in reference data" in new SetUp {
           val gmrId = "gmrId"
           val location = Location(

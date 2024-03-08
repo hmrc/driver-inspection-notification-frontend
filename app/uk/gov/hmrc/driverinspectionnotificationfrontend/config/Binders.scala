@@ -29,6 +29,10 @@ object Binders {
           right => Some(right).asRight[String]
         )
 
-    def unbind(key: String, value: Option[T]): String = value map (_.toString) getOrElse ""
+    def unbind(key: String, value: Option[T]): String =
+      value match {
+        case None    => ""
+        case Some(v) => implicitly[PathBindable[T]].unbind(key, v)
+      }
   }
 }

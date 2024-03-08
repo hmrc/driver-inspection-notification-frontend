@@ -19,25 +19,26 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.models
 import play.api.libs.json._
 
 sealed trait Direction extends Product with Serializable {
-  def value: String
+  def value:             String
+  override def toString: String = value
 }
 
 object Direction {
 
   case object UK_INBOUND extends Direction {
-    val value: String = this.toString
+    val value: String = "UK_INBOUND"
   }
 
   case object UK_OUTBOUND extends Direction {
-    val value: String = this.toString
+    val value: String = "UK_OUTBOUND"
   }
 
   case object GB_TO_NI extends Direction {
-    val value: String = this.toString
+    val value: String = "GB_TO_NI"
   }
 
   case object NI_TO_GB extends Direction {
-    val value: String = this.toString
+    val value: String = "NI_TO_GB"
   }
 
   implicit val format: Format[Direction] = new Format[Direction] {

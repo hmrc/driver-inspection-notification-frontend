@@ -32,7 +32,8 @@ class NonPrintableBetaPhaseBanner extends StandardPhaseBanner {
       classes = "govuk-!-display-none-print",
       content = HtmlContent(
         s"""${messages("phase.banner.before")} <a class=\"govuk-link\" href=\"${HtmlFormat
-            .escape(url)}\">${messages("phase.banner.link")}</a> ${messages("phase.banner.after")}"""
+            .escape(url)
+            .toString()}\">${messages("phase.banner.link")}</a> ${messages("phase.banner.after")}"""
       )
     )
 

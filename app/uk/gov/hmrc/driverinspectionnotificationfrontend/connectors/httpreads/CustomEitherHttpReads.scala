@@ -51,7 +51,7 @@ trait CustomEitherHttpReads {
 
     case object GmrNotFoundError {
       def unapply(arg: HttpResponse): Boolean =
-        isCustomError(arg.json)(_ == "GMR_NOT_FOUND")
+        isCustomError(arg.json)(_ === "GMR_NOT_FOUND")
     }
 
     { case GmrNotFoundError() =>

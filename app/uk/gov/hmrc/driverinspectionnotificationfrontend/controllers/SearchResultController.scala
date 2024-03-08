@@ -26,7 +26,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.{InspectionStatus, ReportLocations}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.GvmsReferenceData
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{GvmsReferenceData, Location}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.{Direction, InspectionResponse}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.services.{GmsReferenceDataService, GmsService}
@@ -83,8 +83,8 @@ class SearchResultController @Inject() (
       case UK_INBOUND | GB_TO_NI | NI_TO_GB =>
         referenceDataService.getInspectionData(reportToLocations) match {
           case Nil =>
-            logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction $direction")
-            inspection_required_import(Some(gmrId), Map(), direction)
+            logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction ${direction.toString}")
+            inspection_required_import(Some(gmrId), Map[InspectionDisplayGroup, List[Location]](), direction)
           case listOfEithers =>
             val (inspectionTypesNotFound, inspectionTypesAndLocations) = partitionAndExtract(listOfEithers)
             if (inspectionTypesNotFound.nonEmpty)
@@ -104,7 +104,7 @@ class SearchResultController @Inject() (
       case UK_OUTBOUND =>
         referenceDataService.getInspectionData(reportToLocations) match {
           case Nil =>
-            logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction $direction")
+            logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction ${direction.toString}")
             inspection_required_export(Some(gmrId), Map())
           case listOfEithers =>
             val (inspectionTypesNotFound, inspectionTypesAndLocations) = partitionAndExtract(listOfEithers)
