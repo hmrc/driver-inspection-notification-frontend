@@ -44,9 +44,14 @@ object  WartRemoverSettings {
       )
     }
 
-    val routesAndFoldersExclusions = wartremoverExcluded ++=
-      (Compile / routes).value
-
+    val routesAndFoldersExclusions =
+      wartremoverExcluded ++= (Compile / routes).value ++ Seq(
+        baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "start_page.template.scala",
+        baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "search_page.template.scala",
+        baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "main_layout_full_width_template.template.scala",
+        baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "helpers" / "languages.template.scala",
+        baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html"
+      )
 
     val testExclusions = {
       val errorsExcluded = (Test / compile / wartremoverErrors) --= Seq(

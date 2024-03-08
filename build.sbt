@@ -41,13 +41,6 @@ lazy val microservice = Project(appName, file("."))
     Assets / pipelineStages := Seq(gzip)
   )
   .settings(WartRemoverSettings.settings)
-  .settings(
-    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "start_page.template.scala",
-    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "search_page.template.scala",
-    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "main_layout_full_width_template.template.scala",
-    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "helpers" / "languages.template.scala",
-    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html",
-  )
   .settings(SassKeys.generateSourceMaps := false)
   .configs(IntegrationTest)
   .settings(integrationTestSettings(): _*)
