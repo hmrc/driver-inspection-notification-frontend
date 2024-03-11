@@ -21,6 +21,8 @@ import play.api.data.format.Formatter
 import play.api.data.validation.Constraints
 import play.api.data.{FormError, Mapping}
 
+import java.util.Locale
+
 trait CustomFormats extends Constraints {
   private def stringFormat(errorKey: String): Formatter[String] =
     new Formatter[String] {
@@ -30,6 +32,6 @@ trait CustomFormats extends Constraints {
     }
   def nonEmptySanitisedTextWithErrorOverride(key: String, sanitisingRegex: String): Mapping[String] =
     of[String](stringFormat(key))
-      .transform[String](_.replaceAll(sanitisingRegex, "").toUpperCase, identity)
+      .transform[String](_.replaceAll(sanitisingRegex, "").toUpperCase(Locale.UK), identity)
       .verifying(Constraints.nonEmpty(errorMessage = key))
 }

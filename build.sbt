@@ -2,7 +2,6 @@ import uk.gov.hmrc.DefaultBuildSettings.integrationTestSettings
 import scoverage.ScoverageKeys
 import uk.gov.hmrc.DefaultBuildSettings
 import play.sbt.PlayImport.PlayKeys.playDefaultPort
-import wartremover.Wart._
 import sbt.Keys.evictionErrorLevel
 
 val appName = "driver-inspection-notification-frontend"
@@ -41,40 +40,7 @@ lazy val microservice = Project(appName, file("."))
     libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test,
     Assets / pipelineStages := Seq(gzip)
   )
-  .settings(
-    wartremover.WartRemover.autoImport.wartremoverExcluded ++= (Compile / routes).value,
-    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "start_page.template.scala",
-    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "search_page.template.scala",
-    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "main_layout_full_width_template.template.scala",
-    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html" / "helpers" / "languages.template.scala",
-    wartremover.WartRemover.autoImport.wartremoverExcluded += baseDirectory.value / "target" / "scala-2.13" / "twirl" / "main" / "uk" / "gov" / "hmrc" / "driverinspectionnotificationfrontend" / "views" / "html",
-    Compile / compile / wartremoverErrors ++= Warts.allBut(
-      Throw,
-      ToString,
-      ImplicitParameter,
-      PublicInference,
-      Equals,
-      Overloading,
-      FinalCaseClass,
-      NonUnitStatements,
-      Nothing,
-      Any,
-      StringPlusAny,
-      Nothing,
-      PlatformDefault,
-      ListAppend,
-      ListUnapply
-      ),
-    Test / compile / wartremoverErrors --= Seq(
-      DefaultArguments,
-      Serializable,
-      Product,
-      Any,
-      OptionPartial,
-      GlobalExecutionContext
-    ),
-    wartremoverWarnings ++= Seq(Throw, Equals, Nothing, GlobalExecutionContext)
-  )
+  .settings(WartRemoverSettings.settings)
   .settings(SassKeys.generateSourceMaps := false)
   .configs(IntegrationTest)
   .settings(integrationTestSettings(): _*)
