@@ -16,25 +16,23 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.controllers
 
-import javax.inject.{Inject, Singleton}
 import play.api.data.Form
 import play.api.i18n.Messages.implicitMessagesProviderToMessages
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors.GmrNotFound
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.forms.GmrSearchForm
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.search_page
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 
+import javax.inject.{Inject, Singleton}
 import scala.concurrent.ExecutionContext
 
 @Singleton
 class SearchController @Inject() (
   mcc:        MessagesControllerComponents,
   searchPage: search_page
-)(implicit appConfig: AppConfig)
-    extends FrontendController(mcc) {
+) extends FrontendController(mcc) {
 
   implicit val ex: ExecutionContext = mcc.executionContext
 

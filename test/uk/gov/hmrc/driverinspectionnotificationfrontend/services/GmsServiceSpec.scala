@@ -18,7 +18,6 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.services
 
 import org.mockito.ArgumentMatchers._
 import org.mockito.Mockito.{verify, when}
-import play.api.test.Helpers.await
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.BaseSpec
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.InspectionResponse
@@ -46,7 +45,7 @@ class GmsServiceSpec extends BaseSpec {
 
       val result = await(service.getInspectionStatus(gmrId).value)
 
-      result.right.value shouldBe response
+      result.value shouldBe response
 
       verify(mockGmsConnector).getInspectionStatus(any())(any())
     }

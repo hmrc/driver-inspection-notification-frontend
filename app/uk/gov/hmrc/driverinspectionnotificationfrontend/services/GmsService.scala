@@ -23,12 +23,12 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.models.InspectionRespons
 import uk.gov.hmrc.http.HeaderCarrier
 
 import javax.inject.{Inject, Singleton}
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.Future
 
 @Singleton
 class GmsService @Inject() (
   goodsMovementSystemConnector: GoodsMovementSystemConnector
-)(implicit ec: ExecutionContext) {
+) {
 
   def getInspectionStatus(gmrId: String)(implicit hc: HeaderCarrier): EitherT[Future, GmrErrors, InspectionResponse] =
     EitherT(goodsMovementSystemConnector.getInspectionStatus(gmrId))

@@ -31,13 +31,12 @@ trait AllMocks extends BeforeAndAfterEach {
   val mockGmsService:             GmsService                                = mock[GmsService]
   val mockReferenceDataService:   GmsReferenceDataService                   = mock[GmsReferenceDataService]
 
-  override protected def beforeEach(): Unit =
-    Seq(
-      mockAppConfig,
-      mockGmsConnector,
-      mockReferenceDataConnector,
-      mockGmsService,
-      mockReferenceDataService
-    ).foreach(Mockito.reset(_))
+  override protected def beforeEach(): Unit = {
+    Mockito.reset(mockAppConfig)
+    Mockito.reset(mockGmsConnector)
+    Mockito.reset(mockReferenceDataConnector)
+    Mockito.reset(mockGmsService)
+    Mockito.reset(mockReferenceDataService)
+  }
 
 }

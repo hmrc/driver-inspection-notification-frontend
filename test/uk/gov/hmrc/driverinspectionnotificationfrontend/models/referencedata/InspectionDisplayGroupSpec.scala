@@ -16,7 +16,6 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata
 
-import play.libs.F.Tuple
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.BaseSpec
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
 
