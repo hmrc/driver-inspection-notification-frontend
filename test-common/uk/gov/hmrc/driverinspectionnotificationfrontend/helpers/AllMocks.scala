@@ -22,6 +22,8 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
 import uk.gov.hmrc.driverinspectionnotificationfrontend.connectors.{GoodsMovementSystemConnector, GoodsMovementSystemReferenceDataConnector}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.services.{GmsReferenceDataService, GmsService}
 
+import scala.annotation.nowarn
+
 trait AllMocks extends BeforeAndAfterEach {
   self: BaseSpec =>
 
@@ -31,8 +33,9 @@ trait AllMocks extends BeforeAndAfterEach {
   val mockGmsService:             GmsService                                = mock[GmsService]
   val mockReferenceDataService:   GmsReferenceDataService                   = mock[GmsReferenceDataService]
 
+  @nowarn
   override protected def beforeEach(): Unit =
-    Seq[Any](
+    Seq(
       mockAppConfig,
       mockGmsConnector,
       mockReferenceDataConnector,
