@@ -22,7 +22,7 @@
 
 @this(mainTemplate: main_layout_full_width_template, govukButton: GovukButton, formWithCSRF: FormWithCSRF, errorSummary: GovukErrorSummary, hmrcPageHeading: HmrcPageHeading,  govukInput: GovukInput)
 
-@(form: Form[String])(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(form: Form[String])(implicit request: Request[_], messages: Messages)
 
 @titlePrefix = @{
     if(form.hasErrors) {
@@ -40,7 +40,7 @@
         @errorSummary(ErrorSummary(errorList = form.errors.asTextErrorLinks, title = Text(messages("generic.form.error"))))
     }
 
-    @formWithCSRF(action = uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes.SearchController.submit, 'id -> "search-form", 'name -> "searchGmr") {
+    @formWithCSRF(action = uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes.SearchController.submit(), Symbol("id") -> "search-form", Symbol("name") -> "searchGmr") {
 
         @govukInput(Input(
             id = "gmrId",

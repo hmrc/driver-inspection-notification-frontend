@@ -32,7 +32,7 @@ trait AllMocks extends BeforeAndAfterEach {
   val mockReferenceDataService:   GmsReferenceDataService                   = mock[GmsReferenceDataService]
 
   override protected def beforeEach(): Unit =
-    Seq(
+    Seq[Any](
       mockAppConfig,
       mockGmsConnector,
       mockReferenceDataConnector,

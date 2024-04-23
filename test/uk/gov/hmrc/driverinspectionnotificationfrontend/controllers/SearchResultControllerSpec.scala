@@ -20,7 +20,6 @@ import cats.data.EitherT
 import org.mockito.ArgumentMatchers.{any, eq => argEq, same}
 import org.mockito.Mockito.when
 import play.api.i18n.DefaultLangs
-import play.api.i18n.Lang.logger.logger
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors

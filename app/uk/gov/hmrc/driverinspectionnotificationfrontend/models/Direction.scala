@@ -51,6 +51,7 @@ object Direction {
         case UK_OUTBOUND.value => JsSuccess(UK_OUTBOUND)
         case GB_TO_NI.value    => JsSuccess(GB_TO_NI)
         case NI_TO_GB.value    => JsSuccess(NI_TO_GB)
+        case e                 => JsError(s"Direction $e is not recognised")
       }
   }
 }

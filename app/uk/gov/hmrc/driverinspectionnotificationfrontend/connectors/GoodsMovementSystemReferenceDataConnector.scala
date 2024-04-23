@@ -30,6 +30,8 @@ class GoodsMovementSystemReferenceDataConnector @Inject() (
 
   private val url = s"$gmsReferenceDataBaseUrl/goods-movement-system-reference-data"
 
-  def getReferenceData(implicit hc: HeaderCarrier): Future[GvmsReferenceData] =
+  def getReferenceData(implicit hc: HeaderCarrier): Future[GvmsReferenceData] = {
+    import uk.gov.hmrc.http.HttpReads.Implicits._
     httpClient.GET[GvmsReferenceData](s"$url/reference-data")
+  }
 }
