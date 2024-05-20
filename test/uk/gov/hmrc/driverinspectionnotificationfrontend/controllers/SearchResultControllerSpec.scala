@@ -227,7 +227,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                       ReportLocations(inspectionTypeId = "10", locationIds = List("2")),
                       ReportLocations(inspectionTypeId = "11", locationIds = List("2")),
                       ReportLocations(inspectionTypeId = "12", locationIds = List("2")),
-                      ReportLocations(inspectionTypeId = "13", locationIds = List("1"))
+                      ReportLocations(inspectionTypeId = "13", locationIds = List("1")),
+                      ReportLocations(inspectionTypeId = "16", locationIds = List("1"))
                     )
                   )
                 )
@@ -250,7 +251,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                   ReportLocations(inspectionTypeId = "10", locationIds = List("2")),
                   ReportLocations(inspectionTypeId = "11", locationIds = List("2")),
                   ReportLocations(inspectionTypeId = "12", locationIds = List("2")),
-                  ReportLocations(inspectionTypeId = "13", locationIds = List("1"))
+                  ReportLocations(inspectionTypeId = "13", locationIds = List("1")),
+                  ReportLocations(inspectionTypeId = "16", locationIds = List("1"))
                 )
               )
             )(any())
@@ -269,7 +271,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                 Right(InspectionType("10", "EIDR")        -> List(Right(locationForCustoms))),
                 Right(InspectionType("11", "EXEMPTION")   -> List(Right(locationForCustoms))),
                 Right(InspectionType("12", "EMPTY")       -> List(Right(locationForCustoms))),
-                Right(InspectionType("13", "DAERA")       -> List(Right(location)))
+                Right(InspectionType("13", "DAERA")       -> List(Right(location))),
+                Right(InspectionType("16", "SnS")         -> List(Right(location)))
               )
             )
 
@@ -292,6 +295,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           content should include("For your Single Administrative Document (SAD) endorsement")
           content should include("For your TIR Carnet endorsement")
           content should include("For your DAERA inspection")
+          content should include("For your ENS (Safety and Security) inspection")
 
           content shouldNot include("For your Entry in Declarant’s Record inspection")
           content shouldNot include("For your Oral or by conduct declaration inspection")

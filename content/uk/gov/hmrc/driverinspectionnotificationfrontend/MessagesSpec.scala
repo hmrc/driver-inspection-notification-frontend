@@ -83,8 +83,8 @@ class MessagesSpec extends BaseSpec with Commands with BeforeAndAfterAll {
   }
 
   def localMessageFileChanges(mainMessages: Map[String, String], localMessages: Map[String, String]): Seq[(String, Option[String])] = {
-    val mainMessageWithFilterUnicode  = mainMessages.mapValues(m => Some(filterMessageKeySpecialCharacters(filterUnicodeCharacters(m))))
-    val localMessageWithFilterUnicode = localMessages.mapValues(m => Some(filterMessageKeySpecialCharacters(filterUnicodeCharacters(m))))
+    val mainMessageWithFilterUnicode  = mainMessages.view.mapValues(m => Some(filterMessageKeySpecialCharacters(filterUnicodeCharacters(m))))
+    val localMessageWithFilterUnicode = localMessages.view.mapValues(m => Some(filterMessageKeySpecialCharacters(filterUnicodeCharacters(m))))
     localMessageWithFilterUnicode.toList diff mainMessageWithFilterUnicode.toList
   }
 

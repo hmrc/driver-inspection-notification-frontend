@@ -175,6 +175,7 @@ inspection_needed_import.ogd.heading=Dėl kitų valstybinių departamentų patik
 inspection_needed_import.ata.heading=Jūsų ATA knygelės patvirtinimui
 inspection_needed_import.tir.heading=Jūsų TIR knygelės patvirtinimui
 inspection_needed_import.sad.heading=Jūsų bendrojo administracinio dokumento (ang. „Single Administrative Document“, SAD) patvirtinimui
+inspection_needed_import.sns.heading=Jūsų ENS (saugos ir saugumo) patikrai
 inspection_needed_import_with_other.p1=Keliaukite į atvykimo vietą pasienyje.
 inspection_needed_import.inspection.heading=Jūsų patikrinimui
 
@@ -206,5 +207,6 @@ inspection_needed_export.ogd.heading=Dėl kitų valstybinių departamentų patik
 inspection_needed_export.ata.heading=Jūsų ATA knygelės patvirtinimui
 inspection_needed_export.tir.heading=Jūsų TIR knygelės patvirtinimui
 inspection_needed_export.sad.heading=Jūsų bendrojo administracinio dokumento (ang. „Single Administrative Document“, SAD) patvirtinimui
+inspection_needed_export.sns.heading=Jūsų ENS (saugos ir saugumo) patikrai
 inspection_needed_export_with_other.p1=Keliaukite į išvykimo vietą pasienyje.
 inspection_needed_export.inspection.heading=Jūsų patikrinimui
