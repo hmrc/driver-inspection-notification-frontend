@@ -207,6 +207,5 @@ inspection_needed_export.ogd.heading=Pro další kontroly státních orgánů
 inspection_needed_export.ata.heading=K potvrzení karnetu ATA
 inspection_needed_export.tir.heading=K potvrzení karnetu TIR
 inspection_needed_export.sad.heading=K potvrzení jednotného administrativního dokladu (SAD)
-inspection_needed_export.sns.heading=Pro vaši kontrolu vstupního souhrnného prohlášení (ENS)
 inspection_needed_export_with_other.p1=Dostavte se na hranice v místě odjezdu.
 inspection_needed_export.inspection.heading=K prohlídce

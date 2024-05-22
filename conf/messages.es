@@ -207,6 +207,5 @@ inspection_needed_export.ogd.heading=Para otras inspecciones de departamentos gu
 inspection_needed_export.ata.heading=Para aprobación del certificado ATA
 inspection_needed_export.tir.heading=Para aprobación del certificado TIR
 inspection_needed_export.sad.heading=Para aprobación del Documento Único Administrativo (SAD)
-inspection_needed_export.sns.heading=Para la inspección de su declaración ENS (Seguridad y Protección)
 inspection_needed_export_with_other.p1=Diríjase a su aduana de salida.
 inspection_needed_export.inspection.heading=Para su inspección
