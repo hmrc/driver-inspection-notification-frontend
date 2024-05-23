@@ -174,6 +174,7 @@ inspection_needed_import.ogd.heading=Ar gyfer archwiliadau gan adrannau eraill o
 inspection_needed_import.ata.heading=Ar gyfer cymeradwyo’ch Carnet ATA
 inspection_needed_import.tir.heading=Ar gyfer cymeradwyo’ch Carnet TIR
 inspection_needed_import.sad.heading=Ar gyfer cymeradwyo’ch Dogfen Weinyddol Sengl (SAD)
+inspection_needed_import.sns.heading=Ar gyfer eich archwiliad ENS (Diogelwch)
 inspection_needed_import_with_other.p1=Teithiwch at eich man cyrraedd wrth y ffin.
 inspection_needed_import.inspection.heading=Ar gyfer eich archwiliad
 

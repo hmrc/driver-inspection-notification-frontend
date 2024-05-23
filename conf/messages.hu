@@ -175,6 +175,7 @@ inspection_needed_import.ogd.heading=Egyéb kormányhivatali ellenőrzések eset
 inspection_needed_import.ata.heading=Az Ön ATA Carnet-igazolványának jóváhagyásához
 inspection_needed_import.tir.heading=Az Ön TIR Carnet-igazolványának jóváhagyásához
 inspection_needed_import.sad.heading=Az Ön egységes vámokmány (SAD) dokumentumának jóváhagyásához
+inspection_needed_import.sns.heading=Az Ön ENS- (biztonsági és védelmi) ellenőrzéséhez
 inspection_needed_import_with_other.p1=Menjen az érkezési határátkelő helyre.
 inspection_needed_import.inspection.heading=Ellenőrzés esetén
 

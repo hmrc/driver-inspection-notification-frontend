@@ -175,6 +175,7 @@ inspection_needed_import.ogd.heading=Für andere Kontrollen von Regierungsbehör
 inspection_needed_import.ata.heading=Für Ihre ATA Carnet Bestätigung
 inspection_needed_import.tir.heading=Für Ihre TIR Carnet Bestätigung
 inspection_needed_import.sad.heading=Für Ihre Bestätigung des Einheitspapiers der Versandanmeldung (SAD)
+inspection_needed_import.sns.heading=Für Ihre ENS-Eingangsanmeldungs-Kontrolle (Sicherheit und Gefahrenabwehr)
 inspection_needed_import_with_other.p1=Fahren Sie zu Ihrer Ankunftsgrenzstelle.
 inspection_needed_import.inspection.heading=Zu Ihrer Kontrolle
 

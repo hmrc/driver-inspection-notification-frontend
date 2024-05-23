@@ -176,6 +176,7 @@ inspection_needed_import.ogd.heading=For other government department inspections
 inspection_needed_import.ata.heading=For your ATA Carnet endorsement
 inspection_needed_import.tir.heading=For your TIR Carnet endorsement
 inspection_needed_import.sad.heading=For your Single Administrative Document (SAD) endorsement
+inspection_needed_import.sns.heading=For your ENS (Safety and Security) inspection
 inspection_needed_import_with_other.p1=Travel to your border location of arrival.
 inspection_needed_import.inspection.heading=For your inspection
 
