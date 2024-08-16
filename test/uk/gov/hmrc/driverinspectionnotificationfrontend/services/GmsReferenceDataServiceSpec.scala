@@ -21,6 +21,7 @@ import org.scalatest.EitherValues
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.InspectionLocationError.{InspectionTypeNotFound, LocationNotFound}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.BaseSpec
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.ReportLocations
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.InspectionType.InspectionTypeWithLocations
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{Address, InspectionType, Location}
 
 import java.time.LocalDate
@@ -98,7 +99,7 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
             )
           ) shouldBe
           List(
-            Right(InspectionType("3", "TRANSIT") -> List(Right(validLocation))),
+            Right(InspectionTypeWithLocations(InspectionType("3", "TRANSIT"), List(Right(validLocation)))),
             Left(InspectionTypeNotFound("5"))
           )
       }
@@ -109,7 +110,7 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
         "it is the only location id" in new Setup {
           service.getInspectionData(List(ReportLocations(inspectionTypeId = "4", locationIds = List("2")))) shouldBe
             List(
-              Right(InspectionType("4", "OGD") -> List(Left(LocationNotFound("2"))))
+              Right(InspectionTypeWithLocations(InspectionType("4", "OGD"), List(Left(LocationNotFound("2")))))
             )
         }
 
@@ -121,7 +122,7 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
               )
             ) shouldBe
             List(
-              Right(InspectionType("3", "TRANSIT") -> List(Right(validLocation), Left(LocationNotFound("2"))))
+              Right(InspectionTypeWithLocations(InspectionType("3", "TRANSIT"), List(Right(validLocation), Left(LocationNotFound("2")))))
             )
         }
 
@@ -134,8 +135,8 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
               )
             ) shouldBe
             List(
-              Right(InspectionType("3", "TRANSIT") -> List(Right(validLocation))),
-              Right(InspectionType("4", "OGD")     -> List(Left(LocationNotFound("2"))))
+              Right(InspectionTypeWithLocations(InspectionType("3", "TRANSIT"), List(Right(validLocation)))),
+              Right(InspectionTypeWithLocations(InspectionType("4", "OGD"), List(Left(LocationNotFound("2")))))
             )
         }
 
@@ -147,7 +148,7 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
               )
             )(gvmsReferenceData.copy(locations = None)) shouldBe
             List(
-              Right(InspectionType("4", "OGD") -> List(Left(LocationNotFound("1"))))
+              Right(InspectionTypeWithLocations(InspectionType("4", "OGD"), List(Left(LocationNotFound("1")))))
             )
         }
       }

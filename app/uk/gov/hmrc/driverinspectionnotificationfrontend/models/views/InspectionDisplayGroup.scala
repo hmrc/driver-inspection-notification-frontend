@@ -74,6 +74,10 @@ object InspectionDisplayGroup {
     val value = "sns"
   }
 
+  case object DEFRA_TRANSIT extends InspectionDisplayGroup {
+    val value = "defra_transit"
+  }
+
   def apply(inspectionType: InspectionType): InspectionDisplayGroup =
     inspectionType.inspectionTypeId match {
       case "1" | "9" | "10" | "11" | "12" => CUSTOMS
@@ -86,5 +90,6 @@ object InspectionDisplayGroup {
       case "8"                            => TIR
       case "13"                           => DAERA
       case "16"                           => SnS
+      case "18"                           => DEFRA_TRANSIT
     }
 }

@@ -27,6 +27,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.Inspection
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.ControllerBaseSpec
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.{GB_TO_NI, NI_TO_GB, UK_INBOUND, UK_OUTBOUND}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.{InspectionStatus, ReportLocations}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.InspectionType.{InspectionData, InspectionTypeWithLocations}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{Address, InspectionType, Location}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared.{inspection_not_needed_export, inspection_not_needed_gb_to_ni, inspection_not_needed_import}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.inspection_pending
@@ -138,7 +139,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
             )
 
           when(mockReferenceDataService.getInspectionData(argEq(List(ReportLocations(inspectionTypeId = "3", locationIds = List("1")))))(any()))
-            .thenReturn(List(Right(InspectionType("3", "TRANSIT") -> List(Right(location)))))
+            .thenReturn(List(Right(InspectionTypeWithLocations(InspectionType("3", "TRANSIT"), List(Right(location))))))
 
           val result = controller.result(gmrId, checkedStatusAgain = false)(FakeRequest())
           val content: String = contentAsString(result)
@@ -259,20 +260,20 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           )
             .thenReturn(
               List(
-                Right(InspectionType("1", "CUSTOMS")      -> List(Right(locationForCustoms))),
-                Right(InspectionType("2", "DEFRA")        -> List(Right(location))),
-                Right(InspectionType("3", "TRANSIT")      -> List(Right(location))),
-                Right(InspectionType("4", "OGD")          -> List(Right(location))),
-                Right(InspectionType("5", "DEFRA_PLANTS") -> List(Right(location))),
-                Right(InspectionType("6", "ATA")          -> List(Right(location))),
-                Right(InspectionType("7", "SAD")          -> List(Right(location))),
-                Right(InspectionType("8", "TIR")          -> List(Right(location))),
-                Right(InspectionType("9", "DBC")          -> List(Right(locationForCustoms))),
-                Right(InspectionType("10", "EIDR")        -> List(Right(locationForCustoms))),
-                Right(InspectionType("11", "EXEMPTION")   -> List(Right(locationForCustoms))),
-                Right(InspectionType("12", "EMPTY")       -> List(Right(locationForCustoms))),
-                Right(InspectionType("13", "DAERA")       -> List(Right(location))),
-                Right(InspectionType("16", "SnS")         -> List(Right(location)))
+                Right(InspectionTypeWithLocations(InspectionType("1", "CUSTOMS"), List(Right(locationForCustoms)))),
+                Right(InspectionTypeWithLocations(InspectionType("2", "DEFRA"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("3", "TRANSIT"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("4", "OGD"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("5", "DEFRA_PLANTS"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("6", "ATA"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("7", "SAD"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("8", "TIR"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("9", "DBC"), List(Right(locationForCustoms)))),
+                Right(InspectionTypeWithLocations(InspectionType("10", "EIDR"), List(Right(locationForCustoms)))),
+                Right(InspectionTypeWithLocations(InspectionType("11", "EXEMPTION"), List(Right(locationForCustoms)))),
+                Right(InspectionTypeWithLocations(InspectionType("12", "EMPTY"), List(Right(locationForCustoms)))),
+                Right(InspectionTypeWithLocations(InspectionType("13", "DAERA"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("16", "SnS"), List(Right(location))))
               )
             )
 
@@ -356,7 +357,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           )
             .thenReturn(
               List(
-                Right(InspectionType("3", "TRANSIT") -> List(Right(location))),
+                Right(InspectionTypeWithLocations(InspectionType("3", "TRANSIT"), List(Right(location)))),
                 Left(InspectionTypeNotFound("5"))
               )
             )
@@ -424,8 +425,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           )
             .thenReturn(
               List(
-                Right(InspectionType("3", "TRANSIT") -> List(Right(location), Left(LocationNotFound("2")))),
-                Right(InspectionType("4", "OGD")     -> List(Right(location)))
+                Right(InspectionTypeWithLocations(InspectionType("3", "TRANSIT"), List(Right(location), Left(LocationNotFound("2"))))),
+                Right(InspectionTypeWithLocations(InspectionType("4", "OGD"), List(Right(location))))
               )
             )
 
@@ -508,7 +509,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
             )
 
           when(mockReferenceDataService.getInspectionData(argEq(List(ReportLocations(inspectionTypeId = "3", locationIds = List("5")))))(any()))
-            .thenReturn(List(Right(InspectionType("3", "TRANSIT") -> List(Left(LocationNotFound("5"))))))
+            .thenReturn(List(Right(InspectionTypeWithLocations(InspectionType("3", "TRANSIT"), List(Left(LocationNotFound("5")))))))
 
           val result = controller.result(gmrId, checkedStatusAgain = false)(FakeRequest())
           status(result)        shouldBe 200
@@ -657,7 +658,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           )
 
         when(mockReferenceDataService.getInspectionData(argEq(List(ReportLocations(inspectionTypeId = "3", locationIds = List("5")))))(any()))
-          .thenReturn(List(Right(InspectionType("3", "TRANSIT") -> List(Left(LocationNotFound("5"))))))
+          .thenReturn(List(Right(InspectionTypeWithLocations(InspectionType("3", "TRANSIT"), List(Left(LocationNotFound("5")))))))
 
         val result = controller.result(gmrId, checkedStatusAgain = false)(FakeRequest())
         status(result)        shouldBe 200
