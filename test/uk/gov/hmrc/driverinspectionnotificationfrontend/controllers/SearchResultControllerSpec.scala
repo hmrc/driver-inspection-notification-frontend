@@ -54,7 +54,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         nearestSitesheader,
         guidance,
         govukNotificationBanner,
-        govukButton
+        govukButton,
+        govUkInsetText
       )
     val inspectionRequiredExport: inspection_required_export =
       new inspection_required_export(

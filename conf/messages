@@ -138,6 +138,8 @@ inspection_needed.inspection_site.p1=You must attend any inspections in the orde
 inspection_needed.what_next.warning=You may be charged a penalty if you do not arrive for an inspection
 inspection_needed.banner=Inspection required
 
+inspection_needed.defra_transit.heading=For your DEFRA transit inspection
+inspection_needed.defra_transit.ipaffs=Ask your haulier or importer to check the Import of products, animals, food and feed system (IPAFFS) to find out if you have any further inspections you need to attend.
 
 ###############################################
 #
@@ -147,6 +149,7 @@ inspection_needed.banner=Inspection required
 inspection_needed_import.title=The goods you are moving require an inspection
 inspection_needed_import.gmr=GMR ID: {0}
 inspection_needed_import.what_next.h2=What to do next
+inspection_needed_import.what_next.bcp_content=Speak to your haulier or importer to find out which Border Control Post (BCP) or other inspection location you need to attend on arrival.
 inspection_needed_import.what_next.p2=Check which inspection site(s) you need to attend at your border location of arrival. You may have to drive to an inland border facility (IBF) or customs checking facility.
 inspection_needed_import.what_next.p3=Goods needed for inspection must be kept in the same condition as when they were imported.
 inspection_needed_import.text.warning=Warning

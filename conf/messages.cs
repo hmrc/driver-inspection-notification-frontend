@@ -138,6 +138,9 @@ inspection_needed.inspection_site.p1=Veškerých prohlídek se musíte zúčastn
 inspection_needed.what_next.warning=Pokud se nedostavíte k celní prohlídce, může vám být udělena pokuta.
 inspection_needed.banner=Vyžadována prohlídka
 
+inspection_needed.defra_transit.heading=K tranzitní prohlídce DEFRA
+inspection_needed.defra_transit.ipaffs=Požádejte dopravce nebo dovozce, aby zkontroloval systém IPAFFS pro dovoz výrobků, zvířat, potravin a krmiv, chcete-li zjistit, zda se musíte zúčastnit jakýchkoli dalších prohlídek.
+
 ###############################################
 #
 # Inspection needed import
@@ -146,6 +149,7 @@ inspection_needed.banner=Vyžadována prohlídka
 inspection_needed_import.title=Zboží, které přepravujete, musí projít celní prohlídkou
 inspection_needed_import.gmr=ID GMR: {0}
 inspection_needed_import.what_next.h2=Co dělat dále
+inspection_needed_import.what_next.bcp_content=Promluvte si se svým dopravcem nebo dovozcem, chcete-li zjistit, která pracoviště přeshraniční kontroly (Border Control Post; BCP) nebo jiná kontrolní pracoviště musíte po příjezdu navštívit.
 inspection_needed_import.what_next.p2=Zkontrolujte, na kterém celním pracovišti se musíte hlásit v místě příjezdu. Je možné, že se budete muset dostavit na vnitrozemské celní pracoviště (IBF) nebo do zařízení pro celní prohlídky.
 inspection_needed_import.what_next.p3=Zboží, které je předmětem prohlídky, musí být ve stejném stavu jako v době dovozu.
 inspection_needed_import.text.warning=Výstraha

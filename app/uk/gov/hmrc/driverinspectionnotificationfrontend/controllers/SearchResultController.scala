@@ -30,6 +30,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.Repor
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{GvmsReferenceData, Location}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup.DEFRA_TRANSIT
 import uk.gov.hmrc.driverinspectionnotificationfrontend.services.{GmsReferenceDataService, GmsService}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared._
@@ -83,23 +84,29 @@ class SearchResultController @Inject() (
     request: GmsRequestWithReferenceData[_]
   ) = {
     implicit val referenceData: GvmsReferenceData = request.referenceData
-    val inspectionData = referenceDataService.getInspectionData(reportToLocations)
-    val isDefraOnly    = reportToLocations.forall(_.inspectionTypeId === "18")
-    val inspectionLocations: Map[InspectionDisplayGroup, List[Location]] = (inspectionData, isDefraOnly) match {
-      case (Nil, false) =>
-        logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction ${direction.toString}")
-        Map.empty
-      case _ =>
-        val (inspectionTypesNotFound, inspectionTypesAndLocations) = inspectionData.partitionMap(identity)
-        if (inspectionTypesNotFound.nonEmpty)
-          logger.warn(s"Inspection types with ids [${inspectionTypesNotFound.map(_.inspectionTypeId).mkString(",")}] not found in reference data")
-        inspectionTypesAndLocations.map { inspectionTypeWithLocation =>
-          val (locationsNotFound, locations) = inspectionTypeWithLocation.locations.partitionMap(identity)
-          if (locationsNotFound.nonEmpty)
-            logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
-          (InspectionDisplayGroup(inspectionTypeWithLocation.inspectionType), locations)
-        }.toMap
+
+    val inspectionData     = referenceDataService.getInspectionData(reportToLocations)
+    val hasNonDefraTransit = reportToLocations.exists(_.inspectionTypeId =!= "18")
+
+    if (inspectionData.isEmpty && hasNonDefraTransit) {
+      logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction ${direction.toString}")
     }
+
+    val (inspectionTypesNotFound, inspectionTypesAndLocations) = inspectionData.partitionMap(identity)
+
+    if (inspectionTypesNotFound.nonEmpty) {
+      logger.warn(s"Inspection types with ids [${inspectionTypesNotFound.map(_.inspectionTypeId).mkString(",")}] not found in reference data")
+    }
+
+    val inspectionLocations = inspectionTypesAndLocations.map { inspectionTypeWithLocation =>
+      val (locationsNotFound, locations) = inspectionTypeWithLocation.locations.partitionMap(identity)
+      if (locationsNotFound.nonEmpty) {
+        logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
+      }
+
+      (InspectionDisplayGroup(inspectionTypeWithLocation.inspectionType), locations)
+    }.toMap
+
     inspectionRequiredView(gmrId, direction, inspectionLocations)
   }
 
@@ -107,8 +114,8 @@ class SearchResultController @Inject() (
     request: Request[_]
   ) =
     direction match {
-      case UK_INBOUND | GB_TO_NI | NI_TO_GB => inspection_required_import(Some(gmrId), inspectionLocations, direction)
-      case UK_OUTBOUND                      => inspection_required_export(Some(gmrId), inspectionLocations)
+      case UK_INBOUND | GB_TO_NI | NI_TO_GB => inspection_required_import(gmrId, inspectionLocations, direction)
+      case UK_OUTBOUND                      => inspection_required_export(gmrId, inspectionLocations)
     }
 
   private def inspectionNotRequired(gmrId: String, direction: Direction)(implicit request: Request[_]) =

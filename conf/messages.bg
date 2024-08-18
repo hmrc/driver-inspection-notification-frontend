@@ -136,6 +136,9 @@ inspection_needed.inspection_site.p1=Трябва да присъствате н
 inspection_needed.what_next.warning=Ако не се явите за проверка, може да ви се начисли глоба
 inspection_needed.banner=Необходима е проверка
 
+inspection_needed.defra_transit.heading=За вашата транзитна проверка от DEFRA
+inspection_needed.defra_transit.ipaffs=Помолете вашия превозвач или вносител да провери Системата за внос на продукти, животни, храни и фуражи (IPAFFS), за да разберете дали има допълнителни проверки, на които трябва да присъствате.
+
 ###############################################
 #
 # Inspection needed import
@@ -144,6 +147,7 @@ inspection_needed.banner=Необходима е проверка
 inspection_needed_import.title=Стоките, които пренасяте, изискват проверка
 inspection_needed_import.gmr=Идентификационен код за GMR: {0}
 inspection_needed_import.what_next.h2=Какво да направите след това
+inspection_needed_import.what_next.bcp_content=Говорете с вашия превозвач или вносител, за да разберете на кой граничен контролен пункт (ГКПП) или на кое друго място за проверка трябва да присъствате при пристигането.
 inspection_needed_import.what_next.p2=Проверете на кои места за проверка трябва да се явите на граничния пункт на пристигане. Възможно е да се наложи да карате до вътрешен граничен пункт (IBF) или до митническото учреждение на пристанището.
 inspection_needed_import.what_next.p3=Стоките за проверка трябва да са в същото състояние, в каквото са били при вноса.
 inspection_needed_import.text.warning=Предупреждение

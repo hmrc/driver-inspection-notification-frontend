@@ -137,6 +137,9 @@ inspection_needed.inspection_site.p1=Mae’n rhaid i chi fynychu unrhyw archwili
 inspection_needed.what_next.warning=Efallai y codir cosb arnoch os na fyddwch yn cyrraedd i gael archwiliad
 inspection_needed.banner=Angen archwiliad
 
+inspection_needed.defra_transit.heading=O ran eich archwiliad cludo gan DEFRA
+inspection_needed.defra_transit.ipaffs=Gofynnwch i’ch cludwr neu fewnforiwr i wirio’r system mewnforio cynhyrchion, anifeiliaid, bwyd a bwyd anifeiliaid i gael gwybod a oes angen i chi fynychu unrhyw archwiliadau pellach.
+
 ###############################################
 #
 # Inspection needed import
@@ -145,6 +148,7 @@ inspection_needed.banner=Angen archwiliad
 inspection_needed_import.title=Mae angen i’r nwyddau yr ydych yn eu symud gael archwiliad
 inspection_needed_import.gmr=ID GMR: {0}
 inspection_needed_import.what_next.h2=Yr hyn i’w wneud nesaf
+inspection_needed_import.what_next.bcp_content=Siaradwch â’ch cludwr neu fewnforiwr i gael gwybod pa Fan Rheoli Wrth y Ffin (BCP) neu leoliad archwilio arall sydd angen i chi ei fynychu wrth gyrraedd.
 inspection_needed_import.what_next.p2=Gwiriwch pa safleoedd archwilio y bydd angen i chi eu mynychu yn eich man cyrraedd wrth y ffin. Efallai y bydd yn rhaid i chi yrru i gyfleuster mewndirol wrth y ffin (IBF) neu gyfleuster gwirio tollau.
 inspection_needed_import.what_next.p3=Mae’n rhaid i’r nwyddau sydd angen archwiliad gael eu cadw yn yr un cyflwr a phan gawsant eu mewnforio.
 inspection_needed_import.text.warning=Rhybudd

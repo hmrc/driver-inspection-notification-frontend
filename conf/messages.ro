@@ -137,6 +137,9 @@ inspection_needed.inspection_site.p1=Trebuie să participați la orice inspecți
 inspection_needed.what_next.warning=Este posibil să vi se aplice o penalizare dacă nu vă prezentați pentru inspecție
 inspection_needed.banner=Este necesară inspecția
 
+inspection_needed.defra_transit.heading=Pentru inspecția de tranzit DEFRA
+inspection_needed.defra_transit.ipaffs=Rugați transportatorul sau importatorul să verifice sistemul de import de produse, animale, alimente și furaje (IPAFFS) pentru a afla dacă sunt necesare alte inspecții suplimentare.
+
 ###############################################
 #
 # Inspection needed import
@@ -145,6 +148,7 @@ inspection_needed.banner=Este necesară inspecția
 inspection_needed_import.title=Mărfurile pe care le transportați necesită o inspecție
 inspection_needed_import.gmr=ID GMR: {0}
 inspection_needed_import.what_next.h2=Ce trebuie făcut în continuare
+inspection_needed_import.what_next.bcp_content=Vorbiți cu transportatorul sau importatorul pentru a afla la ce Post de Control la Frontieră (BCP) sau altă locație de inspecție trebuie să mergeți la sosire.
 inspection_needed_import.what_next.p2=Verificați la ce unitate (unități) de inspecție trebuie să vă prezentați la punctul de frontieră de sosire. Este posibil să fie necesar să conduceți până la o la o facilitate de frontieră interioară (IBF) sau la unitatea de control vamal.
 inspection_needed_import.what_next.p3=Mărfurile pentru inspecție trebuie păstrate în aceeași stare ca în momentul în care au fost importate.
 inspection_needed_import.text.warning=Avertizare

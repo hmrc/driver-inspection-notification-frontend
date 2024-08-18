@@ -138,6 +138,9 @@ inspection_needed.inspection_site.p1=Minden ellenőrzésen meg kell jelennie a m
 inspection_needed.what_next.warning=Ha nem jelenik meg az ellenőrzésen, büntetést kaphat
 inspection_needed.banner=Potrebna je inspekcija
 
+inspection_needed.defra_transit.heading=Az Ön DEFRA-tranzitvizsgálatához
+inspection_needed.defra_transit.ipaffs=Kérje meg fuvarozóját vagy importőrét, hogy ellenőrizze a Termékek, állatok, élelmiszerek és takarmányok behozatali rendszerét (IPAFFS), hogy megtudja, részt kell-e vennie további vizsgálatokon.
+
 ###############################################
 #
 # Inspection needed import
@@ -146,6 +149,7 @@ inspection_needed.banner=Potrebna je inspekcija
 inspection_needed_import.title=Az Ön által szállított árukat ellenőrizni kell
 inspection_needed_import.gmr=GMR-azonosító: {0}
 inspection_needed_import.what_next.h2=Mik a következő lépések?
+inspection_needed_import.what_next.bcp_content=Beszéljen fuvarozójával vagy importőrével, hogy megtudja, melyik határállomáson (BCP) vagy más ellenőrzési helyen kell megjelennie érkezéskor.
 inspection_needed_import.what_next.p2=Tekintse meg, hogy mely ellenőrzési helyszín(ek)en kell megjelennie az érkezési határátkelő helyen. Előfordulhat, hogy belföldi határátkelő létesítményhez (IBF) vagy vámellenőrző létesítményhez kell mennie.
 inspection_needed_import.what_next.p3=Azokat az árukat, amelyeket ellenőrizni kell, ugyanolyan állapotban kell tartani, mint amilyenben az importáláskor is voltak.
 inspection_needed_import.text.warning=Figyelmeztetés

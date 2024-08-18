@@ -138,6 +138,9 @@ inspection_needed.inspection_site.p1=Deberá acudir a todas las inspecciones en 
 inspection_needed.what_next.warning=Se le puede imponer una sanción si no se presenta a la inspección
 inspection_needed.banner=Se requiere inspección
 
+inspection_needed.defra_transit.heading=Para su inspección de tránsito DEFRA
+inspection_needed.defra_transit.ipaffs=Pida a su transportista o importador que compruebe el sistema de importación de productos, animales, alimentos y piensos (IPAFFS) para saber si tiene que asistir a alguna inspección más.
+
 ###############################################
 #
 # Inspection needed import
@@ -146,6 +149,7 @@ inspection_needed.banner=Se requiere inspección
 inspection_needed_import.title=Las mercancías en tránsito deben someterse a una inspección
 inspection_needed_import.gmr=ID de GMR: {0}
 inspection_needed_import.what_next.h2=Qué hacer a continuación
+inspection_needed_import.what_next.bcp_content=Hable con su transportista o importador para saber a qué puesto de control fronterizo (BCP) o a qué otro lugar de inspección debe acudir a su llegada.
 inspection_needed_import.what_next.p2=Compruebe a qué centros de inspección debe acudir en su aduana de llegada. Es posible que deba dirigirse a una aduana terrestre (IBF) o a una instalación de control aduanero.
 inspection_needed_import.what_next.p3=Las mercancías sujetas a inspección deben mantenerse en las mismas condiciones que cuando fueron importadas.
 inspection_needed_import.text.warning=Advertencia

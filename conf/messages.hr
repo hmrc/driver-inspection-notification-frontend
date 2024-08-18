@@ -137,6 +137,9 @@ inspection_needed.inspection_site.p1=Sve inspekcije morate obaviti prema prikaza
 inspection_needed.what_next.warning=Ako ne dođete na inspekciju, može vam biti naplaćena kazna.
 inspection_needed.banner=Vizsgálat szükséges
 
+inspection_needed.defra_transit.heading=Za tranzitnu inspekciju DEFRA-e
+inspection_needed.defra_transit.ipaffs=Pitajte svojeg prijevoznika ili uvoznika da u sustavu za uvoz proizvoda, životinja, hrane i hrane za životinje (IPAFFS) provjeri morate li se javiti na dodatne inspekcije.
+
 ###############################################
 #
 # Inspection needed import
@@ -145,6 +148,7 @@ inspection_needed.banner=Vizsgálat szükséges
 inspection_needed_import.title=Roba koju prevozite podliježe inspekciji
 inspection_needed_import.gmr=GMR ID: {0}
 inspection_needed_import.what_next.h2=Koji je sljedeći korak
+inspection_needed_import.what_next.bcp_content=Obratite se svojem prijevozniku ili uvozniku za informacije o tome na koju se graničnu kontrolnu postaju (BCP) ili drugo mjesto inspekcije morate javiti po dolasku.
 inspection_needed_import.what_next.p2=Provjerite kojem se mjestu inspekcije ili mjestima inspekcije morate javiti na graničnom prijelazu dolaska. Možda ćete morati voziti do lokacije granične kontrole izvan luke (IBF) ili do lokacije za carinsku provjeru.
 inspection_needed_import.what_next.p3=Roba koja podliježe inspekciji mora ostati u istom stanju u kojem je uvezena.
 inspection_needed_import.text.warning=Upozorenje
