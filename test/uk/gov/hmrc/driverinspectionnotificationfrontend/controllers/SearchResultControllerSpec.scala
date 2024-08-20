@@ -27,7 +27,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.Inspection
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.ControllerBaseSpec
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.{GB_TO_NI, NI_TO_GB, UK_INBOUND, UK_OUTBOUND}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.{InspectionStatus, ReportLocations}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.InspectionType.{InspectionData, InspectionTypeWithLocations}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.InspectionType.{InspectionData, InspectionTypeWithLocations, LocationOrNotFound}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{Address, InspectionType, Location}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared.{inspection_not_needed_export, inspection_not_needed_gb_to_ni, inspection_not_needed_import}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.inspection_pending
@@ -733,6 +733,117 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         contentAsString(result) should include("you hold a commercial agreement with another inspection site")
         contentAsString(result) should include("Find more information on")
         contentAsString(result) should include("if your vehicle could be exempt from attending Sevington.")
+      }
+
+      "show content as expected when there is only defra transit inspection type" in new SetUp {
+        val gmrId = "gmrId"
+
+        val reportLocations: List[ReportLocations] = List(ReportLocations(inspectionTypeId = "18", locationIds = List.empty))
+        val inspectionTypeWithLocations = List(Right(InspectionTypeWithLocations(InspectionType("18", "DEFRA_TRANSIT"), List.empty)))
+
+        when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
+          .thenReturn(
+            EitherT.rightT[Future, GmrErrors](
+              inspectionResponse(
+                direction = UK_INBOUND,
+                inspectionStatus = InspectionStatus.InspectionRequired,
+                reportToLocations = Some(reportLocations)
+              )
+            )
+          )
+
+        when(mockReferenceDataService.getInspectionData(argEq(reportLocations))(any()))
+          .thenReturn(inspectionTypeWithLocations)
+
+        val result = controller.result(gmrId, checkedStatusAgain = false)(FakeRequest())
+        val content: String = contentAsString(result)
+
+        status(result) shouldBe 200
+        content          should include("The goods you are moving require an inspection")
+        content          should include("What to do next")
+        content          should include("For your DEFRA transit inspection")
+        content should include(
+          "ak to your haulier or importer to find out which Border Control Post (BCP) or other inspection location you need to attend on arrival."
+        )
+        content should include(
+          "Ask your haulier or importer to check the Import of products, animals, food and feed system (IPAFFS) to find out if you have any further inspections you need to attend."
+        )
+
+        content should not include "Attending an inland border facility (IBF) check"
+        content should not include "If you have to attend an IBF, you can:"
+
+        content should include("Ending transit movements")
+      }
+
+      "show content as expected when there is defra transit and other inspection types" in new SetUp {
+        val gmrId = "gmrId"
+
+        val location = Location(
+          locationId = "1",
+          locationDescription = "Belfast Location 1",
+          address = Address(
+            lines = List(
+              "1 Shamrock Lane",
+              "Waldo"
+            ),
+            town = Some("Belfast"),
+            postcode = "NI1 6JG"
+          ),
+          locationType = "BCP",
+          locationEffectiveFrom = LocalDate.parse("2020-01-01"),
+          locationEffectiveTo = None,
+          supportedInspectionTypeIds = List(
+            "18",
+            "5"
+          ),
+          requiredInspectionLocations = List(
+            1
+          )
+        )
+
+        val reportLocations: List[ReportLocations] = List(
+          ReportLocations(inspectionTypeId = "18", locationIds = List.empty),
+          ReportLocations(inspectionTypeId = "5", locationIds = List("L0010B"))
+        )
+        val inspectionTypeWithLocations = List(
+          Right(InspectionTypeWithLocations(InspectionType("18", "DEFRA_TRANSIT"), List.empty)),
+          Right(InspectionTypeWithLocations(InspectionType("5", "DEFRA_PLANTS"), List(Right(location))))
+        )
+
+        when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
+          .thenReturn(
+            EitherT.rightT[Future, GmrErrors](
+              inspectionResponse(
+                direction = UK_INBOUND,
+                inspectionStatus = InspectionStatus.InspectionRequired,
+                reportToLocations = Some(reportLocations)
+              )
+            )
+          )
+
+        when(mockReferenceDataService.getInspectionData(argEq(reportLocations))(any()))
+          .thenReturn(inspectionTypeWithLocations)
+
+        val result = controller.result(gmrId, checkedStatusAgain = false)(FakeRequest())
+        val content: String = contentAsString(result)
+
+        status(result) shouldBe 200
+        content          should include("The goods you are moving require an inspection")
+        content          should include("What to do next")
+        content          should include("For your DEFRA transit inspection")
+        content should include(
+          "ak to your haulier or importer to find out which Border Control Post (BCP) or other inspection location you need to attend on arrival."
+        )
+        content should include(
+          "Ask your haulier or importer to check the Import of products, animals, food and feed system (IPAFFS) to find out if you have any further inspections you need to attend."
+        )
+
+        content should include("For your DEFRA plants inspection")
+
+        content should include("Attending an inland border facility (IBF) check")
+        content should include("If you have to attend an IBF, you can:")
+
+        content should include("Ending transit movements")
       }
     }
 
