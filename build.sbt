@@ -25,7 +25,7 @@ def contentTestSettings(enableLicenseHeaders: Boolean = true): Seq[Setting[_]] =
      } else Seq.empty)
 
 lazy val microservice = Project(appName, file("."))
-  .enablePlugins(play.sbt.PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtDistributablesPlugin)
+  .enablePlugins(play.sbt.PlayScala, SbtDistributablesPlugin)
   .settings(
     majorVersion := 0,
     scalaVersion := "2.13.12",
@@ -52,7 +52,6 @@ lazy val microservice = Project(appName, file("."))
     IntegrationTest / unmanagedSourceDirectories :=
       (IntegrationTest / baseDirectory)(base => Seq(base / "it", base / "test-common")).value,
     Test / unmanagedSourceDirectories := (Test / baseDirectory)(base => Seq(base / "test", base / "test-common")).value,
-    IntegrationTest / testGrouping := DefaultBuildSettings.oneForkedJvmPerTest((IntegrationTest / definedTests).value),
     IntegrationTest / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports/html-it-report")
   )
   .settings(resolvers += Resolver.jcenterRepo)
