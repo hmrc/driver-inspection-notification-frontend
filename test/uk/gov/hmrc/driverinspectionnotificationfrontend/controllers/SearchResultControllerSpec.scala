@@ -835,7 +835,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         content          should include("What to do next")
         content          should include("For your DEFRA transit inspection")
         content should include(
-          "ak to your haulier or importer to find out which Border Control Post (BCP) or other inspection location you need to attend on arrival."
+          "Speak to your haulier or importer to find out which Border Control Post (BCP) or other inspection location you need to attend on arrival."
         )
         content should include(
           "Ask your haulier or importer to check the Import of products, animals, food and feed system (IPAFFS) to find out if you have any further inspections you need to attend."
