@@ -230,7 +230,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                       ReportLocations(inspectionTypeId = "11", locationIds = List("2")),
                       ReportLocations(inspectionTypeId = "12", locationIds = List("2")),
                       ReportLocations(inspectionTypeId = "13", locationIds = List("1")),
-                      ReportLocations(inspectionTypeId = "16", locationIds = List("1"))
+                      ReportLocations(inspectionTypeId = "16", locationIds = List("1")),
+                      ReportLocations(inspectionTypeId = "18", locationIds = List.empty)
                     )
                   )
                 )
@@ -254,7 +255,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                   ReportLocations(inspectionTypeId = "11", locationIds = List("2")),
                   ReportLocations(inspectionTypeId = "12", locationIds = List("2")),
                   ReportLocations(inspectionTypeId = "13", locationIds = List("1")),
-                  ReportLocations(inspectionTypeId = "16", locationIds = List("1"))
+                  ReportLocations(inspectionTypeId = "16", locationIds = List("1")),
+                  ReportLocations(inspectionTypeId = "18", locationIds = List.empty)
                 )
               )
             )(any())
@@ -274,7 +276,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                 Right(InspectionTypeWithLocations(InspectionType("11", "EXEMPTION"), List(Right(locationForCustoms)))),
                 Right(InspectionTypeWithLocations(InspectionType("12", "EMPTY"), List(Right(locationForCustoms)))),
                 Right(InspectionTypeWithLocations(InspectionType("13", "DAERA"), List(Right(location)))),
-                Right(InspectionTypeWithLocations(InspectionType("16", "SnS"), List(Right(location))))
+                Right(InspectionTypeWithLocations(InspectionType("16", "SnS"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("18", "DEFRA_TRANSIT"), List.empty))
               )
             )
 
@@ -763,7 +766,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         content          should include("What to do next")
         content          should include("For your DEFRA transit inspection")
         content should include(
-          "ak to your haulier or importer to find out which Border Control Post (BCP) or other inspection location you need to attend on arrival."
+          "Speak to your haulier or importer to find out which Border Control Post (BCP) or other inspection location you need to attend on arrival."
         )
         content should include(
           "Ask your haulier or importer to check the Import of products, animals, food and feed system (IPAFFS) to find out if you have any further inspections you need to attend."
