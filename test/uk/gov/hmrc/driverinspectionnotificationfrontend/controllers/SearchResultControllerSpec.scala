@@ -294,7 +294,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           countSubstring("For your customs inspection", content) should be(1)
 
           content should include("For your DEFRA inspection")
-          content should include("For your transit inspection")
+          content should include("For your Border Force transit inspection")
           content should include("For other government department inspections")
           content should include("For your ATA Carnet endorsement")
           content should include("For your Single Administrative Document (SAD) endorsement")
@@ -522,7 +522,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           contentAsString(result) should include("Attending an inland border facility (IBF) check")
           contentAsString(result) should include("If you have to attend an IBF, you can:")
           contentAsString(result) should include("Ending transit movements")
-          contentAsString(result) should include("For your transit inspection")
+          contentAsString(result) should include("For your Border Force transit inspection")
           contentAsString(result) should include("Travel to your border location of arrival")
         }
 
@@ -670,7 +670,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         contentAsString(result) should include("What to do next")
         contentAsString(result) should include("Attending an inland border facility (IBF) check")
         contentAsString(result) should include("If you have to attend an IBF, you can:")
-        contentAsString(result) should include("For your transit inspection")
+        contentAsString(result) should include("For your Border Force transit inspection")
         contentAsString(result) should include("Travel to your border location of departure.")
       }
 
