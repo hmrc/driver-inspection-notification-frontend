@@ -13,11 +13,7 @@ def contentTestSettings(enableLicenseHeaders: Boolean = true): Seq[Setting[_]] =
     Seq(
       ContentTests / unmanagedSourceDirectories ++= Seq(baseDirectory.value / "content", baseDirectory.value / "test-common"),
       ContentTests / unmanagedResourceDirectories += baseDirectory.value / "test-resources",
-      DefaultBuildSettings.addTestReportOption(ContentTests, "content-test-reports"),
-      ContentTests / testGrouping := DefaultBuildSettings.oneForkedJvmPerTest(
-        (ContentTests / definedTests).value,
-        (ContentTests / javaOptions).value
-      )
+      DefaultBuildSettings.addTestReportOption(ContentTests, "content-test-reports")
     ) ++
     (if (enableLicenseHeaders) {
        headerSettings(ContentTests) ++
@@ -25,7 +21,7 @@ def contentTestSettings(enableLicenseHeaders: Boolean = true): Seq[Setting[_]] =
      } else Seq.empty)
 
 lazy val microservice = Project(appName, file("."))
-  .enablePlugins(play.sbt.PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtDistributablesPlugin)
+  .enablePlugins(play.sbt.PlayScala, SbtDistributablesPlugin)
   .settings(
     majorVersion := 0,
     scalaVersion := "2.13.12",
@@ -52,7 +48,6 @@ lazy val microservice = Project(appName, file("."))
     IntegrationTest / unmanagedSourceDirectories :=
       (IntegrationTest / baseDirectory)(base => Seq(base / "it", base / "test-common")).value,
     Test / unmanagedSourceDirectories := (Test / baseDirectory)(base => Seq(base / "test", base / "test-common")).value,
-    IntegrationTest / testGrouping := DefaultBuildSettings.oneForkedJvmPerTest((IntegrationTest / definedTests).value),
     IntegrationTest / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports/html-it-report")
   )
   .settings(resolvers += Resolver.jcenterRepo)

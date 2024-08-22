@@ -17,6 +17,7 @@
 package uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata
 
 import play.api.libs.json.{Json, OFormat}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.InspectionLocationError.{InspectionTypeNotFound, LocationNotFound}
 
 case class InspectionType(
   inspectionTypeId: String,
@@ -24,5 +25,11 @@ case class InspectionType(
 )
 
 object InspectionType {
+  type LocationOrNotFound = Either[LocationNotFound, Location]
+
+  case class InspectionTypeWithLocations(inspectionType: InspectionType, locations: List[LocationOrNotFound])
+
+  type InspectionData = Either[InspectionTypeNotFound, InspectionTypeWithLocations]
+
   implicit val format: OFormat[InspectionType] = Json.format[InspectionType]
 }

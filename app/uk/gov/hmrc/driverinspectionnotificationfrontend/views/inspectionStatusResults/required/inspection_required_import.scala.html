@@ -14,13 +14,13 @@
  * limitations under the License.
  *@
 
+@import cats.implicits._
 @import uk.gov.hmrc.hmrcfrontend.views.html.components._
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.main_layout_full_width_template
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.Location
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.InspectionType
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.warningtext.WarningText
-@import uk.gov.hmrc.govukfrontend.views.html.components.GovukWarningText
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
@@ -28,13 +28,18 @@
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.UK_INBOUND
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.notificationbanner.NotificationBanner
-@import uk.gov.hmrc.govukfrontend.views.html.components.GovukNotificationBanner
+@import uk.gov.hmrc.govukfrontend.views.html.components._
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.content.HtmlContent
-@import uk.gov.hmrc.govukfrontend.views.html.components.GovukButton
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.button.Button
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup.{DEFRA_PLANTS, DEFRA_TRANSIT}
 
-@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common, govukNotificationBanner: GovukNotificationBanner, govukButton: GovukButton)
-@(gmrId: Option[String], locationsByInspectionType: Map[InspectionDisplayGroup, List[Location]], direction: Direction)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common, govukNotificationBanner: GovukNotificationBanner, govukButton: GovukButton, govukInsetText : GovukInsetText)
+
+@(gmrId: String, locationsByInspectionType: Map[InspectionDisplayGroup, List[Location]], direction: Direction)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+
+@hasDefraTransitOnly          = @{locationsByInspectionType.keySet === Set(DEFRA_TRANSIT)}
+@hasDefraTransit              = @{locationsByInspectionType.contains(DEFRA_TRANSIT)}
+@locationsWithoutDefraTransit = @{locationsByInspectionType.removed(DEFRA_TRANSIT)}
 
 @mainTemplate(
     pageTitle = Some(s"${messages("inspection_needed_import.title")} - ${messages("service.name")} - ${messages("generic.title.suffix")}"),
@@ -46,72 +51,88 @@
         content = HtmlContent {
           s"""
           ${hmrcPageHeading(PageHeading(text = messages("inspection_needed_import.title")))}
-            <p class="govuk-body">${messages("inspection_needed_import.gmr", gmrId.getOrElse(""))}</p>
+            <p class="govuk-body">${messages("inspection_needed_import.gmr", gmrId)}</p>
           """
         }
     ))
 
-    <h2 class="govuk-heading-l">@messages("inspection_needed_import.what_next.h2")</h2>
+    @if(hasDefraTransitOnly) {
+        <h2 class="govuk-heading-l">@messages("inspection_needed_import.what_next.h2")</h2>
+        <p class="govuk-body">@messages("inspection_needed_import.what_next.bcp_content")</p>
+        <p class="govuk-body">@messages("inspection_needed_import.what_next.p3")</p>
 
-    <p class="govuk-body">@messages("inspection_needed.what_next.p1")</p>
+        @govukWarningText(WarningText(
+            iconFallbackText = Some(messages("inspection_needed_import.text.warning")),
+            content = Text(messages("inspection_needed.what_next.warning"))
+        ))
 
-    <p class="govuk-body">@messages("inspection_needed_import.what_next.p2")</p>
+        <h3 class="govuk-heading-m">@messages("inspection_needed.defra_transit.heading")</h3>
+        @govukInsetText(InsetText(
+            content = Text(messages("inspection_needed.defra_transit.ipaffs"))
+        ))
 
-    <p class="govuk-body">@messages("inspection_needed_import.what_next.p3")</p>
+        @checkAnotherGmrButton()
+    } else {
+        <h2 class="govuk-heading-l">@messages("inspection_needed_import.what_next.h2")</h2>
 
-    @govukWarningText(WarningText(
-        iconFallbackText = Some(messages("inspection_needed_import.text.warning")),
-        content = Text(messages("inspection_needed.what_next.warning"))
-    ))
+        <p class="govuk-body">@messages("inspection_needed.what_next.p1")</p>
 
-    @nearestSitesHeader("inspection_needed_import", locationsByInspectionType)
-    @nearestSitesContent("inspection_needed_import", locationsByInspectionType)
-    <p class="govuk-body">@messages("inspection_needed.inspection_site.p1")</p>
+        <p class="govuk-body">@messages("inspection_needed_import.what_next.p2")</p>
 
-    @{
-        if (locationsByInspectionType.nonEmpty) {
-                locationsByInspectionType.flatMap {
-                    case (inspectionDisplayGroup, optLocations) =>
-                        if (optLocations.isEmpty){
-                            List(Html(
-                                s"""<h3 class="govuk-heading-m">${messages("inspection_needed_import." + inspectionDisplayGroup.value + ".heading")}</h3>
-                           |<p class="govuk-body">${messages("inspection_needed_import_with_other.p1")}</p>""".stripMargin))
-                        } else {
-                            renderInspectionLocations(inspectionDisplayGroup, optLocations)
-                        }
-                }
-        } else {
-                Html(
-                    s"""<h3 class="govuk-heading-m">${messages("inspection_needed_import.inspection.heading")}</h3>
-                       |<p class="govuk-body">${messages("inspection_needed_import_with_other.p1")}</p> """.stripMargin)
+        <p class="govuk-body">@messages("inspection_needed_import.what_next.p3")</p>
+
+        @govukWarningText(WarningText(
+            iconFallbackText = Some(messages("inspection_needed_import.text.warning")),
+            content = Text(messages("inspection_needed.what_next.warning"))
+        ))
+
+        @nearestSitesHeader("inspection_needed_import", locationsByInspectionType)
+        @nearestSitesContent("inspection_needed_import", locationsByInspectionType)
+
+        @if(hasDefraTransit) {
+            <h3 class="govuk-heading-m">@messages("inspection_needed.defra_transit.heading")</h3>
+            <p class="govuk-body">@messages("inspection_needed_import.what_next.bcp_content")</p>
+            @govukInsetText(InsetText(
+                content = Text(messages("inspection_needed.defra_transit.ipaffs"))
+            ))
+        }
+
+        @{
+            if (locationsWithoutDefraTransit.nonEmpty) {
+                    locationsWithoutDefraTransit.flatMap {
+                        case (inspectionDisplayGroup, optLocations) =>
+                            if (optLocations.isEmpty){
+                                List(Html(
+                                    s"""<h3 class="govuk-heading-m">${messages("inspection_needed_import." + inspectionDisplayGroup.value + ".heading")}</h3>
+                               |<p class="govuk-body">${messages("inspection_needed_import_with_other.p1")}</p>""".stripMargin))
+                            } else {
+                                renderInspectionLocations(inspectionDisplayGroup, optLocations)
+                            }
+                    }
+            } else {
+                    Html(
+                        s"""<h3 class="govuk-heading-m">${messages("inspection_needed_import.inspection.heading")}</h3>
+                           |<p class="govuk-body">${messages("inspection_needed_import_with_other.p1")}</p> """.stripMargin)
+            }
+        }
+
+        <hr>
+        <br>
+
+        @checkAnotherGmrButton()
+
+        <h3 class="govuk-heading-m">@messages("inspection_needed_import.arriving.h3")</h3>
+
+        <p class="govuk-body">@Html(messages("inspection_needed_import.arriving.p1"))</p>
+        <ul class="govuk-list govuk-list--bullet" >
+            <li><a href="@{appConfig.attendingInlandBorderFacilityUrl}">@messages("inspection_needed_import.arriving.p1.link1")</a></li>
+            <li><a href="@{appConfig.checkDelaysInlandBorderFacilityUrl}">@messages("inspection_needed_import.arriving.p1.link2")</a></li>
+        </ul>
+
+        @if(direction == UK_INBOUND) {
+            @guidance_common()
         }
     }
-
-    @govukButton(
-        Button(
-            classes = "govuk-button--secondary",
-            href = Some(uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes.SearchController.show(None).url),
-            content = Text(messages("search_page.check_another_gmr"))
-        )
-    )
-
-    <h3 class="govuk-heading-m">@messages("inspection_needed_import.arriving.h3")</h3>
-
-    <p class="govuk-body">@Html(messages("inspection_needed_import.arriving.p1"))</p>
-    <ul class="govuk-list govuk-list--bullet" >
-        <li><a href="@{
-            appConfig.attendingInlandBorderFacilityUrl
-        }">@messages("inspection_needed_import.arriving.p1.link1")</a></li>
-        <li><a href="@{
-            appConfig.checkDelaysInlandBorderFacilityUrl
-        }">@messages("inspection_needed_import.arriving.p1.link2")</a></li>
-    </ul>
-
-
-    @if(direction == UK_INBOUND) {
-        @guidance_common()
-    }
-
 
     <h3 class="govuk-heading-m">@messages("inspection_needed_import.h3.ending_transit")</h3>
 
@@ -147,4 +168,14 @@
             <li>@addressLine</li>
         }
     </ul>
+}
+
+@checkAnotherGmrButton() = {
+  @govukButton(
+        Button(
+            classes = "govuk-button--secondary",
+            href = Some(uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes.SearchController.show(None).url),
+            content = Text(messages("search_page.check_another_gmr"))
+        )
+    )
 }

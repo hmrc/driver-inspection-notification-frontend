@@ -137,6 +137,9 @@ inspection_needed.inspection_site.p1=Vous devez assister à toutes les inspectio
 inspection_needed.what_next.warning=Une pénalité pourra vous être facturée si vous ne vous présentez pas à une inspection
 inspection_needed.banner=Inspection requise
 
+inspection_needed.defra_transit.heading=Pour votre inspection de transit DEFRA (Département britannique de l’environnement, de l’alimentation et des affaires rurales)
+inspection_needed.defra_transit.ipaffs=Demandez à votre transporteur ou à votre importateur de vérifier le système d’importation de produits, d’animaux, de denrées alimentaires et d’aliments pour animaux (IPAFFS) pour savoir si vous devez vous plier à d’autres inspections.
+
 ###############################################
 #
 # Inspection needed import
@@ -145,6 +148,7 @@ inspection_needed.banner=Inspection requise
 inspection_needed_import.title=Les marchandises que vous transportez nécessitent une inspection
 inspection_needed_import.gmr=Identifiant de la GMR : {0}
 inspection_needed_import.what_next.h2=Que faire ensuite
+inspection_needed_import.what_next.bcp_content=Interrogez votre transporteur ou votre importateur pour savoir à quel poste de contrôle frontalier (BCP) ou à quel autre site d’inspection vous devez vous présenter à l’arrivée.
 inspection_needed_import.what_next.p2=Vérifiez à quel(s) site(s) d’inspection vous devez vous présenter à votre site frontalier d’arrivée. Vous devrez peut-être vous rendre à une installation frontalière intérieure (IBF) ou à un centre de contrôle douanier.
 inspection_needed_import.what_next.p3=Les marchandises nécessaires à l’inspection doivent être conservées dans le même état qu’au moment de leur importation.
 inspection_needed_import.text.warning=Avertissement

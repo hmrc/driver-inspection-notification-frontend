@@ -136,6 +136,8 @@ inspection_needed.inspection_site.p1=Musisz zgłaszać się do kontroli w podane
 inspection_needed.what_next.warning=W przypadku niezgłoszenia się do kontroli możesz zostać ukarany grzywną
 inspection_needed.banner=Wymagana kontrola
 
+inspection_needed.defra_transit.heading=Dotyczy Twojej kontroli tranzytowej przez Departament Środowiska, Żywności i Spraw Wiejskich (DEFRA)
+inspection_needed.defra_transit.ipaffs=Poproś swojego przewoźnika lub importera o sprawdzenie w systemie importu produktów spożywczych, zwierząt, żywności i pasz (IPAFFS) czy musisz zgłosić się jeszcze na jakieś kontrole.
 
 ###############################################
 #
@@ -145,6 +147,7 @@ inspection_needed.banner=Wymagana kontrola
 inspection_needed_import.title=Przemieszczane towary muszą być poddane kontroli
 inspection_needed_import.gmr=IDENTYFIKATOR GMR: {0}
 inspection_needed_import.what_next.h2=Co zrobić w następnej kolejności
+inspection_needed_import.what_next.bcp_content=Dowiedz się u swojego przewoźnika lub importera, do której placówki kontroli granicznej (BCP) lub innego punktu kontroli masz się zgłosić po przybyciu.
 inspection_needed_import.what_next.p2=Sprawdź, do których punktów kontroli musisz się zgłosić w placówce granicznej przybycia. Może zaistnieć konieczność udania się do wewnętrznego urzędu celnego (IBF) lub placówki kontroli celnej.
 inspection_needed_import.what_next.p3=Towary podlegające kontroli muszą być zachowane w takim samym stanie, w jakim zostały sprowadzone.
 inspection_needed_import.text.warning=Uwaga

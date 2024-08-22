@@ -25,12 +25,13 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.actions.requests.GmsRequ
 import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction._
-import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.{InspectionStatus, ReportLocations}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.InspectionStatus._
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.ReportLocations
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{GvmsReferenceData, Location}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
-import uk.gov.hmrc.driverinspectionnotificationfrontend.models.{Direction, InspectionResponse}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup.DEFRA_TRANSIT
 import uk.gov.hmrc.driverinspectionnotificationfrontend.services.{GmsReferenceDataService, GmsService}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.utils.EitherUtils.partitionAndExtract
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required._
@@ -64,13 +65,17 @@ class SearchResultController @Inject() (
       .getInspectionStatus(gmrId)
       .fold(
         ErrorHandling.handleGmrErrors(gmrId),
-        {
-          case InspectionResponse(direction, InspectionStatus.InspectionRequired, reportToLocations) =>
-            Ok(inspectionRequired(gmrId, direction, reportToLocations.getOrElse(Nil)))
-          case InspectionResponse(direction, InspectionStatus.InspectionNotNeeded, _) =>
-            Ok(inspectionNotRequired(gmrId, direction))
-          case InspectionResponse(_, InspectionStatus.InspectionPending, _) =>
-            Ok(inspection_pending_page(gmrId, checkedStatusAgain))
+        inspectionResponse => {
+          val direction         = inspectionResponse.direction
+          val reportToLocations = inspectionResponse.reportToLocations
+          inspectionResponse.inspectionStatus match {
+            case InspectionRequired =>
+              Ok(inspectionRequired(gmrId, direction, reportToLocations.getOrElse(Nil)))
+            case InspectionNotNeeded =>
+              Ok(inspectionNotRequired(gmrId, direction))
+            case InspectionPending =>
+              Ok(inspection_pending_page(gmrId, checkedStatusAgain))
+          }
         }
       )
   }
@@ -79,51 +84,39 @@ class SearchResultController @Inject() (
     request: GmsRequestWithReferenceData[_]
   ) = {
     implicit val referenceData: GvmsReferenceData = request.referenceData
-    direction match {
-      case UK_INBOUND | GB_TO_NI | NI_TO_GB =>
-        referenceDataService.getInspectionData(reportToLocations) match {
-          case Nil =>
-            logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction ${direction.toString}")
-            inspection_required_import(Some(gmrId), Map[InspectionDisplayGroup, List[Location]](), direction)
-          case listOfEithers =>
-            val (inspectionTypesNotFound, inspectionTypesAndLocations) = partitionAndExtract(listOfEithers)
-            if (inspectionTypesNotFound.nonEmpty)
-              logger.warn(s"Inspection types with ids [${inspectionTypesNotFound.map(_.inspectionTypeId).mkString(",")}] not found in reference data")
-            inspectionTypesAndLocations match {
-              case Nil => inspection_required_import(Some(gmrId), Map(), direction)
-              case list =>
-                val inspectionLocations = list.map { case (inspectionType, eitherLocations) =>
-                  val (locationsNotFound, locations) = partitionAndExtract(eitherLocations)
-                  if (locationsNotFound.nonEmpty)
-                    logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
-                  (InspectionDisplayGroup(inspectionType), locations)
-                }.toMap
-                inspection_required_import(Some(gmrId), inspectionLocations, direction)
-            }
-        }
-      case UK_OUTBOUND =>
-        referenceDataService.getInspectionData(reportToLocations) match {
-          case Nil =>
-            logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction ${direction.toString}")
-            inspection_required_export(Some(gmrId), Map())
-          case listOfEithers =>
-            val (inspectionTypesNotFound, inspectionTypesAndLocations) = partitionAndExtract(listOfEithers)
-            if (inspectionTypesNotFound.nonEmpty)
-              logger.warn(s"Inspection types with ids [${inspectionTypesNotFound.map(_.inspectionTypeId).mkString(",")}] not found in reference data")
-            inspectionTypesAndLocations match {
-              case Nil => inspection_required_export(Some(gmrId), Map())
-              case list =>
-                val inspectionLocations = list.map { case (inspectionType, eitherLocations) =>
-                  val (locationsNotFound, locations) = partitionAndExtract(eitherLocations)
-                  if (locationsNotFound.nonEmpty)
-                    logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
-                  (InspectionDisplayGroup(inspectionType), locations)
-                }.toMap
-                inspection_required_export(Some(gmrId), inspectionLocations)
-            }
-        }
+
+    val inspectionData     = referenceDataService.getInspectionData(reportToLocations)
+    val hasNonDefraTransit = reportToLocations.exists(_.inspectionTypeId =!= "18")
+
+    if (inspectionData.isEmpty && hasNonDefraTransit) {
+      logger.info(s"Missing or empty reportToLocations field in InspectionResponse for gmr with id $gmrId & direction ${direction.toString}")
     }
+
+    val (inspectionTypesNotFound, inspectionTypesAndLocations) = inspectionData.partitionMap(identity)
+
+    if (inspectionTypesNotFound.nonEmpty) {
+      logger.warn(s"Inspection types with ids [${inspectionTypesNotFound.map(_.inspectionTypeId).mkString(",")}] not found in reference data")
+    }
+
+    val inspectionLocations = inspectionTypesAndLocations.map { inspectionTypeWithLocation =>
+      val (locationsNotFound, locations) = inspectionTypeWithLocation.locations.partitionMap(identity)
+      if (locationsNotFound.nonEmpty) {
+        logger.warn(s"Locations with ids [${locationsNotFound.map(_.locationId).mkString(",")}] not found in reference data")
+      }
+
+      (InspectionDisplayGroup(inspectionTypeWithLocation.inspectionType), locations)
+    }.toMap
+
+    inspectionRequiredView(gmrId, direction, inspectionLocations)
   }
+
+  private def inspectionRequiredView(gmrId: String, direction: Direction, inspectionLocations: Map[InspectionDisplayGroup, List[Location]])(implicit
+    request: Request[_]
+  ) =
+    direction match {
+      case UK_INBOUND | GB_TO_NI | NI_TO_GB => inspection_required_import(gmrId, inspectionLocations, direction)
+      case UK_OUTBOUND                      => inspection_required_export(gmrId, inspectionLocations)
+    }
 
   private def inspectionNotRequired(gmrId: String, direction: Direction)(implicit request: Request[_]) =
     direction match {

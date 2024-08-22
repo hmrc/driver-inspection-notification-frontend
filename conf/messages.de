@@ -138,6 +138,9 @@ inspection_needed.inspection_site.p1=Sie müssen an allen Inspektionen in der da
 inspection_needed.what_next.warning=Wenn Sie sich nicht zur Kontrolle begeben, kann eine Strafe gegen Sie erhoben werden.
 inspection_needed.banner=Kontrolle erforderlich
 
+inspection_needed.defra_transit.heading=Für Ihre DEFRA Transit-Kontrolle
+inspection_needed.defra_transit.ipaffs=Bitten Sie Ihren Spediteur oder Importeur, im System zur Einfuhr von Erzeugnissen, Tieren, Lebens- und Futtermitteln (IPAFFS) herauszufinden,  ob für Sie noch weitere Kontrollen notwendig sind.
+
 ###############################################
 #
 # Inspection needed import
@@ -146,6 +149,7 @@ inspection_needed.banner=Kontrolle erforderlich
 inspection_needed_import.title=Die von Ihnen beförderten Waren müssen kontrolliert werden
 inspection_needed_import.gmr=GMR-ID: {0}
 inspection_needed_import.what_next.h2=Wie geht es weiter?
+inspection_needed_import.what_next.bcp_content=Wenden Sie sich an Ihren Spediteur oder Importeur, um herauszufinden, welche Grenzkontrollstelle (BCP) oder sonstige Kontrollstelle Sie bei Ihrer Ankunft aufsuchen müssen.
 inspection_needed_import.what_next.p2=Prüfen Sie, welche Kontrollstelle(n) Sie an Ihrer Ankunftsgrenzstelle aufsuchen müssen. Sie müssen vielleicht zu einer inländischen Grenzeinrichtung (Inland Border Facility – IBF) oder Zollkontrollstelle fahren.
 inspection_needed_import.what_next.p3=Kontrollpflichtige Waren müssen in dem gleichen Zustand erhalten werden wie zum Zeitpunkt ihrer Einfuhr.
 inspection_needed_import.text.warning=Warnhinweis

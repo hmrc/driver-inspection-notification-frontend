@@ -138,6 +138,9 @@ inspection_needed.inspection_site.p1=Privalote dalyvauti visuose patikrinimuose 
 inspection_needed.what_next.warning=Jei neatvyksite į patikrinimą, jums gali būti skirta bauda.
 inspection_needed.banner=Reikalinga patikra
 
+inspection_needed.defra_transit.heading=Dėl aplinkos, maisto ir kaimo reikalų departamento (DEFRA) vykdomos tranzito patikros
+inspection_needed.defra_transit.ipaffs=Paprašykite vežėjo arba importuotojo patikrinti produktų, gyvūnų, maisto ir pašarų importo sistemą (IPAFFS), kad sužinotumėte, ar turite praeiti dar kokias nors patikras.
+
 ###############################################
 #
 # Inspection needed import
@@ -146,6 +149,7 @@ inspection_needed.banner=Reikalinga patikra
 inspection_needed_import.title=Jūsų gabenamos prekės turi būti patikrintos
 inspection_needed_import.gmr=GMR ID: {0}
 inspection_needed_import.what_next.h2=Ką daryti toliau
+inspection_needed_import.what_next.bcp_content=Pasitarkite su vežėju arba importuotoju ir sužinokite, į kurį pasienio kontrolės postą (BCP) ar kitą tikrinimo vietą turite prisistatyti atvykę.
 inspection_needed_import.what_next.p2=Pasitikrinkite, kurioje (-iose) tikrinimo vietoje (-ose) turite apsilankyti savo atvykimo pasienio vietoje. Jums gali tekti važiuoti į vidaus pasienio kontrolės punktą (ang. „Inland border facility“, IBF) arba muitinės patikros punktą.
 inspection_needed_import.what_next.p3=Prekės, kurios turi būti patikrintos, turi būti tokios pat būklės, kokios buvo importuotos.
 inspection_needed_import.text.warning=Įspėjimas

@@ -20,7 +20,8 @@ import cats.implicits.catsSyntaxEq
 import uk.gov.hmrc.driverinspectionnotificationfrontend.connectors.GoodsMovementSystemReferenceDataConnector
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.InspectionLocationError._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.ReportLocations
-import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{GvmsReferenceData, InspectionType, Location}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.InspectionType._
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata._
 import uk.gov.hmrc.http.HeaderCarrier
 
 import javax.inject.{Inject, Singleton}
@@ -34,20 +35,18 @@ class GmsReferenceDataService @Inject() (
   def getReferenceData(implicit hc: HeaderCarrier): Future[GvmsReferenceData] =
     goodsMovementSystemReferenceDataConnector.getReferenceData
 
-  def getInspectionData(
-    reportToLocations: List[ReportLocations]
-  )(implicit referenceData: GvmsReferenceData): List[Either[InspectionTypeNotFound, (InspectionType, List[Either[LocationNotFound, Location]])]] =
+  def getInspectionData(reportToLocations: List[ReportLocations])(implicit referenceData: GvmsReferenceData): List[InspectionData] =
     reportToLocations.map { reportToLocation =>
       referenceData.inspectionTypes
         .getOrElse(Nil)
         .find(_.inspectionTypeId === reportToLocation.inspectionTypeId)
         .toRight(InspectionTypeNotFound(reportToLocation.inspectionTypeId))
-        .map { inspectionType: InspectionType =>
-          (inspectionType, getLocations(reportToLocation.locationIds, referenceData.locations.getOrElse(Nil)))
+        .map { inspectionType =>
+          InspectionTypeWithLocations(inspectionType, getLocations(reportToLocation.locationIds, referenceData.locations.getOrElse(Nil)))
         }
     }
 
-  private def getLocations(locationIds: List[String], refLocations: List[Location]): List[Either[LocationNotFound, Location]] =
+  private def getLocations(locationIds: List[String], refLocations: List[Location]): List[LocationOrNotFound] =
     locationIds.map { locationId: String =>
       refLocations.find(_.locationId === locationId).toRight(LocationNotFound(locationId))
     }
