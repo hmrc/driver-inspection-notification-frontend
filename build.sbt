@@ -13,11 +13,7 @@ def contentTestSettings(enableLicenseHeaders: Boolean = true): Seq[Setting[_]] =
     Seq(
       ContentTests / unmanagedSourceDirectories ++= Seq(baseDirectory.value / "content", baseDirectory.value / "test-common"),
       ContentTests / unmanagedResourceDirectories += baseDirectory.value / "test-resources",
-      DefaultBuildSettings.addTestReportOption(ContentTests, "content-test-reports"),
-      ContentTests / testGrouping := DefaultBuildSettings.oneForkedJvmPerTest(
-        (ContentTests / definedTests).value,
-        (ContentTests / javaOptions).value
-      )
+      DefaultBuildSettings.addTestReportOption(ContentTests, "content-test-reports")
     ) ++
     (if (enableLicenseHeaders) {
        headerSettings(ContentTests) ++
