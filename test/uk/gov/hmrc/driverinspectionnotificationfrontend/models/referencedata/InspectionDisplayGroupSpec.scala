@@ -27,7 +27,7 @@ class InspectionDisplayGroupSpec extends BaseSpec {
       List[(InspectionType, InspectionDisplayGroup, String)](
         (InspectionType("1", "description"), InspectionDisplayGroup.CUSTOMS, "customs"),
         (InspectionType("2", "DEFRA"), InspectionDisplayGroup.DEFRA, "defra"),
-        (InspectionType("3", "TRANSIT"), InspectionDisplayGroup.TRANSIT, "transit"),
+        (InspectionType("3", "BF_TRANSIT"), InspectionDisplayGroup.BF_TRANSIT, "bf_transit"),
         (InspectionType("4", "OGD"), InspectionDisplayGroup.OGD, "ogd"),
         (InspectionType("5", "DEFRA_PLANTS"), InspectionDisplayGroup.DEFRA_PLANTS, "defra_plants"),
         (InspectionType("6", "ATA"), InspectionDisplayGroup.ATA, "ata"),

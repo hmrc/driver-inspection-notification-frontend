@@ -30,7 +30,6 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.Repor
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{GvmsReferenceData, Location}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction
-import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup.DEFRA_TRANSIT
 import uk.gov.hmrc.driverinspectionnotificationfrontend.services.{GmsReferenceDataService, GmsService}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared._

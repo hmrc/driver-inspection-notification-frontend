@@ -34,8 +34,8 @@ object InspectionDisplayGroup {
     val value = "defra"
   }
 
-  case object TRANSIT extends InspectionDisplayGroup {
-    val value = "transit"
+  case object BF_TRANSIT extends InspectionDisplayGroup {
+    val value = "bf_transit"
   }
 
   case object OGD extends InspectionDisplayGroup {
@@ -82,7 +82,7 @@ object InspectionDisplayGroup {
     inspectionType.inspectionTypeId match {
       case "1" | "9" | "10" | "11" | "12" => CUSTOMS
       case "2"                            => DEFRA
-      case "3"                            => TRANSIT
+      case "3"                            => BF_TRANSIT
       case "4"                            => OGD
       case "5"                            => DEFRA_PLANTS
       case "6"                            => ATA
