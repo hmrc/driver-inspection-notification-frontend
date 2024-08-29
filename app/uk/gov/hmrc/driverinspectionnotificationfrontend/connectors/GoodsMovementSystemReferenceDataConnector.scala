@@ -17,21 +17,23 @@
 package uk.gov.hmrc.driverinspectionnotificationfrontend.connectors
 
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.GvmsReferenceData
-import uk.gov.hmrc.http.{HeaderCarrier, HttpClient}
-
+import uk.gov.hmrc.http.client.HttpClientV2
+import uk.gov.hmrc.http.{HeaderCarrier, StringContextOps}
 import javax.inject.{Inject, Named, Singleton}
 import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
 class GoodsMovementSystemReferenceDataConnector @Inject() (
   @Named("gmsReferenceDataUrl") gmsReferenceDataBaseUrl: String,
-  httpClient:                                            HttpClient
+  httpClient:                                            HttpClientV2
 )(implicit executionContext: ExecutionContext) {
 
   private val url = s"$gmsReferenceDataBaseUrl/goods-movement-system-reference-data"
 
   def getReferenceData(implicit hc: HeaderCarrier): Future[GvmsReferenceData] = {
-    import uk.gov.hmrc.http.HttpReads.Implicits._
-    httpClient.GET[GvmsReferenceData](s"$url/reference-data")
+    import uk.gov.hmrc.http.HttpReads.Implicits.*
+    httpClient
+      .get(url"$url/reference-data")
+      .execute
   }
 }

@@ -47,7 +47,7 @@ class GmsReferenceDataService @Inject() (
     }
 
   private def getLocations(locationIds: List[String], refLocations: List[Location]): List[LocationOrNotFound] =
-    locationIds.map { locationId: String =>
+    locationIds.map { locationId =>
       refLocations.find(_.locationId === locationId).toRight(LocationNotFound(locationId))
     }
 }

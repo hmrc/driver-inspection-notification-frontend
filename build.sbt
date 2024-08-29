@@ -24,7 +24,7 @@ lazy val microservice = Project(appName, file("."))
   .enablePlugins(play.sbt.PlayScala, SbtDistributablesPlugin)
   .settings(
     majorVersion := 0,
-    scalaVersion := "2.13.12",
+    scalaVersion := "3.3.3",
     ScoverageKeys.coverageExcludedFiles :=
       "<empty>;com.kenshoo.play.metrics.*;.*definition.*;prod.*;testOnlyDoNotUseInAppConf.*;" +
         "app.*;.*BuildInfo.*;.*Routes.*;.*repositories.*;.*LanguageSwitchController;.*metrics.*;.*views.*;Reverse.*;" +
@@ -51,12 +51,7 @@ lazy val microservice = Project(appName, file("."))
     IntegrationTest / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports/html-it-report")
   )
   .settings(resolvers += Resolver.jcenterRepo)
-  .settings(
-    scalafmtOnCompile := true,
-    scalacOptions += "-Wconf:src=routes/.*:s", //Silence all warnings in generated routes
-    scalacOptions += "-Ymacro-annotations",
-    scalacOptions += "-Wconf:cat=unused-imports&src=html/.*:s"
-  )
+  .settings(scalafmtOnCompile := true)
   .settings( //fix scaladoc generation in jenkins
     Compile / scalacOptions -= "utf8",
     Compile / console / scalacOptions := (console / scalacOptions).value.filterNot(_.contains("wartremover")),

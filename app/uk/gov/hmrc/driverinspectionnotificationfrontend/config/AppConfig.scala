@@ -16,13 +16,13 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.config
 
-import javax.inject.{Inject, Singleton}
 import play.api.Configuration
 import uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.routes
-import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
+
+import javax.inject.{Inject, Singleton}
 
 @Singleton
-class AppConfig @Inject() (val configuration: Configuration, servicesConfig: ServicesConfig) {
+class AppConfig @Inject() (val configuration: Configuration) {
 
   def otherLanguageSupportEnabled: Boolean = configuration.getOptional[Boolean]("features.other-language-support").getOrElse(false)
 

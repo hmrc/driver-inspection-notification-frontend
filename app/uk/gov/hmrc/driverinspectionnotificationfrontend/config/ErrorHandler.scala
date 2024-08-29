@@ -17,20 +17,25 @@
 package uk.gov.hmrc.driverinspectionnotificationfrontend.config
 
 import play.api.i18n.MessagesApi
-import play.api.mvc.Request
+import play.api.mvc.RequestHeader
 import play.twirl.api.Html
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.errors.error_template
 import uk.gov.hmrc.play.bootstrap.frontend.http.FrontendErrorHandler
 
 import javax.inject.{Inject, Singleton}
+import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
-class ErrorHandler @Inject() (val messagesApi: MessagesApi, implicit val appConfig: AppConfig, errorTemplate: error_template)
-    extends FrontendErrorHandler {
+class ErrorHandler @Inject() (
+  val messagesApi:        MessagesApi,
+  implicit val appConfig: AppConfig,
+  val ec:                 ExecutionContext,
+  errorTemplate:          error_template
+) extends FrontendErrorHandler {
   override def standardErrorTemplate(
     pageTitle: String,
     heading:   String,
     message:   String
-  )(implicit request: Request[_]): Html =
-    errorTemplate(pageTitle, heading, message)
+  )(implicit rh: RequestHeader): Future[Html] =
+    Future.successful(errorTemplate(pageTitle, heading, message))
 }

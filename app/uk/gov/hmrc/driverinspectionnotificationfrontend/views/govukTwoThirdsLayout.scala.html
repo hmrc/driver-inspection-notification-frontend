@@ -41,7 +41,7 @@
     footerItems: Seq[FooterItem],
     bodyEndBlock: Option[Html],
     scriptsBlock: Option[Html]
-)(contentBlock: Html)(implicit request: Request[_], messages: Messages)
+)(contentBlock: Html)(implicit rh: RequestHeader, messages: Messages)
 
 @headerDefault = {
     @headerBlock.getOrElse {

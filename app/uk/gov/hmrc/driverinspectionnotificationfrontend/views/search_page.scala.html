@@ -22,7 +22,7 @@
 
 @this(mainTemplate: main_layout_full_width_template, govukButton: GovukButton, formWithCSRF: FormWithCSRF, errorSummary: GovukErrorSummary, hmrcPageHeading: HmrcPageHeading,  govukInput: GovukInput)
 
-@(form: Form[String])(implicit request: Request[_], messages: Messages)
+@(form: Form[String])(implicit rh: RequestHeader, messages: Messages)
 
 @titlePrefix = @{
     if(form.hasErrors) {

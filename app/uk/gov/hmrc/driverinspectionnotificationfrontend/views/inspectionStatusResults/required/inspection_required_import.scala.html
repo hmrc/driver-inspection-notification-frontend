@@ -35,7 +35,7 @@
 
 @this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common, govukNotificationBanner: GovukNotificationBanner, govukButton: GovukButton, govukInsetText : GovukInsetText)
 
-@(gmrId: String, locationsByInspectionType: Map[InspectionDisplayGroup, List[Location]], direction: Direction)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(gmrId: String, locationsByInspectionType: Map[InspectionDisplayGroup, List[Location]], direction: Direction)(implicit rh: RequestHeader, messages: Messages, appConfig: AppConfig)
 
 @hasDefraTransitOnly          = @{locationsByInspectionType.keySet === Set(DEFRA_TRANSIT)}
 @hasDefraTransit              = @{locationsByInspectionType.contains(DEFRA_TRANSIT)}
