@@ -18,28 +18,20 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections
 
 import play.api.libs.json._
 
-sealed trait InspectionStatus
+enum InspectionStatus(val value: String):
+  case InspectionRequired extends InspectionStatus("REQUIRES_INSPECTION")
+  case InspectionNotNeeded extends InspectionStatus("DOES_NOT_REQUIRE_INSPECTION")
+  case InspectionPending extends InspectionStatus("INSPECTION_STATUS_PENDING")
 
-object InspectionStatus {
-
-  case object InspectionRequired extends InspectionStatus
-  case object InspectionNotNeeded extends InspectionStatus
-  case object InspectionPending extends InspectionStatus
-
+object InspectionStatus:
   implicit val format: Format[InspectionStatus] = new Format[InspectionStatus] {
     override def reads(json: JsValue): JsResult[InspectionStatus] =
       json.as[String] match {
-        case "REQUIRES_INSPECTION"         => JsSuccess[InspectionStatus](InspectionRequired)
-        case "DOES_NOT_REQUIRE_INSPECTION" => JsSuccess[InspectionStatus](InspectionNotNeeded)
-        case "INSPECTION_STATUS_PENDING"   => JsSuccess[InspectionStatus](InspectionPending)
-        case e                             => JsError(s"Invalid InspectionStatus: $e")
+        case InspectionRequired.value  => JsSuccess(InspectionRequired)
+        case InspectionNotNeeded.value => JsSuccess(InspectionNotNeeded)
+        case InspectionPending.value   => JsSuccess(InspectionPending)
+        case e                         => JsError(s"Invalid InspectionStatus: $e")
       }
 
-    override def writes(inspectionStatus: InspectionStatus): JsValue =
-      inspectionStatus match {
-        case InspectionRequired  => JsString("REQUIRES_INSPECTION")
-        case InspectionNotNeeded => JsString("DOES_NOT_REQUIRE_INSPECTION")
-        case InspectionPending   => JsString("INSPECTION_STATUS_PENDING")
-      }
+    override def writes(inspectionStatus: InspectionStatus): JsValue = JsString(inspectionStatus.value)
   }
-}
