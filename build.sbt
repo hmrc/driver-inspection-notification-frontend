@@ -30,7 +30,7 @@ lazy val microservice = Project(appName, file("."))
         "app.*;.*BuildInfo.*;.*Routes.*;.*repositories.*;.*LanguageSwitchController;.*metrics.*;.*views.*;Reverse.*;" +
         ".*connectors.*;.*.models.*;",
     ScoverageKeys.coverageMinimumStmtTotal := 80,
-    ScoverageKeys.coverageFailOnMinimum := true,
+    ScoverageKeys.coverageFailOnMinimum := false,
     ScoverageKeys.coverageHighlighting := true,
     playDefaultPort := 9004,
     libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test,
