@@ -19,9 +19,10 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.helpers
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.{NonPrintableBetaPhaseBanner, NonStandardHmrcFooterItems}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.getHelp
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head, main_layout_full_width_template}
-import uk.gov.hmrc.govukfrontend.views.html.components._
+import uk.gov.hmrc.govukfrontend.views.html.components.*
+import uk.gov.hmrc.govukfrontend.views.html.helpers.{GovukFormGroup, GovukHintAndErrorMessage}
 import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, TrackingConsentConfig, TudorCrownConfig}
-import uk.gov.hmrc.hmrcfrontend.views.html.components._
+import uk.gov.hmrc.hmrcfrontend.views.html.components.*
 import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcScripts, HmrcStandardHeader, HmrcTrackingConsentSnippet}
 
 trait TestTemplateComponents {
@@ -58,7 +59,7 @@ trait TestTemplateComponents {
       new govukTwoThirdsLayout(
         govukTemplate,
         hmrcStandardHeader,
-        new HmrcFooter(),
+        new HmrcFooter(new GovukFooter),
         new NonPrintableBetaPhaseBanner,
         technicalIssueSnippet,
         hmrcScripts,
@@ -69,18 +70,21 @@ trait TestTemplateComponents {
       new GovukBackLink
     )
 
-  val govukRadios = new GovukRadios(new GovukErrorMessage, new GovukFieldset, new GovukHint, new GovukLabel)
-  val govukInput  = new GovukInput(new GovukErrorMessage, new GovukHint, new GovukLabel)
-  val govukDateInput =
-    new GovukDateInput(new GovukErrorMessage, new GovukHint, new GovukFieldset, new GovukInput(new GovukErrorMessage, new GovukHint, new GovukLabel))
+  val govukHintAndErrorMessage = new GovukHintAndErrorMessage(new GovukHint, new GovukErrorMessage)
+  val govukFormGroup           = new GovukFormGroup
+  val govukLabel               = new GovukLabel
+
+  val govukFieldSet           = new GovukFieldset
+  val govukRadios             = new GovukRadios(govukFieldSet, new GovukHint, govukLabel, govukFormGroup, govukHintAndErrorMessage)
+  val govukInput              = new GovukInput(govukLabel, govukFormGroup, govukHintAndErrorMessage)
+  val govukDateInput          = new GovukDateInput(govukFieldSet, govukInput, govukFormGroup, govukHintAndErrorMessage)
   val govukDetails            = new GovukDetails
   val govukPanel              = new GovukPanel
   val govukTable              = new GovukTable
   val govukButton             = new GovukButton
-  val govukFieldSet           = new GovukFieldset
   val govukErrorSummary       = new GovukErrorSummary
   val govukSummaryList        = new GovukSummaryList
-  val govukSelect             = new GovukSelect(new GovukErrorMessage, new GovukHint, new GovukLabel)
+  val govukSelect             = new GovukSelect(govukLabel, govukFormGroup, govukHintAndErrorMessage)
   val govukBackLink           = new GovukBackLink
   val govukWarningText        = new GovukWarningText
   val formWithCSRF            = new FormWithCSRF

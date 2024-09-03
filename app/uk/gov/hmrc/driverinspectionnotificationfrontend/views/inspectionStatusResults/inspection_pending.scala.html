@@ -38,7 +38,7 @@
 
 )
 
-@(gmrId: String, checkedStatusAgain: Boolean)(implicit request: Request[_], messages: Messages, appConfig: AppConfig)
+@(gmrId: String, checkedStatusAgain: Boolean)(implicit rh: RequestHeader, messages: Messages, appConfig: AppConfig)
 
 @mainTemplate(
     pageTitle = Some(s"${messages("inspection_pending_page.title")} - ${messages("service.name")} - ${messages("generic.title.suffix")}"),

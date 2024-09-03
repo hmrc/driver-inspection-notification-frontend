@@ -20,7 +20,7 @@
 
 @this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading)
 
-@(pageTitle: String, heading: String, message: String)(implicit request: Request[_], messages: Messages)
+@(pageTitle: String, heading: String, message: String)(implicit rh: RequestHeader, messages: Messages)
 
 @mainTemplate(pageTitle = Some(s"$pageTitle - ${messages("service.name")} - ${messages("generic.title.suffix")}"), backLinkEnabled = true) {
   @hmrcPageHeading(PageHeading(text = heading))

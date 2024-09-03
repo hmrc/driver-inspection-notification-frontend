@@ -19,8 +19,9 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.connectors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.connectors.httpreads.CustomEitherHttpReads
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.InspectionResponse
-import uk.gov.hmrc.http.HttpReads.Implicits._
-import uk.gov.hmrc.http._
+import uk.gov.hmrc.http.HttpReads.Implicits.*
+import uk.gov.hmrc.http.*
+import uk.gov.hmrc.http.client.HttpClientV2
 
 import javax.inject.{Inject, Named, Singleton}
 import scala.concurrent.{ExecutionContext, Future}
@@ -28,7 +29,7 @@ import scala.concurrent.{ExecutionContext, Future}
 @Singleton
 class GoodsMovementSystemConnector @Inject() (
   @Named("gmsUrl") gmsBaseUrl: String,
-  httpClient:                  HttpClient
+  httpClient:                  HttpClientV2
 )(implicit ec: ExecutionContext)
     extends CustomEitherHttpReads {
 
@@ -38,6 +39,7 @@ class GoodsMovementSystemConnector @Inject() (
     HttpReadsInstances.throwOnFailure(HttpReadsInstances.readEitherOf(HttpReadsInstances.readRaw))
 
   def getInspectionStatus(gmrId: String)(implicit headerCarrier: HeaderCarrier): Future[Either[GmrErrors, InspectionResponse]] =
-    httpClient.GET[Either[GmrErrors, InspectionResponse]](s"$url/driver/movements/$gmrId/inspection")
-
+    httpClient
+      .get(url"$url/driver/movements/$gmrId/inspection")
+      .execute
 }
