@@ -80,7 +80,7 @@ class SearchResultController @Inject() (
   }
 
   private def inspectionRequired(gmrId: String, direction: Direction, reportToLocations: List[ReportLocations])(implicit
-    request: GmsRequestWithReferenceData[_]
+    request: GmsRequestWithReferenceData[?]
   ) = {
     implicit val referenceData: GvmsReferenceData = request.referenceData
 
@@ -110,14 +110,14 @@ class SearchResultController @Inject() (
   }
 
   private def inspectionRequiredView(gmrId: String, direction: Direction, inspectionLocations: Map[InspectionDisplayGroup, List[Location]])(implicit
-    request: Request[_]
+    request: Request[?]
   ) =
     direction match {
       case UK_INBOUND | GB_TO_NI | NI_TO_GB => inspection_required_import(gmrId, inspectionLocations, direction)
       case UK_OUTBOUND                      => inspection_required_export(gmrId, inspectionLocations)
     }
 
-  private def inspectionNotRequired(gmrId: String, direction: Direction)(implicit request: Request[_]) =
+  private def inspectionNotRequired(gmrId: String, direction: Direction)(implicit request: Request[?]) =
     direction match {
       case GB_TO_NI              => inspection_not_needed_page_gb_to_ni(Some(gmrId))
       case UK_INBOUND | NI_TO_GB => inspection_not_needed_page_import(Some(gmrId))
