@@ -35,9 +35,6 @@ class GoodsMovementSystemConnector @Inject() (
 
   private val url = s"$gmsBaseUrl/goods-movement-system"
 
-  implicit val errorThrowingHttpResponse: HttpReads[HttpResponse] =
-    HttpReadsInstances.throwOnFailure(HttpReadsInstances.readEitherOf(HttpReadsInstances.readRaw))
-
   def getInspectionStatus(gmrId: String)(implicit headerCarrier: HeaderCarrier): Future[Either[GmrErrors, InspectionResponse]] =
     httpClient
       .get(url"$url/driver/movements/$gmrId/inspection")

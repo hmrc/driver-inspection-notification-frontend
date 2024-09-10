@@ -40,7 +40,8 @@ object  WartRemoverSettings {
         ToString,
         JavaSerializable,
         ListAppend,
-        SeqApply
+        SeqApply,
+        Null
       )
     }
 

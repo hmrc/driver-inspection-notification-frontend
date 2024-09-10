@@ -8,7 +8,7 @@ val appName = "driver-inspection-notification-frontend"
 
 lazy val ContentTests = config("content") extend (Test)
 
-def contentTestSettings(enableLicenseHeaders: Boolean = true): Seq[Setting[_]] =
+def contentTestSettings(enableLicenseHeaders: Boolean = true): Seq[Setting[?]] =
   inConfig(ContentTests)(Defaults.testSettings) ++
     Seq(
       ContentTests / unmanagedSourceDirectories ++= Seq(baseDirectory.value / "content", baseDirectory.value / "test-common"),
@@ -24,7 +24,7 @@ lazy val microservice = Project(appName, file("."))
   .enablePlugins(play.sbt.PlayScala, SbtDistributablesPlugin)
   .settings(
     majorVersion := 0,
-    scalaVersion := "3.3.3",
+    scalaVersion := "3.5.0",
     ScoverageKeys.coverageExcludedFiles :=
       "<empty>;com.kenshoo.play.metrics.*;.*definition.*;prod.*;testOnlyDoNotUseInAppConf.*;" +
         "app.*;.*BuildInfo.*;.*Routes.*;.*repositories.*;.*LanguageSwitchController;.*metrics.*;.*views.*;Reverse.*;" +
@@ -51,7 +51,10 @@ lazy val microservice = Project(appName, file("."))
     IntegrationTest / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports/html-it-report")
   )
   .settings(resolvers += Resolver.jcenterRepo)
-  .settings(scalafmtOnCompile := true)
+  .settings(scalafmtOnCompile := true,
+    scalacOptions += "-Wconf:src=routes/.*:s", //Silence all warnings in generated routes
+    scalacOptions += "-Wconf:msg=unused import*&src=html/.*:s"
+  )
   .settings( //fix scaladoc generation in jenkins
     Compile / scalacOptions -= "utf8",
     Compile / console / scalacOptions := (console / scalacOptions).value.filterNot(_.contains("wartremover")),
