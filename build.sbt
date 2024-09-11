@@ -60,5 +60,6 @@ lazy val microservice = Project(appName, file("."))
     Compile / console / scalacOptions := (console / scalacOptions).value.filterNot(_.contains("wartremover")),
     scalacOptions += "-language:postfixOps"
   )
+  .disablePlugins(JUnitXmlReportPlugin)
 
 evictionErrorLevel := Level.Warn
