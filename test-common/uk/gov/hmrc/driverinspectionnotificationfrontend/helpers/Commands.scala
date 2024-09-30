@@ -25,11 +25,9 @@ trait Commands {
   def executeCommand(cmd: String): Future[Unit] =
     executeCommand(cmd, ".")
 
-  @SuppressWarnings(Array("org.wartremover.warts.Null"))
   def executeCommand(cmd: String, dir: String): Future[Unit] =
     executeCommand(cmd, null, dir)
 
-  @SuppressWarnings(Array("org.wartremover.warts.Var", "org.wartremover.warts.While"))
   def executeCommand(cmd: String, params: Array[String], strDir: String): Future[Unit] = {
 
     println("Running " + cmd)

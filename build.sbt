@@ -36,7 +36,6 @@ lazy val microservice = Project(appName, file("."))
     libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test,
     Assets / pipelineStages := Seq(gzip)
   )
-  .settings(WartRemoverSettings.settings)
   .settings(SassKeys.generateSourceMaps := false)
   .configs(IntegrationTest)
   .settings(integrationTestSettings(): _*)
@@ -56,8 +55,6 @@ lazy val microservice = Project(appName, file("."))
     scalacOptions += "-Wconf:msg=unused import*&src=html/.*:s"
   )
   .settings( //fix scaladoc generation in jenkins
-    Compile / scalacOptions -= "utf8",
-    Compile / console / scalacOptions := (console / scalacOptions).value.filterNot(_.contains("wartremover")),
     scalacOptions += "-language:postfixOps"
   )
   .disablePlugins(JUnitXmlReportPlugin)
