@@ -42,7 +42,6 @@ trait StubMessageControllerComponents extends Configs {
 
   implicit val messagesImpl: MessagesImpl = MessagesImpl(Lang.defaultLang, messagesApi)
 
-  @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments"))
   def stubMessagesControllerComponents(
     bodyParser:      BodyParser[AnyContent] = stubBodyParser(AnyContentAsEmpty),
     playBodyParsers: PlayBodyParsers = stubPlayBodyParsers(NoMaterializer),
