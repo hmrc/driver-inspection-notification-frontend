@@ -17,7 +17,7 @@
 package uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers
 
 enum GmrErrors:
-  case GmrNotFound extends GmrErrors
+  case GmrNotFound
 
 object GmrErrors:
   val gmrNotFound: GmrErrors = GmrNotFound

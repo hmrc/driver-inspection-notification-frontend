@@ -19,10 +19,10 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.models
 import play.api.libs.json._
 
 enum Direction:
-  case UK_INBOUND extends Direction
-  case UK_OUTBOUND extends Direction
-  case GB_TO_NI extends Direction
-  case NI_TO_GB extends Direction
+  case UK_INBOUND
+  case UK_OUTBOUND
+  case GB_TO_NI
+  case NI_TO_GB
 
 object Direction:
 

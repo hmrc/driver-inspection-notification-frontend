@@ -19,9 +19,9 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections
 import play.api.libs.json._
 
 enum InspectionStatus:
-  case InspectionRequired extends InspectionStatus
-  case InspectionNotNeeded extends InspectionStatus
-  case InspectionPending extends InspectionStatus
+  case InspectionRequired
+  case InspectionNotNeeded
+  case InspectionPending
 
 object InspectionStatus:
   implicit val format: Format[InspectionStatus] = new Format[InspectionStatus] {
