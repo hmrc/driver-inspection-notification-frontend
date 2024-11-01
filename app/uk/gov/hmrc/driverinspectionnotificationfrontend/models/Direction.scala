@@ -24,7 +24,6 @@ enum Direction {
   val value: String = toString
 }
 
-
 object Direction:
 
   implicit val format: Format[Direction] = new Format[Direction] {
