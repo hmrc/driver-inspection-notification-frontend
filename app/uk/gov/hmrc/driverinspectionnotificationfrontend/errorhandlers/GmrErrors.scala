@@ -16,8 +16,11 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers
 
-enum GmrErrors:
+enum GmrErrors {
   case GmrNotFound
+
+  val value: String = toString
+}
 
 sealed trait InspectionLocationError
 

@@ -18,16 +18,17 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.models
 
 import play.api.libs.json._
 
-enum Direction:
-  case UK_INBOUND
-  case UK_OUTBOUND
-  case GB_TO_NI
-  case NI_TO_GB
+enum Direction {
+  case UK_INBOUND, UK_OUTBOUND, GB_TO_NI, NI_TO_GB
+
+  val value: String = toString
+}
+
 
 object Direction:
 
   implicit val format: Format[Direction] = new Format[Direction] {
-    override def writes(o: Direction): JsValue = JsString(o.toString)
+    override def writes(o: Direction): JsValue = JsString(o.value)
 
     override def reads(json: JsValue): JsResult[Direction] =
       try

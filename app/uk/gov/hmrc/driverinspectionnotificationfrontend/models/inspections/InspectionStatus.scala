@@ -18,10 +18,13 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections
 
 import play.api.libs.json._
 
-enum InspectionStatus:
+enum InspectionStatus {
   case InspectionRequired
   case InspectionNotNeeded
   case InspectionPending
+
+  val value: String = toString
+}
 
 object InspectionStatus:
   implicit val format: Format[InspectionStatus] = new Format[InspectionStatus] {
@@ -32,5 +35,5 @@ object InspectionStatus:
         case e: IllegalArgumentException => JsError(s"Invalid InspectionStatus: $e")
       }
 
-    override def writes(o: InspectionStatus): JsValue = JsString(o.toString)
+    override def writes(o: InspectionStatus): JsValue = JsString(o.value)
   }
