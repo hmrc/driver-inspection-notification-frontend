@@ -33,5 +33,5 @@ object InspectionStatus:
         case e                         => JsError(s"Invalid InspectionStatus: $e")
       }
 
-    override def writes(inspectionStatus: InspectionStatus): JsValue = JsString(inspectionStatus.value)
+    override def writes(o: InspectionStatus): JsValue = JsString(o.value)
   }

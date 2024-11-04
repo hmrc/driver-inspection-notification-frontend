@@ -18,40 +18,21 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.models
 
 import play.api.libs.json._
 
-sealed trait Direction extends Product with Serializable {
-  def value:             String
-  override def toString: String = value
+enum Direction {
+  case UK_INBOUND, UK_OUTBOUND, GB_TO_NI, NI_TO_GB
+
+  val value: String = toString
 }
 
-object Direction {
-
-  case object UK_INBOUND extends Direction {
-    val value: String = "UK_INBOUND"
-  }
-
-  case object UK_OUTBOUND extends Direction {
-    val value: String = "UK_OUTBOUND"
-  }
-
-  case object GB_TO_NI extends Direction {
-    val value: String = "GB_TO_NI"
-  }
-
-  case object NI_TO_GB extends Direction {
-    val value: String = "NI_TO_GB"
-  }
+object Direction:
 
   implicit val format: Format[Direction] = new Format[Direction] {
-
     override def writes(o: Direction): JsValue = JsString(o.value)
 
     override def reads(json: JsValue): JsResult[Direction] =
-      json.validate[String].flatMap {
-        case UK_INBOUND.value  => JsSuccess(UK_INBOUND)
-        case UK_OUTBOUND.value => JsSuccess(UK_OUTBOUND)
-        case GB_TO_NI.value    => JsSuccess(GB_TO_NI)
-        case NI_TO_GB.value    => JsSuccess(NI_TO_GB)
-        case e                 => JsError(s"Direction $e is not recognised")
+      try
+        json.validate[String].map(Direction.valueOf)
+      catch {
+        case e: IllegalArgumentException => JsError(s"Direction is not recognised: $e")
       }
   }
-}
