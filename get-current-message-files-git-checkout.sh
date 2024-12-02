@@ -29,7 +29,7 @@ currentSpanishMessages="current_messages.es"
 
 tempDir='translation_temp'
 
-translationDir=${PWD}/target/scala-2.13/content-classes
+translationDir=${PWD}/target/scala-3.5.0/content-classes
 cd ..
 hmrcPath=${PWD}
 tempPath=$hmrcPath/$tempDir

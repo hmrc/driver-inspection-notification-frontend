@@ -24,7 +24,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.start_page
 class StartControllerSpec extends BaseSpec {
 
   trait SetUp {
-    val startPage: start_page = new start_page(fullWidthTemplate, govukButton, formWithCSRF, hmrcPageHeading, govUkInsetText, hmrcNewTabLink)
+    val startPage: start_page = new start_page(fullWidthTemplate, govukButton, hmrcPageHeading, hmrcNewTabLink)
     val controller = new StartController(stubMessagesControllerComponents(), startPage)(applicationConfig)
   }
 
@@ -47,6 +47,7 @@ class StartControllerSpec extends BaseSpec {
       content should include("You will get one of these responses:")
       content should include("inspection needed")
       content should include("no inspection needed")
+      content should include("If the movement needs an inspection")
       content should include("your inspection status is not ready yet")
       content should include("<span class=\"govuk-visually-hidden\">Newid yr iaith ir Gymraeg</span>")
     }
