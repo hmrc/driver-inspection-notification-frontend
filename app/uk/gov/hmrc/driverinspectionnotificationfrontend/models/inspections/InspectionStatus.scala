@@ -18,12 +18,13 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections
 
 import play.api.libs.json._
 
-enum InspectionStatus(val value: String):
+enum InspectionStatus(val value: String) {
   case InspectionRequired extends InspectionStatus("REQUIRES_INSPECTION")
   case InspectionNotNeeded extends InspectionStatus("DOES_NOT_REQUIRE_INSPECTION")
   case InspectionPending extends InspectionStatus("INSPECTION_STATUS_PENDING")
+}
 
-object InspectionStatus:
+object InspectionStatus {
   implicit val format: Format[InspectionStatus] = new Format[InspectionStatus] {
     override def reads(json: JsValue): JsResult[InspectionStatus] =
       json.as[String] match {
@@ -35,3 +36,4 @@ object InspectionStatus:
 
     override def writes(o: InspectionStatus): JsValue = JsString(o.value)
   }
+}

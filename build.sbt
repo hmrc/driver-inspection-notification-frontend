@@ -54,7 +54,7 @@ lazy val microservice = Project(appName, file("."))
     scalacOptions += "-Wconf:src=routes/.*:s", //Silence all warnings in generated routes
     scalacOptions += "-Wconf:msg=unused import*&src=html/.*:s",
     scalacOptions += "-language:postfixOps", //fix scaladoc generation in jenkins
-    scalacOptions += "-rewrite -no-indent"
+    scalacOptions += "-no-indent"
   )
   .disablePlugins(JUnitXmlReportPlugin)
 
