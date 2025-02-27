@@ -24,7 +24,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.start_page
 class StartControllerSpec extends BaseSpec {
 
   trait SetUp {
-    val startPage: start_page = new start_page(fullWidthTemplate, govukButton, hmrcNewTabLink)
+    val startPage: start_page = new start_page(fullWidthTemplate, govukButton, hmrcPageHeading, hmrcNewTabLink)
     val controller = new StartController(stubMessagesControllerComponents(), startPage)(applicationConfig)
   }
 
