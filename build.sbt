@@ -52,10 +52,9 @@ lazy val microservice = Project(appName, file("."))
   .settings(resolvers += Resolver.jcenterRepo)
   .settings(scalafmtOnCompile := true,
     scalacOptions += "-Wconf:src=routes/.*:s", //Silence all warnings in generated routes
-    scalacOptions += "-Wconf:msg=unused import*&src=html/.*:s"
-  )
-  .settings( //fix scaladoc generation in jenkins
-    scalacOptions += "-language:postfixOps"
+    scalacOptions += "-Wconf:msg=unused import*&src=html/.*:s",
+    scalacOptions += "-language:postfixOps", //fix scaladoc generation in jenkins
+    scalacOptions += "-no-indent"
   )
   .disablePlugins(JUnitXmlReportPlugin)
 

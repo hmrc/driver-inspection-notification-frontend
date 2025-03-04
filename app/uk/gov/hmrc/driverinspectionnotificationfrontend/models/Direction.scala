@@ -24,7 +24,7 @@ enum Direction {
   val value: String = toString
 }
 
-object Direction:
+object Direction {
 
   implicit val format: Format[Direction] = new Format[Direction] {
     override def writes(o: Direction): JsValue = JsString(o.value)
@@ -36,3 +36,4 @@ object Direction:
         case e: IllegalArgumentException => JsError(s"Direction is not recognised: $e")
       }
   }
+}

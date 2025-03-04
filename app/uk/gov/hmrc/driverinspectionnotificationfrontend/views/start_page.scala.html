@@ -15,7 +15,7 @@
  *@
 
 @import uk.gov.hmrc.govukfrontend.views.html.components._
-@import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcPageHeading
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.{HmrcPageHeading, PageHeading}
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.main_layout_full_width_template
 @import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcNewTabLink
@@ -29,7 +29,9 @@
     pageTitle = Some(s"${messages("start_page.title")} - ${messages("service.name")} - ${messages("generic.title.suffix")}"),
     backLinkEnabled = false
 ) {
-    <h1 class="govuk-heading-xl">@messages("start_page.title")</h1>
+    @hmrcPageHeading(PageHeading(
+        text = messages("start_page.title")
+    ))
 
     @if(otherLangSupport) {
         @uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.languages(supportedLanguage)
