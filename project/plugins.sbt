@@ -9,6 +9,6 @@ addSbtPlugin("com.typesafe.sbt"   % "sbt-gzip"           % "1.0.2")
 addSbtPlugin("io.github.irundaia" % "sbt-sassify"        % "1.5.2")
 addSbtPlugin("org.scoverage"      % "sbt-scoverage"      % "2.2.0")
 addSbtPlugin("uk.gov.hmrc"        % "sbt-auto-build"     % "3.24.0")
-addSbtPlugin("uk.gov.hmrc"        % "sbt-distributables" % "2.5.0")
+addSbtPlugin("uk.gov.hmrc"        % "sbt-distributables" % "2.6.0")
 
 evictionErrorLevel := Level.Warn
