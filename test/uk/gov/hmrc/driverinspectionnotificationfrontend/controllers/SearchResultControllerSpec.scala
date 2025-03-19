@@ -61,7 +61,6 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
       new inspection_required_export(
         fullWidthTemplate,
         hmrcPageHeading,
-        hmrcNewTabLink,
         govukWarningText,
         nearestSitesContent,
         nearestSitesheader,
@@ -76,7 +75,6 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
     val inspectionPending: inspection_pending =
       new inspection_pending(
         fullWidthTemplate,
-        hmrcPageHeading,
         govukButton,
         new LanguageUtils(new DefaultLangs(), configuration),
         govukNotificationBanner
