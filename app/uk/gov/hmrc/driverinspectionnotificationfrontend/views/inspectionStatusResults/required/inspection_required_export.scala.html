@@ -32,7 +32,7 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukButton
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.button.Button
 
-@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, hmrcNewTabLink: HmrcNewTabLink, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common, govukNotificationBanner : GovukNotificationBanner, govukButton: GovukButton)
+@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common, govukNotificationBanner : GovukNotificationBanner, govukButton: GovukButton)
 
 @(gmrId: String, locationsByInspectionType: Map[InspectionDisplayGroup, List[Location]])(implicit rh: RequestHeader, messages: Messages, appConfig: AppConfig)
 

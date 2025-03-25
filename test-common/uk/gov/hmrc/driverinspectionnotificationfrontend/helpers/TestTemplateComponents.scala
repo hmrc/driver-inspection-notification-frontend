@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.helpers
 
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.{NonPrintableBetaPhaseBanner, NonStandardHmrcFooterItems}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.NonStandardHmrcFooterItems
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.getHelp
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head, main_layout_full_width_template}
 import uk.gov.hmrc.govukfrontend.views.html.components.*
@@ -60,13 +60,11 @@ trait TestTemplateComponents {
         govukTemplate,
         hmrcStandardHeader,
         new HmrcFooter(new GovukFooter),
-        new NonPrintableBetaPhaseBanner,
         technicalIssueSnippet,
         hmrcScripts,
         nonStandardHmrcFooterItems
       ),
       new head(hmrcTrackingConsent),
-      new uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcLanguageSelect,
       new GovukBackLink
     )
 
