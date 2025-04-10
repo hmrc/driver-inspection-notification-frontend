@@ -66,6 +66,8 @@ object InspectionDisplayGroup {
 
   case object EMPTY extends InspectionCustomsGroup
 
+  case object UKIMS extends InspectionCustomsGroup
+
   case object DAERA extends InspectionDisplayGroup {
     val value = "daera"
   }
@@ -80,16 +82,16 @@ object InspectionDisplayGroup {
 
   def apply(inspectionType: InspectionType): InspectionDisplayGroup =
     inspectionType.inspectionTypeId match {
-      case "1" | "9" | "10" | "11" | "12" => CUSTOMS
-      case "2"                            => DEFRA
-      case "3"                            => BF_TRANSIT
-      case "4"                            => OGD
-      case "5"                            => DEFRA_PLANTS
-      case "6"                            => ATA
-      case "7"                            => SAD
-      case "8"                            => TIR
-      case "13"                           => DAERA
-      case "16"                           => SnS
-      case "18"                           => DEFRA_TRANSIT
+      case "1" | "9" | "10" | "11" | "12" | "17" => CUSTOMS
+      case "2"                                   => DEFRA
+      case "3"                                   => BF_TRANSIT
+      case "4"                                   => OGD
+      case "5"                                   => DEFRA_PLANTS
+      case "6"                                   => ATA
+      case "7"                                   => SAD
+      case "8"                                   => TIR
+      case "13"                                  => DAERA
+      case "16"                                  => SnS
+      case "18"                                  => DEFRA_TRANSIT
     }
 }

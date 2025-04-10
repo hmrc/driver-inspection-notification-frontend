@@ -23,7 +23,7 @@ class InspectionDisplayGroupSpec extends BaseSpec {
 
   "InspectionDisplayGroup" should {
 
-    "return the correct inspection display type, and correct value description in lower case, and return as 'customs' if the inspection type is any of the followings: CUSTOMS, DBC, EIDR, EXEMPTION or EMPTY" in {
+    "return the correct inspection display type, and correct value description in lower case, and return as 'customs' if the inspection type is any of the followings: CUSTOMS, DBC, EIDR, EXEMPTION, UKIMS or EMPTY" in {
       List[(InspectionType, InspectionDisplayGroup, String)](
         (InspectionType("1", "description"), InspectionDisplayGroup.CUSTOMS, "customs"),
         (InspectionType("2", "DEFRA"), InspectionDisplayGroup.DEFRA, "defra"),
@@ -37,7 +37,8 @@ class InspectionDisplayGroupSpec extends BaseSpec {
         (InspectionType("10", "EIDR"), InspectionDisplayGroup.CUSTOMS, "customs"),
         (InspectionType("11", "EXEMPTION"), InspectionDisplayGroup.CUSTOMS, "customs"),
         (InspectionType("12", "EMPTY"), InspectionDisplayGroup.CUSTOMS, "customs"),
-        (InspectionType("13", "DAERA"), InspectionDisplayGroup.DAERA, "daera")
+        (InspectionType("13", "DAERA"), InspectionDisplayGroup.DAERA, "daera"),
+        (InspectionType("17", "UKIMS"), InspectionDisplayGroup.CUSTOMS, "customs")
       ).foreach { case (inspectionType, inspectionDisplayGroup, value) =>
         val result = InspectionDisplayGroup(inspectionType)
         result       shouldBe inspectionDisplayGroup
