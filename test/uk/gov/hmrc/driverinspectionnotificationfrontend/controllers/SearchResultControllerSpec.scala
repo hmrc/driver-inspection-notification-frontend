@@ -151,7 +151,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           content          should include("Ending transit movements")
         }
 
-        "return 200 OK with inspection_required_import when is import and inspection data found in reference data with inspection types DBC, EIDR, EXEMPTION, EMPTY and CUSTOMS" in new SetUp {
+        "return 200 OK with inspection_required_import when is import and inspection data found in reference data with inspection types DBC, EIDR, EXEMPTION, EMPTY, UKIMS and CUSTOMS" in new SetUp {
           val gmrId = "gmrId"
           val location = Location(
             locationId = "1",
@@ -200,7 +200,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
               "9",
               "10",
               "11",
-              "12"
+              "12",
+              "17"
             ),
             requiredInspectionLocations = List(
               1, 9, 10, 11, 12
@@ -229,6 +230,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                       ReportLocations(inspectionTypeId = "12", locationIds = List("2")),
                       ReportLocations(inspectionTypeId = "13", locationIds = List("1")),
                       ReportLocations(inspectionTypeId = "16", locationIds = List("1")),
+                      ReportLocations(inspectionTypeId = "17", locationIds = List("2")),
                       ReportLocations(inspectionTypeId = "18", locationIds = List.empty)
                     )
                   )
@@ -254,6 +256,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                   ReportLocations(inspectionTypeId = "12", locationIds = List("2")),
                   ReportLocations(inspectionTypeId = "13", locationIds = List("1")),
                   ReportLocations(inspectionTypeId = "16", locationIds = List("1")),
+                  ReportLocations(inspectionTypeId = "17", locationIds = List("2")),
                   ReportLocations(inspectionTypeId = "18", locationIds = List.empty)
                 )
               )
@@ -275,6 +278,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                 Right(InspectionTypeWithLocations(InspectionType("12", "EMPTY"), List(Right(locationForCustoms)))),
                 Right(InspectionTypeWithLocations(InspectionType("13", "DAERA"), List(Right(location)))),
                 Right(InspectionTypeWithLocations(InspectionType("16", "SnS"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("17", "UKIMS"), List(Right(locationForCustoms)))),
                 Right(InspectionTypeWithLocations(InspectionType("18", "DEFRA_TRANSIT"), List.empty))
               )
             )
@@ -307,7 +311,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
         }
 
-        "return 200 OK with inspection_required_import  and some valid inspection types found alongside unrecognised types" in new SetUp {
+        "return 200 OK with inspection_required_import and some valid inspection types found alongside unrecognised types" in new SetUp {
           val gmrId = "gmrId"
           val location = Location(
             locationId = "1",
