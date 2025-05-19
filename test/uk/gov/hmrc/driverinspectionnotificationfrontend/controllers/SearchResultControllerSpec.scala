@@ -299,7 +299,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           content should include("For your Border Force transit inspection")
           content should include("For other government department inspections")
           content should include("For your ATA Carnet endorsement")
-          content should include("For your Single Administrative Document (SAD) endorsement")
+          content should include("For your Manual Transit Procedure endorsement")
           content should include("For your TIR Carnet endorsement")
           content should include("For your DAERA inspection")
           content should include("For your ENS (Safety and Security) inspection")
