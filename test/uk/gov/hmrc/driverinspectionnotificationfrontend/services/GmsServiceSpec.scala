@@ -50,7 +50,7 @@ class GmsServiceSpec extends BaseSpec {
       verify(mockGmsConnector).getInspectionStatus(any())(any())
     }
 
-    "proxy sad response from connector" in new SetUp {
+    "proxy bad response from connector" in new SetUp {
       val gmrId = "gmrId"
 
       when(mockGmsConnector.getInspectionStatus(any())(any()))

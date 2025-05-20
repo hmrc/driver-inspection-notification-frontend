@@ -178,7 +178,7 @@ inspection_needed_import.ogd.heading=Pour les autres inspections administratives
 inspection_needed_import.ata.heading=Pour la validation de votre Carnet ATA
 inspection_needed_import.tir.heading=Pour la validation de votre Carnet TIR
 inspection_needed_import.sns.heading=Pour votre inspection ENS (Sûreté et Sécurité)
-inspection_needed_import.sad.heading=Pour la validation de votre Document administratif unique (DAU)
+inspection_needed_import.mtp.heading=Pour l’approbation de votre procédure de transit manuelle
 inspection_needed_import_with_other.p1=Rendez-vous à votre site frontalier d’arrivée.
 inspection_needed_import.inspection.heading=Pour votre inspection
 
@@ -209,6 +209,6 @@ inspection_needed_export.bf_transit.heading=Pour votre inspection de transit Bor
 inspection_needed_export.ogd.heading=Pour les autres inspections administratives
 inspection_needed_export.ata.heading=Pour la validation de votre Carnet ATA
 inspection_needed_export.tir.heading=Pour la validation de votre Carnet TIR
-inspection_needed_export.sad.heading=Pour la validation de votre Document administratif unique (DAU)
+inspection_needed_export.mtp.heading=Pour l’approbation de votre procédure de transit manuelle
 inspection_needed_export_with_other.p1=Rendez-vous à votre site frontalier de départ.
 inspection_needed_export.inspection.heading=Pour votre inspection
