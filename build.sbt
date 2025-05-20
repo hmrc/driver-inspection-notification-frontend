@@ -49,7 +49,6 @@ lazy val microservice = Project(appName, file("."))
     Test / unmanagedSourceDirectories := (Test / baseDirectory)(base => Seq(base / "test", base / "test-common")).value,
     IntegrationTest / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports/html-it-report")
   )
-  .settings(resolvers += Resolver.jcenterRepo)
   .settings(scalafmtOnCompile := true,
     scalacOptions += "-Wconf:src=routes/.*:s", //Silence all warnings in generated routes
     scalacOptions += "-Wconf:msg=unused import*&src=html/.*:s",
