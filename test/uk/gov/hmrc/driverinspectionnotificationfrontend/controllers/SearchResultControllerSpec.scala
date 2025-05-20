@@ -270,7 +270,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                 Right(InspectionTypeWithLocations(InspectionType("4", "OGD"), List(Right(location)))),
                 Right(InspectionTypeWithLocations(InspectionType("5", "DEFRA_PLANTS"), List(Right(location)))),
                 Right(InspectionTypeWithLocations(InspectionType("6", "ATA"), List(Right(location)))),
-                Right(InspectionTypeWithLocations(InspectionType("7", "SAD"), List(Right(location)))),
+                Right(InspectionTypeWithLocations(InspectionType("7", "MTP"), List(Right(location)))),
                 Right(InspectionTypeWithLocations(InspectionType("8", "TIR"), List(Right(location)))),
                 Right(InspectionTypeWithLocations(InspectionType("9", "DBC"), List(Right(locationForCustoms)))),
                 Right(InspectionTypeWithLocations(InspectionType("10", "EIDR"), List(Right(locationForCustoms)))),
