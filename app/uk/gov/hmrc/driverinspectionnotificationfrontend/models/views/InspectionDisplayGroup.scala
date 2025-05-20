@@ -50,8 +50,8 @@ object InspectionDisplayGroup {
     val value = "ata"
   }
 
-  case object SAD extends InspectionDisplayGroup {
-    val value = "sad"
+  case object MTP extends InspectionDisplayGroup {
+    val value = "mtp"
   }
 
   case object TIR extends InspectionDisplayGroup {
@@ -88,7 +88,7 @@ object InspectionDisplayGroup {
       case "4"                                   => OGD
       case "5"                                   => DEFRA_PLANTS
       case "6"                                   => ATA
-      case "7"                                   => SAD
+      case "7"                                   => MTP
       case "8"                                   => TIR
       case "13"                                  => DAERA
       case "16"                                  => SnS

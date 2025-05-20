@@ -31,7 +31,7 @@ class InspectionDisplayGroupSpec extends BaseSpec {
         (InspectionType("4", "OGD"), InspectionDisplayGroup.OGD, "ogd"),
         (InspectionType("5", "DEFRA_PLANTS"), InspectionDisplayGroup.DEFRA_PLANTS, "defra_plants"),
         (InspectionType("6", "ATA"), InspectionDisplayGroup.ATA, "ata"),
-        (InspectionType("7", "SAD"), InspectionDisplayGroup.SAD, "sad"),
+        (InspectionType("7", "MTP"), InspectionDisplayGroup.MTP, "mtp"),
         (InspectionType("8", "TIR"), InspectionDisplayGroup.TIR, "tir"),
         (InspectionType("9", "DBC"), InspectionDisplayGroup.CUSTOMS, "customs"),
         (InspectionType("10", "EIDR"), InspectionDisplayGroup.CUSTOMS, "customs"),
