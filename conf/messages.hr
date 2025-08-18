@@ -179,6 +179,7 @@ inspection_needed_import.ata.heading=Za odobrenje ATA karneta
 inspection_needed_import.tir.heading=Za odobrenje karneta TIR
 inspection_needed_import.mtp.heading=Za vaše odobrenje neelektroničkog provoznog postupka
 inspection_needed_import.sns.heading=Za provjeru vaše ENS deklaracije (deklaracije o sigurnosti i zaštiti)
+inspection_needed_import.certex.heading=Za inspekciju CERTEX DAERA-e
 inspection_needed_import_with_other.p1=Putujte do graničnog prijelaza dolaska.
 inspection_needed_import.inspection.heading=Za vašu inspekciju
 
@@ -210,5 +211,6 @@ inspection_needed_export.ogd.heading=Za inspekcije drugih ministarstava
 inspection_needed_export.ata.heading=Za odobrenje ATA karneta
 inspection_needed_export.tir.heading=Za odobrenje karneta TIR
 inspection_needed_export.mtp.heading=Za vaše odobrenje neelektroničkog provoznog postupka
+inspection_needed_export.certex.heading=Za inspekciju CERTEX DAERA-e
 inspection_needed_export_with_other.p1=Putujte do graničnog prijelaza polaska.
 inspection_needed_export.inspection.heading=Za vašu inspekciju

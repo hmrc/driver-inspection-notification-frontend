@@ -178,6 +178,7 @@ inspection_needed_import.ata.heading=За вашето потвърждение 
 inspection_needed_import.tir.heading=За вашето потвърждение на карнет TIR
 inspection_needed_import.mtp.heading=За потвърждение на вашия ръчен транзитен режим
 inspection_needed_import.sns.heading=За проверка на декларация за внос ENS (безопасност и сигурност)
+inspection_needed_import.certex.heading=За вашата CERTEX проверка от DAERA
 inspection_needed_import_with_other.p1=Пътуване до вашия граничен пункт на пристигане.
 inspection_needed_import.inspection.heading=За вашата проверка
 
@@ -209,5 +210,6 @@ inspection_needed_export.ogd.heading=За проверки на други дъ�
 inspection_needed_export.ata.heading=За вашето потвърждение на карнет ATA
 inspection_needed_export.tir.heading=За вашето потвърждение на карнет TIR
 inspection_needed_export.mtp.heading=За потвърждение на вашия ръчен транзитен режим
+inspection_needed_export.certex.heading=За вашата CERTEX проверка от DAERA
 inspection_needed_export_with_other.p1=Пътуване до вашия отправен граничен пункт.
 inspection_needed_export.inspection.heading=За вашата проверка

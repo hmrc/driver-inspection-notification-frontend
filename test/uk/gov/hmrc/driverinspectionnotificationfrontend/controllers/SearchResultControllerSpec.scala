@@ -175,10 +175,11 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
               "6",
               "7",
               "8",
-              "13"
+              "13",
+              "19_1"
             ),
             requiredInspectionLocations = List(
-              2, 3, 4, 5, 6, 7, 8, 13
+              2, 3, 4, 5, 6, 7, 8, 13, 19_1
             )
           )
           val locationForCustoms = Location(
@@ -207,6 +208,33 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
               1, 9, 10, 11, 12
             )
           )
+          val locationForCertex = Location(
+            locationId = "3",
+            locationDescription = "Belfast Location 1",
+            address = Address(
+              lines = List(
+                "3 Shamrock Lane",
+                "Waldo"
+              ),
+              town = Some("Belfast"),
+              postcode = "NI3 6JG"
+            ),
+            locationType = "BCP",
+            locationEffectiveFrom = LocalDate.parse("2020-01-01"),
+            locationEffectiveTo = None,
+            supportedInspectionTypeIds = List(
+              "19_1",
+              "19_2",
+              "19_3",
+              "19_4"
+            ),
+            requiredInspectionLocations = List(
+              19_1,
+              19_2,
+              19_3,
+              19_4
+            )
+          )
 
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
@@ -231,7 +259,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                       ReportLocations(inspectionTypeId = "13", locationIds = List("1")),
                       ReportLocations(inspectionTypeId = "16", locationIds = List("1")),
                       ReportLocations(inspectionTypeId = "17", locationIds = List("2")),
-                      ReportLocations(inspectionTypeId = "18", locationIds = List.empty)
+                      ReportLocations(inspectionTypeId = "18", locationIds = List.empty),
+                      ReportLocations(inspectionTypeId = "19_1", locationIds = List("3"))
                     )
                   )
                 )
@@ -257,7 +286,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                   ReportLocations(inspectionTypeId = "13", locationIds = List("1")),
                   ReportLocations(inspectionTypeId = "16", locationIds = List("1")),
                   ReportLocations(inspectionTypeId = "17", locationIds = List("2")),
-                  ReportLocations(inspectionTypeId = "18", locationIds = List.empty)
+                  ReportLocations(inspectionTypeId = "18", locationIds = List.empty),
+                  ReportLocations(inspectionTypeId = "19_1", locationIds = List("3"))
                 )
               )
             )(any())
@@ -279,7 +309,8 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                 Right(InspectionTypeWithLocations(InspectionType("13", "DAERA"), List(Right(location)))),
                 Right(InspectionTypeWithLocations(InspectionType("16", "SnS"), List(Right(location)))),
                 Right(InspectionTypeWithLocations(InspectionType("17", "UKIMS"), List(Right(locationForCustoms)))),
-                Right(InspectionTypeWithLocations(InspectionType("18", "DEFRA_TRANSIT"), List.empty))
+                Right(InspectionTypeWithLocations(InspectionType("18", "DEFRA_TRANSIT"), List.empty)),
+                Right(InspectionTypeWithLocations(InspectionType("19_1", "DAERA_CERTEX"), List(Right(locationForCertex))))
               )
             )
 
@@ -303,6 +334,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           content should include("For your TIR Carnet endorsement")
           content should include("For your DAERA inspection")
           content should include("For your ENS (Safety and Security) inspection")
+          content should include("For your DAERA CERTEX inspection")
 
           content shouldNot include("For your Entry in Declarant’s Record inspection")
           content shouldNot include("For your Oral or by conduct declaration inspection")

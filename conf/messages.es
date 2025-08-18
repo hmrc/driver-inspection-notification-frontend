@@ -180,6 +180,7 @@ inspection_needed_import.ata.heading=Para aprobación del certificado ATA
 inspection_needed_import.tir.heading=Para aprobación del certificado TIR
 inspection_needed_import.mtp.heading=Para aprobación de su Procedimiento de Tránsito Manual
 inspection_needed_import.sns.heading=Para la inspección de su declaración ENS (Seguridad y Protección)
+inspection_needed_import.certex.heading=Para su inspección DAERA CERTEX
 inspection_needed_import_with_other.p1=Diríjase a su aduana de llegada.
 inspection_needed_import.inspection.heading=Para su inspección
 
@@ -211,5 +212,6 @@ inspection_needed_export.ogd.heading=Para otras inspecciones de departamentos gu
 inspection_needed_export.ata.heading=Para aprobación del certificado ATA
 inspection_needed_export.tir.heading=Para aprobación del certificado TIR
 inspection_needed_export.mtp.heading=Para aprobación de su Procedimiento de Tránsito Manual
+inspection_needed_export.certex.heading=Para su inspección DAERA CERTEX
 inspection_needed_export_with_other.p1=Diríjase a su aduana de salida.
 inspection_needed_export.inspection.heading=Para su inspección
