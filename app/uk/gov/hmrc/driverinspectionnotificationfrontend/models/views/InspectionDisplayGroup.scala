@@ -81,7 +81,7 @@ object InspectionDisplayGroup {
   }
 
   case object DAERA_CERTEX extends InspectionDisplayGroup {
-    val value = "certex"
+    val value = "daera_certex"
   }
 
   def apply(inspectionType: InspectionType): InspectionDisplayGroup =

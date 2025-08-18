@@ -260,7 +260,10 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                       ReportLocations(inspectionTypeId = "16", locationIds = List("1")),
                       ReportLocations(inspectionTypeId = "17", locationIds = List("2")),
                       ReportLocations(inspectionTypeId = "18", locationIds = List.empty),
-                      ReportLocations(inspectionTypeId = "19_1", locationIds = List("3"))
+                      ReportLocations(inspectionTypeId = "19_1", locationIds = List("3")),
+                      ReportLocations(inspectionTypeId = "19_2", locationIds = List("3")),
+                      ReportLocations(inspectionTypeId = "19_3", locationIds = List("3")),
+                      ReportLocations(inspectionTypeId = "19_4", locationIds = List("3"))
                     )
                   )
                 )
@@ -287,7 +290,10 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                   ReportLocations(inspectionTypeId = "16", locationIds = List("1")),
                   ReportLocations(inspectionTypeId = "17", locationIds = List("2")),
                   ReportLocations(inspectionTypeId = "18", locationIds = List.empty),
-                  ReportLocations(inspectionTypeId = "19_1", locationIds = List("3"))
+                  ReportLocations(inspectionTypeId = "19_1", locationIds = List("3")),
+                  ReportLocations(inspectionTypeId = "19_2", locationIds = List("3")),
+                  ReportLocations(inspectionTypeId = "19_3", locationIds = List("3")),
+                  ReportLocations(inspectionTypeId = "19_4", locationIds = List("3"))
                 )
               )
             )(any())
@@ -310,7 +316,10 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                 Right(InspectionTypeWithLocations(InspectionType("16", "SnS"), List(Right(location)))),
                 Right(InspectionTypeWithLocations(InspectionType("17", "UKIMS"), List(Right(locationForCustoms)))),
                 Right(InspectionTypeWithLocations(InspectionType("18", "DEFRA_TRANSIT"), List.empty)),
-                Right(InspectionTypeWithLocations(InspectionType("19_1", "DAERA_CERTEX"), List(Right(locationForCertex))))
+                Right(InspectionTypeWithLocations(InspectionType("19_1", "DAERA_CERTEX"), List(Right(locationForCertex)))),
+                Right(InspectionTypeWithLocations(InspectionType("19_2", "DAERA_CERTEX"), List(Right(locationForCertex)))),
+                Right(InspectionTypeWithLocations(InspectionType("19_3", "DAERA_CERTEX"), List(Right(locationForCertex)))),
+                Right(InspectionTypeWithLocations(InspectionType("19_4", "DAERA_CERTEX"), List(Right(locationForCertex))))
               )
             )
 

@@ -180,7 +180,7 @@ inspection_needed_import.ata.heading=Az Ön ATA Carnet-igazolványának jóváha
 inspection_needed_import.tir.heading=Az Ön TIR Carnet-igazolványának jóváhagyásához
 inspection_needed_import.mtp.heading=A manuális árutovábbítási eljárás jóváhagyásához szükséges
 inspection_needed_import.sns.heading=Az Ön ENS- (biztonsági és védelmi) ellenőrzéséhez
-inspection_needed_import.certex.heading=DAERA CERTEX-ellenőrzés esetén
+inspection_needed_import.daera_certex.heading=DAERA CERTEX-ellenőrzés esetén
 inspection_needed_import_with_other.p1=Menjen az érkezési határátkelő helyre.
 inspection_needed_import.inspection.heading=Ellenőrzés esetén
 
@@ -212,6 +212,6 @@ inspection_needed_export.ogd.heading=Egyéb kormányhivatali ellenőrzések eset
 inspection_needed_export.ata.heading=Az Ön ATA Carnet-igazolványának jóváhagyásához
 inspection_needed_export.tir.heading=Az Ön TIR Carnet-igazolványának jóváhagyásához
 inspection_needed_export.mtp.heading=A manuális árutovábbítási eljárás jóváhagyásához szükséges
-inspection_needed_export.certex.heading=DAERA CERTEX-ellenőrzés esetén
+inspection_needed_export.daera_certex.heading=DAERA CERTEX-ellenőrzés esetén
 inspection_needed_export_with_other.p1=Menjen az indulási határátkelő helyre.
 inspection_needed_export.inspection.heading=Ellenőrzés esetén
