@@ -178,6 +178,7 @@ inspection_needed_import.ata.heading=Do indosu Twojego karnetu ATA
 inspection_needed_import.tir.heading=Do indosu Twojego karnetu TIR
 inspection_needed_import.mtp.heading=Do indosu Twojej manualnej procedury tranzytowej
 inspection_needed_import.sns.heading=Do kontroli Twojej przywozowej deklaracji skróconej (bezpieczeństwo i ochrona) [ENS (Safety and Security)]
+inspection_needed_import.daera_certex.heading=Do Twojej kontroli DAERA CERTEX
 inspection_needed_import_with_other.p1=Udaj się do placówki granicznej przybycia.
 inspection_needed_import.inspection.heading=Do kontroli
 
@@ -209,5 +210,6 @@ inspection_needed_export.ogd.heading=Kontrole przeprowadzane przez inne urzędy
 inspection_needed_export.ata.heading=Do indosu Twojego karnetu ATA
 inspection_needed_export.tir.heading=Do indosu Twojego karnetu TIR
 inspection_needed_export.mtp.heading=Do indosu Twojej manualnej procedury tranzytowej
+inspection_needed_export.daera_certex.heading=Do Twojej kontroli DAERA CERTEX
 inspection_needed_export_with_other.p1=Udaj się do placówki granicznej wyjścia.
 inspection_needed_export.inspection.heading=Do kontroli

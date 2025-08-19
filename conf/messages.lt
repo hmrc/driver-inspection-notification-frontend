@@ -180,6 +180,7 @@ inspection_needed_import.ata.heading=Jūsų ATA knygelės patvirtinimui
 inspection_needed_import.tir.heading=Jūsų TIR knygelės patvirtinimui
 inspection_needed_import.mtp.heading=Dėl jūsų rankinės tranzito procedūros patvirtinimo
 inspection_needed_import.sns.heading=Jūsų ENS (saugos ir saugumo) patikrai
+inspection_needed_import.daera_certex.heading=Jūsų DAERA CERTEX patikrinimui
 inspection_needed_import_with_other.p1=Keliaukite į atvykimo vietą pasienyje.
 inspection_needed_import.inspection.heading=Jūsų patikrinimui
 
@@ -211,5 +212,6 @@ inspection_needed_export.ogd.heading=Dėl kitų valstybinių departamentų patik
 inspection_needed_export.ata.heading=Jūsų ATA knygelės patvirtinimui
 inspection_needed_export.tir.heading=Jūsų TIR knygelės patvirtinimui
 inspection_needed_export.mtp.heading=Dėl jūsų rankinės tranzito procedūros patvirtinimo
+inspection_needed_export.daera_certex.heading=Jūsų DAERA CERTEX patikrinimui
 inspection_needed_export_with_other.p1=Keliaukite į išvykimo vietą pasienyje.
 inspection_needed_export.inspection.heading=Jūsų patikrinimui

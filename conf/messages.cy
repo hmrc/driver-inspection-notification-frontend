@@ -179,6 +179,7 @@ inspection_needed_import.ata.heading=Ar gyfer cymeradwyo’ch Carnet ATA
 inspection_needed_import.tir.heading=Ar gyfer cymeradwyo’ch Carnet TIR
 inspection_needed_import.mtp.heading=Ar gyfer eich Gweithdrefn Cyffredinol Cludo â Llaw
 inspection_needed_import.sns.heading=Ar gyfer eich archwiliad ENS (Diogelwch)
+inspection_needed_import.daera_certex.heading=Ar gyfer eich archwiliad DAERA CERTEX
 inspection_needed_import_with_other.p1=Teithiwch at eich man cyrraedd wrth y ffin.
 inspection_needed_import.inspection.heading=Ar gyfer eich archwiliad
 
@@ -210,5 +211,6 @@ inspection_needed_export.ogd.heading=Ar gyfer archwiliadau gan adrannau eraill o
 inspection_needed_export.ata.heading=Ar gyfer cymeradwyo’ch Carnet ATA
 inspection_needed_export.tir.heading=Ar gyfer cymeradwyo’ch Carnet TIR
 inspection_needed_export.mtp.heading=Ar gyfer eich Gweithdrefn Cyffredinol Cludo â Llaw
+inspection_needed_export.daera_certex.heading=Ar gyfer eich archwiliad DAERA CERTEX
 inspection_needed_export_with_other.p1=Teithiwch i’ch man ymadael wrth y ffin.
 inspection_needed_export.inspection.heading=Ar gyfer eich archwiliad
