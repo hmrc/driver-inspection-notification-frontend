@@ -20,8 +20,8 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.NonStandar
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.getHelp
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head, main_layout_full_width_template}
 import uk.gov.hmrc.govukfrontend.views.html.components.*
-import uk.gov.hmrc.govukfrontend.views.html.helpers.{GovukFormGroup, GovukHintAndErrorMessage}
-import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, TrackingConsentConfig, TudorCrownConfig}
+import uk.gov.hmrc.govukfrontend.views.html.helpers.{GovukFormGroup, GovukHintAndErrorMessage, GovukLogo}
+import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, RebrandConfig, TrackingConsentConfig, TudorCrownConfig}
 import uk.gov.hmrc.hmrcfrontend.views.html.components.*
 import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcScripts, HmrcStandardHeader, HmrcTrackingConsentSnippet}
 
@@ -31,9 +31,15 @@ trait TestTemplateComponents {
   val additionalAppConfig: Map[String, Any] = Map.empty
 
   val hmrcTrackingConsent = new HmrcTrackingConsentSnippet(new TrackingConsentConfig(configuration))
-
+  val govukLogo           = new GovukLogo
   val govukTemplate =
-    new GovukTemplate(new GovukHeader(TudorCrownConfig(configuration)), new GovukFooter, new GovukSkipLink, new FixedWidthPageLayout)
+    new GovukTemplate(
+      new GovukHeader(TudorCrownConfig(configuration), RebrandConfig(configuration), govukLogo),
+      new GovukFooter(RebrandConfig(configuration), govukLogo),
+      new GovukSkipLink,
+      new FixedWidthPageLayout,
+      RebrandConfig(configuration)
+    )
 
   val technicalIssueSnippet = new getHelp(new HmrcReportTechnicalIssue(), new ContactFrontendConfig(configuration))
 
@@ -46,7 +52,9 @@ trait TestTemplateComponents {
       hmrcBanner = new HmrcBanner(TudorCrownConfig(configuration)),
       hmrcUserResearchBanner = new HmrcUserResearchBanner(),
       govukPhaseBanner = new GovukPhaseBanner(govukTag = new GovukTag()),
-      TudorCrownConfig(configuration)
+      tudorCrownConfig = TudorCrownConfig(configuration),
+      rebrandConfig = RebrandConfig(configuration),
+      govukLogo = govukLogo
     )
   )
 
@@ -54,12 +62,16 @@ trait TestTemplateComponents {
 
   val hmrcScripts = new HmrcScripts(assetsConfig)
 
+  val govUkFooter = new GovukFooter(
+    rebrandConfig = RebrandConfig(configuration),
+    govukLogo = govukLogo
+  )
   val fullWidthTemplate =
     new main_layout_full_width_template(
       new govukTwoThirdsLayout(
         govukTemplate,
         hmrcStandardHeader,
-        new HmrcFooter(new GovukFooter),
+        new HmrcFooter(govUkFooter),
         technicalIssueSnippet,
         hmrcScripts,
         nonStandardHmrcFooterItems
