@@ -752,6 +752,20 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below."
         )
       }
+
+      "return 200 OK for no inspection required" in new SetUp {
+        val gmrId = "gmrId"
+
+        when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
+          .thenReturn(
+            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionNotNeeded))
+          )
+
+        val result = controller.result("gmrId", checkedStatusAgain = true)(FakeRequest())
+        status(result)        shouldBe 200
+        contentAsString(result) should include("No inspection needed - Check if you need to report for an inspection - GOV.UK")
+      }
+
     }
 
     "direction is UK_INBOUND" should {
@@ -937,6 +951,25 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           "Your inspection status should be ready around 10 minutes before you reach your border location of arrival. You can check again to see if it’s ready using the button below."
         )
       }
+    }
+
+    "direction is GB_TO_NI" should {
+      val direction = GB_TO_NI
+      "return 200 OK for no inspection required" in new SetUp {
+        val gmrId = "gmrId"
+
+        when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
+          .thenReturn(
+            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionNotNeeded))
+          )
+
+        val result = controller.result("gmrId", checkedStatusAgain = true)(FakeRequest())
+        status(result) shouldBe 200
+        contentAsString(result) should include(
+          "This movement does not currently need an inspection - Check if you need to report for an inspection - GOV.UK"
+        )
+      }
+
     }
   }
 }
