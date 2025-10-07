@@ -29,8 +29,14 @@ lazy val microservice = Project(appName, file("."))
       "<empty>;com.kenshoo.play.metrics.*;.*definition.*;prod.*;testOnlyDoNotUseInAppConf.*;" +
         "app.*;.*BuildInfo.*;.*Routes.*;.*repositories.*;.*LanguageSwitchController;.*metrics.*;.*views.*;Reverse.*;" +
         ".*connectors.*;.*.models.*;",
-    ScoverageKeys.coverageMinimumStmtTotal := 80,
-    ScoverageKeys.coverageFailOnMinimum := false,
+    ScoverageKeys.coverageExcludedPackages :=
+      ( "uk.gov.hmrc.driverinspectionnotificationfrontend.config*;" +
+        "uk.gov.hmrc.driverinspectionnotificationfrontend.controllers.test.*;" +
+        "uk.gov.hmrc.driverinspectionnotificationfrontend.services.test.*;" +
+        "uk.gov.hmrc.driverinspectionnotificationfrontend.models.*"
+        ),
+    ScoverageKeys.coverageMinimumStmtTotal := 90,
+    ScoverageKeys.coverageFailOnMinimum := true,
     ScoverageKeys.coverageHighlighting := true,
     playDefaultPort := 9004,
     libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test,
