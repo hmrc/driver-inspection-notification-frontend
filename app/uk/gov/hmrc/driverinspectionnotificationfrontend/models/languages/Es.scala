@@ -18,8 +18,7 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.models.languages
 
 import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.Language
 
-case object Es extends Language {
-  val code:                  String = "es"
-  val name:                  String = "Spanish"
-  val serviceNavigationName: String = "ES"
+case object Es extends ServiceNavigationName {
+  val code: String = "es"
+  val name: String = "Spanish"
 }
