@@ -54,7 +54,8 @@ trait TestTemplateComponents {
       govukPhaseBanner = new GovukPhaseBanner(govukTag = new GovukTag()),
       tudorCrownConfig = TudorCrownConfig(configuration),
       rebrandConfig = RebrandConfig(configuration),
-      govukLogo = govukLogo
+      govukLogo = govukLogo,
+      govukServiceNavigation = GovukServiceNavigation()
     )
   )
 
