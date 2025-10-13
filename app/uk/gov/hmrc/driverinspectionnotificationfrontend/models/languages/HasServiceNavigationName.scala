@@ -18,6 +18,7 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.models.languages
 
 import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.Language
 
-trait ServiceNavigationName extends Language {
+trait HasServiceNavigationName {
+  this: Language =>
   override def serviceNavigationName: String = code.toUpperCase
 }
