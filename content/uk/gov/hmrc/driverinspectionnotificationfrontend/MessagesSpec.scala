@@ -39,8 +39,6 @@ class MessagesSpec extends BaseSpec with Commands with BeforeAndAfterAll {
 
   override implicit val defaultAwaitTimeout: Timeout = 120 seconds
 
-  val logger = Logger(this.getClass.getName)
-
   lazy val englishMessages: Map[String, String] = getMessages("messages")
 
   if (configuration.get[Boolean]("content.useCheckout")) {
@@ -112,8 +110,8 @@ class MessagesSpec extends BaseSpec with Commands with BeforeAndAfterAll {
         s"using $language" should {
           s"have all the same keys that are in the english file" in {
             /* For debugging purpose
-            println(s"Missing keys in $language: \n${(englishMessages.keys.toList diff messages.keys.toList).sorted.mkString("\n")}")
-            println(s"Missing keys in English: \n${(messages.keys.toList diff englishMessages.keys.toList).sorted.mkString("\n")}")
+            logger.info(s"Missing keys in $language: \n${(englishMessages.keys.toList diff messages.keys.toList).sorted.mkString("\n")}")
+            logger.info(s"Missing keys in English: \n${(messages.keys.toList diff englishMessages.keys.toList).sorted.mkString("\n")}")
              */
             englishMessages.keys.toList should contain theSameElementsAs messages.keys.toList
           }
@@ -123,9 +121,9 @@ class MessagesSpec extends BaseSpec with Commands with BeforeAndAfterAll {
               case (key, value) => value.equalsIgnoreCase("TODO")
             }
 
-            println("")
-            println(s"Keys left to translate\n${result.keys.toList.mkString("\n")}")
-            println("")
+
+            logger.info(s"Keys left to translate\n${result.keys.toList.mkString("\n")}")
+
             result shouldBe Map()
           }
 
@@ -133,14 +131,14 @@ class MessagesSpec extends BaseSpec with Commands with BeforeAndAfterAll {
           val messageDiff = localMessageFileChanges(mainMessages, messages)
           if (messageDiff.nonEmpty) {
             s"the differences between main messages file ($language) and local updated one should be the same as the csv diff content" in {
-              println(s"$language differences since main: " + messageDiff.mkString("\n"))
+              logger.info(s"$language differences since main: " + messageDiff.mkString("\n"))
 
               val content = csv(language).toList
 
-              println(s"$language differences with csv " + (content diff messageDiff).size.toString)
-              println(s"$language differences with csv: " + (content diff messageDiff).sortBy(_._1).mkString("\n"))
-              println(s"$language differences with messages " + (messageDiff diff content).size.toString)
-              println(s"$language differences with messages: " + (messageDiff diff content).mkString("\n"))
+              logger.info(s"$language differences with csv " + (content diff messageDiff).size.toString)
+              logger.info(s"$language differences with csv: " + (content diff messageDiff).sortBy(_._1).mkString("\n"))
+              logger.info(s"$language differences with messages " + (messageDiff diff content).size.toString)
+              logger.info(s"$language differences with messages: " + (messageDiff diff content).mkString("\n"))
               messageDiff should contain theSameElementsAs content
             }
           }
@@ -169,16 +167,16 @@ class MessagesSpec extends BaseSpec with Commands with BeforeAndAfterAll {
             val nonDuplicatedContent = expectedDuplicatedContent.filter(_._2.values.toList.distinct.size > 1)
 
             if (nonDuplicatedContent.values.map(_.size).sum > 0) {
-              println("======= The following keys share the same content in English, but have different content in other languages: ====")
-              println(nonDuplicatedContent.mkString("\n"))
-              println("effected keys")
-              println(nonDuplicatedContent.values.flatMap(_.keys).mkString("\n"))
-              println("spreadsheet values")
+              logger.info("======= The following keys share the same content in English, but have different content in other languages: ====")
+              logger.info(nonDuplicatedContent.mkString("\n"))
+              logger.info("effected keys")
+              logger.info(nonDuplicatedContent.values.flatMap(_.keys).mkString("\n"))
+              logger.info("spreadsheet values")
               nonDuplicatedContent.foreach {
                 case (content, map) =>
                   map.foreach {
                     case (key, translation) =>
-                      println(s"$key | $content | $translation")
+                      logger.info(s"$key | $content | $translation")
                   }
               }
             }
@@ -232,7 +230,7 @@ class MessagesSpec extends BaseSpec with Commands with BeforeAndAfterAll {
       ).flatten) { file =>
         Future {
           val removed = FileUtils.deleteQuietly(file)
-          println(s"Deleting file ${file.getName}, remove: $removed")
+          logger.info(s"Deleting file ${file.getName}, remove: $removed")
           removed
         }
       })

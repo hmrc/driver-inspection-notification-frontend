@@ -16,10 +16,12 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.helpers
 
+import play.api.Logging
+
 import java.io.{BufferedReader, File, InputStreamReader}
 import scala.concurrent.Future
 
-trait Commands {
+trait Commands extends Logging {
   self: BaseSpec =>
 
   def executeCommand(cmd: String): Future[Unit] =
@@ -30,7 +32,7 @@ trait Commands {
 
   def executeCommand(cmd: String, params: Array[String], strDir: String): Future[Unit] = {
 
-    println("Running " + cmd)
+    logger.info("Running " + cmd)
     Future {
       val dir = new File(strDir)
       val p:      Process        = Runtime.getRuntime.exec(cmd, params, dir)
@@ -38,11 +40,11 @@ trait Commands {
 
       var line: String = reader.readLine()
       while (line != null) {
-        println(line)
+        logger.info(line)
         line = reader.readLine()
       }
       p.waitFor()
-      println("-------> Done.")
+      logger.info("-------> Done.")
     }
   }
 }
