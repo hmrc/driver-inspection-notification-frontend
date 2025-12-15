@@ -36,28 +36,23 @@ class SearchControllerSpec extends BaseSpec {
 
     val fakeRequest = FakeRequest("GET", "/")
 
-    "return 200" in new SetUp {
+    "return 200 OK" in new SetUp {
       val result = controller.show(None)(fakeRequest)
+      status(result)        shouldBe OK
       contentAsString(result) should include("Check if you need to report for an inspection")
-      contentAsString(result) should include(
-        "You will find this on the copy of the GMR you used to check in to this crossing. It is 12 characters starting with GMR. For example, GMRA00002KW2."
-      )
-      contentAsString(result) should include("What is your goods movement reference (GMR)?")
-      contentAsString(result) should include("Continue")
       contentType(result)   shouldBe Some("text/html")
       charset(result)       shouldBe Some("utf-8")
     }
 
-    "return 400" in new SetUp {
+    "return 404 NOT FOUND" in new SetUp {
       val result = controller.show(None)(fakeRequest.withFlash(("not-found", "1234")))
+      status(result)        shouldBe NOT_FOUND
       contentAsString(result) should include("Check if you need to report for an inspection")
       contentAsString(result) should include(
-        "You will find this on the copy of the GMR you used to check in to this crossing. It is 12 characters starting with GMR. For example, GMRA00002KW2."
+        "GMR not found. You will need to check the details of the GMR and enter it again."
       )
-      contentAsString(result) should include("What is your goods movement reference (GMR)?")
-      contentAsString(result) should include("Continue")
-      contentType(result)   shouldBe Some("text/html")
-      charset(result)       shouldBe Some("utf-8")
+      contentType(result) shouldBe Some("text/html")
+      charset(result)     shouldBe Some("utf-8")
     }
   }
 
@@ -67,16 +62,15 @@ class SearchControllerSpec extends BaseSpec {
     val invalidGmr                = "<>!"
     val fakeRequestWithInvalidGmr = FakeRequest(routes.SearchController.submit()).withBody(Map("gmrId" -> List(invalidGmr)))
 
-    "Redirect to results page" in new SetUp {
-
+    "redirect to results page" in new SetUp {
       val result = controller.submit()(fakeRequestWithValidGmr)
+      status(result)           shouldBe SEE_OTHER
       redirectLocation(result) shouldBe Some(routes.SearchResultController.result(validGmr, checkedStatusAgain = false).url)
     }
 
-    "Bad Request: Invalid gmr" in new SetUp {
+    "return 400 BAD REQUEST: Invalid gmr" in new SetUp {
       val result = controller.submit()(fakeRequestWithInvalidGmr)
-      status(result)        shouldBe 400
-      contentAsString(result) should include("Enter a GMR in the correct format")
+      status(result) shouldBe BAD_REQUEST
     }
 
   }

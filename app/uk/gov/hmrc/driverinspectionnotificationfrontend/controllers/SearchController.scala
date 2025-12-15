@@ -39,7 +39,7 @@ class SearchController @Inject() (
   def show(gmrId: Option[String]): Action[AnyContent] = Action { implicit request =>
     request.flash.get("not-found") match {
       case Some(gmrId) =>
-        BadRequest(searchPage(GmrErrorHandling.handlingGmrRetrievalFailure(gmrId)(GmrNotFound)))
+        NotFound(searchPage(GmrErrorHandling.handlingGmrRetrievalFailure(gmrId)(GmrNotFound)))
       case None =>
         Ok(searchPage(gmrId.fold(GmrSearchForm.gmrSearchForm)(GmrSearchForm.gmrSearchForm.fill)))
 
