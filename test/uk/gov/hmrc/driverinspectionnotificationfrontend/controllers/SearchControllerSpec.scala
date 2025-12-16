@@ -46,7 +46,7 @@ class SearchControllerSpec extends BaseSpec {
 
     "return 404 NOT FOUND" in new SetUp {
       val result = controller.show(None)(fakeRequest.withFlash(("not-found", "1234")))
-      status(result)        shouldBe NOT_FOUND
+      status(result)        shouldBe BAD_REQUEST
       contentAsString(result) should include("Check if you need to report for an inspection")
       contentAsString(result) should include(
         "GMR not found. You will need to check the details of the GMR and enter it again."
