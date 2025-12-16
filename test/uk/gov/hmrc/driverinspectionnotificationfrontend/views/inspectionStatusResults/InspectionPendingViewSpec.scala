@@ -16,17 +16,10 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.views.inspectionStatusResults
 
-import org.jsoup.nodes.Document
 import play.api.i18n.DefaultLangs
-import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.UK_INBOUND
-import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{Address, Location}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
-import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup.{CUSTOMS, DEFRA_PLANTS, DEFRA_TRANSIT}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.ViewBehaviours
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.inspection_pending
 import uk.gov.hmrc.play.language.LanguageUtils
-
-import java.time.LocalDate
 
 class InspectionPendingViewSpec extends ViewBehaviours {
 

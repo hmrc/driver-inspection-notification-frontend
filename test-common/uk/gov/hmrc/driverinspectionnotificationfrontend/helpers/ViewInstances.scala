@@ -32,7 +32,7 @@ import uk.gov.hmrc.hmrcfrontend.views.html.components.*
 import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcScripts, HmrcStandardHeader, HmrcTrackingConsentSnippet}
 import uk.gov.hmrc.play.language.LanguageUtils
 
-trait TestTemplateComponents {
+trait ViewInstances {
   self: Configs =>
 
   val additionalAppConfig: Map[String, Any] = Map.empty
