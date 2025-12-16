@@ -30,7 +30,7 @@ trait BaseSpec
     with FakeObjects
     with DefaultAwaitTimeout
     with FutureAwaits
-    with TestTemplateComponents
+    with ViewInstances
     with Configs
     with MockitoSugar
     with ScalaFutures

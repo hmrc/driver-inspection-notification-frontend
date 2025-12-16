@@ -16,16 +16,23 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.helpers
 
+import play.api.i18n.DefaultLangs
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.NonStandardHmrcFooterItems
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.getHelp
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head, main_layout_full_width_template}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head, main_layout_full_width_template, search_page, start_page}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.inspection_pending
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.{inspection_required_export, inspection_required_import}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared.{inspection_not_needed_export, inspection_not_needed_gb_to_ni, inspection_not_needed_import}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials.{nearest_sites_content, nearest_sites_header}
 import uk.gov.hmrc.govukfrontend.views.html.components.*
 import uk.gov.hmrc.govukfrontend.views.html.helpers.{GovukFormGroup, GovukHintAndErrorMessage, GovukLogo}
 import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, RebrandConfig, TrackingConsentConfig, TudorCrownConfig}
 import uk.gov.hmrc.hmrcfrontend.views.html.components.*
 import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcScripts, HmrcStandardHeader, HmrcTrackingConsentSnippet}
+import uk.gov.hmrc.play.language.LanguageUtils
 
-trait TestTemplateComponents {
+trait ViewInstances {
   self: Configs =>
 
   val additionalAppConfig: Map[String, Any] = Map.empty
@@ -104,4 +111,61 @@ trait TestTemplateComponents {
   val hmrcNewTabLink          = new HmrcNewTabLink
   val govukNotificationBanner = new GovukNotificationBanner
 
+  val nearestSitesHeader  = new nearest_sites_header()
+  val nearestSitesContent = new nearest_sites_content()
+  val guidanceCommon      = new guidance_common(govUkInsetText)
+
+  val startPageView = new start_page(
+    fullWidthTemplate,
+    govukButton,
+    hmrcPageHeading,
+    hmrcNewTabLink
+  )
+
+  val searchPageView = new search_page(
+    fullWidthTemplate,
+    govukButton,
+    formWithCSRF,
+    govukErrorSummary,
+    hmrcPageHeading,
+    govukInput
+  )
+
+  val inspectionRequiredExportView = new inspection_required_export(
+    fullWidthTemplate,
+    hmrcPageHeading,
+    govukWarningText,
+    nearestSitesContent,
+    nearestSitesHeader,
+    guidanceCommon,
+    govukNotificationBanner,
+    govukButton
+  )
+
+  val inspectionRequiredImportView = new inspection_required_import(
+    fullWidthTemplate,
+    hmrcPageHeading,
+    govukWarningText,
+    nearestSitesContent,
+    nearestSitesHeader,
+    guidanceCommon,
+    govukNotificationBanner,
+    govukButton,
+    govUkInsetText
+  )
+
+  val inspectionNotNeededExportView = new inspection_not_needed_export(
+    fullWidthTemplate,
+    hmrcPageHeading
+  )
+
+  val inspectionNotNeededImportView = new inspection_not_needed_import(
+    fullWidthTemplate,
+    hmrcPageHeading
+  )
+
+  val inspectionNotNeededGbToNiView = new inspection_not_needed_gb_to_ni(
+    fullWidthTemplate,
+    hmrcPageHeading
+  )
 }
