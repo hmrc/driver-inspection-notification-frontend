@@ -44,7 +44,7 @@ class SearchControllerSpec extends BaseSpec {
       charset(result)       shouldBe Some("utf-8")
     }
 
-    "return 404 NOT FOUND" in new SetUp {
+    "return 400 BAD_REQUEST" in new SetUp {
       val result = controller.show(None)(fakeRequest.withFlash(("not-found", "1234")))
       status(result)        shouldBe BAD_REQUEST
       contentAsString(result) should include("Check if you need to report for an inspection")
