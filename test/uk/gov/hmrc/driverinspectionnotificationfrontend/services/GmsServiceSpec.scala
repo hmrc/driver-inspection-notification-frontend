@@ -16,10 +16,11 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.services
 
-import org.mockito.ArgumentMatchers._
+import org.mockito.ArgumentMatchers.*
 import org.mockito.Mockito.{verify, when}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.BaseSpec
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.factories.InspectionResponseFactory.inspectionResponse
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.InspectionResponse
 import uk.gov.hmrc.http.HeaderCarrier
 

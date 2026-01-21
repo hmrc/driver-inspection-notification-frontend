@@ -17,14 +17,15 @@
 package uk.gov.hmrc.driverinspectionnotificationfrontend.controllers
 
 import cats.data.EitherT
-import org.mockito.ArgumentMatchers.{any, eq => argEq, same}
+import org.mockito.ArgumentMatchers.{any, eq as argEq, same}
 import org.mockito.Mockito.when
 import play.api.i18n.DefaultLangs
 import play.api.test.FakeRequest
-import play.api.test.Helpers._
+import play.api.test.Helpers.*
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.InspectionLocationError.{InspectionTypeNotFound, LocationNotFound}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.ControllerBaseSpec
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.factories.InspectionResponseFactory.inspectionResponse
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.{GB_TO_NI, NI_TO_GB, UK_INBOUND, UK_OUTBOUND}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.{InspectionStatus, ReportLocations}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.InspectionType.InspectionTypeWithLocations
@@ -33,7 +34,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionSta
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.inspection_pending
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.{inspection_required_export, inspection_required_import}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials._
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials.*
 import uk.gov.hmrc.play.language.LanguageUtils
 
 import java.time.LocalDate

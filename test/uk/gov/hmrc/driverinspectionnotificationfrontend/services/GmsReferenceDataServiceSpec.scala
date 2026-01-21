@@ -23,6 +23,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.BaseSpec
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.ReportLocations
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.InspectionType.InspectionTypeWithLocations
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{Address, InspectionType, Location}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.testdata.ReferenceData._
 
 import java.time.LocalDate
 import scala.concurrent.Future
@@ -36,12 +37,12 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
   "getReferenceData" should {
     "return all the reference data" in new Setup {
       when(mockReferenceDataConnector.getReferenceData).thenReturn(
-        Future(gvmsReferenceData)
+        Future(referenceData)
       )
 
       val result = await(service.getReferenceData)
 
-      result shouldBe gvmsReferenceData
+      result shouldBe referenceData
 
       verify(mockReferenceDataConnector).getReferenceData
     }
@@ -61,7 +62,7 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
 
         "there are no inspection types in the reference data" in new Setup {
           service.getInspectionData(List(ReportLocations(inspectionTypeId = "3", locationIds = List("1"))))(
-            gvmsReferenceData.copy(inspectionTypes = None)
+            referenceData.copy(inspectionTypes = None)
           ) shouldBe List(Left(InspectionTypeNotFound("3")))
         }
       }
@@ -146,7 +147,7 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
               List(
                 ReportLocations(inspectionTypeId = "4", locationIds = List("1"))
               )
-            )(gvmsReferenceData.copy(locations = None)) shouldBe
+            )(referenceData.copy(locations = None)) shouldBe
             List(
               Right(InspectionTypeWithLocations(InspectionType("4", "OGD"), List(Left(LocationNotFound("1")))))
             )
