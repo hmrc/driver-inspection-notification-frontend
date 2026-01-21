@@ -47,7 +47,7 @@ object ReferenceData {
       )
     )
   )
-  
+
   private val inspectionTypes = Some(
     List(
       InspectionType(
@@ -68,7 +68,7 @@ object ReferenceData {
       )
     )
   )
-  
+
   implicit val referenceData: GvmsReferenceData =
     GvmsReferenceData(
       locations = locations,

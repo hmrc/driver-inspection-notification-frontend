@@ -24,14 +24,14 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.models.{Direction, Inspe
 object InspectionResponseFactory {
 
   def inspectionResponse(
-                          direction: Direction = UK_INBOUND,
-                          inspectionStatus: InspectionStatus = InspectionPending,
-                          reportToLocations: Option[List[ReportLocations]] = None
-                        ) =
+    direction:         Direction = UK_INBOUND,
+    inspectionStatus:  InspectionStatus = InspectionPending,
+    reportToLocations: Option[List[ReportLocations]] = None
+  ) =
     InspectionResponse(
       direction = direction,
       inspectionStatus = inspectionStatus,
       reportToLocations = reportToLocations
     )
-    
+
 }
