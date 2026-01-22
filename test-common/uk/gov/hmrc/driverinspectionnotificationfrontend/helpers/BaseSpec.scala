@@ -27,7 +27,6 @@ import uk.gov.hmrc.http.HeaderCarrier
 trait BaseSpec
     extends AnyWordSpecLike
     with Matchers
-    with FakeObjects
     with DefaultAwaitTimeout
     with FutureAwaits
     with ViewInstances

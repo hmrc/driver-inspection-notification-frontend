@@ -16,10 +16,11 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.services
 
-import org.mockito.ArgumentMatchers._
+import org.mockito.ArgumentMatchers.*
 import org.mockito.Mockito.{verify, when}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.BaseSpec
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.factories.InspectionResponseFactory.fakeInspectionResponse
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.InspectionResponse
 import uk.gov.hmrc.http.HeaderCarrier
 
@@ -38,7 +39,7 @@ class GmsServiceSpec extends BaseSpec {
     "proxy happy response from connector" in new SetUp {
       val gmrId = "gmrId"
 
-      val response: InspectionResponse = inspectionResponse()
+      val response: InspectionResponse = fakeInspectionResponse()
 
       when(mockGmsConnector.getInspectionStatus(any())(any()))
         .thenReturn(Future(Right(response)))

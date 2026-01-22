@@ -17,14 +17,15 @@
 package uk.gov.hmrc.driverinspectionnotificationfrontend.controllers
 
 import cats.data.EitherT
-import org.mockito.ArgumentMatchers.{any, eq => argEq, same}
+import org.mockito.ArgumentMatchers.{any, eq as argEq, same}
 import org.mockito.Mockito.when
 import play.api.i18n.DefaultLangs
 import play.api.test.FakeRequest
-import play.api.test.Helpers._
+import play.api.test.Helpers.*
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.InspectionLocationError.{InspectionTypeNotFound, LocationNotFound}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.ControllerBaseSpec
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.factories.InspectionResponseFactory.fakeInspectionResponse
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.{GB_TO_NI, NI_TO_GB, UK_INBOUND, UK_OUTBOUND}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.{InspectionStatus, ReportLocations}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.InspectionType.InspectionTypeWithLocations
@@ -33,7 +34,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionSta
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.inspection_pending
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.{inspection_required_export, inspection_required_import}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials._
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials.*
 import uk.gov.hmrc.play.language.LanguageUtils
 
 import java.time.LocalDate
@@ -129,7 +130,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
               EitherT.rightT[Future, GmrErrors](
-                inspectionResponse(
+                fakeInspectionResponse(
                   direction = direction,
                   inspectionStatus = InspectionStatus.InspectionRequired,
                   reportToLocations = Some(List(ReportLocations(inspectionTypeId = "3", locationIds = List("1"))))
@@ -235,7 +236,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
               EitherT.rightT[Future, GmrErrors](
-                inspectionResponse(
+                fakeInspectionResponse(
                   direction = direction,
                   inspectionStatus = InspectionStatus.InspectionRequired,
                   reportToLocations = Some(
@@ -375,7 +376,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
               EitherT.rightT[Future, GmrErrors](
-                inspectionResponse(
+                fakeInspectionResponse(
                   direction = direction,
                   inspectionStatus = InspectionStatus.InspectionRequired,
                   reportToLocations = Some(
@@ -439,7 +440,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
               EitherT.rightT[Future, GmrErrors](
-                inspectionResponse(
+                fakeInspectionResponse(
                   direction = direction,
                   inspectionStatus = InspectionStatus.InspectionRequired,
                   reportToLocations = Some(
@@ -482,7 +483,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
               EitherT.rightT[Future, GmrErrors](
-                inspectionResponse(
+                fakeInspectionResponse(
                   direction = direction,
                   inspectionStatus = InspectionStatus.InspectionRequired,
                   reportToLocations = None
@@ -504,7 +505,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
               EitherT.rightT[Future, GmrErrors](
-                inspectionResponse(
+                fakeInspectionResponse(
                   direction = direction,
                   inspectionStatus = InspectionStatus.InspectionRequired,
                   reportToLocations = Some(List(ReportLocations(inspectionTypeId = "5", locationIds = List("1"))))
@@ -526,7 +527,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
               EitherT.rightT[Future, GmrErrors](
-                inspectionResponse(
+                fakeInspectionResponse(
                   direction = direction,
                   inspectionStatus = InspectionStatus.InspectionRequired,
                   reportToLocations = Some(List(ReportLocations(inspectionTypeId = "3", locationIds = List("5"))))
@@ -547,7 +548,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
-              EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending))
+              EitherT.rightT[Future, GmrErrors](fakeInspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending))
             )
 
           val result = controller.result("gmrId", checkedStatusAgain = false)(FakeRequest())
@@ -561,7 +562,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
           when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
             .thenReturn(
-              EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending))
+              EitherT.rightT[Future, GmrErrors](fakeInspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending))
             )
 
           val result = controller.result("gmrId", checkedStatusAgain = true)(FakeRequest())
@@ -583,7 +584,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
-            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionRequired))
+            EitherT.rightT[Future, GmrErrors](fakeInspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionRequired))
           )
 
         when(mockReferenceDataService.getInspectionData(any())(any())).thenReturn(Nil)
@@ -599,7 +600,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
             EitherT.rightT[Future, GmrErrors](
-              inspectionResponse(
+              fakeInspectionResponse(
                 direction = direction,
                 inspectionStatus = InspectionStatus.InspectionRequired,
                 reportToLocations = None
@@ -622,7 +623,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
             EitherT.rightT[Future, GmrErrors](
-              inspectionResponse(
+              fakeInspectionResponse(
                 direction = direction,
                 inspectionStatus = InspectionStatus.InspectionRequired,
                 reportToLocations = Some(List(ReportLocations(inspectionTypeId = "6", locationIds = List("1"))))
@@ -644,7 +645,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
             EitherT.rightT[Future, GmrErrors](
-              inspectionResponse(
+              fakeInspectionResponse(
                 direction = direction,
                 inspectionStatus = InspectionStatus.InspectionRequired,
                 reportToLocations = Some(List(ReportLocations(inspectionTypeId = "3", locationIds = List("5"))))
@@ -665,7 +666,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
-            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending))
+            EitherT.rightT[Future, GmrErrors](fakeInspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending))
           )
 
         val result = controller.result("gmrId", checkedStatusAgain = false)(FakeRequest())
@@ -683,7 +684,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
-            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending))
+            EitherT.rightT[Future, GmrErrors](fakeInspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending))
           )
 
         val result = controller.result("gmrId", checkedStatusAgain = true)(FakeRequest())
@@ -701,7 +702,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
-            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionNotNeeded))
+            EitherT.rightT[Future, GmrErrors](fakeInspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionNotNeeded))
           )
 
         val result = controller.result("gmrId", checkedStatusAgain = true)(FakeRequest())
@@ -718,7 +719,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
-            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionRequired))
+            EitherT.rightT[Future, GmrErrors](fakeInspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionRequired))
           )
         when(mockReferenceDataService.getInspectionData(any())(any())).thenReturn(Nil)
 
@@ -736,7 +737,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
             EitherT.rightT[Future, GmrErrors](
-              inspectionResponse(
+              fakeInspectionResponse(
                 direction = UK_INBOUND,
                 inspectionStatus = InspectionStatus.InspectionRequired,
                 reportToLocations = Some(reportLocations)
@@ -792,7 +793,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
             EitherT.rightT[Future, GmrErrors](
-              inspectionResponse(
+              fakeInspectionResponse(
                 direction = UK_INBOUND,
                 inspectionStatus = InspectionStatus.InspectionRequired,
                 reportToLocations = Some(reportLocations)
@@ -819,7 +820,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
-            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionRequired))
+            EitherT.rightT[Future, GmrErrors](fakeInspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionRequired))
           )
         when(mockReferenceDataService.getInspectionData(any())(any())).thenReturn(Nil)
 
@@ -833,7 +834,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
-            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending))
+            EitherT.rightT[Future, GmrErrors](fakeInspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionPending))
           )
 
         val result = controller.result("gmrId", checkedStatusAgain = false)(FakeRequest())
@@ -849,7 +850,7 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
 
         when(mockGmsService.getInspectionStatus(argEq(gmrId))(any()))
           .thenReturn(
-            EitherT.rightT[Future, GmrErrors](inspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionNotNeeded))
+            EitherT.rightT[Future, GmrErrors](fakeInspectionResponse(direction = direction, inspectionStatus = InspectionStatus.InspectionNotNeeded))
           )
 
         val result = controller.result("gmrId", checkedStatusAgain = true)(FakeRequest())

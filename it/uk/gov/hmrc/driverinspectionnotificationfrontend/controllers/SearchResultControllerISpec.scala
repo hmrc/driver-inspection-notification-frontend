@@ -20,9 +20,11 @@ import com.github.tomakehurst.wiremock.client.WireMock.{aResponse, get, stubFor,
 import play.api.libs.json.Json
 import play.api.mvc.Result
 import play.api.test.FakeRequest
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.factories.InspectionResponseFactory.fakeInspectionResponse
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.{BaseISpec, WireMockConfig, WireMockHelper, WireMockSupport}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.InspectionStatus.{InspectionNotNeeded, InspectionPending, InspectionRequired}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.ReportLocations
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.testdata.ReferenceData._
 
 import scala.concurrent.Future
 
@@ -33,10 +35,10 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
     "Inspection pending" in {
       stubGet(
         "/goods-movement-system/driver/movements/GMRA00002KW2/inspection",
-        Json.stringify(Json.toJson(inspectionResponse(inspectionStatus = InspectionPending)))
+        Json.stringify(Json.toJson(fakeInspectionResponse(inspectionStatus = InspectionPending)))
       )
 
-      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
+      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(referenceData)))
 
       val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
 
@@ -55,10 +57,10 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
     "Inspection pending after checking again" in {
       stubGet(
         "/goods-movement-system/driver/movements/GMRA00002KW2/inspection",
-        Json.stringify(Json.toJson(inspectionResponse(inspectionStatus = InspectionPending)))
+        Json.stringify(Json.toJson(fakeInspectionResponse(inspectionStatus = InspectionPending)))
       )
 
-      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
+      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(referenceData)))
 
       val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = true)))
 
@@ -79,11 +81,13 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
         stubGet(
           "/goods-movement-system/driver/movements/GMRA00002KW2/inspection",
           Json.stringify(
-            Json.toJson(inspectionResponse(inspectionStatus = InspectionRequired, reportToLocations = Some(List(ReportLocations("1", List("1"))))))
+            Json.toJson(
+              fakeInspectionResponse(inspectionStatus = InspectionRequired, reportToLocations = Some(List(ReportLocations("1", List("1")))))
+            )
           )
         )
 
-        stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
+        stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(referenceData)))
 
         val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
 
@@ -98,10 +102,10 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
       "reportLocations absent" in {
         stubGet(
           "/goods-movement-system/driver/movements/GMRA00002KW2/inspection",
-          Json.stringify(Json.toJson(inspectionResponse(inspectionStatus = InspectionRequired, reportToLocations = None)))
+          Json.stringify(Json.toJson(fakeInspectionResponse(inspectionStatus = InspectionRequired, reportToLocations = None)))
         )
 
-        stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
+        stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(referenceData)))
 
         val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
 
@@ -118,10 +122,10 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
     "No inspection required" in {
       stubGet(
         "/goods-movement-system/driver/movements/GMRA00002KW2/inspection",
-        Json.stringify(Json.toJson(inspectionResponse(inspectionStatus = InspectionNotNeeded)))
+        Json.stringify(Json.toJson(fakeInspectionResponse(inspectionStatus = InspectionNotNeeded)))
       )
 
-      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
+      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(referenceData)))
 
       val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
 
@@ -141,7 +145,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
           )
       )
 
-      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
+      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(referenceData)))
 
       val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
 
@@ -159,7 +163,7 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
           )
       )
 
-      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(gvmsReferenceData)))
+      stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(referenceData)))
 
       val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
       status(result) shouldBe INTERNAL_SERVER_ERROR

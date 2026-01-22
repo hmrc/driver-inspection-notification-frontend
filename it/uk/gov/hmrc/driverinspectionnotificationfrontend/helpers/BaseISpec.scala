@@ -38,7 +38,6 @@ abstract class BaseISpec
     with BeforeAndAfterAll
     with Matchers
     with Inspectors
-    with FakeObjects
     with ScalaFutures
     with DefaultAwaitTimeout
     with Writeables
