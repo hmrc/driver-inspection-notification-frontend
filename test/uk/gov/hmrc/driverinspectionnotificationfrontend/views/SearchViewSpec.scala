@@ -19,11 +19,11 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.views
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.forms.GmrSearchForm
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views
 
-class SearchPageViewSpec extends ViewBehaviours {
+class SearchViewSpec extends ViewBehaviours {
 
   "/start page" should {
 
-    val view = searchPageView(GmrSearchForm.gmrSearchForm)
+    val view = searchView(GmrSearchForm.gmrSearchForm)
     val doc  = view.asDocument
 
     behave like normalPage("search_page.title", section = None)(view)
@@ -49,7 +49,7 @@ class SearchPageViewSpec extends ViewBehaviours {
         expectedErrors.foreach { case (errorType, errorKey, errorMessage, value) =>
           s"when $errorType" in {
 
-            val viewWithError = searchPageView(GmrSearchForm.gmrSearchForm.bind(Map(GmrSearchForm.field -> value)))
+            val viewWithError = searchView(GmrSearchForm.gmrSearchForm.bind(Map(GmrSearchForm.field -> value)))
             val docWithError  = viewWithError.asDocument
 
             // Check page title includes "Error: "

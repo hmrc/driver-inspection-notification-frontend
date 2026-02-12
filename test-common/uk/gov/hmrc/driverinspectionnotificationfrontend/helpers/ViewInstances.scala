@@ -18,13 +18,14 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.helpers
 
 import play.api.i18n.DefaultLangs
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.NonStandardHmrcFooterItems
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.getHelp
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head, main_layout_full_width_template, search_page, start_page}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.get_help
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.layouts.{govukTwoThirdsLayout, main_layout_full_width_template}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{head, search, start}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.templates.guidance_common_template
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.inspection_pending
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.{inspection_required_export, inspection_required_import}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared.{inspection_not_needed_export, inspection_not_needed_gb_to_ni, inspection_not_needed_import}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials.{nearest_sites_content, nearest_sites_header}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.templates.{nearest_sites_content_template, nearest_sites_header_template}
 import uk.gov.hmrc.govukfrontend.views.html.components.*
 import uk.gov.hmrc.govukfrontend.views.html.helpers.{GovukFormGroup, GovukHintAndErrorMessage, GovukLogo}
 import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, RebrandConfig, TrackingConsentConfig, TudorCrownConfig}
@@ -48,7 +49,7 @@ trait ViewInstances {
       RebrandConfig(configuration)
     )
 
-  val technicalIssueSnippet = new getHelp(new HmrcReportTechnicalIssue(), new ContactFrontendConfig(configuration))
+  val technicalIssueSnippet = new get_help(new HmrcReportTechnicalIssue(), new ContactFrontendConfig(configuration))
 
   val accessibilityConfiguration = new AccessibilityStatementConfig(configuration)
 
@@ -111,18 +112,18 @@ trait ViewInstances {
   val hmrcNewTabLink          = new HmrcNewTabLink
   val govukNotificationBanner = new GovukNotificationBanner
 
-  val nearestSitesHeader  = new nearest_sites_header()
-  val nearestSitesContent = new nearest_sites_content()
-  val guidanceCommon      = new guidance_common(govUkInsetText)
+  val nearestSitesHeaderTemplate  = new nearest_sites_header_template()
+  val nearestSitesContentTemplate = new nearest_sites_content_template()
+  val guidanceCommonTemplate      = new guidance_common_template(govUkInsetText)
 
-  val startPageView = new start_page(
+  val startView = new start(
     fullWidthTemplate,
     govukButton,
     hmrcPageHeading,
     hmrcNewTabLink
   )
 
-  val searchPageView = new search_page(
+  val searchView = new search(
     fullWidthTemplate,
     govukButton,
     formWithCSRF,
@@ -135,9 +136,9 @@ trait ViewInstances {
     fullWidthTemplate,
     hmrcPageHeading,
     govukWarningText,
-    nearestSitesContent,
-    nearestSitesHeader,
-    guidanceCommon,
+    nearestSitesContentTemplate,
+    nearestSitesHeaderTemplate,
+    guidanceCommonTemplate,
     govukNotificationBanner,
     govukButton
   )
@@ -146,9 +147,9 @@ trait ViewInstances {
     fullWidthTemplate,
     hmrcPageHeading,
     govukWarningText,
-    nearestSitesContent,
-    nearestSitesHeader,
-    guidanceCommon,
+    nearestSitesContentTemplate,
+    nearestSitesHeaderTemplate,
+    guidanceCommonTemplate,
     govukNotificationBanner,
     govukButton,
     govUkInsetText

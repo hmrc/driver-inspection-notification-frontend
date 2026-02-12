@@ -19,16 +19,16 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.controllers
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.BaseSpec
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.search_page
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.search
 
 class SearchControllerSpec extends BaseSpec {
 
   trait SetUp {
-    val searchPage: search_page = new search_page(fullWidthTemplate, govukButton, formWithCSRF, govukErrorSummary, hmrcPageHeading, govukInput)
+    val searchView: search = new search(fullWidthTemplate, govukButton, formWithCSRF, govukErrorSummary, hmrcPageHeading, govukInput)
 
     val controller = new SearchController(
       stubMessagesControllerComponents(),
-      searchPage
+      searchView
     )
   }
 

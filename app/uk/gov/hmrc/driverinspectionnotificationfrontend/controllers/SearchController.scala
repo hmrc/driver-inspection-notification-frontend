@@ -22,7 +22,7 @@ import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors
 import uk.gov.hmrc.driverinspectionnotificationfrontend.errorhandlers.GmrErrors.GmrNotFound
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.forms.GmrSearchForm
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.search_page
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.search
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 
 import javax.inject.{Inject, Singleton}
@@ -31,7 +31,7 @@ import scala.concurrent.ExecutionContext
 @Singleton
 class SearchController @Inject() (
   mcc:        MessagesControllerComponents,
-  searchPage: search_page
+  searchView: search
 ) extends FrontendController(mcc) {
 
   implicit val ex: ExecutionContext = mcc.executionContext
@@ -39,9 +39,9 @@ class SearchController @Inject() (
   def show(gmrId: Option[String]): Action[AnyContent] = Action { implicit request =>
     request.flash.get("not-found") match {
       case Some(gmrId) =>
-        BadRequest(searchPage(GmrErrorHandling.handlingGmrRetrievalFailure(gmrId)(GmrNotFound)))
+        BadRequest(searchView(GmrErrorHandling.handlingGmrRetrievalFailure(gmrId)(GmrNotFound)))
       case None =>
-        Ok(searchPage(gmrId.fold(GmrSearchForm.gmrSearchForm)(GmrSearchForm.gmrSearchForm.fill)))
+        Ok(searchView(gmrId.fold(GmrSearchForm.gmrSearchForm)(GmrSearchForm.gmrSearchForm.fill)))
 
     }
   }
@@ -50,7 +50,7 @@ class SearchController @Inject() (
     GmrSearchForm.gmrSearchForm
       .bindFromRequest()
       .fold(
-        formWithErrors => BadRequest(searchPage(formWithErrors)),
+        formWithErrors => BadRequest(searchView(formWithErrors)),
         gmrId => Redirect(routes.SearchResultController.result(gmrId, checkedStatusAgain = false))
       )
   }

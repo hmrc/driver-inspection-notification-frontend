@@ -16,7 +16,7 @@
 
 @import uk.gov.hmrc.hmrcfrontend.views.html.components._
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
-@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.main_layout_full_width_template
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.layouts.main_layout_full_width_template
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.Location
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.InspectionType
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.warningtext.WarningText
@@ -24,15 +24,15 @@
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.models.views.InspectionDisplayGroup
-@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials._
-@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.templates._
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.templates.guidance_common_template
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukNotificationBanner
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.notificationbanner.NotificationBanner
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.content.HtmlContent
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukButton
 @import uk.gov.hmrc.govukfrontend.views.viewmodels.button.Button
 
-@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content, nearestSitesHeader: nearest_sites_header, guidance_common: guidance_common, govukNotificationBanner : GovukNotificationBanner, govukButton: GovukButton)
+@this(mainTemplate: main_layout_full_width_template, hmrcPageHeading: HmrcPageHeading, govukWarningText: GovukWarningText, nearestSitesContent: nearest_sites_content_template, nearestSitesHeader: nearest_sites_header_template, guidanceCommon: guidance_common_template, govukNotificationBanner : GovukNotificationBanner, govukButton: GovukButton)
 
 @(gmrId: String, locationsByInspectionType: Map[InspectionDisplayGroup, List[Location]])(implicit rh: RequestHeader, messages: Messages, appConfig: AppConfig)
 
@@ -101,7 +101,7 @@
         <li><a href="@{appConfig.checkDelaysInlandBorderFacilityUrl}">@messages("inspection_needed_export.arriving.p1.link2")</a></li>
     </ul>
 
-  @guidance_common()
+  @guidanceCommon()
 
     <p class="govuk-body">
         <a href= @appConfig.exitSurveyFeedback() class="govuk-link">@messages("generic.feedback.linkText")</a>
