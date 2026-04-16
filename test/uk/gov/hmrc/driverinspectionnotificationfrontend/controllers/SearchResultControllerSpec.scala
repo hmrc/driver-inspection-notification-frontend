@@ -223,13 +223,12 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
               "19_1",
               "19_2",
               "19_3",
-              "19_4"
+              "19_4",
+              "19_5",
+              "19_6"
             ),
             requiredInspectionLocations = List(
-              19_1,
-              19_2,
-              19_3,
-              19_4
+              19_1, 19_2, 19_3, 19_4, 19_5, 19_6
             )
           )
 
@@ -260,7 +259,9 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                       ReportLocations(inspectionTypeId = "19_1", locationIds = List("3")),
                       ReportLocations(inspectionTypeId = "19_2", locationIds = List("3")),
                       ReportLocations(inspectionTypeId = "19_3", locationIds = List("3")),
-                      ReportLocations(inspectionTypeId = "19_4", locationIds = List("3"))
+                      ReportLocations(inspectionTypeId = "19_4", locationIds = List("3")),
+                      ReportLocations(inspectionTypeId = "19_5", locationIds = List("3")),
+                      ReportLocations(inspectionTypeId = "19_6", locationIds = List("3"))
                     )
                   )
                 )
@@ -290,7 +291,9 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                   ReportLocations(inspectionTypeId = "19_1", locationIds = List("3")),
                   ReportLocations(inspectionTypeId = "19_2", locationIds = List("3")),
                   ReportLocations(inspectionTypeId = "19_3", locationIds = List("3")),
-                  ReportLocations(inspectionTypeId = "19_4", locationIds = List("3"))
+                  ReportLocations(inspectionTypeId = "19_4", locationIds = List("3")),
+                  ReportLocations(inspectionTypeId = "19_5", locationIds = List("3")),
+                  ReportLocations(inspectionTypeId = "19_6", locationIds = List("3"))
                 )
               )
             )(any())
@@ -316,7 +319,9 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
                 Right(InspectionTypeWithLocations(InspectionType("19_1", "DAERA_CERTEX"), List(Right(locationForCertex)))),
                 Right(InspectionTypeWithLocations(InspectionType("19_2", "DAERA_CERTEX"), List(Right(locationForCertex)))),
                 Right(InspectionTypeWithLocations(InspectionType("19_3", "DAERA_CERTEX"), List(Right(locationForCertex)))),
-                Right(InspectionTypeWithLocations(InspectionType("19_4", "DAERA_CERTEX"), List(Right(locationForCertex))))
+                Right(InspectionTypeWithLocations(InspectionType("19_4", "DAERA_CERTEX"), List(Right(locationForCertex)))),
+                Right(InspectionTypeWithLocations(InspectionType("19_5", "DAERA_CERTEX"), List(Right(locationForCertex)))),
+                Right(InspectionTypeWithLocations(InspectionType("19_6", "DAERA_CERTEX"), List(Right(locationForCertex))))
               )
             )
 
