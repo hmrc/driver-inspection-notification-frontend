@@ -18,7 +18,8 @@
 @import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.LanguageSelect
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
 @import uk.gov.hmrc.driverinspectionnotificationfrontend.utils.LanguageMap
-@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.{govukTwoThirdsLayout, head}
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.layouts.govukTwoThirdsLayout
+@import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.head
 @import uk.gov.hmrc.hmrcfrontend.controllers.routes.LanguageController.switchToLanguage
 @import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcLanguageSelect
 @import uk.gov.hmrc.govukfrontend.views.html.components._
@@ -28,9 +29,9 @@
 
 
 @this(
-govukLayout: govukTwoThirdsLayout,
-head: head,
-govukBackLink: GovukBackLink
+    govukLayout: govukTwoThirdsLayout,
+    head: head,
+    govukBackLink: GovukBackLink
 )
 
 @(pageTitle: Option[String], backLinkEnabled: Boolean)(contentBlock: Html)(implicit rh: RequestHeader, messages: Messages)

@@ -32,9 +32,9 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.Ins
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.referencedata.{Address, InspectionType, Location}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.cleared.{inspection_not_needed_export, inspection_not_needed_gb_to_ni, inspection_not_needed_import}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.inspection_pending
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.partials.guidance_common
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.templates.guidance_common_template
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionStatusResults.required.{inspection_required_export, inspection_required_import}
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.partials.*
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.templates.*
 import uk.gov.hmrc.play.language.LanguageUtils
 
 import java.time.LocalDate
@@ -43,37 +43,37 @@ import scala.concurrent.Future
 class SearchResultControllerSpec extends ControllerBaseSpec {
 
   trait SetUp {
-    val nearestSitesContent = new nearest_sites_content()
-    val nearestSitesheader  = new nearest_sites_header()
-    val guidance            = new guidance_common(govUkInsetText)
-    val inspectionRequiredImport: inspection_required_import =
+    val nearestSitesContentTemplate = new nearest_sites_content_template()
+    val nearestSitesHeaderTemplate  = new nearest_sites_header_template()
+    val guidanceTemplate            = new guidance_common_template(govUkInsetText)
+    val inspectionRequiredImportView: inspection_required_import =
       new inspection_required_import(
         fullWidthTemplate,
         hmrcPageHeading,
         govukWarningText,
-        nearestSitesContent,
-        nearestSitesheader,
-        guidance,
+        nearestSitesContentTemplate,
+        nearestSitesHeaderTemplate,
+        guidanceTemplate,
         govukNotificationBanner,
         govukButton,
         govUkInsetText
       )
-    val inspectionRequiredExport: inspection_required_export =
+    val inspectionRequiredExportView: inspection_required_export =
       new inspection_required_export(
         fullWidthTemplate,
         hmrcPageHeading,
         govukWarningText,
-        nearestSitesContent,
-        nearestSitesheader,
-        guidance,
+        nearestSitesContentTemplate,
+        nearestSitesHeaderTemplate,
+        guidanceTemplate,
         govukNotificationBanner,
         govukButton
       )
-    val noInspectionRequiredGbToNi: inspection_not_needed_gb_to_ni = new inspection_not_needed_gb_to_ni(fullWidthTemplate, hmrcPageHeading)
-    val noInspectionRequiredImport: inspection_not_needed_import   = new inspection_not_needed_import(fullWidthTemplate, hmrcPageHeading)
-    val noInspectionRequiredExport: inspection_not_needed_export   = new inspection_not_needed_export(fullWidthTemplate, hmrcPageHeading)
+    val noInspectionRequiredGbToNiView: inspection_not_needed_gb_to_ni = new inspection_not_needed_gb_to_ni(fullWidthTemplate, hmrcPageHeading)
+    val noInspectionRequiredImportView: inspection_not_needed_import   = new inspection_not_needed_import(fullWidthTemplate, hmrcPageHeading)
+    val noInspectionRequiredExportView: inspection_not_needed_export   = new inspection_not_needed_export(fullWidthTemplate, hmrcPageHeading)
 
-    val inspectionPending: inspection_pending =
+    val inspectionPendingView: inspection_pending =
       new inspection_pending(
         fullWidthTemplate,
         govukButton,
@@ -87,12 +87,12 @@ class SearchResultControllerSpec extends ControllerBaseSpec {
         actionBuilders(),
         mockGmsService,
         mockReferenceDataService,
-        inspectionRequiredImport,
-        inspectionRequiredExport,
-        noInspectionRequiredGbToNi,
-        noInspectionRequiredImport,
-        noInspectionRequiredExport,
-        inspectionPending
+        inspectionRequiredImportView,
+        inspectionRequiredExportView,
+        noInspectionRequiredGbToNiView,
+        noInspectionRequiredImportView,
+        noInspectionRequiredExportView,
+        inspectionPendingView
       )(mockAppConfig, ec)
   }
 
