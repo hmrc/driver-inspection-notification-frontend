@@ -19,13 +19,13 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.controllers
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.BaseSpec
-import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.start_page
+import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.start
 
 class StartControllerSpec extends BaseSpec {
 
   trait SetUp {
-    val startPage: start_page = new start_page(fullWidthTemplate, govukButton, hmrcPageHeading, hmrcNewTabLink)
-    val controller = new StartController(stubMessagesControllerComponents(), startPage)(applicationConfig)
+    val startView: start = new start(fullWidthTemplate, govukButton, hmrcPageHeading, hmrcNewTabLink)
+    val controller = new StartController(stubMessagesControllerComponents(), startView)(applicationConfig)
   }
 
   "GET /start" should {

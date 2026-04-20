@@ -18,12 +18,12 @@ package uk.gov.hmrc.driverinspectionnotificationfrontend.views
 
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views
 
-class StartPageViewSpec extends ViewBehaviours {
+class StartViewSpec extends ViewBehaviours {
 
   "/start page" when {
 
     val langs = Seq("en", "cy", "bg", "hr", "cs", "fr", "de", "hu", "lt", "pl", "ro", "es")
-    val view  = startPageView(true, langs)
+    val view  = startView(true, langs)
     val doc   = view.asDocument
 
     behave like normalPage("start_page.title", section = None)(view)

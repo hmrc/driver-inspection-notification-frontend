@@ -41,16 +41,16 @@ import scala.concurrent.ExecutionContext
 
 @Singleton
 class SearchResultController @Inject() (
-  mcc:                                 MessagesControllerComponents,
-  gmsActionBuilders:                   GmsActionBuilders,
-  gmsService:                          GmsService,
-  referenceDataService:                GmsReferenceDataService,
-  inspection_required_import:          inspection_required_import,
-  inspection_required_export:          inspection_required_export,
-  inspection_not_needed_page_gb_to_ni: inspection_not_needed_gb_to_ni,
-  inspection_not_needed_page_import:   inspection_not_needed_import,
-  inspection_not_needed_page_export:   inspection_not_needed_export,
-  inspection_pending_page:             inspection_pending
+  mcc:                           MessagesControllerComponents,
+  gmsActionBuilders:             GmsActionBuilders,
+  gmsService:                    GmsService,
+  referenceDataService:          GmsReferenceDataService,
+  inspectionRequiredImportView:  inspection_required_import,
+  inspectionRequiredExportView:  inspection_required_export,
+  inspectionNotNeededGbToNiView: inspection_not_needed_gb_to_ni,
+  inspectionNotNeededImportView: inspection_not_needed_import,
+  inspectionNotNeededExportView: inspection_not_needed_export,
+  inspectionPendingView:         inspection_pending
 )(implicit appConfig: AppConfig, executionContext: ExecutionContext)
     extends FrontendController(mcc)
     with I18nSupport {
@@ -73,7 +73,7 @@ class SearchResultController @Inject() (
             case InspectionNotNeeded =>
               Ok(inspectionNotRequired(gmrId, direction))
             case InspectionPending =>
-              Ok(inspection_pending_page(gmrId, checkedStatusAgain))
+              Ok(inspectionPendingView(gmrId, checkedStatusAgain))
           }
         }
       )
@@ -113,15 +113,15 @@ class SearchResultController @Inject() (
     request: Request[?]
   ) =
     direction match {
-      case UK_INBOUND | GB_TO_NI | NI_TO_GB => inspection_required_import(gmrId, inspectionLocations, direction)
-      case UK_OUTBOUND                      => inspection_required_export(gmrId, inspectionLocations)
+      case UK_INBOUND | GB_TO_NI | NI_TO_GB => inspectionRequiredImportView(gmrId, inspectionLocations, direction)
+      case UK_OUTBOUND                      => inspectionRequiredExportView(gmrId, inspectionLocations)
     }
 
   private def inspectionNotRequired(gmrId: String, direction: Direction)(implicit request: Request[?]) =
     direction match {
-      case GB_TO_NI              => inspection_not_needed_page_gb_to_ni(Some(gmrId))
-      case UK_INBOUND | NI_TO_GB => inspection_not_needed_page_import(Some(gmrId))
-      case UK_OUTBOUND           => inspection_not_needed_page_export(Some(gmrId))
+      case GB_TO_NI              => inspectionNotNeededGbToNiView(Some(gmrId))
+      case UK_INBOUND | NI_TO_GB => inspectionNotNeededImportView(Some(gmrId))
+      case UK_OUTBOUND           => inspectionNotNeededExportView(Some(gmrId))
     }
 
   object ErrorHandling {
