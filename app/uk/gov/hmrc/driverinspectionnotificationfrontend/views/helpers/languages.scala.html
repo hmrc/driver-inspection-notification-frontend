@@ -27,9 +27,9 @@
    @for(langCode <- supportedLangs) {
     <li>
      @if(messages.lang.code == langCode) {
-       <span aria-current="true" lang=@langCode>@messages(s"start_page.language.$langCode")</span>
+       <span aria-current="true" lang="@langCode">@messages(s"start_page.language.$langCode")</span>
      } else {
-       <span class="govuk-visually-hidden" lang=@langCode>@messages(s"start_page.language.$langCode.change")</span>
+       <span class="govuk-visually-hidden" lang="@langCode">@messages(s"start_page.language.$langCode.change")</span>
        <a class="govuk-link govuk-link--no-visited-state" href="@routes.LanguageSwitchController.switchToLanguage(langCode).url">@messages(s"start_page.language.$langCode")</a>
      }
     </li>
