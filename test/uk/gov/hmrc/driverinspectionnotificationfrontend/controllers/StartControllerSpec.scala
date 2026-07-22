@@ -49,7 +49,7 @@ class StartControllerSpec extends BaseSpec {
       content should include("no inspection needed")
       content should include("If the movement needs an inspection")
       content should include("your inspection status is not ready yet")
-      content should include("<span class=\"govuk-visually-hidden\">Newid yr iaith ir Gymraeg</span>")
+      content should include("<span class=\"govuk-visually-hidden\" lang=\"cy\">Newid yr iaith ir Gymraeg</span>")
     }
 
   }
