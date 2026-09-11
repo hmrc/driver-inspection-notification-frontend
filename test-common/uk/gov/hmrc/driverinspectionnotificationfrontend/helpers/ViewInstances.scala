@@ -16,7 +16,9 @@
 
 package uk.gov.hmrc.driverinspectionnotificationfrontend.helpers
 
+import play.api.Configuration
 import play.api.i18n.DefaultLangs
+import uk.gov.hmrc.driverinspectionnotificationfrontend.config.AppConfig
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.helpers.NonStandardHmrcFooterItems
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.helpers.get_help
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.layouts.{govukTwoThirdsLayout, main_layout_full_width_template}
@@ -28,7 +30,7 @@ import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.inspectionSta
 import uk.gov.hmrc.driverinspectionnotificationfrontend.views.html.templates.{nearest_sites_content_template, nearest_sites_header_template}
 import uk.gov.hmrc.govukfrontend.views.html.components.*
 import uk.gov.hmrc.govukfrontend.views.html.helpers.{GovukFormGroup, GovukHintAndErrorMessage, GovukLogo}
-import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, RebrandConfig, TrackingConsentConfig, TudorCrownConfig}
+import uk.gov.hmrc.hmrcfrontend.config.{AccessibilityStatementConfig, AssetsConfig, ContactFrontendConfig, TrackingConsentConfig}
 import uk.gov.hmrc.hmrcfrontend.views.html.components.*
 import uk.gov.hmrc.hmrcfrontend.views.html.helpers.{HmrcScripts, HmrcStandardHeader, HmrcTrackingConsentSnippet}
 import uk.gov.hmrc.play.language.LanguageUtils
@@ -42,11 +44,10 @@ trait ViewInstances {
   val govukLogo           = new GovukLogo
   val govukTemplate =
     new GovukTemplate(
-      new GovukHeader(TudorCrownConfig(configuration), RebrandConfig(configuration), govukLogo),
-      new GovukFooter(RebrandConfig(configuration), govukLogo),
+      new GovukHeader(govukLogo),
+      new GovukFooter(govukLogo),
       new GovukSkipLink,
-      new FixedWidthPageLayout,
-      RebrandConfig(configuration)
+      new FixedWidthPageLayout
     )
 
   val technicalIssueSnippet = new get_help(new HmrcReportTechnicalIssue(), new ContactFrontendConfig(configuration))
@@ -57,14 +58,13 @@ trait ViewInstances {
 
   val hmrcStandardHeader = new HmrcStandardHeader(
     hmrcHeader = new HmrcHeader(
-      hmrcBanner = new HmrcBanner(TudorCrownConfig(configuration)),
+      hmrcBanner = new HmrcBanner(),
       hmrcUserResearchBanner = new HmrcUserResearchBanner(),
       govukPhaseBanner = new GovukPhaseBanner(govukTag = new GovukTag()),
-      tudorCrownConfig = TudorCrownConfig(configuration),
-      rebrandConfig = RebrandConfig(configuration),
       govukLogo = govukLogo,
       govukServiceNavigation = GovukServiceNavigation()
-    )
+    ),
+    configuration = configuration
   )
 
   val assetsConfig = new AssetsConfig()
@@ -72,7 +72,6 @@ trait ViewInstances {
   val hmrcScripts = new HmrcScripts(assetsConfig)
 
   val govUkFooter = new GovukFooter(
-    rebrandConfig = RebrandConfig(configuration),
     govukLogo = govukLogo
   )
   val fullWidthTemplate =
@@ -98,7 +97,7 @@ trait ViewInstances {
   val govukInput              = new GovukInput(govukLabel, govukFormGroup, govukHintAndErrorMessage)
   val govukDateInput          = new GovukDateInput(govukFieldSet, govukInput, govukFormGroup, govukHintAndErrorMessage)
   val govukDetails            = new GovukDetails
-  val govukPanel              = new GovukPanel
+  val govukPanel              = new GovukPanel(govukButton)
   val govukTable              = new GovukTable
   val govukButton             = new GovukButton
   val govukErrorSummary       = new GovukErrorSummary

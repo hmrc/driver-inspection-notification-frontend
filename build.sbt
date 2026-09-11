@@ -42,7 +42,6 @@ lazy val microservice = Project(appName, file("."))
     libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test,
     Assets / pipelineStages := Seq(gzip)
   )
-  .settings(SassKeys.generateSourceMaps := false)
   .configs(IntegrationTest)
   .settings(integrationTestSettings(): _*)
   .configs(ContentTests)
