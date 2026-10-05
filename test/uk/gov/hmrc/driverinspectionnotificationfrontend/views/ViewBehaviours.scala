@@ -31,8 +31,8 @@ class ViewBehaviours extends BaseViewSpec {
 
       "rendered" should {
 
-        "display govuk header content" in {
-          document.getElementsByClass("govuk-header__link govuk-header__service-name").text() shouldBe messagesImpl("service.name")
+        "display service navigation content" in {
+          document.getElementsByClass("govuk-service-navigation__service-name").text() shouldBe "Check if you need to report for an inspection"
         }
 
         "display the correct browser title" in {
