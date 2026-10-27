@@ -17,12 +17,14 @@
 package uk.gov.hmrc.driverinspectionnotificationfrontend.controllers
 
 import com.github.tomakehurst.wiremock.client.WireMock.{aResponse, get, stubFor, urlMatching}
+import org.jsoup.Jsoup
 import play.api.libs.json.Json
 import play.api.mvc.Result
 import play.api.test.FakeRequest
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.factories.InspectionResponseFactory.fakeInspectionResponse
 import uk.gov.hmrc.driverinspectionnotificationfrontend.helpers.{BaseISpec, WireMockConfig, WireMockHelper, WireMockSupport}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.InspectionStatus.{InspectionNotNeeded, InspectionPending, InspectionRequired}
+import uk.gov.hmrc.driverinspectionnotificationfrontend.models.Direction.{UK_INBOUND, UK_OUTBOUND}
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.inspections.ReportLocations
 import uk.gov.hmrc.driverinspectionnotificationfrontend.models.testdata.ReferenceData._
 
@@ -117,6 +119,39 @@ class SearchResultControllerISpec extends BaseISpec with WireMockSupport with Wi
         content           should include("Your inspection sites")
         charset(result) shouldBe Some("utf-8")
       }
+    }
+
+    List(UK_INBOUND, UK_OUTBOUND).foreach { direction =>
+      s"Inspection required for indirect export ($direction)" in {
+        stubGet(
+          "/goods-movement-system/driver/movements/GMRA00002KW2/inspection",
+          Json.stringify(
+            Json.toJson(
+              fakeInspectionResponse(
+                direction = direction,
+                inspectionStatus = InspectionRequired,
+                reportToLocations = Some(List(ReportLocations("14", List("1"))))
+              )
+            )
+          )
+        )
+
+        stubGet("/goods-movement-system-reference-data/reference-data", Json.stringify(Json.toJson(referenceData)))
+
+        val result: Future[Result] = callRoute(FakeRequest(routes.SearchResultController.result("GMRA00002KW2", checkedStatusAgain = false)))
+
+        status(result) shouldBe OK
+        val doc               = Jsoup.parse(contentAsString(result))
+        val inspectionHeading = doc.getElementsByTag("h3").first()
+        inspectionHeading.text() shouldBe "For your indirect export inspection"
+        val locationDetails = inspectionHeading.nextElementSibling().children()
+        locationDetails.get(0).text() shouldBe "Belfast Location 1"
+        locationDetails.get(1).text() shouldBe "1 Shamrock Lane"
+        locationDetails.get(2).text() shouldBe "Waldo"
+        locationDetails.get(3).text() shouldBe "Belfast"
+        locationDetails.get(4).text() shouldBe "NI1 6JG"
+      }
+
     }
 
     "No inspection required" in {

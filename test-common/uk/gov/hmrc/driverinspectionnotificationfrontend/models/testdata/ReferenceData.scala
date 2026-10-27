@@ -39,7 +39,8 @@ object ReferenceData {
         locationEffectiveFrom = LocalDate.parse("2020-01-01"),
         locationEffectiveTo = None,
         supportedInspectionTypeIds = List(
-          "1"
+          "1",
+          "14"
         ),
         requiredInspectionLocations = List(
           5
@@ -65,6 +66,10 @@ object ReferenceData {
       InspectionType(
         "4",
         "OGD"
+      ),
+      InspectionType(
+        "14",
+        "Indirect Export"
       )
     )
   )
