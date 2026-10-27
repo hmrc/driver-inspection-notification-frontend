@@ -83,7 +83,8 @@ class GmsReferenceDataServiceSpec extends BaseSpec with EitherValues {
       locationEffectiveFrom = LocalDate.parse("2020-01-01"),
       locationEffectiveTo = None,
       supportedInspectionTypeIds = List(
-        "1"
+        "1",
+        "14"
       ),
       requiredInspectionLocations = List(
         5
