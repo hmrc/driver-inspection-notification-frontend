@@ -72,6 +72,10 @@ object InspectionDisplayGroup {
     val value = "daera"
   }
 
+  case object INDIRECT_EXPORT extends InspectionDisplayGroup {
+    val value = "indirect_export"
+  }
+
   case object SnS extends InspectionDisplayGroup {
     val value = "sns"
   }
@@ -95,6 +99,7 @@ object InspectionDisplayGroup {
       case "7"                                                 => MTP
       case "8"                                                 => TIR
       case "13"                                                => DAERA
+      case "14"                                                => INDIRECT_EXPORT
       case "16"                                                => SnS
       case "18"                                                => DEFRA_TRANSIT
       case "19_1" | "19_2" | "19_3" | "19_4" | "19_5" | "19_6" => DAERA_CERTEX

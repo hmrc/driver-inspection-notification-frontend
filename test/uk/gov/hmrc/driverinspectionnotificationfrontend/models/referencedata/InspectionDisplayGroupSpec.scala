@@ -38,6 +38,7 @@ class InspectionDisplayGroupSpec extends BaseSpec {
         (InspectionType("11", "EXEMPTION"), InspectionDisplayGroup.CUSTOMS, "customs"),
         (InspectionType("12", "EMPTY"), InspectionDisplayGroup.CUSTOMS, "customs"),
         (InspectionType("13", "DAERA"), InspectionDisplayGroup.DAERA, "daera"),
+        (InspectionType("14", "Indirect Export"), InspectionDisplayGroup.INDIRECT_EXPORT, "indirect_export"),
         (InspectionType("17", "UKIMS"), InspectionDisplayGroup.CUSTOMS, "customs")
       ).foreach { case (inspectionType, inspectionDisplayGroup, value) =>
         val result = InspectionDisplayGroup(inspectionType)
